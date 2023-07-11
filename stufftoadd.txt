@@ -4,8 +4,6 @@ AI:
 
 comp-sci/codeforces
 
-comp-sci/arduino (?)
-
 comp-sci/algorithms:
 - dijkstra, fenwick
 
