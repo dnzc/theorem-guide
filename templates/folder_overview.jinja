@@ -1,0 +1,39 @@
+{% if contents_by_time|length == 0%}
+    <p className="italic">This folder is empty</p>
+{% else %}
+    <p className="italic pb-4">Contains {{file_count}} {{"article" if file_count==1 else "articles"}} and {{folder_count}} {{"folder" if folder_count==1 else "folders"}}</p>
+
+    <Folder contents_by_date={
+        <>
+        {% for item in contents_by_time %}
+            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="{{item['path']}}">
+                    <div className="flex items-center space-x-1 text-lg{{'' if item['is_file']=='yes' else ' font-bold text-primary'}}">
+                        {% if item['is_file']=='yes' %}
+                            <MdArticle/>
+                        {% endif %}
+                        <p className="relative bottom-[1px]">{{item['name']}}</p>
+                    </div>
+                </Link>
+                <p className="text-sm">{{item['date']}}</p>
+            </li>
+        {% endfor %}
+        </>
+    } contents_by_name={
+        <>
+        {% for item in contents_by_name %}
+            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="{{item['path']}}">
+                    <div className="flex items-center space-x-1 text-lg{{'' if item['is_file']=='yes' else ' font-bold text-primary'}}">
+                        {% if item['is_file']=='yes' %}
+                            <MdArticle/>
+                        {% endif %}
+                        <p className="relative bottom-[1px]">{{item['name']}}</p>
+                    </div>
+                </Link>
+                <p className="text-sm">{{item['date']}}</p>
+            </li>
+        {% endfor %}
+        </>
+    } />
+{% endif %}

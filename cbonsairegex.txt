@@ -1,0 +1,36 @@
+generate html file:
+cbonsai | ./ansi2html.sh > bonsai.html
+
+W: <span class="f0">     text-black
+X: <span class="f2">     text-green-400
+Y: <span class="f3">     text-yellow-400
+Z: f0+bold
+O: f2+bold
+E: f3+bold
+
+perform these vim regex operations in bonsai.html:
+
+repeat:
+%s/<span class="f0"><span class="bold">\(.\{-}\)<\/span><\/span>/Z\1<\/span>/g
+%s/<span class="bold"><span class="f0">\(.\{-}\)<\/span><\/span>/Z\1<\/span>/g
+%s/<span class="f2"><span class="bold">\(.\{-}\)<\/span><\/span>/O\1<\/span>/g
+%s/<span class="bold"><span class="f2">\(.\{-}\)<\/span><\/span>/O\1<\/span>/g
+%s/<span class="f3"><span class="bold">\(.\{-}\)<\/span><\/span>/E\1<\/span>/g
+%s/<span class="bold"><span class="f3">\(.\{-}\)<\/span><\/span>/E\1<\/span>/g
+
+once:
+%s/<span class="bold">/B/g
+%s/<span class="f0">/W/g
+%s/<span class="f2">/X/g
+%s/<span class="f3">/Y/g
+%s/ /\&nbsp;/g
+%s/\n/<br\/>/g
+%s/Z/<span className="font-bold text-white">/g
+%s/O/<span className="font-bold text-green-400">/g
+%s/E/<span className="font-bold text-yellow-800">/g
+%s/B/<span className="font-bold">/g
+%s/W/<span className="text-neutral-800">/g
+%s/X/<span className="text-green-800">/g
+%s/Y/<span className="text-yellow-400">/g
+
+once done, to remove leading spaces, can replace <br/> 's with newlines, then ctrlv mode in vim, then replace newlines with <br/> 's.

@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    body {
+        @apply bg-body text-white font-lato;
+    }
+
+}
+
+@layer components {
+
+    .dirtree {
+        @apply pt-4 text-lg;
+    }
+
+    .dirtree span {
+        @apply font-bold;
+    }
+
+    .dirtree ul {
+        @apply pl-[7px];
+    }
+
+    .dirtree ul li {
+        @apply relative py-1 pl-5 box-border;
+    }
+
+    .dirtree ul li:before {
+        @apply content-[''] absolute top-[18px] left-0 w-4 h-[2px] bg-elevated;
+    }
+
+    .dirtree .file {
+        @apply pl-5;
+    }
+
+    .dirtree .file > p {
+        @apply relative top-[1px] left-[1px];
+    }
+
+    .dirtree button {
+        @apply relative top-[1px]
+    }
+
+    .dirtree ul li:after {
+        @apply content-[''] absolute top-0 bottom-0 left-0 h-full w-[2px] bg-elevated;
+    }
+
+    .dirtree ul li:last-child:after {
+        @apply h-[18px];
+    }
+
+    /* first tree item is special (root) */
+
+    .dirtree > ul > li:before, .dirtree > ul > li:after {
+        @apply hidden;
+    }
+
+    .dirtree > ul, .dirtree > ul > li {
+        @apply p-0;
+    }
+
+    .dirtree > ul > li > span {
+        @apply text-3xl font-bold text-white;
+    }
+
+}
+
+@layer utilities {
+
+    .-z-1 {
+        z-index: -1;
+    }
+
+    .sticky {
+        position: sticky;
+        top: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .article {
+        @apply text-lg space-y-2;
+    }
+
+    .article h1 {
+        @apply text-3xl font-bold relative mb-4;
+    }
+
+    .article h1:after {
+        @apply content-[''] absolute top-[calc(100%+4px)] left-0 w-full border-elevated border-b-[1px];
+    }
+
+    /* markdown code blocks */
+
+    .article pre {
+        @apply p-4;
+    }
+
+    code {
+        @apply font-mono;
+        white-space : pre-wrap !important;
+    }
+
+}

@@ -1,0 +1,17 @@
+AI:
+- stanford-cs234-notes
+- alighment-problem-review
+
+comp-sci/codeforces
+
+comp-sci/algorithms:
+- dijkstra, fenwick
+
+cyber-sec:
+- crypto
+    - RSA
+- ctf-writeups
+- SEC504-notes
+
+physics:
+- feynmann-notes
