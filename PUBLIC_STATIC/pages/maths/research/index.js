@@ -15,10 +15,10 @@ export default function Research () {
     return (
         <Layout>
             <div className="relative max-w-screen-xl flex h-full">
-    <nav className="dirtree hidden md:flex w-[290px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
+    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
-                <span> 
+                <span className="w-full flex justify-center"> 
                     <Link href="/"> wiki.danielc.rocks </Link>
                 </span>
                 <ul>

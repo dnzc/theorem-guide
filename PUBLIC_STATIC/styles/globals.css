@@ -63,7 +63,7 @@
     }
 
     .dirtree > ul > li > span {
-        @apply text-3xl font-bold text-white;
+        @apply text-[2.1rem] font-bold text-white mb-2;
     }
 
 }

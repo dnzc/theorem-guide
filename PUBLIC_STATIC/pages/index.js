@@ -15,10 +15,10 @@ export default function Root () {
     return (
         <Layout>
             <div className="relative max-w-screen-xl flex h-full">
-    <nav className="dirtree hidden md:flex w-[290px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
+    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
-                <span> 
+                <span className="w-full flex justify-center"> 
                     <Link href="/"> wiki.danielc.rocks </Link>
                 </span>
                 <ul>
@@ -153,7 +153,7 @@ export default function Root () {
 
     <p className="block md:hidden text-3xl font-bold text-primary break-all">wiki.danielc.rocks</p>
 
-    <p>Welcome to a public version of my knowledge base. It contains nowhere near everything I've ever come across, only some of the topics I find interesting.</p>
+    <p>Welcome to a public version of my knowledge base (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>). It contains nowhere near everything I've ever come across, only some of the topics I find interesting.</p>
 
     <p>I began this as a summer project in July 2023. It is still a work in progress; I am adding articles over time.</p>
 
