@@ -111,6 +111,10 @@
         @apply list-disc ml-8;
     }
 
+    .folder-li {
+        margin-left: 0 !important;
+    }
+
     .article blockquote {
         @apply border-l-4 border-elevated p-2 pl-4 bg-black bg-opacity-30;
         margin-top: 1rem !important;

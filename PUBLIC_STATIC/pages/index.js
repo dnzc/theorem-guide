@@ -184,7 +184,7 @@ export default function Root () {
     <Folder contents_by_date={
         <>
         
-            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg font-bold text-primary">
                         
@@ -194,7 +194,7 @@ export default function Root () {
                 <p className="text-sm">11 Jul 2023</p>
             </li>
         
-            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg font-bold text-primary">
                         
@@ -208,7 +208,7 @@ export default function Root () {
     } contents_by_name={
         <>
         
-            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg font-bold text-primary">
                         
@@ -218,7 +218,7 @@ export default function Root () {
                 <p className="text-sm">11 Jul 2023</p>
             </li>
         
-            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg font-bold text-primary">
                         
