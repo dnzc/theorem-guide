@@ -11,7 +11,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .codehilite .g { color: #ffffff } /* Generic */
 .codehilite .k { color: #fb660a } /* Keyword */
 .codehilite .l { color: #ffffff } /* Literal */
-.codehilite .n { color: #ffffff } /* Name */
+.codehilite .n { color: #ff0086; font-weight: bold } /* Name */
 .codehilite .o { color: #ffffff } /* Operator */
 .codehilite .x { color: #ffffff } /* Other */
 .codehilite .p { color: #ffffff } /* Punctuation */

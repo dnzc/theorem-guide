@@ -2,16 +2,22 @@ AI:
 - stanford-cs234-notes
 - alighment-problem-review
 
-comp-sci/codeforces
-
-comp-sci/algorithms:
-- dijkstra, fenwick
+comp-sci:
+- codeforces
+- algorithms:
+    - dijkstra, fenwick
+- vim ("why you should use vim + config")
 
 cyber-sec:
 - crypto
     - RSA
 - ctf-writeups
 - SEC504-notes
+
+maths:
+- integration
+- number-theory/generators
+- number-theory/quadratic-reciprocity
 
 physics:
 - feynmann-notes

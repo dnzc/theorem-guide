@@ -4,6 +4,8 @@ import Accordion from '../../../../components/accordion'
 import ProminentLink from '../../../../components/prominentLink'
 import DiscreetLink from '../../../../components/discreetLink'
 import Link from 'next/link'
+import 'katex/dist/katex.min.css'
+import Latex from 'react-latex-next'
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
@@ -18,7 +20,7 @@ export default function Techniques () {
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
-                <span className="w-full flex justify-center"> 
+                <span>
                     <Link href="/"> wiki.danielc.rocks </Link>
                 </span>
                 <ul>
@@ -53,14 +55,6 @@ export default function Techniques () {
                                     
                         
                             <Accordion title="FTA" href="/maths/number-theory/FTA" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="generators" href="/maths/number-theory/generators" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="quadratic-reciprocity" href="/maths/number-theory/quadratic-reciprocity" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -240,7 +234,7 @@ export default function Techniques () {
         </div>
 
         
-            <div className="flex justify-start">
+            <div className="flex justify-start mb-4">
                 <Link href="/maths/olympiad">
                     <div className="flex items-center justify-center space-x-1 text-elevated">
                         <RiArrowGoBackFill/>

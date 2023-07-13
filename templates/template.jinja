@@ -2,7 +2,7 @@
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
-                <span className="w-full flex justify-center"> 
+                <span>
                     <Link href="/"> wiki.danielc.rocks </Link>
                 </span>
                 <ul>
@@ -42,7 +42,7 @@
         </div>
 
         {% if parent_path %}
-            <div className="flex justify-start">
+            <div className="flex justify-start mb-4">
                 <Link href="{{parent_path}}">
                     <div className="flex items-center justify-center space-x-1 text-elevated">
                         <RiArrowGoBackFill/>

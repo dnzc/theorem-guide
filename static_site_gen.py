@@ -24,6 +24,8 @@ import Accordion from '{components_dir}/accordion'
 import ProminentLink from '{components_dir}/prominentLink'
 import DiscreetLink from '{components_dir}/discreetLink'
 import Link from 'next/link'
+import 'katex/dist/katex.min.css'
+import Latex from 'react-latex-next'
 import {{ FaChevronRight }} from 'react-icons/fa'
 import {{ RiArrowGoBackFill }} from 'react-icons/ri'
 {folder_imports}
@@ -83,22 +85,32 @@ def gen_content(cur_dir, depth):
         with open(SOURCE_DIR+cur_dir, 'r') as markdown_file:
             page = markdown(markdown_file.read(), extras=['fenced-code-blocks', 'code-friendly'])
             # pre is not respected in nextjs, so find all whitespace inside pre tags and replace with explicit html
-            for m in sorted(re.finditer(r'(?<=<pre>)(.*?)(?=</pre>)', page, re.DOTALL), reverse=True): # reverse so can edit the string without indices changing
-                target = page[m.start():m.end()]
+            for m in [i.span() for i in re.finditer(r'(?<=<pre>)(.*?)(?=</pre>)', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
+                target = page[m[0]:m[1]]
                 target = re.sub('    ', '<span>&nbsp;</span>'*4, target) # replace indents
                 target = re.sub('\n', '<br/>', target) # replace newlines
-                page = page[:m.start()] + target + page[m.end():]
+                page = page[:m[0]] + target + page[m[1]:]
         with open(TARGET_DIR+cur_dir[:-3]+'.js', 'w+') as output_file:
             path_list = cur_dir.split('/')[1:-1] # path to parent folder
             time = timestamp_to_str(os.path.getmtime(SOURCE_DIR+cur_dir))
-            output_file.write(
-                wrap_in_js(
+            react = wrap_in_js(
                     template.render(content=page.replace('class=', 'className='), pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, time=time),
                     re.sub(r'[^a-zA-Z]', '', path_list[-1]),
                     depth-1,
                     False
-                )
-            )
+                    )
+            # find latex
+            latexed = re.sub(r'(\$\$?.*?\$\$?)', r'<Latex>\1</Latex>', react)
+            # replace curly braces in between latex tags (e.g. "\mathbb{N}") so that react ignores them
+            for m in [i.span() for i in re.finditer(r'<Latex>.*?</Latex>', latexed)][::-1]: # reverse so can edit the string without indices changing
+                target = latexed[m[0]:m[1]]
+                target = re.sub('{', '&#123;', target)
+                target = re.sub('}', '&#125;', target)
+                latexed = latexed[:m[0]] + target + latexed[m[1]:]
+            # replace links with DiscreetLink component
+            linked = re.sub('<a href="', '<DiscreetLink href="', latexed) # replace opening tags
+            linked = re.sub('</a>', '</DiscreetLink>', linked) # replace closing tags
+            output_file.write(linked)
     else:
         if not os.path.exists(TARGET_DIR+cur_dir):
             os.makedirs(TARGET_DIR+cur_dir)

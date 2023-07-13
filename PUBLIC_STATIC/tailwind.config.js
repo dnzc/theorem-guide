@@ -1,8 +1,8 @@
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     screens: {
@@ -18,11 +18,12 @@ module.exports = {
         'elevated': '#abb2bf',
         'primary': '#e5c07b',
         'secondary': '#e06c75',
-        'link': '#61afef',
+        'xlink': '#61afef', // external link
+        'emph': '#c678dd',
       },
       fontFamily: {
-        "lato" : ["Lato", "sans-serif"],
-        "mono" : ["Inconsolata", "monospace"],
+        "lato" : ['Lato', 'sans-serif'],
+        "mono" : ['Inconsolata', 'monospace'],
       },
     },
   },

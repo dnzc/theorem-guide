@@ -4,6 +4,8 @@ import Accordion from '../../../components/accordion'
 import ProminentLink from '../../../components/prominentLink'
 import DiscreetLink from '../../../components/discreetLink'
 import Link from 'next/link'
+import 'katex/dist/katex.min.css'
+import Latex from 'react-latex-next'
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
@@ -18,7 +20,7 @@ export default function Numbertheory () {
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
-                <span className="w-full flex justify-center"> 
+                <span>
                     <Link href="/"> wiki.danielc.rocks </Link>
                 </span>
                 <ul>
@@ -53,14 +55,6 @@ export default function Numbertheory () {
                                     
                         
                             <Accordion title="FTA" href="/maths/number-theory/FTA" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="generators" href="/maths/number-theory/generators" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="quadratic-reciprocity" href="/maths/number-theory/quadratic-reciprocity" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -150,34 +144,10 @@ export default function Numbertheory () {
 
         <div className="article mb-4">
             
-    <p className="italic pb-4">Contains 3 articles and 0 folders</p>
+    <p className="italic pb-4">Contains 1 article and 0 folders</p>
 
     <Folder contents_by_date={
         <>
-        
-            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory/generators">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle/>
-                        
-                        <p className="relative bottom-[1px]">generators</p>
-                    </div>
-                </Link>
-                <p className="text-sm">11 Jul 2023</p>
-            </li>
-        
-            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory/quadratic-reciprocity">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle/>
-                        
-                        <p className="relative bottom-[1px]">quadratic-reciprocity</p>
-                    </div>
-                </Link>
-                <p className="text-sm">11 Jul 2023</p>
-            </li>
         
             <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/maths/number-theory/FTA">
@@ -188,7 +158,7 @@ export default function Numbertheory () {
                         <p className="relative bottom-[1px]">FTA</p>
                     </div>
                 </Link>
-                <p className="text-sm">11 Jul 2023</p>
+                <p className="text-sm">13 Jul 2023</p>
             </li>
         
         </>
@@ -204,31 +174,7 @@ export default function Numbertheory () {
                         <p className="relative bottom-[1px]">FTA</p>
                     </div>
                 </Link>
-                <p className="text-sm">11 Jul 2023</p>
-            </li>
-        
-            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory/generators">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle/>
-                        
-                        <p className="relative bottom-[1px]">generators</p>
-                    </div>
-                </Link>
-                <p className="text-sm">11 Jul 2023</p>
-            </li>
-        
-            <li className="w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory/quadratic-reciprocity">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle/>
-                        
-                        <p className="relative bottom-[1px]">quadratic-reciprocity</p>
-                    </div>
-                </Link>
-                <p className="text-sm">11 Jul 2023</p>
+                <p className="text-sm">13 Jul 2023</p>
             </li>
         
         </>
@@ -237,7 +183,7 @@ export default function Numbertheory () {
         </div>
 
         
-            <div className="flex justify-start">
+            <div className="flex justify-start mb-4">
                 <Link href="/maths">
                     <div className="flex items-center justify-center space-x-1 text-elevated">
                         <RiArrowGoBackFill/>
