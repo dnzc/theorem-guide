@@ -15,6 +15,9 @@ import Latex from 'react-latex-next'
 import Spoiler from '../../../../components/spoiler'
 import IncompleteMessage from '../../../../components/incompleteMessage'
 import Image from 'next/image'
+import { copyToClipboard, CopyButton } from '../../../../components/copyButton'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 export default function GeneratingFuncs () {
@@ -23,7 +26,21 @@ export default function GeneratingFuncs () {
             <Head>
                 <title>Generating Funcs | Daniel C</title>
             </Head>
-            <div className="relative w-full max-w-screen-2xl flex h-full">
+                <>
+                    
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss={false}
+                            pauseOnHover={false}
+                            theme="dark"
+                        />
+    
+                    <div className="relative w-full max-w-screen-2xl flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -200,6 +217,7 @@ export default function GeneratingFuncs () {
 
     
 </div>
+                </>
         </Layout>
     )
 }

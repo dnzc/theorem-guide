@@ -15,6 +15,9 @@ import Latex from 'react-latex-next'
 import Spoiler from '../../../../components/spoiler'
 import IncompleteMessage from '../../../../components/incompleteMessage'
 import Image from 'next/image'
+import { copyToClipboard, CopyButton } from '../../../../components/copyButton'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 export default function Euclid () {
@@ -23,7 +26,21 @@ export default function Euclid () {
             <Head>
                 <title>Euclid | Daniel C</title>
             </Head>
-            <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
+                <>
+                    
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss={false}
+                            pauseOnHover={false}
+                            theme="dark"
+                        />
+    
+                    <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -185,7 +202,7 @@ export default function Euclid () {
 
 <p>This is part 4, where we use what we have so far to finally prove <DiscreetLink href="https://brilliant.org/wiki/bezouts-identity/">Euclid's Lemma</DiscreetLink> (technically, the generalized version). In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<h2 id="what-its-argh" className="group flex"><em>What? It's... argh!</em>&nbsp;<Link href="#what-its-argh" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/4-euclid.md#what-its-argh")} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="what-its-argh" className="group flex"><em>What? It's... argh!</em>&nbsp;<Link href="#what-its-argh" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/4-euclid#what-its-argh", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Ask anyone to prove this:</p>
 
@@ -280,7 +297,7 @@ export default function Euclid () {
 
 <p>Nice - surprisingly simple proof, right?</p>
 
-<h2 id="the-actual-euclids-lemma" className="group flex">The actual Euclid's Lemma&nbsp;<Link href="#the-actual-euclids-lemma" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/4-euclid.md#the-actual-euclids-lemma")} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="the-actual-euclids-lemma" className="group flex">The actual Euclid's Lemma&nbsp;<Link href="#the-actual-euclids-lemma" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/4-euclid#the-actual-euclids-lemma", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Actually, Euclid's Lemma states that if <Latex>$p$</Latex> is a prime and <Latex>$p \mid ab$</Latex> (where <Latex>$a,b$</Latex> are two integers), then <Latex>$p \mid a$</Latex> or <Latex>$p \mid b$</Latex>. I hope you can see how what we've already proved is pretty much a generalized version of this: the only extra thing we need to prove is that if <Latex>$p$</Latex> doesn't divide <Latex>$a$</Latex>, then <Latex>$gcd(p, a) = 1$</Latex>. But this is true by definition of prime - if <Latex>$gcd(p,a) &gt; 1$</Latex> then <Latex>$p$</Latex> has a factor that isn't <Latex>$1$</Latex> or <Latex>$p$</Latex> (namely, this factor is <Latex>$gcd(p,a)$</Latex>); contradiction.</p>
 
@@ -320,6 +337,7 @@ export default function Euclid () {
         </nav>
     
 </div>
+                </>
         </Layout>
     )
 }

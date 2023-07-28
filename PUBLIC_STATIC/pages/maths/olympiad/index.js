@@ -20,7 +20,9 @@ export default function Olympiad () {
             <Head>
                 <title>Olympiad | Daniel C</title>
             </Head>
-            <div className="relative w-full max-w-screen-2xl flex h-full">
+                <>
+                    
+                    <div className="relative w-full max-w-screen-2xl flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -241,6 +243,7 @@ export default function Olympiad () {
 
     
 </div>
+                </>
         </Layout>
     )
 }

@@ -4,6 +4,13 @@
 
 @layer base {
 
+    :root {
+        --toastify-font-family: var(--font-sans) !important;
+        --toastify-toast-width: 250px !important;
+        --toastify-color-dark: #000000 !important;
+        --toastify-color-progress-dark: #e5c07b !important;
+    }
+
     body {
         @apply bg-body text-white font-sans;
     }

@@ -15,6 +15,9 @@ import Latex from 'react-latex-next'
 import Spoiler from '../../../components/spoiler'
 import IncompleteMessage from '../../../components/incompleteMessage'
 import Image from 'next/image'
+import { copyToClipboard, CopyButton } from '../../../components/copyButton'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 export default function BinarySearch () {
@@ -23,7 +26,21 @@ export default function BinarySearch () {
             <Head>
                 <title>Binary Search | Daniel C</title>
             </Head>
-            <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
+                <>
+                    
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss={false}
+                            pauseOnHover={false}
+                            theme="dark"
+                        />
+    
+                    <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -205,7 +222,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 
 <p>The time complexity of binary search is <Latex>$O(\log n)$</Latex> , because each comparison halves the search space, so it takes a logarithmic number of operations (and <Latex>$\log_2(n) = \frac&#123;\log n&#125;&#123;\log 2&#125;$</Latex>).</p>
 
-<h2 id="pseudocode" className="group flex">Pseudocode&nbsp;<Link href="#pseudocode" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/comp-sci/algorithms/binary-search.md#pseudocode")} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="pseudocode" className="group flex">Pseudocode&nbsp;<Link href="#pseudocode" onClick={() => copyToClipboard("https://wiki.danielc.rocks/comp-sci/algorithms/binary-search#pseudocode", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>I like to define the left pointer as the one you know it's definitely <em>greater than or equal to</em>, and the right pointer as the one you know it's definitely <em>less than</em>. So, <Latex>$l \leq x \lt r$</Latex>.</p>
 
@@ -213,7 +230,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 <pre><span></span><code><span className="k">function</span> <span className="n">search</span><span className="o">(</span><span className="n">arr</span><span className="o">,</span> <span className="n">length</span><span className="o">,</span> <span className="n">target</span><span className="o">)</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">l</span> <span className="o">:=</span> <span className="mi">0</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">r</span> <span className="o">:=</span> <span className="n">n</span><span className="o">-</span><span className="mi">1</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">while</span> <span className="n">l</span><span className="o">+</span><span className="mi">1</span> <span className="o">&lt;</span> <span className="n">r</span> <span className="k">do</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">m</span> <span className="o">:=</span> <span className="n">floor</span><span className="o">((</span><span className="n">l</span><span className="o">+</span><span className="n">r</span><span className="o">)</span> <span className="o">/</span> <span className="mi">2</span><span className="o">)</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">if</span> <span className="n">arr</span><span className="o">[</span><span className="n">m</span><span className="o">]</span> <span className="o">&gt;</span> <span className="n">target</span> <span className="k">then</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">r</span> <span className="o">:=</span> <span className="n">m</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">else</span> <span className="k">if</span> <span className="n">arr</span><span className="o">[</span><span className="n">m</span><span className="o">]</span> <span className="o">&lt;</span> <span className="n">target</span> <span className="k">then</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">l</span> <span className="o">:=</span> <span className="n">m</span><span className="o">+</span><span className="mi">1</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">else</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">return</span> <span className="n">m</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">end</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">end</span><br/><span className="k">end</span><br/></code></pre>
 </div>
 
-<h2 id="example-problem-minimum-excludant" className="group flex">Example problem: Minimum excludant&nbsp;<Link href="#example-problem-minimum-excludant" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/comp-sci/algorithms/binary-search.md#example-problem-minimum-excludant")} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="example-problem-minimum-excludant" className="group flex">Example problem: Minimum excludant&nbsp;<Link href="#example-problem-minimum-excludant" onClick={() => copyToClipboard("https://wiki.danielc.rocks/comp-sci/algorithms/binary-search#example-problem-minimum-excludant", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <blockquote>
   <p>Given a sorted array of distinct positive integers, find the smallest positive integer that is not in the array.</p>
@@ -242,7 +259,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 
 </Spoiler>
 
-<h2 id="harder-problem-ntarsis-set" className="group flex">Harder problem: Ntarsis' Set&nbsp;<Link href="#harder-problem-ntarsis-set" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/comp-sci/algorithms/binary-search.md#harder-problem-ntarsis-set")} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="harder-problem-ntarsis-set" className="group flex">Harder problem: Ntarsis' Set&nbsp;<Link href="#harder-problem-ntarsis-set" onClick={() => copyToClipboard("https://wiki.danielc.rocks/comp-sci/algorithms/binary-search#harder-problem-ntarsis-set", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p><ProminentLink href="https://codeforces.com/contest/1853/problem/C">View problem on codeforces</ProminentLink></p>
 
@@ -278,7 +295,13 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 
 <p><strong>Example:</strong></p>
 
-<pre><code>Input:<br/>7<br/>5 1<br/>1 2 4 5 6<br/>5 3<br/>1 3 5 6 7<br/>4 1000<br/>2 3 4 5<br/>9 1434<br/>1 4 7 9 12 15 17 18 20<br/>10 4<br/>1 3 5 7 9 11 13 15 17 19<br/>10 6<br/>1 4 7 10 13 16 19 22 25 28<br/>10 150000<br/>1 3 4 5 10 11 12 13 14 15<br/><br/>Output:<br/>3<br/>9<br/>1<br/>12874<br/>16<br/>18<br/>1499986<br/></code></pre>
+<p><CopyButton text="7\n5 1\n1 2 4 5 6\n5 3\n1 3 5 6 7\n4 1000\n2 3 4 5\n9 1434\n1 4 7 9 12 15 17 18 20\n10 4\n1 3 5 7 9 11 13 15 17 19\n10 6\n1 4 7 10 13 16 19 22 25 28\n10 150000\n1 3 4 5 10 11 12 13 14 15\n">Input:</CopyButton></p>
+
+<pre><code>7<br/>5 1<br/>1 2 4 5 6<br/>5 3<br/>1 3 5 6 7<br/>4 1000<br/>2 3 4 5<br/>9 1434<br/>1 4 7 9 12 15 17 18 20<br/>10 4<br/>1 3 5 7 9 11 13 15 17 19<br/>10 6<br/>1 4 7 10 13 16 19 22 25 28<br/>10 150000<br/>1 3 4 5 10 11 12 13 14 15<br/></code></pre>
+
+<p><CopyButton text="3\n9\n1\n12874\n16\n18\n1\n">Output:</CopyButton></p>
+
+<pre><code>3<br/>9<br/>1<br/>12874<br/>16<br/>18<br/>1499986<br/></code></pre>
 
 <p><strong>Solution:</strong></p>
 
@@ -336,6 +359,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
         </nav>
     
 </div>
+                </>
         </Layout>
     )
 }

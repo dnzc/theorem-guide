@@ -15,6 +15,9 @@ import Latex from 'react-latex-next'
 import Spoiler from '../../../../components/spoiler'
 import IncompleteMessage from '../../../../components/incompleteMessage'
 import Image from 'next/image'
+import { copyToClipboard, CopyButton } from '../../../../components/copyButton'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 export default function DivisionAlgo () {
@@ -23,7 +26,21 @@ export default function DivisionAlgo () {
             <Head>
                 <title>Division Algo | Daniel C</title>
             </Head>
-            <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
+                <>
+                    
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss={false}
+                            pauseOnHover={false}
+                            theme="dark"
+                        />
+    
+                    <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -185,7 +202,7 @@ export default function DivisionAlgo () {
 
 <p>This is part 2, where we use the rigorous foundation we developed in part 1 to establish the <DiscreetLink href="https://brilliant.org/wiki/division-algorithm/">division algorithm</DiscreetLink>. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<h2 id="back-to-school" className="group flex">Back to School&nbsp;<Link href="#back-to-school" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/2-division-algo.md#back-to-school")} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="back-to-school" className="group flex">Back to School&nbsp;<Link href="#back-to-school" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/2-division-algo#back-to-school", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Children tend to get taught division as <em>repeated subtraction</em> - for example, 14 divided by 3 is 4 remainder 2, because:</p>
 
@@ -280,6 +297,7 @@ In particular, 2&lt;3, and in general the remainder is always less than the divi
         </nav>
     
 </div>
+                </>
         </Layout>
     )
 }

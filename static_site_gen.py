@@ -15,6 +15,7 @@ folder_template = template_env.get_template('folder_overview.jinja')
 
 def wrap_in_js(jinja, name, depth, isFolder):
     components_dir = ('./' if depth==0 else '../'*depth) + 'components'
+
     folder_imports = f'''
 import {{ MdArticle }} from 'react-icons/md'
 import Folder from '{components_dir}/folder'
@@ -24,7 +25,25 @@ import Latex from 'react-latex-next'
 import Spoiler from '{components_dir}/spoiler'
 import IncompleteMessage from '{components_dir}/incompleteMessage'
 import Image from 'next/image'
+import {{ copyToClipboard, CopyButton }} from '{components_dir}/copyButton'
+import {{ ToastContainer }} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 '''
+
+    toastContainer = f'''
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={{5000}}
+                            hideProgressBar={{false}}
+                            newestOnTop={{false}}
+                            closeOnClick
+                            rtl={{false}}
+                            pauseOnFocusLoss={{false}}
+                            pauseOnHover={{false}}
+                            theme="dark"
+                        />
+    ''' if not isFolder else ''
+
     return f'''
 import Layout from '{components_dir}/layout'
 import Head from 'next/head'
@@ -44,7 +63,10 @@ export default function {name.replace(' ', '')} () {{
             <Head>
                 <title>{name} | Daniel C</title>
             </Head>
-            {jinja}
+                <>
+                    {toastContainer}
+                    {jinja}
+                </>
         </Layout>
     )
 }}
@@ -119,8 +141,17 @@ def gen_content(cur_dir, depth):
                 target = re.sub('\n', '<br/>', target) # replace newlines
                 page = page[:m[0]] + target + page[m[1]:]
 
-            # find latex
+            # add <Latex> tags
             page = re.sub(r'(\$\$?.*?\$\$?)', r'<Latex>\1</Latex>', page)
+
+            # undo sanitization inside button tags
+            #for m in [i.span() for i in re.finditer(r'<button.*?/button>', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
+            #    target = page[m[0]:m[1]]
+            #    target = re.sub('&lt;', '<', target)
+            #    target = re.sub('&gt;', '>', target)
+            #    target = re.sub('&#123;', '{', target)
+            #    target = re.sub('&#125;', '}', target)
+            #    page = page[:m[0]] + target + page[m[1]:]
 
             # <p> tags will have been placed around <Spoiler>, remove them
             page = re.sub('<p><Spoiler></p>', '<Spoiler>', page)
@@ -128,7 +159,7 @@ def gen_content(cur_dir, depth):
 
             # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
             tableOfContents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
-            page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" class="group flex">\2&nbsp;<Link href="#\1" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks'+cur_dir+r'#\1")} class="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL) # if opening spoiler tag was on separated line
+            page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" class="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://wiki.danielc.rocks'+cur_dir[:-3]+r'#\1", true)} class="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL) # if opening spoiler tag was on separated line
 
         with open(TARGET_DIR+cur_dir[:-3]+'.js', 'w+') as output_file:
             path_list = cur_dir.split('/')[1:-1] # path to parent folder
