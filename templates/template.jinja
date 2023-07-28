@@ -1,4 +1,4 @@
-<div className="relative max-w-screen-xl flex h-full">
+<div className="relative w-full max-w-screen-2xl flex h-full{{' justify-around' if tableOfContents else ''}}">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -44,7 +44,7 @@
         {% if parent_path %}
             <div className="flex justify-start mb-4">
                 <Link href="{{parent_path}}">
-                    <div className="flex items-center justify-center space-x-1 text-elevated">
+                    <div className="flex items-center justify-center space-x-1 text-primary">
                         <RiArrowGoBackFill/>
                         <p>up a level</p>
                     </div>
@@ -53,4 +53,17 @@
         {% endif %}
 
     </article>
+
+    {% if tableOfContents %}
+        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-elevated px-6 py-4">
+            <div className="fixed">
+                <h1 className="font-bold text-lg">In this Article</h1>
+                <ul className="text-elevated">
+                    {% for title,href in tableOfContents %}
+                        <li className="pt-2 list-inside list-disc"><Link href="{{href}}" className="text-primary">{{title}}</Link></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    {% endif %}
 </div>

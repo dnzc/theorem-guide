@@ -8,13 +8,11 @@ import DiscreetLink from '../../../../components/discreetLink'
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
-import 'katex/dist/katex.min.css'
-import Latex from 'react-latex-next'
-import Spoiler from '../../../../components/spoiler'
-import IncompleteMessage from '../../../../components/incompleteMessage'
+import { MdArticle } from 'react-icons/md'
+import Folder from '../../../../components/folder'
 
 
-export default function Techniques () {
+export default function Ftaproof () {
     return (
         <Layout>
             <div className="relative w-full max-w-screen-2xl flex h-full">
@@ -51,11 +49,11 @@ export default function Techniques () {
                                 
                                     
                         
-                            <Accordion title="number-theory" href="/maths/number-theory" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="number-theory" href="/maths/number-theory" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                         
-                            <Accordion title="FTA-proof" href="/maths/number-theory/FTA-proof" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="FTA-proof" href="/maths/number-theory/FTA-proof" isFolder={true} isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                         
@@ -87,7 +85,7 @@ export default function Techniques () {
                         
                     
                         
-                            <Accordion title="olympiad" href="/maths/olympiad" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="olympiad" href="/maths/olympiad" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                         
@@ -103,7 +101,7 @@ export default function Techniques () {
                         
                     
                         
-                            <Accordion title="techniques" href="/maths/olympiad/techniques" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="techniques" href="/maths/olympiad/techniques" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                         
@@ -115,7 +113,7 @@ export default function Techniques () {
                         
                     
                         
-                            <Accordion title="moving-points" href="/maths/olympiad/techniques/moving-points" isFolder={false} isSelected={ true } />
+                            <Accordion title="moving-points" href="/maths/olympiad/techniques/moving-points" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -160,28 +158,155 @@ export default function Techniques () {
                     <p className="text-lg font-bold text-secondary"><Link href="/maths">maths</Link></p>
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths/olympiad">olympiad</Link></p>
+                    <p className="text-lg font-bold text-secondary"><Link href="/maths/number-theory">number-theory</Link></p>
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths/olympiad/techniques">techniques</Link></p>
+                    <p className="text-lg font-bold text-secondary"><Link href="/maths/number-theory/FTA-proof">FTA-proof</Link></p>
                 
             </div>
         
 
         
-            <p className="text-elevated mb-3">Last modified on 14 Jul 2023</p>
-        
 
         <div className="article mb-4">
-            <h1 id="method-of-moving-points-a-geometrical-nuke">Method of Moving Points - a Geometrical Nuke</h1>
+            
+    <p className="italic pb-4">Contains 5 articles and 0 folders</p>
 
-<p><IncompleteMessage/></p>
+    <Folder contents_by_date={
+        <>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/5-fta">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">5-fta</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/1-integer-axioms">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">1-integer-axioms</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/3-bezout-egcd">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">3-bezout-egcd</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/2-division-algo">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">2-division-algo</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/4-euclid">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">4-euclid</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+        </>
+    } contents_by_name={
+        <>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/1-integer-axioms">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">1-integer-axioms</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/2-division-algo">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">2-division-algo</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/3-bezout-egcd">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">3-bezout-egcd</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/4-euclid">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">4-euclid</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory/FTA-proof/5-fta">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle/>
+                        
+                        <p className="relative bottom-[1px]">5-fta</p>
+                    </div>
+                </Link>
+                <p className="text-sm">27 Jul 2023</p>
+            </li>
+        
+        </>
+    } />
 
         </div>
 
         
             <div className="flex justify-start mb-4">
-                <Link href="/maths/olympiad/techniques">
+                <Link href="/maths/number-theory">
                     <div className="flex items-center justify-center space-x-1 text-primary">
                         <RiArrowGoBackFill/>
                         <p>up a level</p>

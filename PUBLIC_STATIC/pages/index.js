@@ -1,11 +1,10 @@
 
 import Layout from '../components/layout'
 import Accordion from '../components/accordion'
+import Link from 'next/link'
 import ProminentLink from '../components/prominentLink'
 import DiscreetLink from '../components/discreetLink'
-import Link from 'next/link'
-import 'katex/dist/katex.min.css'
-import Latex from 'react-latex-next'
+
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
@@ -16,7 +15,7 @@ import Folder from '../components/folder'
 export default function Root () {
     return (
         <Layout>
-            <div className="relative max-w-screen-xl flex h-full">
+            <div className="relative w-full max-w-screen-2xl flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -54,7 +53,31 @@ export default function Root () {
                                 
                                     
                         
-                            <Accordion title="FTA" href="/maths/number-theory/FTA" isFolder={false} isSelected={ false } />
+                            <Accordion title="FTA-proof" href="/maths/number-theory/FTA-proof" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                        
+                            <Accordion title="1-integer-axioms" href="/maths/number-theory/FTA-proof/1-integer-axioms" isFolder={false} isSelected={ false } />
+                        
+                    
+                        
+                            <Accordion title="2-division-algo" href="/maths/number-theory/FTA-proof/2-division-algo" isFolder={false} isSelected={ false } />
+                        
+                    
+                        
+                            <Accordion title="3-bezout-egcd" href="/maths/number-theory/FTA-proof/3-bezout-egcd" isFolder={false} isSelected={ false } />
+                        
+                    
+                        
+                            <Accordion title="4-euclid" href="/maths/number-theory/FTA-proof/4-euclid" isFolder={false} isSelected={ false } />
+                        
+                    
+                        
+                            <Accordion title="5-fta" href="/maths/number-theory/FTA-proof/5-fta" isFolder={false} isSelected={ false } />
+                        
+                    
+                                
+                            </Accordion>
                         
                     
                                 
@@ -155,10 +178,10 @@ export default function Root () {
         <p>If you're curious as to how this site is maintained, here is my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
-                I use <ProminentLink href="https://nextjs.org/">next.js</ProminentLink> for the frontend, with styling from <ProminentLink href="https://tailwindcss.com/">tailwind</ProminentLink>. The web app is hosted publicly on <ProminentLink href="https://vercel.com/">vercel</ProminentLink>.
+                I use <ProminentLink href="https://nextjs.org/">next.js</ProminentLink> as the framework, with styling from <ProminentLink href="https://tailwindcss.com/">tailwind</ProminentLink>. The web app is hosted publicly on <ProminentLink href="https://vercel.com/">vercel</ProminentLink>.
             </li>
             <li className="list-disc ml-8">
-                I maintain a private <ProminentLink href="https://github.com/">github</ProminentLink> repository containing the master folder with all the contents of this wiki, in <ProminentLink href="https://www.markdownguide.org/getting-started/">markdown</ProminentLink> format. When I want to update the wiki, I edit the master folder using a markdown editor.
+                I maintain a private <ProminentLink href="https://github.com/">github</ProminentLink> repository containing the master folder with all the contents of this wiki, in <ProminentLink href="https://www.markdownguide.org/getting-started/">markdown</ProminentLink> format. When I want to update the wiki, I edit the master folder with a markdown editor.
             </li>
             <li className="list-disc ml-8">
                 I wrote a static site generator in <ProminentLink href="https://www.python.org/">python</ProminentLink> to generate html content out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">jinja2</ProminentLink> templates, then wraps it in boilerplate <ProminentLink href="https://react.dev/">react</ProminentLink>.
@@ -167,16 +190,18 @@ export default function Root () {
                 When I am happy with my changes, I run a <ProminentLink href="https://www.geeksforgeeks.org/introduction-linux-shell-shell-scripting/"> shell script </ProminentLink> (I use arch btw) that executes the python file and pushes to the github repository.
             </li>
             <li className="list-disc ml-8">
-                I use a <ProminentLink href="https://vercel.com/docs/concepts/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever the repository is changed.
+                I added a <ProminentLink href="https://vercel.com/docs/concepts/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever the repository is changed.
             </li>
         </ul>
     </div>
 
-    <p>This might sound complicated, but the end result is a fast web app (yay next.js) which is seamless to maintain - all I focus on is editing the folder containing the markdown files, then I run the shell script when I am happy to publish.</p>
+    <p>This might sound complicated, but the end result is a fast, interactive web app (yay next.js) which is seamless to maintain - all I focus on is editing markdown files, then I run the shell script when I am happy to publish.</p>
+
+    <p>Feel free to <DiscreetLink href="mailto:danielc.rocks12@gmail.com">email me</DiscreetLink> if you find anything interesting, or spot any errors.</p>
 
     <p>Enjoy exploring!</p>
 
-    <p className="text-elevated text-sm">P.S. if you think the ascii tree is cool (not visible on small screens), I generated it using <DiscreetLink href="https://gitlab.com/jallbrit/cbonsai">cbonsai</DiscreetLink>, <DiscreetLink href="https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh">ansi2html</DiscreetLink> and some regex!</p>
+    <p className="text-sm text-elevated">P.S. if you think the ascii tree is cool (not visible on small screens), I generated it using <DiscreetLink href="https://gitlab.com/jallbrit/cbonsai">cbonsai</DiscreetLink>, <DiscreetLink href="https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh">ansi2html</DiscreetLink> and some regex!</p>
 
 </div>
     <p className="italic pb-4">Contains 0 articles and 2 folders</p>
@@ -201,7 +226,7 @@ export default function Root () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm">12 Jul 2023</p>
+                <p className="text-sm">13 Jul 2023</p>
             </li>
         
         </>
@@ -225,7 +250,7 @@ export default function Root () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm">12 Jul 2023</p>
+                <p className="text-sm">13 Jul 2023</p>
             </li>
         
         </>
@@ -236,6 +261,8 @@ export default function Root () {
         
 
     </article>
+
+    
 </div>
         </Layout>
     )

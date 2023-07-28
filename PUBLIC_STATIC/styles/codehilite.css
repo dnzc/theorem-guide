@@ -4,7 +4,6 @@ span.linenos { color: inherit; background-color: transparent; padding-left: 5px;
 td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .codehilite .hll { background-color: #333333 }
-.codehilite { background: #111111; color: #ffffff }
 .codehilite .c { color: #008800; font-style: italic; background-color: #0f140f } /* Comment */
 .codehilite .err { color: #ffffff } /* Error */
 .codehilite .esc { color: #ffffff } /* Escape */

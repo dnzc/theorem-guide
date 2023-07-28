@@ -1,23 +1,34 @@
 AI:
 - stanford-cs234-notes
-- alighment-problem-review
+- alignment-problem-review
+- coursera notes
 
 comp-sci:
 - codeforces
 - algorithms:
-    - dijkstra, fenwick
+    - dijkstra (example problem: erekle bio), fenwick, fastinvsqrt, magic bitboards
 - vim ("why you should use vim + config")
+- jem's python puzzle (?)
 
 cyber-sec:
 - crypto
+    - miller-rabin
     - RSA
 - ctf-writeups
 - SEC504-notes
+- binexp
+
+econ
+- coursera notes
 
 maths:
 - integration
+- babylonian approximation
 - number-theory/generators
 - number-theory/quadratic-reciprocity
+- research/CNATS: INCLUDE PRUFER CONJECTURE
 
 physics:
 - feynmann-notes
+
+puzzles? linguistics?

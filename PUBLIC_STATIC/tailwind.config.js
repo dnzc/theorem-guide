@@ -18,8 +18,10 @@ module.exports = {
         'elevated': '#abb2bf',
         'primary': '#e5c07b',
         'secondary': '#e06c75',
-        'xlink': '#61afef', // external link
-        'emph': '#c678dd',
+        'bold': '#61afef',
+        'italic': '#c678dd',
+        'link': '#56b6c2',
+        'hover': '#98c379',
       },
       fontFamily: {
         "lato" : ['Lato', 'sans-serif'],

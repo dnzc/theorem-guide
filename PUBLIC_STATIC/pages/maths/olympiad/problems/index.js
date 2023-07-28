@@ -1,11 +1,10 @@
 
 import Layout from '../../../../components/layout'
 import Accordion from '../../../../components/accordion'
+import Link from 'next/link'
 import ProminentLink from '../../../../components/prominentLink'
 import DiscreetLink from '../../../../components/discreetLink'
-import Link from 'next/link'
-import 'katex/dist/katex.min.css'
-import Latex from 'react-latex-next'
+
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
@@ -16,7 +15,7 @@ import Folder from '../../../../components/folder'
 export default function Problems () {
     return (
         <Layout>
-            <div className="relative max-w-screen-xl flex h-full">
+            <div className="relative w-full max-w-screen-2xl flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -54,7 +53,31 @@ export default function Problems () {
                                 
                                     
                         
-                            <Accordion title="FTA" href="/maths/number-theory/FTA" isFolder={false} isSelected={ false } />
+                            <Accordion title="FTA-proof" href="/maths/number-theory/FTA-proof" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                        
+                            <Accordion title="1-integer-axioms" href="/maths/number-theory/FTA-proof/1-integer-axioms" isFolder={false} isSelected={ false } />
+                        
+                    
+                        
+                            <Accordion title="2-division-algo" href="/maths/number-theory/FTA-proof/2-division-algo" isFolder={false} isSelected={ false } />
+                        
+                    
+                        
+                            <Accordion title="3-bezout-egcd" href="/maths/number-theory/FTA-proof/3-bezout-egcd" isFolder={false} isSelected={ false } />
+                        
+                    
+                        
+                            <Accordion title="4-euclid" href="/maths/number-theory/FTA-proof/4-euclid" isFolder={false} isSelected={ false } />
+                        
+                    
+                        
+                            <Accordion title="5-fta" href="/maths/number-theory/FTA-proof/5-fta" isFolder={false} isSelected={ false } />
+                        
+                    
+                                
+                            </Accordion>
                         
                     
                                 
@@ -161,7 +184,7 @@ export default function Problems () {
                         <p className="relative bottom-[1px]">IMO23</p>
                     </div>
                 </Link>
-                <p className="text-sm">12 Jul 2023</p>
+                <p className="text-sm">14 Jul 2023</p>
             </li>
         
         </>
@@ -177,7 +200,7 @@ export default function Problems () {
                         <p className="relative bottom-[1px]">IMO23</p>
                     </div>
                 </Link>
-                <p className="text-sm">12 Jul 2023</p>
+                <p className="text-sm">14 Jul 2023</p>
             </li>
         
         </>
@@ -188,7 +211,7 @@ export default function Problems () {
         
             <div className="flex justify-start mb-4">
                 <Link href="/maths/olympiad">
-                    <div className="flex items-center justify-center space-x-1 text-elevated">
+                    <div className="flex items-center justify-center space-x-1 text-primary">
                         <RiArrowGoBackFill/>
                         <p>up a level</p>
                     </div>
@@ -197,6 +220,8 @@ export default function Problems () {
         
 
     </article>
+
+    
 </div>
         </Layout>
     )
