@@ -8,7 +8,6 @@ comp-sci:
 - algorithms:
     - dijkstra (example problem: erekle bio), fenwick, fastinvsqrt, magic bitboards
 - vim ("why you should use vim + config")
-- jem's python puzzle (?)
 
 cyber-sec:
 - crypto
