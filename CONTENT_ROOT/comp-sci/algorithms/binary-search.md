@@ -32,21 +32,21 @@ The time complexity of binary search is $O(\log n)$ , because each comparison ha
 
 I like to define the left pointer as the one you know it's definitely *greater than or equal to*, and the right pointer as the one you know it's definitely *less than*. So, $l \leq x \lt r$.
 
-```
-function search(array, length, target)) is
+```ocaml
+function search(arr, length, target)
     l := 0
     r := n-1
     while l+1 < r do
         m := floor((l+r) / 2)
-        if array[m] > target then
+        if arr[m] > target then
             r := m
-        else if array[m] < target then
+        else if arr[m] < target then
             l := m+1
         else
             return m
-        endif
-    endwhile
-endfunction
+        end
+    end
+end
 ```
 
 ## Example problem: Minimum excludant
@@ -71,7 +71,8 @@ endfunction
 Considering the smallest missing element from the array, we must have that the items before it are the positive integers in order, with no gaps. So the smallest missing element is the smallest element whose value is not equal to its index (indexing from 1). We can use binary search to find this.
 
 ```py
-# python3
+#!/usr/bin/python3
+
 def solve(array):
     l = 0
     r = len(array)
@@ -158,6 +159,10 @@ If the current position of $1$ is $x$, then we need to find how many of $a_1, a_
 <br/>
 
 If $a_1 \neq 1$, then the answer is 1. Otherwise, we start with $x=0$ and perform the process described above $k$ times. The time complexity is $O(n + k \log n)$.
+
+<br/>
+
+C++ solution:
 
 ```c++
 #include <bits/stdc++.h>

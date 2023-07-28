@@ -29,17 +29,17 @@
                 I wrote a static site generator in <ProminentLink href="https://www.python.org/">python</ProminentLink> to generate html content out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">jinja2</ProminentLink> templates, then wraps it in boilerplate <ProminentLink href="https://react.dev/">react</ProminentLink>.
             </li>
             <li className="list-disc ml-8">
-                When I am happy with my changes, I run a <ProminentLink href="https://www.geeksforgeeks.org/introduction-linux-shell-shell-scripting/"> shell script </ProminentLink> (I use arch btw) that executes the python file and pushes to the github repository.
+                As I create new content, I run a <ProminentLink href="https://en.wikipedia.org/wiki/Shell_script">shell script</ProminentLink> that executes the python file and updates a developent server.
             </li>
             <li className="list-disc ml-8">
-                I added a <ProminentLink href="https://vercel.com/docs/concepts/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever the repository is changed.
+                When I am happy with my changes, I push to the github repository. I added a <ProminentLink href="https://vercel.com/docs/concepts/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever this happens.
             </li>
         </ul>
     </div>
 
-    <p>This might sound complicated, but the end result is a fast, interactive web app (yay next.js) which is seamless to maintain - all I focus on is editing markdown files, then I run the shell script when I am happy to publish.</p>
+    <p>This might sound complicated, but the end result is a fast, interactive web app (yay next.js) which is seamless to maintain - all I focus on is editing markdown files, then I run the shell script to see a preview of the result, and push to the repository when I am happy to publish.</p>
 
-    <p>Feel free to <DiscreetLink href="mailto:danielc.rocks12@gmail.com">email me</DiscreetLink> if you find anything interesting, or spot any errors.</p>
+    <p>Feel free to <MailLink>email me</MailLink> if you find anything interesting, or spot any errors.</p>
 
     <p>Enjoy exploring!</p>
 

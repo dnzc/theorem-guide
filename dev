@@ -1,0 +1,5 @@
+#!/bin/sh
+
+python3 static_site_gen.py
+
+cd PUBLIC_STATIC && npm run dev

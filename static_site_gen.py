@@ -6,6 +6,7 @@ from datetime import datetime
 SOURCE_DIR = '/home/dnzc/Github/wiki/CONTENT_ROOT/'
 TARGET_DIR = '/home/dnzc/Github/wiki/PUBLIC_STATIC/pages/'
 TEMPLATES_DIR = '/home/dnzc/Github/wiki/templates/'
+IMAGES_DIR = '/home/dnzc/Github/wiki/PUBLIC_STATIC/public/images/'
 
 template_env = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
 template = template_env.get_template('template.jinja')
@@ -22,21 +23,27 @@ import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
 import Spoiler from '{components_dir}/spoiler'
 import IncompleteMessage from '{components_dir}/incompleteMessage'
+import Image from 'next/image'
 '''
     return f'''
 import Layout from '{components_dir}/layout'
+import Head from 'next/head'
 import Accordion from '{components_dir}/accordion'
 import Link from 'next/link'
 import ProminentLink from '{components_dir}/prominentLink'
 import DiscreetLink from '{components_dir}/discreetLink'
+import MailLink from '{components_dir}/mailLink'
 
 import {{ FaChevronRight }} from 'react-icons/fa'
 import {{ RiArrowGoBackFill }} from 'react-icons/ri'
 {folder_imports}
 
-export default function {name.title()} () {{
+export default function {name.replace(' ', '')} () {{
     return (
         <Layout>
+            <Head>
+                <title>{name} | Daniel C</title>
+            </Head>
             {jinja}
         </Layout>
     )
@@ -49,6 +56,7 @@ def timestamp_to_str(timestamp):
 def get_folder_contents(cur_dir):
     folder_contents = []
     for child in os.listdir(SOURCE_DIR+cur_dir):
+        if child.endswith('__IMAGES__'): continue # exclude the special images directory
         item = {}
         is_file = child[-3:] == '.md'
         child_dir = SOURCE_DIR+cur_dir+'/'+child
@@ -74,7 +82,7 @@ def construct_tree(path, depth):
         d['name'] = name
         d['path'] = path[len(SOURCE_DIR)-1:]
         # sort alphabetically
-        d['children'] = [construct_tree(os.path.join(path,x), depth+1) for x in sorted(os.listdir(path))]
+        d['children'] = [construct_tree(os.path.join(path,x), depth+1) for x in sorted(os.listdir(path)) if not x.endswith('__IMAGES__')] # exclude the special images directory
     else:
         d['name'] = name[:-3] # remove .md file extension
         d['path'] = path[len(SOURCE_DIR)-1:][:-3]
@@ -85,7 +93,7 @@ DIR_TREE = construct_tree(SOURCE_DIR, 0)
 # parse the source files into jsx
 
 def gen_content(cur_dir, depth):
-    if cur_dir[-3:] == '.md':
+    if cur_dir[-3:] == '.md': # markdown file
         with open(SOURCE_DIR+cur_dir, 'r') as markdown_file:
 
             file = markdown_file.read()
@@ -95,6 +103,8 @@ def gen_content(cur_dir, depth):
             # ensure that <Spoiler> and </Spoiler> are preceded+followed by two newlines, so that markdown2 will wrap them in p tags (i.e. there won't be junk between spoiler tag and p tag)
             file = re.sub(r'<(/?)Spoiler>\n?([^\n])', r'<\1Spoiler>\n\n\2', file)
             file = re.sub(r'([^\n])\n?<(/)?Spoiler>', r'\1\n\n<\2Spoiler>', file)
+            # replace images directory inside image tags, to be the public one
+            file = re.sub('CONTENT_ROOT/__IMAGES__', 'images', file)
 
             page = markdown(file, extras=['fenced-code-blocks', 'code-friendly', 'header-ids', 'footnotes', 'wiki-tables'])
 
@@ -113,9 +123,8 @@ def gen_content(cur_dir, depth):
             page = re.sub(r'(\$\$?.*?\$\$?)', r'<Latex>\1</Latex>', page)
 
             # <p> tags will have been placed around <Spoiler>, remove them
-            page = re.sub('<p><Spoiler></p>', '<p><Spoiler>', page) # if opening spoiler tag was on separated line
-            page = re.sub('<p></Spoiler></p>', '</Spoiler></p>', page) # if closing tag was separated
-            page = re.sub(r'<p>(<Spoiler>.*?</Spoiler>)</p>', r'\1', page, flags=re.DOTALL) # remove surrounding <p>
+            page = re.sub('<p><Spoiler></p>', '<Spoiler>', page)
+            page = re.sub('<p></Spoiler></p>', '</Spoiler>', page)
 
             # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
             tableOfContents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
@@ -124,14 +133,27 @@ def gen_content(cur_dir, depth):
         with open(TARGET_DIR+cur_dir[:-3]+'.js', 'w+') as output_file:
             path_list = cur_dir.split('/')[1:-1] # path to parent folder
             time = timestamp_to_str(os.path.getmtime(SOURCE_DIR+cur_dir))
+
+            pageTitle = cur_dir.split('/')[-1][:-3]
+            # assume the markdown filenames consist of [a-zA-Z0-9-]
+            if(re.sub(r'[^a-zA-Z0-9-]', '', pageTitle) != pageTitle):
+                print(f"Warning: {cur_dir} filename contains illegal characters")
+            parsedPageTitle = []
+            for word in pageTitle.split('-'):
+                if not word.isdigit(): parsedPageTitle += [word[0].upper() + word[1:]]
+            pageTitle = ' '.join(parsedPageTitle)
+
             react = wrap_in_js(
                     template.render(content=page.replace('class=', 'className='), pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, time=time, tableOfContents=tableOfContents),
-                    re.sub(r'[^a-zA-Z]', '', path_list[-1]),
+                    pageTitle,
                     depth-1,
                     False
                     )
             output_file.write(react)
-    else:
+    elif cur_dir.endswith('__IMAGES__'): # special: the images directory
+        # move contents into public images dir
+        shutil.copytree(SOURCE_DIR+cur_dir, IMAGES_DIR)
+    else: # directory
         if not os.path.exists(TARGET_DIR+cur_dir):
             os.makedirs(TARGET_DIR+cur_dir)
         for child in os.listdir(SOURCE_DIR+cur_dir):
@@ -140,6 +162,16 @@ def gen_content(cur_dir, depth):
             with open(TARGET_DIR+cur_dir+'/index.js', 'w+') as output_file:
                 path_list = cur_dir.split('/')[1:]
                 folder_contents = get_folder_contents(cur_dir)
+
+                pageTitle = cur_dir.split('/')[-1]
+                # assume the markdown filenames consist of [a-zA-Z0-9-]
+                if(re.sub(r'[^a-zA-Z0-9-]', '', pageTitle) != pageTitle):
+                    print(f"Warning: {cur_dir} filename contains illegal characters")
+                parsedPageTitle = []
+                for word in pageTitle.split('-'):
+                    if not word.isdigit(): parsedPageTitle += [word[0].upper() + word[1:]]
+                pageTitle = ' '.join(parsedPageTitle)
+
                 output_file.write(
                     wrap_in_js(
                         template.render(
@@ -149,7 +181,7 @@ def gen_content(cur_dir, depth):
                                 file_count=sum(1 for i in folder_contents if i['is_file']=='yes'),
                                 folder_count=sum(1 for i in folder_contents if i['is_file']=='no'),
                             ), pathStr=cur_dir, pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE),
-                        re.sub(r'[^a-zA-Z]', '', path_list[-1]),
+                        pageTitle,
                         depth,
                         True
                     )
@@ -157,6 +189,9 @@ def gen_content(cur_dir, depth):
 
 if os.path.exists(TARGET_DIR):
     shutil.rmtree(TARGET_DIR)
+
+if os.path.exists(IMAGES_DIR):
+    shutil.rmtree(IMAGES_DIR)
 
 os.makedirs(TARGET_DIR)
 gen_content('', 1)
@@ -175,7 +210,7 @@ with open(TARGET_DIR+'index.js', 'w+') as output_file:
                     file_count=sum(1 for i in folder_contents if i['is_file']=='yes'),
                     folder_count=sum(1 for i in folder_contents if i['is_file']=='no'),
                 ), dirTree=DIR_TREE),
-            'root',
+            'Wiki',
             1,
             True
         )

@@ -1,9 +1,11 @@
 
 import Layout from '../../../components/layout'
+import Head from 'next/head'
 import Accordion from '../../../components/accordion'
 import Link from 'next/link'
 import ProminentLink from '../../../components/prominentLink'
 import DiscreetLink from '../../../components/discreetLink'
+import MailLink from '../../../components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -15,6 +17,9 @@ import Folder from '../../../components/folder'
 export default function Algorithms () {
     return (
         <Layout>
+            <Head>
+                <title>Algorithms | Daniel C</title>
+            </Head>
             <div className="relative w-full max-w-screen-2xl flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
@@ -181,7 +186,7 @@ export default function Algorithms () {
                         <p className="relative bottom-[1px]">binary-search</p>
                     </div>
                 </Link>
-                <p className="text-sm">27 Jul 2023</p>
+                <p className="text-sm">28 Jul 2023</p>
             </li>
         
         </>
@@ -197,7 +202,7 @@ export default function Algorithms () {
                         <p className="relative bottom-[1px]">binary-search</p>
                     </div>
                 </Link>
-                <p className="text-sm">27 Jul 2023</p>
+                <p className="text-sm">28 Jul 2023</p>
             </li>
         
         </>

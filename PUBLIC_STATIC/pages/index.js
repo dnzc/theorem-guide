@@ -1,9 +1,11 @@
 
 import Layout from '../components/layout'
+import Head from 'next/head'
 import Accordion from '../components/accordion'
 import Link from 'next/link'
 import ProminentLink from '../components/prominentLink'
 import DiscreetLink from '../components/discreetLink'
+import MailLink from '../components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -12,9 +14,12 @@ import { MdArticle } from 'react-icons/md'
 import Folder from '../components/folder'
 
 
-export default function Root () {
+export default function Wiki () {
     return (
         <Layout>
+            <Head>
+                <title>Wiki | Daniel C</title>
+            </Head>
             <div className="relative w-full max-w-screen-2xl flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
@@ -187,17 +192,17 @@ export default function Root () {
                 I wrote a static site generator in <ProminentLink href="https://www.python.org/">python</ProminentLink> to generate html content out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">jinja2</ProminentLink> templates, then wraps it in boilerplate <ProminentLink href="https://react.dev/">react</ProminentLink>.
             </li>
             <li className="list-disc ml-8">
-                When I am happy with my changes, I run a <ProminentLink href="https://www.geeksforgeeks.org/introduction-linux-shell-shell-scripting/"> shell script </ProminentLink> (I use arch btw) that executes the python file and pushes to the github repository.
+                As I create new content, I run a <ProminentLink href="https://en.wikipedia.org/wiki/Shell_script">shell script</ProminentLink> that executes the python file and updates a developent server.
             </li>
             <li className="list-disc ml-8">
-                I added a <ProminentLink href="https://vercel.com/docs/concepts/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever the repository is changed.
+                When I am happy with my changes, I push to the github repository. I added a <ProminentLink href="https://vercel.com/docs/concepts/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever this happens.
             </li>
         </ul>
     </div>
 
-    <p>This might sound complicated, but the end result is a fast, interactive web app (yay next.js) which is seamless to maintain - all I focus on is editing markdown files, then I run the shell script when I am happy to publish.</p>
+    <p>This might sound complicated, but the end result is a fast, interactive web app (yay next.js) which is seamless to maintain - all I focus on is editing markdown files, then I run the shell script to see a preview of the result, and push to the repository when I am happy to publish.</p>
 
-    <p>Feel free to <DiscreetLink href="mailto:danielc.rocks12@gmail.com">email me</DiscreetLink> if you find anything interesting, or spot any errors.</p>
+    <p>Feel free to <MailLink>email me</MailLink> if you find anything interesting, or spot any errors.</p>
 
     <p>Enjoy exploring!</p>
 
@@ -226,7 +231,7 @@ export default function Root () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm">13 Jul 2023</p>
+                <p className="text-sm">28 Jul 2023</p>
             </li>
         
         </>
@@ -250,7 +255,7 @@ export default function Root () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm">13 Jul 2023</p>
+                <p className="text-sm">28 Jul 2023</p>
             </li>
         
         </>

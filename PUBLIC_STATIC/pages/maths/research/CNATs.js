@@ -1,9 +1,11 @@
 
 import Layout from '../../../components/layout'
+import Head from 'next/head'
 import Accordion from '../../../components/accordion'
 import Link from 'next/link'
 import ProminentLink from '../../../components/prominentLink'
 import DiscreetLink from '../../../components/discreetLink'
+import MailLink from '../../../components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -12,11 +14,15 @@ import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
 import Spoiler from '../../../components/spoiler'
 import IncompleteMessage from '../../../components/incompleteMessage'
+import Image from 'next/image'
 
 
-export default function Research () {
+export default function CNATs () {
     return (
         <Layout>
+            <Head>
+                <title>CNATs | Daniel C</title>
+            </Head>
             <div className="relative w-full max-w-screen-2xl flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
@@ -166,13 +172,23 @@ export default function Research () {
         
 
         
-            <p className="text-elevated mb-3">Last modified on 14 Jul 2023</p>
+            <p className="text-elevated mb-3">Last modified on 28 Jul 2023</p>
         
 
         <div className="article mb-4">
             <h1 id="associated-permutations-of-complete-non-ambiguous-trees">Associated Permutations of Complete Non-Ambiguous Trees</h1>
 
-<p><IncompleteMessage/></p>
+<p><ProminentLink href="https://arxiv.org/abs/2210.11117">View on arXiV</ProminentLink></p>
+
+<p>This page is a stub; I just needed somewhere to note down a seemingly magical but random conjecture that we felt wasn't relevant enough to make it into the final paper.</p>
+
+<blockquote>
+  <p><em>Conjecture.</em>  Let <Latex>$h(n,k)$</Latex> be the number of Prufer sequences ending in <Latex>$k$</Latex> that represent a valid CNAT of size <Latex>$n$</Latex>. Then:</p>
+  
+  <p><Latex>$$h(n,k) = \begin&#123;cases&#125; \frac&#123;(n-1)!&#125;&#123;k(k+1)&#125; &amp; \text&#123;if &#125; 1\leq k &lt; n-1\\0 &amp; \text&#123;if &#125; k=n-1\\(n-2)! &amp; \text&#123;if &#125; k=n \end&#123;cases&#125;$$</Latex></p>
+  
+  <p>We were only able to prove the last two cases.</p>
+</blockquote>
 
         </div>
 
