@@ -185,7 +185,7 @@ export default function IntegerAxioms () {
 
 <p>This is part 1, where we develop the basic axioms of the integers and some definitions. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<h2 id="axioms-as-properties" className="group flex">Axioms as Properties&nbsp;<Link href="#axioms-as-properties" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="axioms-as-properties" className="group flex">Axioms as Properties&nbsp;<Link href="#axioms-as-properties" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms.md#axioms-as-properties")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Over the integers, we need a set of reduced axioms from which all the known theorems can be derived using the rules of logical inference. <em>Reduced</em> meaning that if an axiom can be proven using other axioms, then it should not be an axiom. And philosophically, our axioms should be as simple as possible. The modern approach to axiomatic proof is for our list of axioms to be the <em>properties</em> that we want our system to have; but, it's not clear what these fundamental properties of the integers should be.</p>
 
@@ -193,7 +193,7 @@ export default function IntegerAxioms () {
 
 <p>We <em>could</em> have FTA as an axiom. But if we can prove it from simpler axioms, then why bother?</p>
 
-<h2 id="how-deep-do-we-go" className="group flex">How deep do we go?&nbsp;<Link href="#how-deep-do-we-go" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="how-deep-do-we-go" className="group flex">How deep do we go?&nbsp;<Link href="#how-deep-do-we-go" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms.md#how-deep-do-we-go")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>At some point, we need to stop our search for rigor - otherwise we will get too far out of the math world and into philosophy. For example, what does it mean for two things to be equal? And so, we will <em>assume</em> some basic notions:</p>
 
@@ -204,7 +204,7 @@ export default function IntegerAxioms () {
 <li>Order of operations</li>
 </ul>
 
-<h2 id="basic-properties" className="group flex">Basic properties&nbsp;<Link href="#basic-properties" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="basic-properties" className="group flex">Basic properties&nbsp;<Link href="#basic-properties" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms.md#basic-properties")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>We are working with the integers (whole numbers, <Latex>$\mathbb&#123;Z&#125;$</Latex>) and naturals (positive whole numbers, <Latex>$\mathbb&#123;N&#125;$</Latex>), under two basic operations: addition and multiplication (<Latex>$+, \cdot$</Latex>). More technically, it is an underlying assumption that <Latex>$\mathbb&#123;Z&#125;$</Latex> is <em>closed</em> under two well-defined binary operations <Latex>$+, \cdot$</Latex>, i.e. that adding or multiplying two integers always gives an integer. (This is not the case for division!)</p>
 
@@ -244,7 +244,7 @@ export default function IntegerAxioms () {
 
 <p>If we don't do this then whenever we cite these axioms, we would have to remember the way round we wrote it, which is utter hell.</p>
 
-<h2 id="uniqueness-theorems" className="group flex">Uniqueness Theorems&nbsp;<Link href="#uniqueness-theorems" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="uniqueness-theorems" className="group flex">Uniqueness Theorems&nbsp;<Link href="#uniqueness-theorems" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms.md#uniqueness-theorems")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>We haven't explicitly stated that 0, 1 and additive inverses are unique.
 Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em> additive inverse of 1, right? Maybe we should add uniqueness as an axiom. </p>
@@ -297,7 +297,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 
 <p>Now we can introduce <em>negative signs</em> as the way to refer an integer's unique additive inverse: for each integer <Latex>$n$</Latex>, we denote its unique additive inverse as <Latex>$-n$</Latex>. Then, we can define <Latex>$a-b$</Latex> to be shorthand for <Latex>$a+(-b)$</Latex>, which is a nice way to avoid having to define subtraction as another operation.</p>
 
-<h2 id="ordering-of-z" className="group flex">Ordering of Z&nbsp;<Link href="#ordering-of-z" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="ordering-of-z" className="group flex">Ordering of Z&nbsp;<Link href="#ordering-of-z" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms.md#ordering-of-z")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>What we have so far is good, but we need more. For example we haven't axiomatized the naturals yet, and what about proof techniques?</p>
 
@@ -308,7 +308,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 
 <p>The importance of the well-ordering principle<sup className="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup> cannot be understated, because it will let us finish off proofs by assuming minimality and showing a contradiction (i.e. infinite descent).</p>
 
-<h2 id="definitions" className="group flex">Definitions&nbsp;<Link href="#definitions" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="definitions" className="group flex">Definitions&nbsp;<Link href="#definitions" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms.md#definitions")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Let's make a list of things we'll probably need to explicitly define if we want to have hope of proving FTA:</p>
 
@@ -342,7 +342,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 
 <p>Also, for the sake of brevity, we will skip the proofs that gcds and lcms <em>exist and are unique</em>, and that <em>all common divisors divide the greatest common divisor</em> (left as an exercise). Thus we can refer to the unique gcd of <Latex>$a,b$</Latex> as <Latex>$gcd(a,b)$</Latex> or <Latex>$(a,b)$</Latex>, and the unique lcm of <Latex>$a,b$</Latex> as <Latex>$lcm(a,b)$</Latex> or <Latex>$[a,b]$</Latex>.</p>
 
-<h2 id="structuring-logic-building-lemmas" className="group flex">Structuring logic, building lemmas&nbsp;<Link href="#structuring-logic-building-lemmas" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="structuring-logic-building-lemmas" className="group flex">Structuring logic, building lemmas&nbsp;<Link href="#structuring-logic-building-lemmas" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms.md#structuring-logic-building-lemmas")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>So, what's the point of all these axioms and definitions? It means we can start to inch towards our goal by building lemmas. For example:</p>
 
@@ -396,7 +396,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
   <p>But <Latex>$k\cdot r + j \cdot s$</Latex> is an integer because of closure, thus <Latex>$\exists \, x \in \mathbb&#123;Z&#125; \;s.t.\; (a\cdot r + b \cdot s) = d \cdot x$</Latex>, namely <Latex>$x = k\cdot r + j\cdot s$</Latex>. Thus by <strong>defn. of "divides"</strong>, <Latex>$d \mid (a \cdot r + b \cdot s)$</Latex>, as required.</p>
 </blockquote>
 
-<h2 id="lemma-list" className="group flex">Lemma List&nbsp;<Link href="#lemma-list" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="lemma-list" className="group flex">Lemma List&nbsp;<Link href="#lemma-list" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms.md#lemma-list")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Now for the list of lemmas that can be built up. To prevent circular reasoning, if lemma A is used to prove lemma B, then A will have a lower lemma number than B. Feel free to fill out the details of each proof (it's a good exercise!).</p>
 

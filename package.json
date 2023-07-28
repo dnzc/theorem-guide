@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "katex": "^0.16.8",
-    "react-icons": "^4.10.1",
-    "tw-elements-react": "^1.0.0-alpha1"
-  }
-}

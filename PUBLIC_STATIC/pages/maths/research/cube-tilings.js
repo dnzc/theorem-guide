@@ -200,7 +200,7 @@ export default function CubeTilings () {
 
 </Spoiler>
 
-<h2 id="getting-a-foothold" className="group flex">Getting a foothold&nbsp;<Link href="#getting-a-foothold" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="getting-a-foothold" className="group flex">Getting a foothold&nbsp;<Link href="#getting-a-foothold" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/research/cube-tilings.md#getting-a-foothold")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Before we actually find a lucky number, we can try to find some rules of inference, for example "if <Latex>$n$</Latex> is lucky then so is <Latex>$n+1000$</Latex>". If we can find lots of these, and at least one lucky number, then hopefully we can mark many integers as lucky.</p>
 
@@ -224,7 +224,7 @@ export default function CubeTilings () {
 
 <p>We can continue to try constructions like this.</p>
 
-<h2 id="constructive-lemmas" className="group flex">Constructive Lemmas&nbsp;<Link href="#constructive-lemmas" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="constructive-lemmas" className="group flex">Constructive Lemmas&nbsp;<Link href="#constructive-lemmas" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/research/cube-tilings.md#constructive-lemmas")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <blockquote>
   <p><em>Claim 1.</em> If <Latex>$n$</Latex> is lucky, then so is <Latex>$n+7$</Latex>.</p>
@@ -270,7 +270,7 @@ export default function CubeTilings () {
   <p><Image src='/images/cubetilings5.jpg' width='400' height='340' alt='construction'/></p>
 </blockquote>
 
-<h2 id="finding-a-base-case" className="group flex">Finding a base case&nbsp;<Link href="#finding-a-base-case" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="finding-a-base-case" className="group flex">Finding a base case&nbsp;<Link href="#finding-a-base-case" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/research/cube-tilings.md#finding-a-base-case")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>To actually find a lucky number, we remove cubes from our lego building blocks and only use 1:2:3 cuboids.</p>
 
@@ -460,7 +460,7 @@ export default function CubeTilings () {
 
 <p>OK - great! Now we have seven consecutive numbers (26 to 32) all being lucky. Since <Latex>$n \implies n+7$</Latex> (Claim 1), this means every integer greater than or equal to 26 is lucky. So <Latex>$C$</Latex> is at most 26.</p>
 
-<h2 id="reducing-the-bound-with-code" className="group flex">Reducing the bound with code&nbsp;<Link href="#reducing-the-bound-with-code" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="reducing-the-bound-with-code" className="group flex">Reducing the bound with code&nbsp;<Link href="#reducing-the-bound-with-code" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/research/cube-tilings.md#reducing-the-bound-with-code")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Have you noticed that in the table above, 25 sticks out like a sore thumb? If we could just show that 25 is lucky, we could add the numbers from 19 to 24 to our chain of consecutive numbers... and C would be at most <Latex>$19$</Latex> - and that would be a good place to stop, because conquering 25 feels like such a bargain (we would reduce C by a lot, not just by 1). But 25 = 18 + 7, so can we show that 18 is lucky? Then we'd have <Latex>$C \leq 18$</Latex>. 18 feels too big to manually try and search for, so can we write some code to brute force it?</p>
 

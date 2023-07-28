@@ -128,7 +128,7 @@ def gen_content(cur_dir, depth):
 
             # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
             tableOfContents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
-            page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" class="group flex">\2&nbsp;<Link href="#\1" class="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL) # if opening spoiler tag was on separated line
+            page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" class="group flex">\2&nbsp;<Link href="#\1" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks'+cur_dir+r'#\1")} class="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL) # if opening spoiler tag was on separated line
 
         with open(TARGET_DIR+cur_dir[:-3]+'.js', 'w+') as output_file:
             path_list = cur_dir.split('/')[1:-1] # path to parent folder
@@ -187,13 +187,10 @@ def gen_content(cur_dir, depth):
                     )
                 )
 
-if os.path.exists(TARGET_DIR):
-    shutil.rmtree(TARGET_DIR)
-
 if os.path.exists(IMAGES_DIR):
     shutil.rmtree(IMAGES_DIR)
 
-os.makedirs(TARGET_DIR)
+os.makedirs(TARGET_DIR, exist_ok=True)
 gen_content('', 1)
 
 
@@ -217,10 +214,9 @@ with open(TARGET_DIR+'index.js', 'w+') as output_file:
     )
 
 
-# add _app.js, _document.js and custom 404
+# add _app.js and custom 404
 
 shutil.copyfile(TEMPLATES_DIR+'_app.js', TARGET_DIR+'_app.js')
-shutil.copyfile(TEMPLATES_DIR+'_document.js', TARGET_DIR+'_document.js')
 shutil.copyfile(TEMPLATES_DIR+'404.js', TARGET_DIR+'404.js')
 
 print('done')

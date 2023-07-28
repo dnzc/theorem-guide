@@ -185,7 +185,7 @@ export default function DivisionAlgo () {
 
 <p>This is part 2, where we use the rigorous foundation we developed in part 1 to establish the <DiscreetLink href="https://brilliant.org/wiki/division-algorithm/">division algorithm</DiscreetLink>. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<h2 id="back-to-school" className="group flex">Back to School&nbsp;<Link href="#back-to-school" className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="back-to-school" className="group flex">Back to School&nbsp;<Link href="#back-to-school" onClick={() => navigator.clipboard.writeText("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/2-division-algo.md#back-to-school")} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Children tend to get taught division as <em>repeated subtraction</em> - for example, 14 divided by 3 is 4 remainder 2, because:</p>
 

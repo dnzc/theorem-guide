@@ -24,8 +24,8 @@ module.exports = {
         'hover': '#98c379',
       },
       fontFamily: {
-        "lato" : ['Lato', 'sans-serif'],
-        "mono" : ['Inconsolata', 'monospace'],
+        "sans" : ['var(--font-sans)', 'sans-serif'],
+        "mono" : ['var(--font-mono)', 'monospace'],
       },
     },
   },
