@@ -8,15 +8,18 @@ I really recommend watching <ProminentLink href='https://youtu.be/5A39Ht9Wcu0'>t
 
 ## Background Theory
 
-*Defn.* Let:
-$$\mathbb{R}^n = \{(x_1, \cdots, x_n) \mid x_i \in \mathbb{R}\}$$
-$$d(x,y) = \sqrt{\sum_{i=1}^n (x_i-y_i)^2}$$
+*Defn.* Consider a set $M$ together with a function $d : M \times M \to \mathbb{R}$.
 
-Then $(\mathbb{R}^n, d)$ is a **metric space** if and only if ('iff'):
+$(M, d)$ is a **metric space** if and only if ('iff'):
 
 - $d(x,y) = d(y,x)$
 - $d(x,y) \geq 0$, equality iff $x=y$
 - $d(x,y) + d(y,z) \geq d(x,z)$ (triangle inequality)
+
+*Example.* $(\mathbb{R}^n, d)$ is a metric space, where:
+$$\mathbb{R}^n = \{(x_1, \cdots, x_n) \mid x_i \in \mathbb{R}\}$$
+$$d(x,y) = \sqrt{\sum_{i=1}^n (x_i-y_i)^2}$$
+
 
 <br/><hr/><br/>
 

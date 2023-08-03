@@ -206,11 +206,9 @@ export default function LagrangeMultipliers () {
 
 <h2 id="background-theory" className="group flex">Background Theory&nbsp;<Link href="#background-theory" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#background-theory", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
-<p><em>Defn.</em> Let:
-<Latex>$$\mathbb&#123;R&#125;^n = \&#123;(x_1, \cdots, x_n) \mid x_i \in \mathbb&#123;R&#125;\&#125;$$</Latex>
-<Latex>$$d(x,y) = \sqrt&#123;\sum_&#123;i=1&#125;^n (x_i-y_i)^2&#125;$$</Latex></p>
+<p><em>Defn.</em> Consider a set <Latex>$M$</Latex> together with a function <Latex>$d : M \times M \to \mathbb&#123;R&#125;$</Latex>.</p>
 
-<p>Then <Latex>$(\mathbb&#123;R&#125;^n, d)$</Latex> is a <strong>metric space</strong> if and only if ('iff'):</p>
+<p><Latex>$(M, d)$</Latex> is a <strong>metric space</strong> if and only if ('iff'):</p>
 
 <ul>
 <li><Latex>$d(x,y) = d(y,x)$</Latex></li>
@@ -218,14 +216,26 @@ export default function LagrangeMultipliers () {
 <li><Latex>$d(x,y) + d(y,z) \geq d(x,z)$</Latex> (triangle inequality)</li>
 </ul>
 
-<p><br/><hr/><br/></p>
+<p><em>Example.</em> <Latex>$(\mathbb&#123;R&#125;^n, d)$</Latex> is a metric space, where:
+<Latex>$$\mathbb&#123;R&#125;^n = \&#123;(x_1, \cdots, x_n) \mid x_i \in \mathbb&#123;R&#125;\&#125;$$</Latex>
+<Latex>$$d(x,y) = \sqrt&#123;\sum_&#123;i=1&#125;^n (x_i-y_i)^2&#125;$$</Latex></p>
+
+<p><br/></p>
+
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> The <strong>open ball</strong> in <Latex>$\mathbb&#123;R&#125;^n$</Latex> with centre <Latex>$p \in \mathbb&#123;R^n&#125;$</Latex> and radius <Latex>$r$</Latex> is
 <Latex>$$B(p,r) := \&#123;x \in \mathbb&#123;\mathbb&#123;R&#125;^n&#125; \mid d(p,x) \lt r \&#125;$$</Latex></p>
 
 <p><em>Example.</em> Any finite open interval in <Latex>$\mathbb&#123;R&#125;$</Latex> is an open ball (<Latex>$n=1$</Latex>), because for any open interval <Latex>$(a,b) \subset \mathbb&#123;R&#125;$</Latex>, it is equal to <Latex>$B(\frac&#123;a+b&#125;&#123;2&#125;, \frac&#123;b-a&#125;&#123;2&#125;)$</Latex>.</p>
 
-<p><br/><hr/><br/></p>
+<p><br/></p>
+
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> <Latex>$u \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>open</strong> iff for every <Latex>$p \in u$</Latex>, <Latex>$\exists r\gt 0$</Latex> s.t. <Latex>$B(p,r) \subset u$</Latex>.</p>
 
@@ -233,7 +243,11 @@ export default function LagrangeMultipliers () {
 
 <div className='flex flex-wrap justify-around'><Image src='/images/lm1.svg' width='250' height='250' alt='open set' /> <Image src='/images/lm2.svg' width='250' height='250' alt='diagram' /></div>
 
-<p><br/><hr/><br/></p>
+<p><br/></p>
+
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> Let <Latex>$(x_k)_&#123;k=1&#125;^\infty$</Latex> be a sequence in <Latex>$\mathbb&#123;R&#125;^n$</Latex>. The sequence <strong>converges</strong> to the point <Latex>$x_\infty$</Latex> iff <Latex>$\forall \epsilon \gt 0, \exists n_0 \in \mathbb&#123;N&#125;$</Latex> such that:
 <Latex>$$n \geq n_0 \implies d(x_n, x_\infty) \lt \epsilon$$</Latex>
@@ -243,7 +257,11 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
 <Latex>$$\lim_&#123;n \to \infty&#125; x_n = x_\infty = (0,0)$$</Latex>
 <Latex>$$\lim_&#123;n \to \infty&#125; \left(1-\frac&#123;1&#125;&#123;n&#125;\;,\; \frac&#123;1&#125;&#123;n^2&#125;\right) = (1,0)$$</Latex></p>
 
-<p><br/><hr/><br/></p>
+<p><br/></p>
+
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> Let <Latex>$S \subseteq \mathbb&#123;R&#125;^n$</Latex>. <Latex>$S$</Latex> is <strong>closed</strong> iff for every sequence of points <Latex>$(x_k)_&#123;k=1&#125;^\infty$</Latex> that satisfies <Latex>$x_k \in S \;\forall\; k$</Latex>, we have:
 <Latex>$$\left( \lim_&#123;k \to \infty&#125; x_k \right) \in S$$</Latex></p>
@@ -252,7 +270,11 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
 
 <p><em>Example.</em> Any open ball together with one point on the boundary, is neither closed nor open.</p>
 
-<p><br/><hr/><br/></p>
+<p><br/></p>
+
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> Let <Latex>$p \in \mathbb&#123;R&#125;^n$</Latex> and <Latex>$r\gt 0$</Latex>. The <strong>closed ball</strong> <Latex>$B[p,r]$</Latex> is<sup className="footnote-ref" id="fnref-1"><a href="#fn-1">4</a></sup> the set:
 <Latex>$$\&#123;x \in \mathbb&#123;R&#125;^n \mid d(p,x) \leq r\&#125;$$</Latex></p>
@@ -262,7 +284,11 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
     <Image src='/images/lm3.svg' width='100' height='100' alt='diagram' />
 </div>
 
-<p><br/><hr/><br/></p>
+<p><br/></p>
+
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> Let <Latex>$A \in \mathbb&#123;R&#125;^n$</Latex>. The <strong>closure</strong> of <Latex>$A$</Latex>, denoted <Latex>$\bar A$</Latex>, is the smallest closed set containing <Latex>$A$</Latex>.</p>
 
@@ -270,7 +296,9 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
     <Image src='/images/lm4.svg' width='300' height='150' alt='diagram'/>
 </div>
 
-<p><br/><hr/></p>
+<p><br/></p>
+
+<hr/>
 
 <blockquote>
   <p><em>Thm.</em> <Latex>$A \subseteq \mathbb&#123;R&#125;^n$</Latex> is closed iff <Latex>$\mathbb&#123;R&#125;^n \setminus A$</Latex> is open.</p>
@@ -296,7 +324,9 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
   </div>
 </blockquote>
 
-<p><hr/><br/></p>
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> <Latex>$A \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>bounded</strong> iff <Latex>$\exists\, R \in \mathbb&#123;R&#125;, R\gt 0$</Latex> such that <Latex>$A \subseteq B(0, R)$</Latex>.</p>
 
@@ -306,13 +336,21 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
     <Image src='/images/lm8.svg' width='250' height='250' alt='diagram'/>
 </div>
 
-<p><br/><hr/><br/></p>
+<p><br/></p>
+
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> A subset <Latex>$K \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>compact</strong> if it is closed and bounded.</p>
 
 <div className='flex flex-wrap justify-around'><Image src='/images/lm9.svg' width='250' height='250' alt='open set' /> <Image src='/images/lm10.svg' width='250' height='250' alt='diagram' /></div>
 
-<p><br/><hr/><br/></p>
+<p><br/></p>
+
+<hr/>
+
+<p><br/></p>
 
 <p><em>Defn.</em> Let <Latex>$D \subseteq \mathbb&#123;R&#125;^n$</Latex> and let <Latex>$f : D \to \mathbb&#123;R&#125;$</Latex>.</p>
 
@@ -326,14 +364,22 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
 
 <p><em>Example.</em> <Latex>$f : \mathbb&#123;R&#125;^n \to \mathbb&#123;R&#125;$</Latex>, <Latex>$f(x_1, \cdots, x_n) = x_1 + \cdots + x_n$</Latex></p>
 
-<p><br/><hr/></p>
+<p><br/></p>
+
+<hr/>
 
 <blockquote>
   <p><strong>Thm.</strong> Let <Latex>$f : K \to \mathbb&#123;R&#125;$</Latex> be a continuous function, where <Latex>$K \subseteq \mathbb&#123;R&#125;^n$</Latex> is a compact set. Then <Latex>$f$</Latex> has both a global maximum value and a global minimum value<sup className="footnote-ref" id="fnref-3"><a href="#fn-3">2</a></sup>:
   <Latex>$$\exists\, x \in K \text&#123; s.t. &#125; f(x) \geq f(y) \;\forall\, y \in K$$</Latex>
-  <Latex>$$\exists\, x' \in K \text&#123; s.t. &#125; f(x') \leq f(y) \;\forall\, y \in K$$</Latex>
-  <hr/><br/>
-  <em>Example.</em></p>
+  <Latex>$$\exists\, x' \in K \text&#123; s.t. &#125; f(x') \leq f(y) \;\forall\, y \in K$$</Latex></p>
+</blockquote>
+
+<hr/>
+
+<p><br/></p>
+
+<blockquote>
+  <p><em>Example.</em></p>
   
   <div className='flex flex-wrap justify-around'>
     <Image src='/images/lm11.svg' width='300' height='300'/>
@@ -344,8 +390,15 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
     </div>
   </div>
   
-  <p><br/><hr/><br/></p>
-  
+  <p><br/></p>
+</blockquote>
+
+<hr/>
+
+<p><br/>
+&gt;</p>
+
+<blockquote>
   <p>Note: We need to assume <Latex>$K$</Latex> is closed for this theorem, else we can construct a counterexample where <Latex>$f$</Latex> increases the closer you get to the edge.</p>
 </blockquote>
 

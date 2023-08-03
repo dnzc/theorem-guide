@@ -120,9 +120,12 @@ def gen_content(cur_dir, depth):
 
             # replace \\ with \\\\, because for some reason later \\ is replaced with \ (probably by markdown2)
             file = file.replace('\\\\','\\\\\\\\') 
-            # ensure that <Spoiler> and </Spoiler> are preceded+followed by two newlines, so that markdown2 will wrap them in p tags (i.e. there won't be junk between spoiler tag and p tag)
-            file = re.sub(r'<(/?)Spoiler>\n?([^\n])', r'<\1Spoiler>\n\n\2', file)
-            file = re.sub(r'([^\n])\n?<(/)?Spoiler>', r'\1\n\n<\2Spoiler>', file)
+            # ensure that <Spoiler> and </Spoiler> (and <Spoiler/>) are preceded+followed by two newlines, so that markdown2 will wrap them in p tags (i.e. there won't be junk between spoiler tag and p tag)
+            file = re.sub(r'<(/?)Spoiler(/?)>\n?([^\n])', r'<\1Spoiler\2>\n\n\3', file)
+            file = re.sub(r'([^\n])\n?<(/?)Spoiler(/?)>', r'\1\n\n<\2Spoiler\3>', file)
+            # ensure that <hr> and </hr> are preceded+followed by two newlines, so that markdown2 will wrap them in p tags (i.e. there won't be junk between hr tag and p tag)
+            file = re.sub(r'<(/?)hr(/?)>\n?([^\n])', r'<\1hr\2>\n\n\3', file)
+            file = re.sub(r'([^\n])\n?<(/?)hr(/?)>', r'\1\n\n<\2hr\3>', file)
             # replace images directory inside image tags, to be the public one
             file = re.sub('CONTENT_ROOT/__IMAGES__', 'images', file)
             # find literal braces, for latex (so that the backslash doesn't die when being parsed)
@@ -158,9 +161,14 @@ def gen_content(cur_dir, depth):
             page = re.sub('<p><Spoiler></p>', '<Spoiler>', page)
             page = re.sub('<p></Spoiler></p>', '</Spoiler>', page)
 
+            # <p> tags will have been placed around <hr>, remove them
+            page = re.sub('<p><hr></p>', '<hr>', page)
+            page = re.sub('<p></hr></p>', '</hr>', page)
+
             # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
             tableOfContents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
             page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" class="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://wiki.danielc.rocks'+cur_dir[:-3]+r'#\1", true)} class="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL) # if opening spoiler tag was on separated line
+
 
         with open(TARGET_DIR+cur_dir[:-3]+'.js', 'w+') as output_file:
             path_list = cur_dir.split('/')[1:-1] # path to parent folder
