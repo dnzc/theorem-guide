@@ -1,17 +1,17 @@
 
-import Layout from '../components/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '../components/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '../components/prominentLink'
-import DiscreetLink from '../components/discreetLink'
-import MailLink from '../components/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import { MdArticle } from 'react-icons/md'
-import Folder from '../components/folder'
+import Folder from '@/components/folder'
 
 
 export default function Wiki () {
@@ -188,7 +188,7 @@ export default function Wiki () {
                 I use <ProminentLink href="https://nextjs.org/">next.js</ProminentLink> as the framework, with styling from <ProminentLink href="https://tailwindcss.com/">tailwind</ProminentLink>. The web app is hosted publicly on <ProminentLink href="https://vercel.com/">vercel</ProminentLink>.
             </li>
             <li className="list-disc ml-8">
-                I maintain a private <ProminentLink href="https://github.com/">github</ProminentLink> repository containing the master folder with all the contents of this wiki, in <ProminentLink href="https://www.markdownguide.org/getting-started/">markdown</ProminentLink> format. When I want to update the wiki, I edit the master folder with a markdown editor.
+                I maintain a private <ProminentLink href="https://github.com/">github</ProminentLink> repository containing the master folder with all the contents of this wiki, in <ProminentLink href="https://www.markdownguide.org/getting-started/">markdown</ProminentLink> format. When I want to update the wiki, I edit the master folder with a markdown editor, using <ProminentLink href="https://inkscape.org/">inkscape</ProminentLink> for math diagrams.
             </li>
             <li className="list-disc ml-8">
                 I wrote a static site generator in <ProminentLink href="https://www.python.org/">python</ProminentLink> to generate html content out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">jinja2</ProminentLink> templates, then wraps it in boilerplate <ProminentLink href="https://react.dev/">react</ProminentLink>. I run the python script to preview new content.

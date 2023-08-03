@@ -1,17 +1,17 @@
 
-import Layout from '../../../components/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '../../../components/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '../../../components/prominentLink'
-import DiscreetLink from '../../../components/discreetLink'
-import MailLink from '../../../components/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import { MdArticle } from 'react-icons/md'
-import Folder from '../../../components/folder'
+import Folder from '@/components/folder'
 
 
 export default function NumberTheory () {

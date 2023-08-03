@@ -1,21 +1,21 @@
 
-import Layout from '../../../../components/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '../../../../components/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '../../../../components/prominentLink'
-import DiscreetLink from '../../../../components/discreetLink'
-import MailLink from '../../../../components/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
-import Spoiler from '../../../../components/spoiler'
-import IncompleteMessage from '../../../../components/incompleteMessage'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
-import { copyToClipboard, CopyButton } from '../../../../components/copyButton'
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -214,7 +214,7 @@ export default function Fta () {
   <p><em>Claim.</em> Every integer greater than 1 is a prime or a product of primes.</p>
   
   <p><em>Proof.</em> Suppose not, we will show a contradiction. <br />
-  Then the set <Latex>$&#123;n \in \mathbb&#123;N&#125; \mid n\gt 1$</Latex> and <Latex>$n$</Latex> is not prime or a product of primes <Latex>$&#125;$</Latex> is nonempty. But this set is also a subset of <Latex>$\mathbb&#123;N&#125;$</Latex>, by definition. Hence by the <strong>well-ordering principle</strong>, it has a least element, say <Latex>$e$</Latex>. Then <Latex>$e \gt 1$</Latex> and <Latex>$e$</Latex> is not prime of a product of primes.</p>
+  Then the set <Latex>$\&#123;n \in \mathbb&#123;N&#125; \mid n\gt 1$</Latex> and <Latex>$n$</Latex> is not prime or a product of primes <Latex>$\&#125;$</Latex> is nonempty. But this set is also a subset of <Latex>$\mathbb&#123;N&#125;$</Latex>, by definition. Hence by the <strong>well-ordering principle</strong>, it has a least element, say <Latex>$e$</Latex>. Then <Latex>$e \gt 1$</Latex> and <Latex>$e$</Latex> is not prime of a product of primes.</p>
   
   <p>Since <Latex>$e$</Latex> is not prime, there exist integers <Latex>$a,b$</Latex> such that <Latex>$e = ab$</Latex> and <Latex>$1 \lt a \leq b \lt n$</Latex>.</p>
   
@@ -239,7 +239,7 @@ export default function Fta () {
 
 <p><em>Proof.</em> Suppose <Latex>$n \in \mathbb&#123;N&#125;$</Latex> is not prime, and that there do not exist <Latex>$a,b \in \mathbb&#123;N&#125;$</Latex> with <Latex>$n = ab$</Latex> and <Latex>$1 \lt a \lt n$</Latex> and <Latex>$1 \lt b \lt n$</Latex>. We will show a contradiction.</p>
 
-<p>Consider the set <Latex>$S = &#123;(a,b) \in \mathbb&#123;N&#125;^2\mid n = ab&#125;$</Latex>. Since <Latex>$n = 1 \cdot n$</Latex>, this set is nonempty.</p>
+<p>Consider the set <Latex>$S = \&#123;(a,b) \in \mathbb&#123;N&#125;^2\mid n = ab\&#125;$</Latex>. Since <Latex>$n = 1 \cdot n$</Latex>, this set is nonempty.</p>
 
 <p>Now take an arbitrary element <Latex>$(x,y)$</Latex> of <Latex>$S$</Latex>. Then <Latex>$n = xy$</Latex>, so by assumption, it is not true that both <Latex>$1 \lt x \lt n$</Latex> and <Latex>$1 \lt y \lt n$</Latex>.</p>
 

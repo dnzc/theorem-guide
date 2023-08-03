@@ -1,21 +1,21 @@
 
-import Layout from '../../../components/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '../../../components/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '../../../components/prominentLink'
-import DiscreetLink from '../../../components/discreetLink'
-import MailLink from '../../../components/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
-import Spoiler from '../../../components/spoiler'
-import IncompleteMessage from '../../../components/incompleteMessage'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
-import { copyToClipboard, CopyButton } from '../../../components/copyButton'
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -189,7 +189,7 @@ export default function CubeTilings () {
         
 
         
-            <p className="text-elevated mb-3">Last modified on 28 Jul 2023</p>
+            <p className="text-elevated mb-3">Last modified on 01 Aug 2023</p>
         
 
         <div className="article mb-4">
@@ -231,7 +231,7 @@ export default function CubeTilings () {
 
 <p>With this mental imagery, we can find another construction:</p>
 
-<p><Image src='/images/cubetilings1.jpg' width='400' height='320' alt='construction' /></p>
+<p><Image src='/images/cubetilings1.svg' width='400' height='300' alt='construction' /></p>
 
 <p>We used 2 cubes and 3 cuboids, thus if <Latex>$n$</Latex> and <Latex>$m$</Latex> are lucky, we can scale two cubes tiled with <Latex>$n$</Latex> and <Latex>$m$</Latex> cuboids to fit inside this construction. Hence we know that:</p>
 
@@ -260,7 +260,7 @@ export default function CubeTilings () {
   
   <p><em>Proof.</em></p>
   
-  <p><Image src='/images/cubetilings2.jpg' width='400' height='310' alt='construction'/></p>
+  <p><Image src='/images/cubetilings2.svg' width='260' height='300' alt='construction'/></p>
 </blockquote>
 
 <blockquote>
@@ -268,7 +268,9 @@ export default function CubeTilings () {
   
   <p><em>Proof.</em></p>
   
-  <p><Image src='/images/cubetilings3.jpg' width='400' height='310' alt='construction'/></p>
+  <p><Image src='/images/cubetilings3.svg' width='320' height='400' alt='construction'/></p>
+  
+  <p>We can make a 6x6x3 cuboid with eleven 1:2:3 cuboids, as shown. Then, we can make another 6x6x3 cuboid using the same construction as in the proof of claim 3, where we wrap 4 cuboids around a cube. Thus we can combine these two 6x6x3 cuboids to form a 6x6x6 cube, using fifteen 1:2:3 cuboids and one smaller cube.</p>
 </blockquote>
 
 <blockquote>
@@ -276,7 +278,7 @@ export default function CubeTilings () {
   
   <p><em>Proof.</em></p>
   
-  <p><Image src='/images/cubetilings4.jpg' width='400' height='370' alt='construction'/></p>
+  <p><Image src='/images/cubetilings4.svg' width='360' height='500' alt='construction'/></p>
 </blockquote>
 
 <blockquote>
@@ -284,7 +286,7 @@ export default function CubeTilings () {
   
   <p><em>Proof.</em></p>
   
-  <p><Image src='/images/cubetilings5.jpg' width='400' height='340' alt='construction'/></p>
+  <p><Image src='/images/cubetilings5.svg' width='400' height='400' alt='construction'/></p>
 </blockquote>
 
 <h2 id="finding-a-base-case" className="group flex">Finding a base case&nbsp;<Link href="#finding-a-base-case" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/research/cube-tilings#finding-a-base-case", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
@@ -296,7 +298,7 @@ export default function CubeTilings () {
   
   <p><em>Proof.</em></p>
   
-  <p><Image src='/images/cubetilings6.jpg' width='400' height='275' alt='construction'/></p>
+  <p><Image src='/images/cubetilings6.svg' width='200' height='200' alt='construction'/></p>
 </blockquote>
 
 <p>Now, let's see what numbers we can conquer with what we have so far.</p>
@@ -495,7 +497,7 @@ export default function CubeTilings () {
 
 <p><strong>The program found the following construction</strong>, proving that 18 is lucky:</p>
 
-<p><Image src='/images/cubetilings7.jpg' width='400' height='390' alt='construction'/></p>
+<p><Image src='/images/cubetilings7.svg' width='600' height='800' alt='construction'/></p>
 
 <p>Thus, 18+7=25 is also lucky, and so <strong><Latex>$C \leq 18$</Latex></strong>.</p>
 

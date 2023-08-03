@@ -1,21 +1,21 @@
 
-import Layout from '../../../../components/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '../../../../components/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '../../../../components/prominentLink'
-import DiscreetLink from '../../../../components/discreetLink'
-import MailLink from '../../../../components/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
-import Spoiler from '../../../../components/spoiler'
-import IncompleteMessage from '../../../../components/incompleteMessage'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
-import { copyToClipboard, CopyButton } from '../../../../components/copyButton'
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -506,7 +506,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 <blockquote>
   <p><em>Lemma 14.</em> There are no integers strictly between <Latex>$0$</Latex> and <Latex>$1$</Latex>.  </p>
   
-  <p><em>Proof outline.</em> Suppose there is an integer <Latex>$a$</Latex> between <Latex>$0$</Latex> and <Latex>$1$</Latex>. By <strong>Lemma 8</strong>, <Latex>$a \in \mathbb&#123;N&#125;$</Latex>, and so by the <strong>well-ordering principle</strong>, let <Latex>$e$</Latex> be the smallest such integer. More precisely, we are considering the set <Latex>$&#123;n \in \mathbb&#123;N&#125; \mid n \lt 1&#125;$</Latex>.  </p>
+  <p><em>Proof outline.</em> Suppose there is an integer <Latex>$a$</Latex> between <Latex>$0$</Latex> and <Latex>$1$</Latex>. By <strong>Lemma 8</strong>, <Latex>$a \in \mathbb&#123;N&#125;$</Latex>, and so by the <strong>well-ordering principle</strong>, let <Latex>$e$</Latex> be the smallest such integer. More precisely, we are considering the set <Latex>$\&#123;n \in \mathbb&#123;N&#125; \mid n \lt 1\&#125;$</Latex>.  </p>
   
   <p>Now, <Latex>$e \cdot e \lt 1 \cdot e$</Latex> (<strong>Lemma 13</strong>) and so <Latex>$e \cdot e$</Latex> is a smaller element of the set, contradiction.</p>
 </blockquote>

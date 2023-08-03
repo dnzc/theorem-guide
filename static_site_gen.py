@@ -13,19 +13,17 @@ template = template_env.get_template('template.jinja')
 home_template = template_env.get_template('home.jinja')
 folder_template = template_env.get_template('folder_overview.jinja')
 
-def wrap_in_js(jinja, name, depth, isFolder):
-    components_dir = ('./' if depth==0 else '../'*depth) + 'components'
-
+def wrap_in_js(jinja, name, isFolder):
     folder_imports = f'''
 import {{ MdArticle }} from 'react-icons/md'
-import Folder from '{components_dir}/folder'
+import Folder from '@/components/folder'
 ''' if isFolder else f'''
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
-import Spoiler from '{components_dir}/spoiler'
-import IncompleteMessage from '{components_dir}/incompleteMessage'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
-import {{ copyToClipboard, CopyButton }} from '{components_dir}/copyButton'
+import {{ copyToClipboard, CopyButton }} from '@/components/copyButton'
 import {{ ToastContainer }} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 '''
@@ -45,13 +43,13 @@ import 'react-toastify/dist/ReactToastify.css'
     ''' if not isFolder else ''
 
     return f'''
-import Layout from '{components_dir}/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '{components_dir}/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '{components_dir}/prominentLink'
-import DiscreetLink from '{components_dir}/discreetLink'
-import MailLink from '{components_dir}/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import {{ FaChevronRight }} from 'react-icons/fa'
 import {{ RiArrowGoBackFill }} from 'react-icons/ri'
@@ -127,6 +125,9 @@ def gen_content(cur_dir, depth):
             file = re.sub(r'([^\n])\n?<(/)?Spoiler>', r'\1\n\n<\2Spoiler>', file)
             # replace images directory inside image tags, to be the public one
             file = re.sub('CONTENT_ROOT/__IMAGES__', 'images', file)
+            # find literal braces, for latex (so that the backslash doesn't die when being parsed)
+            file = re.sub('\\\\{', '\\&#123;', file)
+            file = re.sub('\\\\}', '\\&#125;', file)
 
             page = markdown(file, extras=['fenced-code-blocks', 'code-friendly', 'header-ids', 'footnotes', 'wiki-tables'])
 
@@ -177,7 +178,6 @@ def gen_content(cur_dir, depth):
             react = wrap_in_js(
                     template.render(content=page.replace('class=', 'className='), pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, time=time, tableOfContents=tableOfContents),
                     pageTitle,
-                    depth-1,
                     False
                     )
             output_file.write(react)
@@ -213,7 +213,6 @@ def gen_content(cur_dir, depth):
                                 folder_count=sum(1 for i in folder_contents if i['is_file']=='no'),
                             ), pathStr=cur_dir, pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE),
                         pageTitle,
-                        depth,
                         True
                     )
                 )
@@ -239,7 +238,6 @@ with open(TARGET_DIR+'index.js', 'w+') as output_file:
                     folder_count=sum(1 for i in folder_contents if i['is_file']=='no'),
                 ), dirTree=DIR_TREE),
             'Wiki',
-            1,
             True
         )
     )

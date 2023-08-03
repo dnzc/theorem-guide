@@ -1,21 +1,21 @@
 
-import Layout from '../../../../components/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '../../../../components/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '../../../../components/prominentLink'
-import DiscreetLink from '../../../../components/discreetLink'
-import MailLink from '../../../../components/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
-import Spoiler from '../../../../components/spoiler'
-import IncompleteMessage from '../../../../components/incompleteMessage'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
-import { copyToClipboard, CopyButton } from '../../../../components/copyButton'
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -236,7 +236,7 @@ In particular, 2&lt;3, and in general the remainder is always less than the divi
   
   <p>Let <Latex>$a$</Latex> be a fixed integer and <Latex>$b$</Latex> be a fixed natural. Consider the set:</p>
   
-  <p><Latex>$$S = &#123;n \in \mathbb&#123;N&#125; \mid n = a - bq + 1, q \in \mathbb&#123;Z&#125;&#125;$$</Latex></p>
+  <p><Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = a - bq + 1, q \in \mathbb&#123;Z&#125;\&#125;$$</Latex></p>
   
   <p>Then S is a subset of the naturals. Furthermore, it is nonempty, because:</p>
   

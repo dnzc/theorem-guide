@@ -1,21 +1,21 @@
 
-import Layout from '../../../../components/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '../../../../components/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '../../../../components/prominentLink'
-import DiscreetLink from '../../../../components/discreetLink'
-import MailLink from '../../../../components/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
-import Spoiler from '../../../../components/spoiler'
-import IncompleteMessage from '../../../../components/incompleteMessage'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
-import { copyToClipboard, CopyButton } from '../../../../components/copyButton'
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -369,7 +369,7 @@ export default function BezoutEgcd () {
 
 <blockquote>
   <p><em>Proof.</em> Let <Latex>$a,b \in \mathbb&#123;N&#125;$</Latex>. Consider the set
-  <Latex>$$S = &#123;n \in \mathbb&#123;N&#125; \mid n = ax + by,\; x,y \in \mathbb&#123;Z&#125;&#125;$$</Latex></p>
+  <Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = ax + by,\; x,y \in \mathbb&#123;Z&#125;\&#125;$$</Latex></p>
   
   <p>This set is nonempty (since, for example, <Latex>$a \in S$</Latex>) and a subset of the naturals by construction. Thus by the <strong>well-ordering principle</strong>, S has a least element, say <Latex>$e = ax_0 + by_0$</Latex>.</p>
   

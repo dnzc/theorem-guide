@@ -1,17 +1,17 @@
 
-import Layout from '../../../components/layout'
+import Layout from '@/components/layout'
 import Head from 'next/head'
-import Accordion from '../../../components/accordion'
+import Accordion from '@/components/accordion'
 import Link from 'next/link'
-import ProminentLink from '../../../components/prominentLink'
-import DiscreetLink from '../../../components/discreetLink'
-import MailLink from '../../../components/mailLink'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
 
 import { FaChevronRight } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import { MdArticle } from 'react-icons/md'
-import Folder from '../../../components/folder'
+import Folder from '@/components/folder'
 
 
 export default function Olympiad () {
@@ -186,7 +186,7 @@ export default function Olympiad () {
                         <p className="relative bottom-[1px]">techniques</p>
                     </div>
                 </Link>
-                <p className="text-sm">14 Jul 2023</p>
+                <p className="text-sm">03 Aug 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -220,7 +220,7 @@ export default function Olympiad () {
                         <p className="relative bottom-[1px]">techniques</p>
                     </div>
                 </Link>
-                <p className="text-sm">14 Jul 2023</p>
+                <p className="text-sm">03 Aug 2023</p>
             </li>
         
         </>
