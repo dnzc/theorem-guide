@@ -30,11 +30,11 @@
      inkscape:zoom="1.0570195"
      inkscape:cx="118.25704"
      inkscape:cy="176.43951"
-     inkscape:window-width="1896"
-     inkscape:window-height="1024"
-     inkscape:window-x="12"
-     inkscape:window-y="44"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1048"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      inkscape:snap-bbox="true" />
   <defs
@@ -210,16 +210,13 @@
        cx="53.317875"
        cy="46.836182"
        r="16.711859" />
-    <text
-       xml:space="preserve"
-       style="font-size:11.9944px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';fill:#ffffff;stroke:none;stroke-width:1;stroke-linejoin:bevel"
-       x="66.567207"
-       y="34.256317"
-       id="text63860"><tspan
-         sodipodi:role="line"
-         id="tspan63858"
-         style="stroke:none;stroke-width:1"
-         x="66.567207"
-         y="34.256317">K</tspan></text>
+    <g
+       aria-label="K"
+       id="text63860"
+       style="font-size:11.9944px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';fill:#ffffff;stroke-linejoin:bevel">
+      <path
+         d="m 68.923031,34.256317 h -1.064119 v -8.469892 h 1.064119 z m 0.06151,-4.520966 3.333828,-3.948926 h 1.230195 l -3.309224,3.881265 3.542961,4.588627 h -1.32861 z"
+         id="path902" />
+    </g>
   </g>
 </svg>

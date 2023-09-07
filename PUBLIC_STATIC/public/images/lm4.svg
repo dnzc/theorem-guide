@@ -29,12 +29,12 @@
      inkscape:zoom="1"
      inkscape:cx="98"
      inkscape:cy="74.5"
-     inkscape:window-width="1422"
-     inkscape:window-height="1024"
-     inkscape:window-x="12"
-     inkscape:window-y="44"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="g7292-1"
+     inkscape:window-width="1920"
+     inkscape:window-height="1048"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text31654"
      inkscape:snap-global="true"
      inkscape:snap-bbox="true" />
   <defs
@@ -329,28 +329,22 @@
            cx="53.538208"
            cy="45.156822"
            r="13.885966" />
-        <text
-           xml:space="preserve"
-           style="font-size:11.2889px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';opacity:1;fill:#e5c07b;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:1"
-           x="-16.167816"
-           y="31.262402"
-           id="text10370"><tspan
-             sodipodi:role="line"
-             id="tspan10368"
-             style="font-size:11.2889px;fill:#e5c07b;fill-opacity:1;stroke:none;stroke-width:1"
-             x="-16.167816"
-             y="31.262402">A</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:11.2889px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';opacity:1;fill:#e5c07b;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:1"
-           x="34.626083"
-           y="31.30867"
-           id="text31654"><tspan
-             sodipodi:role="line"
-             id="tspan31652"
-             style="font-size:11.2889px;stroke-width:1"
-             x="34.626083"
-             y="31.30867">A</tspan></text>
+        <g
+           aria-label="A"
+           id="text10370"
+           style="font-size:11.2889px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';opacity:1;fill:#e5c07b;stroke-linejoin:bevel;stroke-dasharray:1, 2">
+          <path
+             d="M -11.148597,29.2304 H -14.3037 l -0.63681,2.032002 h -0.98995 l 2.593553,-7.971701 h 1.285198 l 2.5935521,7.971701 h -1.0536311 z m -2.89459,-0.833642 h 2.634077 l -1.308355,-4.260837 z"
+             id="path7035" />
+        </g>
+        <g
+           aria-label="A"
+           id="text31654"
+           style="font-size:11.2889px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';opacity:1;fill:#e5c07b;stroke-linejoin:bevel;stroke-dasharray:1, 2">
+          <path
+             d="m 39.645302,29.276668 h -3.155103 l -0.63681,2.032002 H 34.86344 l 2.593552,-7.9717 h 1.285198 l 2.593553,7.9717 h -1.053631 z m -2.89459,-0.833642 h 2.634077 L 38.076434,24.18219 Z"
+             id="path7074" />
+        </g>
         <path
            style="opacity:1;fill:none;fill-opacity:1;stroke:#abb2bf;stroke-width:0.929928;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutM_Fnone_S-abb2bf)"
            d="M 21.377976,45.434704 H 32.150461"

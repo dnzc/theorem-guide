@@ -27,14 +27,14 @@
      width="400px"
      showguides="false"
      inkscape:zoom="1.0570195"
-     inkscape:cx="213.80874"
-     inkscape:cy="149.00388"
-     inkscape:window-width="1896"
-     inkscape:window-height="1024"
-     inkscape:window-x="12"
-     inkscape:window-y="44"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:cx="213.80873"
+     inkscape:cy="149.00387"
+     inkscape:window-width="1920"
+     inkscape:window-height="1048"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text11131" />
   <defs
      id="defs2">
     <marker
@@ -154,27 +154,23 @@
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.486298;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#TriangleInL_Fnone_S-ffffff);marker-end:url(#TriangleOutL_Fnone_S-ffffff)"
        d="M 66.145803,60.270894 V 4.8796755"
        id="path7265" />
-    <text
-       xml:space="preserve"
-       style="font-size:11.9944px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';fill:#e06c75;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       x="68.288979"
-       y="39.521431"
-       id="text11131"><tspan
-         sodipodi:role="line"
-         id="tspan11129"
-         style="fill:#e06c75;fill-opacity:1;stroke:none;stroke-width:0.5"
-         x="68.288979"
-         y="39.521431">R</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:11.9944px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';fill:#e06c75;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       x="85.179596"
-       y="90.051582"
-       id="text22921"><tspan
-         sodipodi:role="line"
-         id="tspan22919"
-         style="fill:#e06c75;fill-opacity:1;stroke-width:0.5"
-         x="85.179596"
-         y="90.051582">A</tspan></text>
+    <g
+       aria-label="R"
+       id="text11131"
+       style="font-size:11.9944px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';fill:#e06c75;stroke-width:0.499999;stroke-linejoin:bevel">
+      <path
+         d="m 74.901276,33.425815 q 0,0.953401 -0.596644,1.543895 -0.596645,0.584342 -1.470083,0.793476 l 2.509597,3.758245 h -1.279402 l -2.312767,-3.635226 h -1.144081 v 3.635226 h -1.07027 v -8.469892 h 2.177445 q 1.568499,0 2.374276,0.602796 0.811929,0.596644 0.811929,1.77148 z m -1.144081,0 q 0,-0.811928 -0.473625,-1.168685 -0.467474,-0.356756 -1.445479,-0.356756 h -1.230195 v 3.149299 h 1.230195 q 0.910344,0 1.414724,-0.369059 0.50438,-0.375209 0.50438,-1.254799 z"
+         style="stroke-width:0.5"
+         id="path879" />
+    </g>
+    <g
+       aria-label="A"
+       id="text22921"
+       style="font-size:11.9944px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';fill:#e06c75;stroke-width:0.499999;stroke-linejoin:bevel">
+      <path
+         d="M 90.512491,87.89259 H 87.16021 l -0.676607,2.158992 h -1.051817 l 2.755636,-8.469891 h 1.365517 l 2.755636,8.469891 h -1.119477 z m -3.075487,-0.88574 h 2.798693 l -1.39012,-4.527117 z"
+         style="stroke-width:0.5"
+         id="path900" />
+    </g>
   </g>
 </svg>

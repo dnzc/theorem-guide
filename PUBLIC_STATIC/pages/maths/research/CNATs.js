@@ -189,7 +189,7 @@ export default function CNATs () {
         
 
         
-            <p className="text-elevated mb-3">Last modified on 28 Jul 2023</p>
+            <p className="text-elevated mb-3">Last modified on 07 Sep 2023</p>
         
 
         <div className="article mb-4">
@@ -200,7 +200,7 @@ export default function CNATs () {
 <p>This page is a stub; I just needed somewhere to note down a seemingly magical but random conjecture that we felt wasn't relevant enough to make it into the final paper.</p>
 
 <blockquote>
-  <p><em>Conjecture.</em>  Let <Latex>$h(n,k)$</Latex> be the number of Prufer sequences ending in <Latex>$k$</Latex> that represent a valid CNAT of size <Latex>$n$</Latex>. Then:</p>
+  <p><em>Conjecture.</em>  Let <Latex>$h(n,k)$</Latex> be the number of Prufer sequences ending in <Latex>$k$</Latex> that represent a tree whose adjacency matrix is a valid CNAT of size <Latex>$n$</Latex>. Then:</p>
   
   <p><Latex>$$h(n,k) = \begin&#123;cases&#125; \frac&#123;(n-1)!&#125;&#123;k(k+1)&#125; &amp; \text&#123;if &#125; 1\leq k &lt; n-1\\0 &amp; \text&#123;if &#125; k=n-1\\(n-2)! &amp; \text&#123;if &#125; k=n \end&#123;cases&#125;$$</Latex></p>
   
