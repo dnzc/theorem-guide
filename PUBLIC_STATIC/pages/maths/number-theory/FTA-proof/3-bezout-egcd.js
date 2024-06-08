@@ -114,31 +114,11 @@ export default function BezoutEgcd () {
                                 
                                     
                         
-                            <Accordion title="problems" href="/maths/olympiad/problems" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                        
-                            <Accordion title="IMO23" href="/maths/olympiad/problems/IMO23" isFolder={false} isSelected={ false } />
-                        
-                    
-                                
-                            </Accordion>
-                        
-                    
-                        
                             <Accordion title="techniques" href="/maths/olympiad/techniques" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                         
-                            <Accordion title="generating-funcs" href="/maths/olympiad/techniques/generating-funcs" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
                             <Accordion title="lagrange-multipliers" href="/maths/olympiad/techniques/lagrange-multipliers" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="moving-points" href="/maths/olympiad/techniques/moving-points" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -163,6 +143,18 @@ export default function BezoutEgcd () {
                     
                                 
                             </Accordion>
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="writeups" href="/writeups" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                        
+                            <Accordion title="terminal" href="/writeups/terminal" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -810,18 +802,18 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
     
         <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-elevated px-6 py-4">
             <div className="fixed">
-                <h1 className="font-bold text-lg">In this Article</h1>
+                <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#puzzle-water-jug-problem" className="text-primary">Puzzle: water-jug problem</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#puzzle-water-jug-problem" className="text-link">Puzzle: water-jug problem</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#numerical-evidence" className="text-primary">Numerical Evidence</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#numerical-evidence" className="text-link">Numerical Evidence</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#bezouts-lemma-proof" className="text-primary">Bezout's Lemma: Proof</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#bezouts-lemma-proof" className="text-link">Bezout's Lemma: Proof</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#magic-box" className="text-primary">Magic box</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#magic-box" className="text-link">Magic box</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#remarks-first-unobvious-result" className="text-primary">Remarks: first unobvious result?</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#remarks-first-unobvious-result" className="text-link">Remarks: first unobvious result?</Link></li>
                     
                 </ul>
             </div>

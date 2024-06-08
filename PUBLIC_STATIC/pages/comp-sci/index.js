@@ -96,31 +96,11 @@ export default function CompSci () {
                                 
                                     
                         
-                            <Accordion title="problems" href="/maths/olympiad/problems" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                        
-                            <Accordion title="IMO23" href="/maths/olympiad/problems/IMO23" isFolder={false} isSelected={ false } />
-                        
-                    
-                                
-                            </Accordion>
-                        
-                    
-                        
                             <Accordion title="techniques" href="/maths/olympiad/techniques" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                         
-                            <Accordion title="generating-funcs" href="/maths/olympiad/techniques/generating-funcs" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
                             <Accordion title="lagrange-multipliers" href="/maths/olympiad/techniques/lagrange-multipliers" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="moving-points" href="/maths/olympiad/techniques/moving-points" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -145,6 +125,18 @@ export default function CompSci () {
                     
                                 
                             </Accordion>
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="writeups" href="/writeups" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                        
+                            <Accordion title="terminal" href="/writeups/terminal" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -183,7 +175,7 @@ export default function CompSci () {
                         <p className="relative bottom-[1px]">algorithms</p>
                     </div>
                 </Link>
-                <p className="text-sm">28 Jul 2023</p>
+                <p className="text-sm">08 Jun 2024</p>
             </li>
         
         </>
@@ -197,7 +189,7 @@ export default function CompSci () {
                         <p className="relative bottom-[1px]">algorithms</p>
                     </div>
                 </Link>
-                <p className="text-sm">28 Jul 2023</p>
+                <p className="text-sm">08 Jun 2024</p>
             </li>
         
         </>

@@ -52,19 +52,22 @@ end
 ## Example problem: Minimum excludant
 
 > Given a sorted array of distinct positive integers, find the smallest positive integer that is not in the array.
->
-> *Examples.*
->
-> Input: [1, 2, 3, 5, 9, 12, 13]  
-> Output: 4
->
-> Input: [3, 5, 7, 10]  
-> Output: 1
->
-> Input: [1, 2, 3, 4]  
-> Output: 5
 
-**Solution:**
+**Examples**
+
+> Input: `[1, 2, 3, 5, 9, 12, 13]` <CopyButton text='[1, 2, 3, 5, 9, 12, 13]'/>
+>
+> Output: `4`
+
+> Input: `[3, 5, 7, 10]` <CopyButton text='[3, 5, 7, 10]'/>
+>
+> Output: `1`
+
+> Input: `[1, 2, 3, 4]` <CopyButton text='[1, 2, 3, 4]'/>
+>
+> Output: `5`
+
+**Solution**
 
 <Spoiler>
 
@@ -118,7 +121,7 @@ def solve(array):
 >
 >
 
-**Example:**
+**Example**
 
 <CopyButton text="7\n5 1\n1 2 4 5 6\n5 3\n1 3 5 6 7\n4 1000\n2 3 4 5\n9 1434\n1 4 7 9 12 15 17 18 20\n10 4\n1 3 5 7 9 11 13 15 17 19\n10 6\n1 4 7 10 13 16 19 22 25 28\n10 150000\n1 3 4 5 10 11 12 13 14 15\n">Input:</CopyButton>
 
@@ -152,7 +155,7 @@ def solve(array):
 1499986
 ```
 
-**Solution:**
+**Solution**
 <Spoiler>
 
 Let's simulate backwards instead of forwards. Instead of deleting the positions $a_1, a_2, \cdots, a_n$ each time then checking the first number after $k$ operations, let's start with the number $1$ at the front and insert zeroes at positions $a_1 - 1, a_2 - 2, \cdots, a_n - n$ so that the zeroes will occupy positions $a_1, a_2, \cdots, a_n$ after insertion. After $k$ insertions, we check what position $1$ is in.

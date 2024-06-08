@@ -114,31 +114,11 @@ export default function CubeTilings () {
                                 
                                     
                         
-                            <Accordion title="problems" href="/maths/olympiad/problems" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                        
-                            <Accordion title="IMO23" href="/maths/olympiad/problems/IMO23" isFolder={false} isSelected={ false } />
-                        
-                    
-                                
-                            </Accordion>
-                        
-                    
-                        
                             <Accordion title="techniques" href="/maths/olympiad/techniques" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                         
-                            <Accordion title="generating-funcs" href="/maths/olympiad/techniques/generating-funcs" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
                             <Accordion title="lagrange-multipliers" href="/maths/olympiad/techniques/lagrange-multipliers" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="moving-points" href="/maths/olympiad/techniques/moving-points" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -163,6 +143,18 @@ export default function CubeTilings () {
                     
                                 
                             </Accordion>
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="writeups" href="/writeups" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                        
+                            <Accordion title="terminal" href="/writeups/terminal" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -519,16 +511,16 @@ export default function CubeTilings () {
     
         <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-elevated px-6 py-4">
             <div className="fixed">
-                <h1 className="font-bold text-lg">In this Article</h1>
+                <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#getting-a-foothold" className="text-primary">Getting a foothold</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#getting-a-foothold" className="text-link">Getting a foothold</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#constructive-lemmas" className="text-primary">Constructive Lemmas</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#constructive-lemmas" className="text-link">Constructive Lemmas</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#finding-a-base-case" className="text-primary">Finding a base case</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#finding-a-base-case" className="text-link">Finding a base case</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#reducing-the-bound-with-code" className="text-primary">Reducing the bound with code</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#reducing-the-bound-with-code" className="text-link">Reducing the bound with code</Link></li>
                     
                 </ul>
             </div>

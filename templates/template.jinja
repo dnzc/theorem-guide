@@ -57,10 +57,10 @@
     {% if tableOfContents %}
         <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-elevated px-6 py-4">
             <div className="fixed">
-                <h1 className="font-bold text-lg">In this Article</h1>
+                <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     {% for title,href in tableOfContents %}
-                        <li className="pt-2 list-inside list-disc"><Link href="{{href}}" className="text-primary">{{title}}</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="{{href}}" className="text-link">{{title}}</Link></li>
                     {% endfor %}
                 </ul>
             </div>

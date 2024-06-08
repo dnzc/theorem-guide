@@ -154,8 +154,14 @@
     }
 
     code {
-        @apply font-mono;
+        @apply font-mono text-base text-elevated;
+        @apply ml-1;
         white-space : pre-wrap !important;
+    }
+
+    pre > code {
+        @apply text-white;
+        @apply ml-0;
     }
 
     /* markdown tables */

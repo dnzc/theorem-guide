@@ -8,12 +8,12 @@ function copyToClipboard(text, isLink) {
 
 function CopyButton({ text, children }) {
     return (
-        <div className='flex items-center space-x-1'>
-            <p>
+        <span className='space-x-1'>
+            <span>
                 {children}
-            </p>
-            <button className='text-primary hover:text-secondary' onClick={() => copyToClipboard(text, false)}><TbClipboardCopy/></button>
-        </div>
+            </span>
+            <button className='relative top-0.5 text-primary hover:text-secondary' onClick={() => copyToClipboard(text, false)}><TbClipboardCopy/></button>
+        </span>
     )
 }
 

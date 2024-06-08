@@ -114,31 +114,11 @@ export default function IntegerAxioms () {
                                 
                                     
                         
-                            <Accordion title="problems" href="/maths/olympiad/problems" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                        
-                            <Accordion title="IMO23" href="/maths/olympiad/problems/IMO23" isFolder={false} isSelected={ false } />
-                        
-                    
-                                
-                            </Accordion>
-                        
-                    
-                        
                             <Accordion title="techniques" href="/maths/olympiad/techniques" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                         
-                            <Accordion title="generating-funcs" href="/maths/olympiad/techniques/generating-funcs" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
                             <Accordion title="lagrange-multipliers" href="/maths/olympiad/techniques/lagrange-multipliers" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="moving-points" href="/maths/olympiad/techniques/moving-points" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -163,6 +143,18 @@ export default function IntegerAxioms () {
                     
                                 
                             </Accordion>
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="writeups" href="/writeups" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                        
+                            <Accordion title="terminal" href="/writeups/terminal" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -594,24 +586,24 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
     
         <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-elevated px-6 py-4">
             <div className="fixed">
-                <h1 className="font-bold text-lg">In this Article</h1>
+                <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#axioms-as-properties" className="text-primary">Axioms as Properties</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#axioms-as-properties" className="text-link">Axioms as Properties</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#how-deep-do-we-go" className="text-primary">How deep do we go?</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#how-deep-do-we-go" className="text-link">How deep do we go?</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#basic-properties" className="text-primary">Basic properties</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#basic-properties" className="text-link">Basic properties</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#uniqueness-theorems" className="text-primary">Uniqueness Theorems</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#uniqueness-theorems" className="text-link">Uniqueness Theorems</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#ordering-of-z" className="text-primary">Ordering of Z</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#ordering-of-z" className="text-link">Ordering of Z</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#definitions" className="text-primary">Definitions</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#definitions" className="text-link">Definitions</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#structuring-logic-building-lemmas" className="text-primary">Structuring logic, building lemmas</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#structuring-logic-building-lemmas" className="text-link">Structuring logic, building lemmas</Link></li>
                     
-                        <li className="pt-2 list-inside list-disc"><Link href="#lemma-list" className="text-primary">Lemma List</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#lemma-list" className="text-link">Lemma List</Link></li>
                     
                 </ul>
             </div>

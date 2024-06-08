@@ -148,14 +148,8 @@ def gen_content(cur_dir, depth):
             # add <Latex> tags
             page = re.sub(r'(\$\$?.*?\$\$?)', r'<Latex>\1</Latex>', page)
 
-            # undo sanitization inside button tags
-            #for m in [i.span() for i in re.finditer(r'<button.*?/button>', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
-            #    target = page[m[0]:m[1]]
-            #    target = re.sub('&lt;', '<', target)
-            #    target = re.sub('&gt;', '>', target)
-            #    target = re.sub('&#123;', '{', target)
-            #    target = re.sub('&#125;', '}', target)
-            #    page = page[:m[0]] + target + page[m[1]:]
+            # <p> tags will have been placed around <CopyButton>, remove them
+            page = re.sub(r'<p><CopyButton(.*?)</CopyButton></p>', r'<CopyButton\1</CopyButton>', page)
 
             # <p> tags will have been placed around <Spoiler>, remove them
             page = re.sub('<p><Spoiler></p>', '<Spoiler>', page)

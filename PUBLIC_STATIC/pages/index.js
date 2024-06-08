@@ -96,31 +96,11 @@ export default function Wiki () {
                                 
                                     
                         
-                            <Accordion title="problems" href="/maths/olympiad/problems" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                        
-                            <Accordion title="IMO23" href="/maths/olympiad/problems/IMO23" isFolder={false} isSelected={ false } />
-                        
-                    
-                                
-                            </Accordion>
-                        
-                    
-                        
                             <Accordion title="techniques" href="/maths/olympiad/techniques" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                         
-                            <Accordion title="generating-funcs" href="/maths/olympiad/techniques/generating-funcs" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
                             <Accordion title="lagrange-multipliers" href="/maths/olympiad/techniques/lagrange-multipliers" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="moving-points" href="/maths/olympiad/techniques/moving-points" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -145,6 +125,18 @@ export default function Wiki () {
                     
                                 
                             </Accordion>
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="writeups" href="/writeups" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                        
+                            <Accordion title="terminal" href="/writeups/terminal" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -177,9 +169,7 @@ export default function Wiki () {
 
     <p className="block md:hidden text-3xl font-bold text-primary break-all">wiki.danielc.rocks</p>
 
-    <p>Welcome to a public version of my knowledge base (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>). It contains nowhere near everything I've ever come across, only some of the topics I find interesting.</p>
-
-    <p>I began this as a summer project in July 2023. It is still a work in progress; I am adding articles over time.</p>
+    <p>This site is a collection of explanations of topics I find interesting (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>).</p> I began this as a summer project in July 2023.
 
     <div className="space-y-2">
         <p>If you're curious as to how this site is maintained, here is my workflow:</p>
@@ -208,7 +198,7 @@ export default function Wiki () {
     <p className="text-sm text-elevated">P.S. if you think the ascii tree is cool (not visible on small screens), I generated it using <DiscreetLink href="https://gitlab.com/jallbrit/cbonsai">cbonsai</DiscreetLink>, <DiscreetLink href="https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh">ansi2html</DiscreetLink> and some regex!</p>
 
 </div>
-    <p className="italic pb-4">Contains 0 articles and 2 folders</p>
+    <p className="italic pb-4">Contains 0 articles and 3 folders</p>
 
     <Folder contents_by_date={
         <>
@@ -230,7 +220,17 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm">28 Jul 2023</p>
+                <p className="text-sm">08 Jun 2024</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/writeups">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">writeups</p>
+                    </div>
+                </Link>
+                <p className="text-sm">08 Jun 2024</p>
             </li>
         
         </>
@@ -254,7 +254,17 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm">28 Jul 2023</p>
+                <p className="text-sm">08 Jun 2024</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/writeups">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">writeups</p>
+                    </div>
+                </Link>
+                <p className="text-sm">08 Jun 2024</p>
             </li>
         
         </>

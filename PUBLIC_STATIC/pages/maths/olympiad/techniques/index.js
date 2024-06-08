@@ -96,31 +96,11 @@ export default function Techniques () {
                                 
                                     
                         
-                            <Accordion title="problems" href="/maths/olympiad/problems" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                        
-                            <Accordion title="IMO23" href="/maths/olympiad/problems/IMO23" isFolder={false} isSelected={ false } />
-                        
-                    
-                                
-                            </Accordion>
-                        
-                    
-                        
                             <Accordion title="techniques" href="/maths/olympiad/techniques" isFolder={true} isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                         
-                            <Accordion title="generating-funcs" href="/maths/olympiad/techniques/generating-funcs" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
                             <Accordion title="lagrange-multipliers" href="/maths/olympiad/techniques/lagrange-multipliers" isFolder={false} isSelected={ false } />
-                        
-                    
-                        
-                            <Accordion title="moving-points" href="/maths/olympiad/techniques/moving-points" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -145,6 +125,18 @@ export default function Techniques () {
                     
                                 
                             </Accordion>
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="writeups" href="/writeups" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                        
+                            <Accordion title="terminal" href="/writeups/terminal" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -177,7 +169,7 @@ export default function Techniques () {
 
         <div className="article mb-4">
             
-    <p className="italic pb-4">Contains 3 articles and 0 folders</p>
+    <p className="italic pb-4">Contains 1 article and 0 folders</p>
 
     <Folder contents_by_date={
         <>
@@ -194,45 +186,9 @@ export default function Techniques () {
                 <p className="text-sm">03 Aug 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad/techniques/moving-points">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle/>
-                        
-                        <p className="relative bottom-[1px]">moving-points</p>
-                    </div>
-                </Link>
-                <p className="text-sm">14 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad/techniques/generating-funcs">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle/>
-                        
-                        <p className="relative bottom-[1px]">generating-funcs</p>
-                    </div>
-                </Link>
-                <p className="text-sm">14 Jul 2023</p>
-            </li>
-        
         </>
     } contents_by_name={
         <>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad/techniques/generating-funcs">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle/>
-                        
-                        <p className="relative bottom-[1px]">generating-funcs</p>
-                    </div>
-                </Link>
-                <p className="text-sm">14 Jul 2023</p>
-            </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/maths/olympiad/techniques/lagrange-multipliers">
@@ -244,18 +200,6 @@ export default function Techniques () {
                     </div>
                 </Link>
                 <p className="text-sm">03 Aug 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad/techniques/moving-points">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle/>
-                        
-                        <p className="relative bottom-[1px]">moving-points</p>
-                    </div>
-                </Link>
-                <p className="text-sm">14 Jul 2023</p>
             </li>
         
         </>
