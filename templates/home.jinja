@@ -1,4 +1,4 @@
-<div className="space-y-6 border-b-2 border-elevated mb-6 pb-8">
+<div className="space-y-6 border-b-[1px] border-elevated mb-6 pb-8">
 
     <div className="text-xs font-mono leading-[0.8rem] flex flex-col">
         <div className="hidden sm:block">
@@ -14,8 +14,37 @@
 
     <p>This site is a collection of explanations of topics I find interesting (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>).</p> I began this as a summer project in July 2023.
 
+    <h1>Recent Articles</h1>
+
+    <div className="bg-black bg-opacity-30 p-4 space-y-4 rounded-xl">
+
+        {% for article in recentArticles %}
+            <div>
+                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                    <p className="text-italic italic mr-4">{{article['date_time']}}</p>
+                    {% if article['dir']|length == 1 %}
+                        <p className="font-bold">{{article['dir'][0]}}</p>
+                    {% elif article['dir']|length == 2 %}
+                        <p className="font-bold">{{article['dir'][0]}}</p>
+                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                        <p className="font-bold">{{article['dir'][1]}}</p>
+                    {% else %}
+                        <p className="font-bold">{{article['dir'][0]}}</p>
+                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                        <p className="font-bold">...</p>
+                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                        <p className="font-bold">{{article['dir'][-1]}}</p>
+                    {% endif %}
+                </div>
+                <p className="text-xl font-bold text-secondary"><Link href="{{'/'+'/'.join(article['dir'])+'/'+article['name']}}" className="hover:underline">{{article['title']}}</Link></p>
+            </div>
+        {% endfor %}
+
+    </div>
+
     <div className="space-y-2">
-        <p>If you're curious as to how this site is maintained, here is my workflow:</p>
+        <h2 id="how-is-this-site-maintained">How is this site maintained?</h2>
+        <p>If you're curious, here is my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
                 I use <ProminentLink href="https://nextjs.org/">next.js</ProminentLink> as the framework, with styling from <ProminentLink href="https://tailwindcss.com/">tailwind</ProminentLink>. The web app is hosted publicly on <ProminentLink href="https://vercel.com/">vercel</ProminentLink>.

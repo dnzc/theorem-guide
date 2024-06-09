@@ -40,7 +40,7 @@ export default function BezoutEgcd () {
                             theme="dark"
                         />
     
-                    <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
+                    <div className="relative w-full flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -166,7 +166,7 @@ export default function BezoutEgcd () {
         </ul>
     </nav>
 
-    <article className="w-full min-w-0 max-w-6xl px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3">
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -805,15 +805,15 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
                 <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#puzzle-water-jug-problem" className="text-link">Puzzle: water-jug problem</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#puzzle-water-jug-problem" className="text-link">Puzzle: water-jug problem</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#numerical-evidence" className="text-link">Numerical Evidence</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#numerical-evidence" className="text-link">Numerical Evidence</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#bezouts-lemma-proof" className="text-link">Bezout's Lemma: Proof</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#bezouts-lemma-proof" className="text-link">Bezout's Lemma: Proof</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#magic-box" className="text-link">Magic box</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#magic-box" className="text-link">Magic box</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#remarks-first-unobvious-result" className="text-link">Remarks: first unobvious result?</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#remarks-first-unobvious-result" className="text-link">Remarks: first unobvious result?</Link></li>
                     
                 </ul>
             </div>

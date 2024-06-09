@@ -40,7 +40,7 @@ export default function Euclid () {
                             theme="dark"
                         />
     
-                    <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
+                    <div className="relative w-full flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -166,7 +166,7 @@ export default function Euclid () {
         </ul>
     </nav>
 
-    <article className="w-full min-w-0 max-w-6xl px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3">
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -320,9 +320,9 @@ export default function Euclid () {
                 <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#what-its-argh" className="text-link"><em>What? It's... argh!</em></Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#what-its-argh" className="text-link"><em>What? It's... argh!</em></Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#the-actual-euclids-lemma" className="text-link">The actual Euclid's Lemma</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#the-actual-euclids-lemma" className="text-link">The actual Euclid's Lemma</Link></li>
                     
                 </ul>
             </div>

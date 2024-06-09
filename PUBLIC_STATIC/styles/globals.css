@@ -128,7 +128,7 @@
     }
 
     .article blockquote {
-        @apply border-l-4 border-elevated p-2 pl-4 bg-black bg-opacity-30;
+        @apply border-l-4 border-elevated p-2 pl-4 bg-black bg-opacity-30 rounded-xl;
         margin-top: 1rem !important;
         margin-bottom: 1rem !important;
     }
@@ -148,20 +148,18 @@
     /* markdown code blocks */
 
     .article pre {
-        @apply p-4 bg-black bg-opacity-30;
+        @apply p-4 bg-black bg-opacity-30 rounded-xl;
         margin-top: 1rem !important;
         margin-bottom: 1rem !important;
     }
 
     code {
-        @apply font-mono text-base text-elevated;
-        @apply ml-1;
+        @apply font-mono text-base text-elevated ml-1;
         white-space : pre-wrap !important;
     }
 
     pre > code {
-        @apply text-white;
-        @apply ml-0;
+        @apply text-white ml-0;
     }
 
     /* markdown tables */

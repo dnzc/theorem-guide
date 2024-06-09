@@ -22,7 +22,7 @@ export default function Wiki () {
             </Head>
                 <>
                     
-                    <div className="relative w-full max-w-screen-2xl flex h-full">
+                    <div className="relative w-full 2xl:max-w-[90%] flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -148,14 +148,14 @@ export default function Wiki () {
         </ul>
     </nav>
 
-    <article className="w-full min-w-0 max-w-6xl px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3">
 
         
 
         
 
         <div className="article mb-4">
-            <div className="space-y-6 border-b-2 border-elevated mb-6 pb-8">
+            <div className="space-y-6 border-b-[1px] border-elevated mb-6 pb-8">
 
     <div className="text-xs font-mono leading-[0.8rem] flex flex-col">
         <div className="hidden sm:block">
@@ -171,8 +171,65 @@ export default function Wiki () {
 
     <p>This site is a collection of explanations of topics I find interesting (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>).</p> I began this as a summer project in July 2023.
 
+    <h1>Recent Articles</h1>
+
+    <div className="bg-black bg-opacity-30 p-4 space-y-4 rounded-xl">
+
+        
+            <div>
+                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                    <p className="text-italic italic mr-4">09 Jun 2024</p>
+                    
+                        <p className="font-bold">writeups</p>
+                    
+                </div>
+                <p className="text-xl font-bold text-secondary"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
+            </div>
+        
+            <div>
+                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                    <p className="text-italic italic mr-4">08 Jun 2024</p>
+                    
+                        <p className="font-bold">comp-sci</p>
+                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                        <p className="font-bold">algorithms</p>
+                    
+                </div>
+                <p className="text-xl font-bold text-secondary"><Link href="/comp-sci/algorithms/binary-search" className="hover:underline">Binary Search: an intuitive algorithm</Link></p>
+            </div>
+        
+            <div>
+                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                    <p className="text-italic italic mr-4">07 Sep 2023</p>
+                    
+                        <p className="font-bold">maths</p>
+                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                        <p className="font-bold">research</p>
+                    
+                </div>
+                <p className="text-xl font-bold text-secondary"><Link href="/maths/research/CNATs" className="hover:underline">Associated Permutations of Complete Non-Ambiguous Trees</Link></p>
+            </div>
+        
+            <div>
+                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                    <p className="text-italic italic mr-4">03 Aug 2023</p>
+                    
+                        <p className="font-bold">maths</p>
+                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                        <p className="font-bold">...</p>
+                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                        <p className="font-bold">techniques</p>
+                    
+                </div>
+                <p className="text-xl font-bold text-secondary"><Link href="/maths/olympiad/techniques/lagrange-multipliers" className="hover:underline">Revenge of Analysis: Using Lagrange Multipliers to Destroy Inequalities</Link></p>
+            </div>
+        
+
+    </div>
+
     <div className="space-y-2">
-        <p>If you're curious as to how this site is maintained, here is my workflow:</p>
+        <h2 id="how-is-this-site-maintained" class="group flex">How is this site maintained?&nbsp;<Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://wiki.danielc.rocks#how-is-this-site-maintained", true)} class="hidden group-hover:block text-primary">¶</Link></h2>
+        <p>If you're curious, here is my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
                 I use <ProminentLink href="https://nextjs.org/">next.js</ProminentLink> as the framework, with styling from <ProminentLink href="https://tailwindcss.com/">tailwind</ProminentLink>. The web app is hosted publicly on <ProminentLink href="https://vercel.com/">vercel</ProminentLink>.
@@ -230,7 +287,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm">08 Jun 2024</p>
+                <p className="text-sm">09 Jun 2024</p>
             </li>
         
         </>
@@ -264,7 +321,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm">08 Jun 2024</p>
+                <p className="text-sm">09 Jun 2024</p>
             </li>
         
         </>

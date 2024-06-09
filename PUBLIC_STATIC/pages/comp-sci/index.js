@@ -22,7 +22,7 @@ export default function CompSci () {
             </Head>
                 <>
                     
-                    <div className="relative w-full max-w-screen-2xl flex h-full">
+                    <div className="relative w-full 2xl:max-w-[90%] flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -148,7 +148,7 @@ export default function CompSci () {
         </ul>
     </nav>
 
-    <article className="w-full min-w-0 max-w-6xl px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3">
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">

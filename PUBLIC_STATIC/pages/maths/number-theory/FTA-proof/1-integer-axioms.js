@@ -40,7 +40,7 @@ export default function IntegerAxioms () {
                             theme="dark"
                         />
     
-                    <div className="relative w-full max-w-screen-2xl flex h-full justify-around">
+                    <div className="relative w-full flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -166,7 +166,7 @@ export default function IntegerAxioms () {
         </ul>
     </nav>
 
-    <article className="w-full min-w-0 max-w-6xl px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3">
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -589,21 +589,21 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
                 <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#axioms-as-properties" className="text-link">Axioms as Properties</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#axioms-as-properties" className="text-link">Axioms as Properties</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#how-deep-do-we-go" className="text-link">How deep do we go?</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#how-deep-do-we-go" className="text-link">How deep do we go?</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#basic-properties" className="text-link">Basic properties</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#basic-properties" className="text-link">Basic properties</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#uniqueness-theorems" className="text-link">Uniqueness Theorems</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#uniqueness-theorems" className="text-link">Uniqueness Theorems</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#ordering-of-z" className="text-link">Ordering of Z</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#ordering-of-z" className="text-link">Ordering of Z</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#definitions" className="text-link">Definitions</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#definitions" className="text-link">Definitions</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#structuring-logic-building-lemmas" className="text-link">Structuring logic, building lemmas</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#structuring-logic-building-lemmas" className="text-link">Structuring logic, building lemmas</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="#lemma-list" className="text-link">Lemma List</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#lemma-list" className="text-link">Lemma List</Link></li>
                     
                 </ul>
             </div>

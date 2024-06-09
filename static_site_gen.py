@@ -69,6 +69,10 @@ export default function {name.replace(' ', '')} () {{
     )
 }}
     '''
+# find h2 tags with an id, add link anchor to them (each h2 in a markdown file is given a unique id by the header-ids extension)
+# this is an external function so that it can also be applied to the homepage (but the header ids must be manually put there)
+def add_link_anchors(page, cur_dir): 
+    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" class="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://wiki.danielc.rocks'+cur_dir[:-3]+r'#\1", true)} class="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
     return '' if timestamp==-1 else datetime.utcfromtimestamp(timestamp).strftime('%d %b %Y')
@@ -86,7 +90,7 @@ def get_folder_contents(cur_dir):
         # is dfs so guaranteed to be youngest timestamp of files (not folders, since will have already been resolved)
         timestamp = os.path.getmtime(child_dir) if is_file else max([-1] + [os.path.getmtime(child_dir+'/'+i) for i in os.listdir(child_dir)])
         item['timestamp'] = timestamp
-        item['date'] = timestamp_to_str(timestamp)
+        item['date_time'] = timestamp_to_str(timestamp)
         folder_contents.append(item)
     return folder_contents
 
@@ -111,12 +115,24 @@ def construct_tree(path, depth):
 DIR_TREE = construct_tree(SOURCE_DIR, 0)
 
 # parse the source files into jsx
-
-def gen_content(cur_dir, depth):
+# returns a list of all the markdown files and their info (for "recently added articles" and search functionality)
+def gen_content(cur_dir, depth, file_list): 
     if cur_dir[-3:] == '.md': # markdown file
+        file_data = {}
         with open(SOURCE_DIR+cur_dir, 'r') as markdown_file:
 
             file = markdown_file.read()
+            file_data['content'] = file
+            # extract article title from markdown
+            titles = re.findall(r'```.*?\n# .*?\n```|\n# (.*?)\n', '\n'+file, re.DOTALL) # extract lines starting with '# ' that aren't inside a code block (might be first line, so prepend \n)
+            titles = [t for t in titles if t != ''] # for invalid titles, the capture group is empty but still exists, so need to remove them
+            if len(titles) == 0:
+                file_data['title'] = 'NO_TITLE'
+                print(f"Warning: no article title found in {cur_dir}")
+            else:
+                file_data['title'] = titles[0]
+                if len(titles) > 1:
+                    print(f"Warning: multiple article titles found in {cur_dir}, using first one")
 
             # replace \\ with \\\\, because for some reason later \\ is replaced with \ (probably by markdown2)
             file = file.replace('\\\\','\\\\\\\\') 
@@ -161,28 +177,38 @@ def gen_content(cur_dir, depth):
 
             # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
             tableOfContents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
-            page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" class="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://wiki.danielc.rocks'+cur_dir[:-3]+r'#\1", true)} class="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL) # if opening spoiler tag was on separated line
+            page = add_link_anchors(page, cur_dir)
 
 
         with open(TARGET_DIR+cur_dir[:-3]+'.js', 'w+') as output_file:
             path_list = cur_dir.split('/')[1:-1] # path to parent folder
-            time = timestamp_to_str(os.path.getmtime(SOURCE_DIR+cur_dir))
+            timestamp = os.path.getmtime(SOURCE_DIR+cur_dir)
+            date_time = timestamp_to_str(timestamp)
 
-            pageTitle = cur_dir.split('/')[-1][:-3]
+            filename = cur_dir.split('/')[-1][:-3] # ignore file extension
             # assume the markdown filenames consist of [a-zA-Z0-9-]
-            if(re.sub(r'[^a-zA-Z0-9-]', '', pageTitle) != pageTitle):
+            if(re.sub(r'[^a-zA-Z0-9-]', '', filename) != filename):
                 print(f"Warning: {cur_dir} filename contains illegal characters")
-            parsedPageTitle = []
-            for word in pageTitle.split('-'):
-                if not word.isdigit(): parsedPageTitle += [word[0].upper() + word[1:]]
-            pageTitle = ' '.join(parsedPageTitle)
+            parsedFilename = []
+            for word in filename.split('-'):
+                if not word.isdigit(): parsedFilename += [word[0].upper() + word[1:]]
+            pageTitle = ' '.join(parsedFilename)
 
             react = wrap_in_js(
-                    template.render(content=page.replace('class=', 'className='), pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, time=time, tableOfContents=tableOfContents),
+                    template.render(content=page.replace('class=', 'className='), pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, dateTime=date_time, tableOfContents=tableOfContents),
                     pageTitle,
                     False
                     )
+
+            file_data['name'] = filename
+            file_data['timestamp'] = timestamp
+            file_data['date_time'] = date_time
+            file_data['dir'] = path_list
             output_file.write(react)
+
+            file_list.append(file_data)
+
+            #add article data to article list
     elif cur_dir.endswith('__IMAGES__'): # special: the images directory
         # move contents into public images dir
         shutil.copytree(SOURCE_DIR+cur_dir, IMAGES_DIR)
@@ -190,7 +216,7 @@ def gen_content(cur_dir, depth):
         if not os.path.exists(TARGET_DIR+cur_dir):
             os.makedirs(TARGET_DIR+cur_dir)
         for child in os.listdir(SOURCE_DIR+cur_dir):
-            gen_content(cur_dir+'/'+child, depth+1)
+            gen_content(cur_dir+'/'+child, depth+1, file_list)
         if cur_dir != '':
             with open(TARGET_DIR+cur_dir+'/index.js', 'w+') as output_file:
                 path_list = cur_dir.split('/')[1:]
@@ -223,17 +249,23 @@ if os.path.exists(IMAGES_DIR):
     shutil.rmtree(IMAGES_DIR)
 
 os.makedirs(TARGET_DIR, exist_ok=True)
-gen_content('', 1)
+
+files = []
+gen_content('', 1, files)
+#print(files)
 
 
-# root page is special (readme)
+# root page is special
 
 with open(TARGET_DIR+'index.js', 'w+') as output_file:
     folder_contents = get_folder_contents('')
+
+    recent_articles = sorted(files, key=lambda x:x['timestamp'],reverse=True)[:4]
+
     output_file.write(
         wrap_in_js(
             template.render(
-                content=home_template.render() + folder_template.render(
+                content=add_link_anchors(home_template.render(recentArticles=recent_articles), '/') + folder_template.render(
                     contents_by_time=sorted(folder_contents,key=lambda x:x['timestamp']),
                     contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                     file_count=sum(1 for i in folder_contents if i['is_file']=='yes'),

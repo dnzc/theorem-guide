@@ -1,4 +1,4 @@
-<div className="relative w-full max-w-screen-2xl flex h-full{{' justify-around' if tableOfContents else ''}}">
+<div className="relative w-full{{' 2xl:max-w-[90%]' if not tableOfContents else ''}} flex h-full">
     <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
         <ul>
             <li>
@@ -22,7 +22,7 @@
         </ul>
     </nav>
 
-    <article className="w-full min-w-0 max-w-6xl px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3">
 
         {% if pathList %}
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -33,8 +33,8 @@
             </div>
         {% endif %}
 
-        {% if time %}
-            <p className="text-elevated mb-3">Last modified on {{time}}</p>
+        {% if dateTime %}
+            <p className="text-elevated mb-3">Last modified on {{dateTime}}</p>
         {% endif %}
 
         <div className="article mb-4">
@@ -60,7 +60,7 @@
                 <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     {% for title,href in tableOfContents %}
-                        <li className="pt-2 text-lg font-bold flex items-center justify-start space-x-1"><FaChevronRight size={12}/><Link href="{{href}}" className="text-link">{{title}}</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="{{href}}" className="text-link">{{title}}</Link></li>
                     {% endfor %}
                 </ul>
             </div>
