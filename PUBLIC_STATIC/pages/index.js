@@ -2,16 +2,21 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
+import Sidebar from '@/components/sidebar'
 import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
 
-import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight, FaSearch, FaBook } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import { MdArticle } from 'react-icons/md'
 import Folder from '@/components/folder'
+
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 export default function Wiki () {
@@ -22,14 +27,30 @@ export default function Wiki () {
             </Head>
                 <>
                     
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss={false}
+                            pauseOnHover={false}
+                            theme="dark"
+                        />
+    
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full">
-    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
-        <ul>
-            <li>
-                <span>
-                    <Link href="/"> wiki.danielc.rocks </Link>
-                </span>
-                <ul>
+    <Sidebar>
+
+        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
+            <li className="relative bottom-4 pl-4">
+                <div className="text-secondary mt-3 mb-0.5">
+                    <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
+                        <FaBook/>
+                        <span>root</span>
+                    </Link>
+                </div>
+                <ul className="mb-4">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -146,9 +167,12 @@ export default function Wiki () {
                 </ul>
             </li>
         </ul>
-    </nav>
+
+    </Sidebar>
 
     <article className="w-full min-w-0 px-6 pt-3">
+
+        <div className="h-[4.5rem] md:h-0"/>
 
         
 
@@ -169,66 +193,73 @@ export default function Wiki () {
 
     <p className="block md:hidden text-3xl font-bold text-primary break-all">wiki.danielc.rocks</p>
 
-    <p>This site is a collection of explanations of topics I find interesting (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>).</p> I began this as a summer project in July 2023.
+    <p>This site is a collection of explanations of topics I find interesting (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>).</p>
+    I began this as a summer project in July 2023.
 
-    <h1>Recent Articles</h1>
+    <div className="pt-2 pb-4">
 
-    <div className="bg-black bg-opacity-30 p-4 space-y-4 rounded-xl">
+        <h1>Recent Articles</h1>
 
-        
-            <div>
-                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
-                    <p className="text-italic italic mr-4">09 Jun 2024</p>
-                    
-                        <p className="font-bold">writeups</p>
-                    
+        <div className="bg-black bg-opacity-30 p-4 space-y-4 rounded-xl">
+
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                        <p className="text-italic italic mr-4">10 Jun 2024</p>
+                        
+                            <p className="font-bold">writeups</p>
+                        
+                    </div>
+                    <p className="text-xl font-bold text-secondary"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
                 </div>
-                <p className="text-xl font-bold text-secondary"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
-            </div>
-        
-            <div>
-                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
-                    <p className="text-italic italic mr-4">08 Jun 2024</p>
-                    
-                        <p className="font-bold">comp-sci</p>
-                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                        <p className="font-bold">algorithms</p>
-                    
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                        <p className="text-italic italic mr-4">08 Jun 2024</p>
+                        
+                            <p className="font-bold">comp-sci</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="font-bold">algorithms</p>
+                        
+                    </div>
+                    <p className="text-xl font-bold text-secondary"><Link href="/comp-sci/algorithms/binary-search" className="hover:underline">Binary Search: an intuitive algorithm</Link></p>
                 </div>
-                <p className="text-xl font-bold text-secondary"><Link href="/comp-sci/algorithms/binary-search" className="hover:underline">Binary Search: an intuitive algorithm</Link></p>
-            </div>
-        
-            <div>
-                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
-                    <p className="text-italic italic mr-4">07 Sep 2023</p>
-                    
-                        <p className="font-bold">maths</p>
-                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                        <p className="font-bold">research</p>
-                    
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                        <p className="text-italic italic mr-4">07 Sep 2023</p>
+                        
+                            <p className="font-bold">maths</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="font-bold">research</p>
+                        
+                    </div>
+                    <p className="text-xl font-bold text-secondary"><Link href="/maths/research/CNATs" className="hover:underline">Associated Permutations of Complete Non-Ambiguous Trees</Link></p>
                 </div>
-                <p className="text-xl font-bold text-secondary"><Link href="/maths/research/CNATs" className="hover:underline">Associated Permutations of Complete Non-Ambiguous Trees</Link></p>
-            </div>
-        
-            <div>
-                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
-                    <p className="text-italic italic mr-4">03 Aug 2023</p>
-                    
-                        <p className="font-bold">maths</p>
-                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                        <p className="font-bold">...</p>
-                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                        <p className="font-bold">techniques</p>
-                    
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                        <p className="text-italic italic mr-4">03 Aug 2023</p>
+                        
+                            <p className="font-bold">maths</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="font-bold">...</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="font-bold">techniques</p>
+                        
+                    </div>
+                    <p className="text-xl font-bold text-secondary"><Link href="/maths/olympiad/techniques/lagrange-multipliers" className="hover:underline">Revenge of Analysis: Using Lagrange Multipliers to Destroy Inequalities</Link></p>
                 </div>
-                <p className="text-xl font-bold text-secondary"><Link href="/maths/olympiad/techniques/lagrange-multipliers" className="hover:underline">Revenge of Analysis: Using Lagrange Multipliers to Destroy Inequalities</Link></p>
-            </div>
-        
+            
+
+        </div>
 
     </div>
 
+    <h1>Metadata</h1>
+
     <div className="space-y-2">
-        <h2 id="how-is-this-site-maintained" class="group flex">How is this site maintained?&nbsp;<Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://wiki.danielc.rocks#how-is-this-site-maintained", true)} class="hidden group-hover:block text-primary">¶</Link></h2>
+        <h2 id="how-is-this-site-maintained" className="group flex">How is this site maintained?&nbsp;<Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://wiki.danielc.rocks#how-is-this-site-maintained", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
         <p>If you're curious, here is my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
@@ -254,6 +285,38 @@ export default function Wiki () {
 
     <p className="text-sm text-elevated">P.S. if you think the ascii tree is cool (not visible on small screens), I generated it using <DiscreetLink href="https://gitlab.com/jallbrit/cbonsai">cbonsai</DiscreetLink>, <DiscreetLink href="https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh">ansi2html</DiscreetLink> and some regex!</p>
 
+    <div>
+        <h2 id="changelog" className="group flex">Changelog&nbsp;<Link href="#changelog" onClick={() => copyToClipboard("https://wiki.danielc.rocks#changelog", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+        <div className="changelog">
+            <h2>12/05/24</h2>
+
+<h3>Added</h3>
+
+<ul>
+<li>this changelog</li>
+<li>list of recent articles</li>
+<li>search and filetree modals</li>
+<li>keyboard shortcuts</li>
+</ul>
+
+<h3>Changed</h3>
+
+<ul>
+<li>filetree now toggleable</li>
+<li>site more responsively designed and mobile-friendly</li>
+</ul>
+
+<h2>11/07/23</h2>
+
+<h3>Added</h3>
+
+<ul>
+<li>this wiki</li>
+</ul>
+
+        </div>
+    </div>
+
 </div>
     <p className="italic pb-4">Contains 0 articles and 3 folders</p>
 
@@ -267,7 +330,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
                 </Link>
-                <p className="text-sm">11 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -277,7 +340,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm">08 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -287,7 +350,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm">09 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jun 2024</p>
             </li>
         
         </>
@@ -301,7 +364,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
                 </Link>
-                <p className="text-sm">11 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -311,7 +374,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm">08 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -321,7 +384,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm">09 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jun 2024</p>
             </li>
         
         </>

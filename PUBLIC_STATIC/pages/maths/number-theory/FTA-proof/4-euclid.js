@@ -2,12 +2,13 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
+import Sidebar from '@/components/sidebar'
 import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
 
-import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight, FaSearch, FaBook } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
@@ -41,13 +42,17 @@ export default function Euclid () {
                         />
     
                     <div className="relative w-full flex h-full">
-    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
-        <ul>
-            <li>
-                <span>
-                    <Link href="/"> wiki.danielc.rocks </Link>
-                </span>
-                <ul>
+    <Sidebar>
+
+        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
+            <li className="relative bottom-4 pl-4">
+                <div className="text-primary mt-3 mb-0.5">
+                    <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
+                        <FaBook/>
+                        <span>root</span>
+                    </Link>
+                </div>
+                <ul className="mb-4">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -164,9 +169,12 @@ export default function Euclid () {
                 </ul>
             </li>
         </ul>
-    </nav>
+
+    </Sidebar>
 
     <article className="w-full min-w-0 px-6 pt-3">
+
+        <div className="h-[4.5rem] md:h-0"/>
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -222,7 +230,7 @@ export default function Euclid () {
 
 <p>In the "if <Latex>$3 \mid 2x$</Latex> then <Latex>$3 \mid x$</Latex>" case, the trick was to write 1 (the desired coefficient of <Latex>$x$</Latex>) as a <em>linear combination</em> of 2 and 3:</p>
 
-<p><Latex>$$x = (3-2)x = 3x-2x$$</Latex></p>
+<p><span className="block overflow-scroll no-scrollbar"><Latex>$$x = (3-2)x = 3x-2x$$</Latex></span></p>
 
 <p>And this let us deduce that if <Latex>$3 \mid 2x$</Latex>, then <Latex>$3 \mid 3x - 2x$</Latex> because both <Latex>$3x$</Latex> and <Latex>$2x$</Latex> are divisible by 3.</p>
 
@@ -270,8 +278,8 @@ export default function Euclid () {
   
   <p>So, <Latex>$11 \cdot 51 - 20 \cdot 28 = 1$</Latex>.
   Now to use the trick:
-  <Latex>$$x = (11 \cdot 51 - 20 \cdot 28)x$$</Latex>
-  <Latex>$$ = 51 \cdot (11x) + 28x \cdot (-20)$$</Latex></p>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$x = (11 \cdot 51 - 20 \cdot 28)x$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 51 \cdot (11x) + 28x \cdot (-20)$$</Latex></span></p>
   
   <p>Hence, if <Latex>$51 \mid 28x$</Latex>, then <Latex>$51 \mid x$</Latex>, because we wrote <Latex>$x$</Latex> as a linear combination of things that were divisible by 51.</p>
 </blockquote>

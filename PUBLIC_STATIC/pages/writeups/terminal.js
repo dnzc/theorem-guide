@@ -2,12 +2,13 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
+import Sidebar from '@/components/sidebar'
 import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
 
-import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight, FaSearch, FaBook } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
@@ -41,13 +42,17 @@ export default function Terminal () {
                         />
     
                     <div className="relative w-full flex h-full">
-    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
-        <ul>
-            <li>
-                <span>
-                    <Link href="/"> wiki.danielc.rocks </Link>
-                </span>
-                <ul>
+    <Sidebar>
+
+        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
+            <li className="relative bottom-4 pl-4">
+                <div className="text-primary mt-3 mb-0.5">
+                    <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
+                        <FaBook/>
+                        <span>root</span>
+                    </Link>
+                </div>
+                <ul className="mb-4">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -164,9 +169,12 @@ export default function Terminal () {
                 </ul>
             </li>
         </ul>
-    </nav>
+
+    </Sidebar>
 
     <article className="w-full min-w-0 px-6 pt-3">
+
+        <div className="h-[4.5rem] md:h-0"/>
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -178,7 +186,7 @@ export default function Terminal () {
         
 
         
-            <p className="text-elevated mb-3">Last modified on 09 Jun 2024</p>
+            <p className="text-elevated mb-3">Last modified on 10 Jun 2024</p>
         
 
         <div className="article mb-4">
@@ -239,11 +247,11 @@ Also we have numbers, by doing something like:</p>
 <p><br/></p>
 
 <div className='inline'>
-And the reduced version (note that to input it as a name, it needs to be on a single line):<CopyButton text="'Erroryo';________,_____,_________='urn';'amedoesn';__________,______='ts';'eemtob';___=eval;____,___________='id';'IllcallyouMrUn';_=''<'_';__=_+_+_+_+_+_+_;___((____________:=___(___________+____+_____)(___('__import__(&quot;'+(_______:=___(______+__________+_____))(___)[_:__-_]+____+_________+______+'&quot;)')))[-__*__-_-_]+'('+____________[-__*__-__-__-_-_]+'(&quot;桷汩⁥牔敵›硥捥椨灮瑵⤨ &quot;,&quot;'+________+_______(__+__+_+_)+'&quot;)['+_______(_+_)+':]'+')');'ant';"/>
+And the reduced version:<CopyButton text="'Erroryo';________,_____,_________='urn';'amedoesn';__________,______='ts';'eemtob';___=eval;____,___________='id';'IllcallyouMrUn';_=''<'_';__=_+_+_+_+_+_+_;___((____________:=___(___________+____+_____)(___('__import__(&quot;'+(_______:=___(______+__________+_____))(___)[_:__-_]+____+_________+______+'&quot;)')))[-__*__-_-_]+'('+____________[-__*__-__-__-_-_]+'(&quot;桷汩⁥牔敵›硥捥椨灮瑵⤨ &quot;,&quot;'+________+_______(__+__+_+_)+'&quot;)['+_______(_+_)+':]'+')');'ant';"/>
 </div>
 
 <div className="codehilite">
-<pre><span></span><code><span className="s1">&#39;Erroryo&#39;</span><span className="p">;</span><br/><span className="n">________</span><span className="p">,</span><span className="n">_____</span><span className="p">,</span><span className="n">_________</span><span className="o">=</span><span className="s1">&#39;urn&#39;</span><span className="p">;</span><br/><span className="s1">&#39;amedoesn&#39;</span><span className="p">;</span><br/><span className="n">__________</span><span className="p">,</span><span className="n">______</span><span className="o">=</span><span className="s1">&#39;ts&#39;</span><span className="p">;</span><br/><span className="s1">&#39;eemtob&#39;</span><span className="p">;</span><br/><span className="n">___</span><span className="o">=</span><span className="nb">eval</span><span className="p">;</span><br/><span className="n">____</span><span className="p">,</span><span className="n">___________</span><span className="o">=</span><span className="s1">&#39;id&#39;</span><span className="p">;</span><br/><span className="s1">&#39;IllcallyouMrUn&#39;</span><span className="p">;</span><br/><span className="n">_</span><span className="o">=</span><span className="s1">&#39;&#39;</span><span className="o">&lt;</span><span className="s1">&#39;_&#39;</span><span className="p">;</span><br/><span className="n">__</span><span className="o">=</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="p">;</span><br/><span className="n">___</span><span className="p">((</span><span className="n">____________</span><span className="o">:=</span><span className="n">___</span><span className="p">(</span><span className="n">___________</span><span className="o">+</span><span className="n">____</span><span className="o">+</span><span className="n">_____</span><span className="p">)(</span><span className="n">___</span><span className="p">(</span><span className="s1">&#39;__import__(&quot;&#39;</span><span className="o">+</span><span className="p">(</span><span className="n">_______</span><span className="o">:=</span><span className="n">___</span><span className="p">(</span><span className="n">______</span><span className="o">+</span><span className="n">__________</span><span className="o">+</span><span className="n">_____</span><span className="p">))(</span><span className="n">___</span><span className="p">)[</span><span className="n">_</span><span className="p">:</span><span className="n">__</span><span className="o">-</span><span className="n">_</span><span className="p">]</span><span className="o">+</span><span className="n">____</span><span className="o">+</span><span className="n">_________</span><span className="o">+</span><span className="n">______</span><span className="o">+</span><span className="s1">&#39;&quot;)&#39;</span><span className="p">)))[</span><span className="o">-</span><span className="n">__</span><span className="o">*</span><span className="n">__</span><span className="o">-</span><span className="n">_</span><span className="o">-</span><span className="n">_</span><span className="p">]</span><span className="o">+</span><span className="s1">&#39;(&#39;</span><span className="o">+</span><span className="n">____________</span><span className="p">[</span><span className="o">-</span><span className="n">__</span><span className="o">*</span><span className="n">__</span><span className="o">-</span><span className="n">__</span><span className="o">-</span><span className="n">__</span><span className="o">-</span><span className="n">_</span><span className="o">-</span><span className="n">_</span><span className="p">]</span><span className="o">+</span><span className="s1">&#39;(&quot;桷汩⁥牔敵›硥捥椨灮瑵⤨ &quot;,&quot;&#39;</span><span className="o">+</span><span className="n">________</span><span className="o">+</span><span className="n">_______</span><span className="p">(</span><span className="n">__</span><span className="o">+</span><span className="n">__</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="p">)</span><span className="o">+</span><span className="s1">&#39;&quot;)[&#39;</span><span className="o">+</span><span className="n">_______</span><span className="p">(</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="p">)</span><span className="o">+</span><span className="s1">&#39;:]&#39;</span><span className="o">+</span><span className="s1">&#39;)&#39;</span><span className="p">);</span><br/><span className="s1">&#39;ant&#39;</span><br/></code></pre>
+<pre><span></span><code><span className="s1">&#39;Erroryo&#39;</span><span className="p">;</span><span className="n">________</span><span className="p">,</span><span className="n">_____</span><span className="p">,</span><span className="n">_________</span><span className="o">=</span><span className="s1">&#39;urn&#39;</span><span className="p">;</span><span className="s1">&#39;amedoesn&#39;</span><span className="p">;</span><span className="n">__________</span><span className="p">,</span><span className="n">______</span><span className="o">=</span><span className="s1">&#39;ts&#39;</span><span className="p">;</span><span className="s1">&#39;eemtob&#39;</span><span className="p">;</span><span className="n">___</span><span className="o">=</span><span className="nb">eval</span><span className="p">;</span><span className="n">____</span><span className="p">,</span><span className="n">___________</span><span className="o">=</span><span className="s1">&#39;id&#39;</span><span className="p">;</span><span className="s1">&#39;IllcallyouMrUn&#39;</span><span className="p">;</span><span className="n">_</span><span className="o">=</span><span className="s1">&#39;&#39;</span><span className="o">&lt;</span><span className="s1">&#39;_&#39;</span><span className="p">;</span><span className="n">__</span><span className="o">=</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="p">;</span><span className="n">___</span><span className="p">((</span><span className="n">____________</span><span className="o">:=</span><span className="n">___</span><span className="p">(</span><span className="n">___________</span><span className="o">+</span><span className="n">____</span><span className="o">+</span><span className="n">_____</span><span className="p">)(</span><span className="n">___</span><span className="p">(</span><span className="s1">&#39;__import__(&quot;&#39;</span><span className="o">+</span><span className="p">(</span><span className="n">_______</span><span className="o">:=</span><span className="n">___</span><span className="p">(</span><span className="n">______</span><span className="o">+</span><span className="n">__________</span><span className="o">+</span><span className="n">_____</span><span className="p">))(</span><span className="n">___</span><span className="p">)[</span><span className="n">_</span><span className="p">:</span><span className="n">__</span><span className="o">-</span><span className="n">_</span><span className="p">]</span><span className="o">+</span><span className="n">____</span><span className="o">+</span><span className="n">_________</span><span className="o">+</span><span className="n">______</span><span className="o">+</span><span className="s1">&#39;&quot;)&#39;</span><span className="p">)))[</span><span className="o">-</span><span className="n">__</span><span className="o">*</span><span className="n">__</span><span className="o">-</span><span className="n">_</span><span className="o">-</span><span className="n">_</span><span className="p">]</span><span className="o">+</span><span className="s1">&#39;(&#39;</span><span className="o">+</span><span className="n">____________</span><span className="p">[</span><span className="o">-</span><span className="n">__</span><span className="o">*</span><span className="n">__</span><span className="o">-</span><span className="n">__</span><span className="o">-</span><span className="n">__</span><span className="o">-</span><span className="n">_</span><span className="o">-</span><span className="n">_</span><span className="p">]</span><span className="o">+</span><span className="s1">&#39;(&quot;桷汩⁥牔敵›硥捥椨灮瑵⤨ &quot;,&quot;&#39;</span><span className="o">+</span><span className="n">________</span><span className="o">+</span><span className="n">_______</span><span className="p">(</span><span className="n">__</span><span className="o">+</span><span className="n">__</span><span className="o">+</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="p">)</span><span className="o">+</span><span className="s1">&#39;&quot;)[&#39;</span><span className="o">+</span><span className="n">_______</span><span className="p">(</span><span className="n">_</span><span className="o">+</span><span className="n">_</span><span className="p">)</span><span className="o">+</span><span className="s1">&#39;:]&#39;</span><span className="o">+</span><span className="s1">&#39;)&#39;</span><span className="p">);</span><span className="s1">&#39;ant&#39;</span><br/></code></pre>
 </div>
 
 </Spoiler>

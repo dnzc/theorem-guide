@@ -2,12 +2,13 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
+import Sidebar from '@/components/sidebar'
 import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
 
-import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight, FaSearch, FaBook } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
@@ -41,13 +42,17 @@ export default function IntegerAxioms () {
                         />
     
                     <div className="relative w-full flex h-full">
-    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
-        <ul>
-            <li>
-                <span>
-                    <Link href="/"> wiki.danielc.rocks </Link>
-                </span>
-                <ul>
+    <Sidebar>
+
+        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
+            <li className="relative bottom-4 pl-4">
+                <div className="text-primary mt-3 mb-0.5">
+                    <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
+                        <FaBook/>
+                        <span>root</span>
+                    </Link>
+                </div>
+                <ul className="mb-4">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -164,9 +169,12 @@ export default function IntegerAxioms () {
                 </ul>
             </li>
         </ul>
-    </nav>
+
+    </Sidebar>
 
     <article className="w-full min-w-0 px-6 pt-3">
+
+        <div className="h-[4.5rem] md:h-0"/>
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -221,23 +229,23 @@ export default function IntegerAxioms () {
 
 <ul>
 <li><p><strong>Commutativity</strong>: the order of multiplication and addition does not matter. In symbols:
-<Latex>$$\forall a,b \in \mathbb&#123;Z&#125;, \; a \cdot b = b \cdot a, \; a+b=b+a$$</Latex></p></li>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$\forall a,b \in \mathbb&#123;Z&#125;, \; a \cdot b = b \cdot a, \; a+b=b+a$$</Latex></span></p></li>
 <li><p><strong>Associativity</strong>: in repeated addition or multiplication, the brackets do not matter. In symbols:
-<Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; (a \cdot b) \cdot c = a \cdot (b \cdot c),$$</Latex>
-<Latex>$$(a+b)+c = a+(b+c)$$</Latex></p></li>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; (a \cdot b) \cdot c = a \cdot (b \cdot c),$$</Latex></span>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$(a+b)+c = a+(b+c)$$</Latex></span></p></li>
 <li><p><strong>Distributivity</strong>: multiplication is distributive over addition. In symbols:
-<Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; a\cdot(b+c) = a\cdot b + a \cdot c$$</Latex></p></li>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; a\cdot(b+c) = a\cdot b + a \cdot c$$</Latex></span></p></li>
 </ul>
 
 <p>I hope you agree that these properties seem pretty fundamental. Let's add some more:</p>
 
 <ul>
 <li><p><strong>Additive Identity</strong>: there exists an integer we call <Latex>$0$</Latex>, which when added to any integer, does nothing:
-<Latex>$$\exists \, 0 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a+0=a$$</Latex></p></li>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$\exists \, 0 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a+0=a$$</Latex></span></p></li>
 <li><p><strong>Additive Inverse</strong>: for every integer <Latex>$a$</Latex>, there is another integer that when added to <Latex>$a$</Latex>, gives 0.
-<Latex>$$\forall a \in \mathbb&#123;Z&#125;, \exists \, a' \in \mathbb&#123;Z&#125; \; s.t.\;  a + a' = 0$$</Latex></p></li>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$\forall a \in \mathbb&#123;Z&#125;, \exists \, a' \in \mathbb&#123;Z&#125; \; s.t.\;  a + a' = 0$$</Latex></span></p></li>
 <li><p><strong>Multiplicative Identity</strong>: there exists an integer we call <Latex>$1$</Latex>, which when multiplying by any integer, does nothing:
-<Latex>$$\exists \, 1 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a\cdot 1=a$$</Latex></p></li>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$\exists \, 1 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a\cdot 1=a$$</Latex></span></p></li>
 </ul>
 
 <p>Note that we <em>don't</em> have multiplicative inverses, because then we would have to include reciprocals of integers.</p>

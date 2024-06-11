@@ -2,12 +2,13 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
+import Sidebar from '@/components/sidebar'
 import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
 
-import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight, FaSearch, FaBook } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
@@ -41,13 +42,17 @@ export default function CNATs () {
                         />
     
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full">
-    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
-        <ul>
-            <li>
-                <span>
-                    <Link href="/"> wiki.danielc.rocks </Link>
-                </span>
-                <ul>
+    <Sidebar>
+
+        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
+            <li className="relative bottom-4 pl-4">
+                <div className="text-primary mt-3 mb-0.5">
+                    <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
+                        <FaBook/>
+                        <span>root</span>
+                    </Link>
+                </div>
+                <ul className="mb-4">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -164,9 +169,12 @@ export default function CNATs () {
                 </ul>
             </li>
         </ul>
-    </nav>
+
+    </Sidebar>
 
     <article className="w-full min-w-0 px-6 pt-3">
+
+        <div className="h-[4.5rem] md:h-0"/>
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -194,7 +202,7 @@ export default function CNATs () {
 <blockquote>
   <p><em>Conjecture.</em>  Let <Latex>$h(n,k)$</Latex> be the number of Prufer sequences ending in <Latex>$k$</Latex> that represent a tree whose adjacency matrix is a valid CNAT of size <Latex>$n$</Latex>. Then:</p>
   
-  <p><Latex>$$h(n,k) = \begin&#123;cases&#125; \frac&#123;(n-1)!&#125;&#123;k(k+1)&#125; &amp; \text&#123;if &#125; 1\leq k &lt; n-1\\0 &amp; \text&#123;if &#125; k=n-1\\(n-2)! &amp; \text&#123;if &#125; k=n \end&#123;cases&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$h(n,k) = \begin&#123;cases&#125; \frac&#123;(n-1)!&#125;&#123;k(k+1)&#125; &amp; \text&#123;if &#125; 1\leq k &lt; n-1\\0 &amp; \text&#123;if &#125; k=n-1\\(n-2)! &amp; \text&#123;if &#125; k=n \end&#123;cases&#125;$$</Latex></span></p>
   
   <p>We were only able to prove the last two cases.</p>
 </blockquote>

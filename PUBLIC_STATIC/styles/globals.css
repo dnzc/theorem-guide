@@ -5,10 +5,19 @@
 @layer base {
 
     :root {
+        --color-body: #282c34;
+        --color-elevated: #abb2bf;
+        --color-primary: #e5c07b;
+        --color-secondary: #e06c75;
+        --color-bold: #61afef;
+        --color-italic: #c678dd;
+        --color-link: #56b6c2;
+        --color-hover: #98c379;
+
         --toastify-font-family: var(--font-sans) !important;
         --toastify-toast-width: 250px !important;
         --toastify-color-dark: #000000 !important;
-        --toastify-color-progress-dark: #e5c07b !important;
+        --toastify-color-progress-dark: var(--color-primary) !important; /* same as primary */
     }
 
     body {
@@ -20,27 +29,19 @@
 @layer components {
 
     .dirtree {
-        @apply pt-4 text-lg;
+        @apply text-lg;
     }
 
     .dirtree span {
         @apply font-bold;
     }
 
-    .dirtree ul {
-        @apply pl-[7px];
+    .dirtree li, .dirtree .file {
+        @apply relative py-1 pl-7;
     }
 
-    .dirtree ul li {
-        @apply relative py-1 pl-5 box-border;
-    }
-
-    .dirtree ul li:before {
-        @apply content-[''] absolute top-[18px] left-0 w-4 h-[2px] bg-elevated;
-    }
-
-    .dirtree .file {
-        @apply pl-5;
+    .dirtree li:before {
+        @apply content-[''] absolute top-[18px] left-2 w-4 h-[2px] bg-elevated;
     }
 
     .dirtree .file > p {
@@ -51,26 +52,45 @@
         @apply relative top-[1px]
     }
 
-    .dirtree ul li:after {
-        @apply content-[''] absolute top-0 bottom-0 left-0 h-full w-[2px] bg-elevated;
+    .dirtree li:after {
+        @apply content-[''] absolute top-0 bottom-0 left-2 h-full w-[2px] bg-elevated;
     }
 
-    .dirtree ul li:last-child:after {
+    .dirtree li:last-child:after {
         @apply h-[18px];
     }
 
     /* first tree item is special (root) */
 
-    .dirtree > ul > li:before, .dirtree > ul > li:after {
+    .dirtree > li:before, .dirtree > li:after {
         @apply hidden;
     }
 
-    .dirtree > ul, .dirtree > ul > li {
+    .dirtree > li {
         @apply p-0;
     }
 
-    .dirtree > ul > li > span {
-        @apply w-full flex justify-start mb-1 text-3xl font-bold text-white;
+    .sidebar-title {
+        @apply w-full justify-center text-3xl font-bold text-white mb-3 mt-1 hidden md:flex;
+    }
+
+    .changelog {
+        @apply text-base text-elevated;
+    }
+
+    .changelog * {
+        @apply ml-4;
+    }
+
+    .changelog h2 {
+        @apply text-bold;
+        margin: 0 !important;
+        padding: 0 0 0.1rem 0 !important;
+        text-decoration: none !important;
+    }
+
+    .changelog h3 {
+        @apply text-lg text-white font-bold;
     }
 
 }
@@ -78,12 +98,18 @@
 @layer utilities {
 
     .-z-1 {
-        z-index: -1;
+        z-index: -1
     }
 
-    .sticky {
-        position: sticky;
-        top: 0;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
 
     li {
@@ -148,18 +174,13 @@
     /* markdown code blocks */
 
     .article pre {
-        @apply p-4 bg-black bg-opacity-30 rounded-xl;
-        margin-top: 1rem !important;
-        margin-bottom: 1rem !important;
+        @apply p-4 bg-black bg-opacity-30 rounded-xl overflow-scroll my-1 no-scrollbar;
     }
-
     code {
-        @apply font-mono text-base text-elevated ml-1;
-        white-space : pre-wrap !important;
+        @apply font-mono text-base text-elevated ml-1 break-all;
     }
-
     pre > code {
-        @apply text-white ml-0;
+        @apply text-white ml-0 whitespace-nowrap;
     }
 
     /* markdown tables */
@@ -167,7 +188,6 @@
     .article table {
         @apply table-auto my-2;
     }
-
     .article td {
         @apply border-2 border-elevated py-1 px-3 text-center;
     }

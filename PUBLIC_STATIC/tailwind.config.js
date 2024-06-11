@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     screens: {
+      'xs': '270px',
       'sm': '380px',
       'md': '768px',
       'lg': '1024px',
@@ -14,20 +15,22 @@ module.exports = {
     },
     extend: {
       colors: {
-        'body': '#282c34',
-        'elevated': '#abb2bf',
-        'primary': '#e5c07b',
-        'secondary': '#e06c75',
-        'bold': '#61afef',
-        'italic': '#c678dd',
-        'link': '#56b6c2',
-        'hover': '#98c379',
+        body: 'var(--color-body)',
+        'elevated': 'var(--color-elevated)',
+        'primary': 'var(--color-primary)',
+        'secondary': 'var(--color-secondary)',
+        'bold': 'var(--color-bold)',
+        'italic': 'var(--color-italic)',
+        'link': 'var(--color-link)',
+        'hover': 'var(--color-hover)',
       },
       fontFamily: {
-        "sans" : ['var(--font-sans)', 'sans-serif'],
-        "mono" : ['var(--font-mono)', 'monospace'],
+        "sans" : ['var(--font-sans)'],
+        "mono" : ['var(--font-mono)'],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }

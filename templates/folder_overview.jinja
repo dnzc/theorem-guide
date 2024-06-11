@@ -10,12 +10,12 @@
                 <Link href="{{item['path']}}">
                     <div className="flex items-center space-x-1 text-lg{{'' if item['is_file']=='yes' else ' font-bold text-primary'}}">
                         {% if item['is_file']=='yes' %}
-                            <MdArticle/>
+                            <MdArticle className="shrink-0"/>
                         {% endif %}
                         <p className="relative bottom-[1px]">{{item['name']}}</p>
                     </div>
                 </Link>
-                <p className="text-sm">{{item['date_time']}}</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">{{item['date_time']}}</p>
             </li>
         {% endfor %}
         </>
@@ -26,12 +26,12 @@
                 <Link href="{{item['path']}}">
                     <div className="flex items-center space-x-1 text-lg{{'' if item['is_file']=='yes' else ' font-bold text-primary'}}">
                         {% if item['is_file']=='yes' %}
-                            <MdArticle/>
+                            <MdArticle className="shrink-0"/>
                         {% endif %}
                         <p className="relative bottom-[1px]">{{item['name']}}</p>
                     </div>
                 </Link>
-                <p className="text-sm">{{item['date_time']}}</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">{{item['date_time']}}</p>
             </li>
         {% endfor %}
         </>

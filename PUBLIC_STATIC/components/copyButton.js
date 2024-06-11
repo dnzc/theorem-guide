@@ -17,4 +17,4 @@ function CopyButton({ text, children }) {
     )
 }
 
-export { copyToClipboard, CopyButton };
+export { copyToClipboard, CopyButton }

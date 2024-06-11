@@ -2,12 +2,13 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
+import Sidebar from '@/components/sidebar'
 import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
 
-import { FaChevronRight } from 'react-icons/fa'
+import { FaChevronRight, FaSearch, FaBook } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
 import 'katex/dist/katex.min.css'
@@ -41,13 +42,17 @@ export default function BezoutEgcd () {
                         />
     
                     <div className="relative w-full flex h-full">
-    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
-        <ul>
-            <li>
-                <span>
-                    <Link href="/"> wiki.danielc.rocks </Link>
-                </span>
-                <ul>
+    <Sidebar>
+
+        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
+            <li className="relative bottom-4 pl-4">
+                <div className="text-primary mt-3 mb-0.5">
+                    <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
+                        <FaBook/>
+                        <span>root</span>
+                    </Link>
+                </div>
+                <ul className="mb-4">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -164,9 +169,12 @@ export default function BezoutEgcd () {
                 </ul>
             </li>
         </ul>
-    </nav>
+
+    </Sidebar>
 
     <article className="w-full min-w-0 px-6 pt-3">
+
+        <div className="h-[4.5rem] md:h-0"/>
 
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
@@ -252,14 +260,14 @@ export default function BezoutEgcd () {
 <p>Let's try:</p>
 
 <blockquote>
-  <p><Latex>$$1 = 1\cdot 1 + 2\cdot 0$$</Latex>
-  <Latex>$$ = (3-2)\cdot 1 + 2\cdot 0$$</Latex>
-  <Latex>$$ = 3\cdot 1 + 2\cdot (0-1)$$</Latex>
-  <Latex>$$ = 3\cdot 1 + (5-3)\cdot (-1)$$</Latex>
-  <Latex>$$ = 3\cdot (1+1) + 5\cdot (-1)$$</Latex>
-  <Latex>$$ = (8-5)\cdot 2 + 5\cdot (-1)$$</Latex>
-  <Latex>$$ = 8\cdot 2 + 5\cdot (-1-2)$$</Latex>
-  <Latex>$$ = 8\cdot 2 - 5\cdot 3$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$1 = 1\cdot 1 + 2\cdot 0$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = (3-2)\cdot 1 + 2\cdot 0$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 3\cdot 1 + 2\cdot (0-1)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 3\cdot 1 + (5-3)\cdot (-1)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 3\cdot (1+1) + 5\cdot (-1)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = (8-5)\cdot 2 + 5\cdot (-1)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 8\cdot 2 + 5\cdot (-1-2)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 8\cdot 2 - 5\cdot 3$$</Latex></span></p>
 </blockquote>
 
 <p>Which is a linear combination of 5 and 8!</p>
@@ -269,16 +277,16 @@ export default function BezoutEgcd () {
 <p>Let's do the same thing. Note that a linear combination of 155 and 27 is a linear combination of (27*5 + 20) and 27, which is a linear combination of 20 and 27 because <Latex>$155x + 27y$</Latex> <Latex>$ = (27\cdot 5 + 20)x + 27y$</Latex> <Latex>$= 27(5x+y) + 20x$</Latex>. And so on, this is a linear combination of 7 and 20, which is a combination of 7 and 6 (because 20 divided by 7 has remainder 6), which is a combination of 7-6=1 and 6. We've hit 1, so we can start building up the desired combination by going backwards.</p>
 
 <blockquote>
-  <p><Latex>$$1 = 1\cdot 1 + 6\cdot 0$$</Latex>
-  <Latex>$$ = (7-6)\cdot 1 + 6\cdot 0$$</Latex>
-  <Latex>$$ = 7\cdot 1 + 6\cdot (0-1)$$</Latex>
-  <Latex>$$ = 7\cdot 1 + (20-2\cdot 7)\cdot (-1)$$</Latex>
-  <Latex>$$ = 7\cdot (1+2\cdot 1) + 20\cdot (-1)$$</Latex>
-  <Latex>$$ = (27-20)\cdot 3 + 20\cdot (-1)$$</Latex>
-  <Latex>$$ = 27\cdot 3 + 20\cdot (-1-3)$$</Latex>
-  <Latex>$$ = 27\cdot 3 + (155-5\cdot 27)\cdot (-4)$$</Latex>
-  <Latex>$$ = 27\cdot (3+5\cdot 4) + (155\cdot (-4)$$</Latex>
-  <Latex>$$ = 27\cdot 23 - 155\cdot 4$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$1 = 1\cdot 1 + 6\cdot 0$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = (7-6)\cdot 1 + 6\cdot 0$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 7\cdot 1 + 6\cdot (0-1)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 7\cdot 1 + (20-2\cdot 7)\cdot (-1)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 7\cdot (1+2\cdot 1) + 20\cdot (-1)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = (27-20)\cdot 3 + 20\cdot (-1)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 27\cdot 3 + 20\cdot (-1-3)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 27\cdot 3 + (155-5\cdot 27)\cdot (-4)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 27\cdot (3+5\cdot 4) + (155\cdot (-4)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 27\cdot 23 - 155\cdot 4$$</Latex></span></p>
 </blockquote>
 
 <p>Are you starting to get the idea? Let's do one more example (I also strongly recommend trying some on your own). This time, we'll write out the divisions that we're doing at the start, as well as the reconstruction steps.</p>
@@ -288,53 +296,53 @@ export default function BezoutEgcd () {
   
   <p>First, our division steps that "reduce" the problem:</p>
   
-  <p><Latex>$$443 = 259 \cdot 1 + 184 \text&#123;, new pair is (259,184)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$443 = 259 \cdot 1 + 184 \text&#123;, new pair is (259,184)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$259 = 184 \cdot 1 + 75 \text&#123;, new pair is (184,75)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$259 = 184 \cdot 1 + 75 \text&#123;, new pair is (184,75)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$184 = 75 \cdot 2 + 34 \text&#123;, new pair is (75,34)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$184 = 75 \cdot 2 + 34 \text&#123;, new pair is (75,34)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$75 = 34 \cdot 2 + 7 \text&#123;, new pair is (34,7)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$75 = 34 \cdot 2 + 7 \text&#123;, new pair is (34,7)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$34 = 7 \cdot 4 + 6 \text&#123;, new pair is (7,6)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$34 = 7 \cdot 4 + 6 \text&#123;, new pair is (7,6)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$7 = 6 \cdot 1 + 1 \text&#123;, new pair is (6,1)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$7 = 6 \cdot 1 + 1 \text&#123;, new pair is (6,1)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$6 = 1 \cdot 6 + 0 \text&#123;, new pair is (1,0)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$6 = 1 \cdot 6 + 0 \text&#123;, new pair is (1,0)&#125;$$</Latex></span></p>
   
   <p>We stop once we hit (1,0). Now, <Latex>$1 = 1\cdot 1 - 0\cdot 0$</Latex> so we can start reconstructing, by travelling back up the list of divisions.</p>
   
-  <p><Latex>$$1 = 1\cdot 1 - 0 \cdot 0$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$1 = 1\cdot 1 - 0 \cdot 0$$</Latex></span></p>
   
-  <p><Latex>$$ = 1\cdot 1 - (6 - 1\cdot 6) \cdot 0 \text&#123; (see last line of the division list)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 1\cdot 1 - (6 - 1\cdot 6) \cdot 0 \text&#123; (see last line of the division list)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$ = 1\cdot (1+6\cdot 0) - 6 \cdot 0$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 1\cdot (1+6\cdot 0) - 6 \cdot 0$$</Latex></span></p>
   
-  <p><Latex>$$ = (7-6 \cdot 1)\cdot 1 - 6 \cdot 0 \text&#123; (see penultimate line)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = (7-6 \cdot 1)\cdot 1 - 6 \cdot 0 \text&#123; (see penultimate line)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$ = 7\cdot 1 - 6 \cdot (0+1\cdot 1)$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 7\cdot 1 - 6 \cdot (0+1\cdot 1)$$</Latex></span></p>
   
-  <p><Latex>$$ = 7\cdot 1 - (34 - 7 \cdot 4) \cdot 1 \text&#123; (see... etc)&#125;$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 7\cdot 1 - (34 - 7 \cdot 4) \cdot 1 \text&#123; (see... etc)&#125;$$</Latex></span></p>
   
-  <p><Latex>$$ = 7\cdot (1+4\cdot 1) - 34 \cdot 1$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 7\cdot (1+4\cdot 1) - 34 \cdot 1$$</Latex></span></p>
   
-  <p><Latex>$$ = (75 - 34\cdot 2)\cdot 5 - 34 \cdot 1$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = (75 - 34\cdot 2)\cdot 5 - 34 \cdot 1$$</Latex></span></p>
   
-  <p><Latex>$$ = 75\cdot 5 - 34 \cdot (1+2\cdot 5)$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 75\cdot 5 - 34 \cdot (1+2\cdot 5)$$</Latex></span></p>
   
-  <p><Latex>$$ = 75\cdot 5 - (184 - 75 \cdot 2) \cdot 11$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 75\cdot 5 - (184 - 75 \cdot 2) \cdot 11$$</Latex></span></p>
   
-  <p><Latex>$$ = 75\cdot (5 + 2\cdot 11) - 184 \cdot 11$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 75\cdot (5 + 2\cdot 11) - 184 \cdot 11$$</Latex></span></p>
   
-  <p><Latex>$$ = (259-184\cdot 1)\cdot 27 - 184 \cdot 11$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = (259-184\cdot 1)\cdot 27 - 184 \cdot 11$$</Latex></span></p>
   
-  <p><Latex>$$ = 259\cdot 27 - 184 \cdot (11 + 1\cdot 27)$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 259\cdot 27 - 184 \cdot (11 + 1\cdot 27)$$</Latex></span></p>
   
-  <p><Latex>$$ = 259\cdot 27 - (443 - 259 \cdot 1) \cdot 38$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 259\cdot 27 - (443 - 259 \cdot 1) \cdot 38$$</Latex></span></p>
   
-  <p><Latex>$$ = 259\cdot (27 + 1\cdot 38) - 443 \cdot 38$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 259\cdot (27 + 1\cdot 38) - 443 \cdot 38$$</Latex></span></p>
   
-  <p><Latex>$$ = 259\cdot 65 - 443 \cdot 38$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$ = 259\cdot 65 - 443 \cdot 38$$</Latex></span></p>
   
   <p>which is a solution.</p>
 </blockquote>
@@ -361,7 +369,7 @@ export default function BezoutEgcd () {
 
 <blockquote>
   <p><em>Proof.</em> Let <Latex>$a,b \in \mathbb&#123;N&#125;$</Latex>. Consider the set
-  <Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = ax + by,\; x,y \in \mathbb&#123;Z&#125;\&#125;$$</Latex></p>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = ax + by,\; x,y \in \mathbb&#123;Z&#125;\&#125;$$</Latex></span></p>
   
   <p>This set is nonempty (since, for example, <Latex>$a \in S$</Latex>) and a subset of the naturals by construction. Thus by the <strong>well-ordering principle</strong>, S has a least element, say <Latex>$e = ax_0 + by_0$</Latex>.</p>
   
@@ -382,17 +390,17 @@ export default function BezoutEgcd () {
 <p>We could do what we did before, which was the Euclidean Algorithm and then building a solution <strong>in reverse</strong><sup className="footnote-ref" id="fnref-6"><a href="#fn-6">6</a></sup>. But what if we try the same thing but going forwards?</p>
 
 <blockquote>
-  <p><Latex>$$29x + 11y = 1$$</Latex>
-  <Latex>$$(2\cdot 11 + 7)x + 11y = 1$$</Latex>
-  <Latex>$$7x + 11(2x+y) = 1$$</Latex>
-  <Latex>$$7x + (7\cdot 1+4)(2x+y) = 1$$</Latex>
-  <Latex>$$7(3x+y) + 4(2x+y) = 1$$</Latex>
-  <Latex>$$(4+3)(3x+y) + 4(2x+y) = 1$$</Latex>
-  <Latex>$$3(3x+y) + 4(5x+2y) = 1$$</Latex>
-  <Latex>$$3(3x+y) + (3+1)(5x+2y) = 1$$</Latex>
-  <Latex>$$3(8x+3y) + 1(5x+2y) = 1$$</Latex>
-  <Latex>$$(3\cdot 1 + 0)(8x+3y) + 1(5x+2y) = 1$$</Latex>
-  <Latex>$$0(8x+3y) + 1(29x + 11y) = 1$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$29x + 11y = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$(2\cdot 11 + 7)x + 11y = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$7x + 11(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$7x + (7\cdot 1+4)(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$7(3x+y) + 4(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$(4+3)(3x+y) + 4(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$3(3x+y) + 4(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$3(3x+y) + (3+1)(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$3(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$(3\cdot 1 + 0)(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$0(8x+3y) + 1(29x + 11y) = 1$$</Latex></span></p>
 </blockquote>
 
 <p>Uh, oh, it looks like we started with <Latex>$29x + 11y = 1$</Latex> and ended up with <Latex>$0 + 1(29x+11y) = 1$</Latex>. Did we go in a circle? It certainly looks like it, apart from one thing - why did we get <Latex>$(8x+3y)$</Latex> in that bracket? Surely there's something special about it.</p>
@@ -408,12 +416,12 @@ So could it be that the significance of <Latex>$(8x+3y)$</Latex> is that it give
 <p>In fact, it looks like something even better is true: for convenience, I'll write a compressed version of what we did again:</p>
 
 <blockquote>
-  <p><Latex>$$29x + 11y = 1$$</Latex>
-  <Latex>$$7x + 11(2x+y) = 1$$</Latex>
-  <Latex>$$7(3x+y) + 4(2x+y) = 1$$</Latex>
-  <Latex>$$3(3x+y) + 4(5x+2y) = 1$$</Latex>
-  <Latex>$$3(8x+3y) + 1(5x+2y) = 1$$</Latex>
-  <Latex>$$0(8x+3y) + 1(29x + 11y) = 1$$</Latex></p>
+  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$29x + 11y = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$7x + 11(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$7(3x+y) + 4(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$3(3x+y) + 4(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$3(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$0(8x+3y) + 1(29x + 11y) = 1$$</Latex></span></p>
 </blockquote>
 
 <p>Look at the coefficients of <Latex>$x$</Latex> and <Latex>$y$</Latex> in the last line: it fits the pattern that <Latex>$11\cdot 8 - 29\cdot 3 = 1$</Latex></p>
@@ -462,10 +470,10 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
 
 <p>So what's the next line? Well, we reduce: write <Latex>$m = qn + m'$</Latex>, so <Latex>$q$</Latex> is the next quotient in the Euclidean algorithm, and <Latex>$m'$</Latex> is the remainder.</p>
 
-<p><Latex>$$m(ax + by) + n(cx + dy)$$</Latex>
-<Latex>$$ = (qn+m')(ax + by) + n(cx + dy)$$</Latex>
-<Latex>$$ = m'(ax + by) + n(q(ax+by)+(cx + dy))$$</Latex>
-<Latex>$$ = m'(ax + by) + n((qa+c)x+(qb+d)y)$$</Latex></p>
+<p><span className="block overflow-scroll no-scrollbar"><Latex>$$m(ax + by) + n(cx + dy)$$</Latex></span>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$ = (qn+m')(ax + by) + n(cx + dy)$$</Latex></span>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$ = m'(ax + by) + n(q(ax+by)+(cx + dy))$$</Latex></span>
+<span className="block overflow-scroll no-scrollbar"><Latex>$$ = m'(ax + by) + n((qa+c)x+(qb+d)y)$$</Latex></span></p>
 
 <p>And so, if we have the two brackets <Latex>$(cx+dy)$</Latex> and <Latex>$(ax+by)$</Latex>, then the next bracket is <Latex>$((qa+c)x + (qb+d)y)$</Latex>.</p>
 
@@ -723,22 +731,22 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
   <p>Let's say the list of quotients is <Latex>$t_1, t_2, \cdots, t_n$</Latex> .</p>
   
   <p>Then we build a sequence of matrices (which are the 2x2 squares in the magic box, from left to right): the first is <Latex>$M_1 = \begin&#123;pmatrix&#125;0 &amp; 1\\1 &amp; 0\end&#123;pmatrix&#125;$</Latex>, and for any matrix <Latex>$M_i$</Latex> in the sequence with <Latex>$M_i = \begin&#123;pmatrix&#125; p_i &amp; p_&#123;i+1&#125; \\ q_i &amp; q_&#123;i+1&#125; \end&#123;pmatrix&#125;$</Latex>, we have that:
-  <Latex>$$M_&#123;i+1&#125; = \begin&#123;pmatrix&#125; p_&#123;i+1&#125; &amp; t_i p_&#123;i+1&#125; + p_i \\ q_&#123;i+1&#125; &amp; t_i q_&#123;i+1&#125; + q_i\end&#123;pmatrix&#125;$$</Latex>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$M_&#123;i+1&#125; = \begin&#123;pmatrix&#125; p_&#123;i+1&#125; &amp; t_i p_&#123;i+1&#125; + p_i \\ q_&#123;i+1&#125; &amp; t_i q_&#123;i+1&#125; + q_i\end&#123;pmatrix&#125;$$</Latex></span>
   Now we can write this in terms of <Latex>$M_i$</Latex> like so:
-  <Latex>$$M_&#123;i+1&#125; = \begin&#123;pmatrix&#125; p_&#123;i+1&#125; &amp;  p_i \\ q_&#123;i+1&#125; &amp; q_i\end&#123;pmatrix&#125; + \begin&#123;pmatrix&#125; 0 &amp; t_i p_&#123;i+1&#125; \\ 0 &amp; t_i q_&#123;i+1&#125;\end&#123;pmatrix&#125;$$</Latex>
-  <Latex>$$= M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; 0 \end&#123;pmatrix&#125; + M_i\begin&#123;pmatrix&#125; 0 &amp; 0 \\ 0 &amp; t_i \end&#123;pmatrix&#125;$$</Latex>
-  <Latex>$$= M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;$$</Latex></p>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$M_&#123;i+1&#125; = \begin&#123;pmatrix&#125; p_&#123;i+1&#125; &amp;  p_i \\ q_&#123;i+1&#125; &amp; q_i\end&#123;pmatrix&#125; + \begin&#123;pmatrix&#125; 0 &amp; t_i p_&#123;i+1&#125; \\ 0 &amp; t_i q_&#123;i+1&#125;\end&#123;pmatrix&#125;$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$= M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; 0 \end&#123;pmatrix&#125; + M_i\begin&#123;pmatrix&#125; 0 &amp; 0 \\ 0 &amp; t_i \end&#123;pmatrix&#125;$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$= M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;$$</Latex></span></p>
   
   <p>Now, using this recurrence, we have that the last 2x2 square in the magic box, the one that gives the solution to <Latex>$ax + by = \pm 1$</Latex>, is:
-  <Latex>$$\begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; 0\end&#123;pmatrix&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_1\end&#123;pmatrix&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_2\end&#123;pmatrix&#125; (\cdots) \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_n\end&#123;pmatrix&#125;$$</Latex>
-  <Latex>$$ = \prod_&#123;0 \leq i \leq n&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i\end&#123;pmatrix&#125;$$</Latex>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$\begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; 0\end&#123;pmatrix&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_1\end&#123;pmatrix&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_2\end&#123;pmatrix&#125; (\cdots) \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_n\end&#123;pmatrix&#125;$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = \prod_&#123;0 \leq i \leq n&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i\end&#123;pmatrix&#125;$$</Latex></span>
   Where we extend the definition of the <Latex>$t_i$</Latex> to include <Latex>$t_0 = 0$</Latex>.</p>
   
   <p>Note: this recurrence also justifies that the determinant of each 2x2 square in the magic box alternates between 1 and -1, because:
-  <Latex>$$det(M_&#123;i+1&#125;)$$</Latex>
-  <Latex>$$= det\left(M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;\right)$$</Latex>
-  <Latex>$$= det(M_i) \, det\left(\begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;\right)$$</Latex>
-  <Latex>$$ = -det(M_i)$$</Latex></p>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$det(M_&#123;i+1&#125;)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$= det\left(M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;\right)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$= det(M_i) \, det\left(\begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;\right)$$</Latex></span>
+  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = -det(M_i)$$</Latex></span></p>
 </blockquote>
 
 <h2 id="remarks-first-unobvious-result" className="group flex">Remarks: first unobvious result?&nbsp;<Link href="#remarks-first-unobvious-result" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/3-bezout-egcd#remarks-first-unobvious-result", true)} className="hidden group-hover:block text-primary">¶</Link></h2>

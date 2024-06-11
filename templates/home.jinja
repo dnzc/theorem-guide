@@ -12,35 +12,42 @@
 
     <p className="block md:hidden text-3xl font-bold text-primary break-all">wiki.danielc.rocks</p>
 
-    <p>This site is a collection of explanations of topics I find interesting (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>).</p> I began this as a summer project in July 2023.
+    <p>This site is a collection of explanations of topics I find interesting (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>).</p>
+    I began this as a summer project in July 2023.
 
-    <h1>Recent Articles</h1>
+    <div className="pt-2 pb-4">
 
-    <div className="bg-black bg-opacity-30 p-4 space-y-4 rounded-xl">
+        <h1>Recent Articles</h1>
 
-        {% for article in recentArticles %}
-            <div>
-                <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
-                    <p className="text-italic italic mr-4">{{article['date_time']}}</p>
-                    {% if article['dir']|length == 1 %}
-                        <p className="font-bold">{{article['dir'][0]}}</p>
-                    {% elif article['dir']|length == 2 %}
-                        <p className="font-bold">{{article['dir'][0]}}</p>
-                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                        <p className="font-bold">{{article['dir'][1]}}</p>
-                    {% else %}
-                        <p className="font-bold">{{article['dir'][0]}}</p>
-                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                        <p className="font-bold">...</p>
-                        <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                        <p className="font-bold">{{article['dir'][-1]}}</p>
-                    {% endif %}
+        <div className="bg-black bg-opacity-30 p-4 space-y-4 rounded-xl">
+
+            {% for article in recentArticles %}
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                        <p className="text-italic italic mr-4">{{article['date_time']}}</p>
+                        {% if article['dir']|length == 1 %}
+                            <p className="font-bold">{{article['dir'][0]}}</p>
+                        {% elif article['dir']|length == 2 %}
+                            <p className="font-bold">{{article['dir'][0]}}</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="font-bold">{{article['dir'][1]}}</p>
+                        {% else %}
+                            <p className="font-bold">{{article['dir'][0]}}</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="font-bold">...</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="font-bold">{{article['dir'][-1]}}</p>
+                        {% endif %}
+                    </div>
+                    <p className="text-xl font-bold text-secondary"><Link href="{{'/'+'/'.join(article['dir'])+'/'+article['name']}}" className="hover:underline">{{article['title']}}</Link></p>
                 </div>
-                <p className="text-xl font-bold text-secondary"><Link href="{{'/'+'/'.join(article['dir'])+'/'+article['name']}}" className="hover:underline">{{article['title']}}</Link></p>
-            </div>
-        {% endfor %}
+            {% endfor %}
+
+        </div>
 
     </div>
+
+    <h1>Metadata</h1>
 
     <div className="space-y-2">
         <h2 id="how-is-this-site-maintained">How is this site maintained?</h2>
@@ -68,5 +75,12 @@
     <p>Enjoy exploring!</p>
 
     <p className="text-sm text-elevated">P.S. if you think the ascii tree is cool (not visible on small screens), I generated it using <DiscreetLink href="https://gitlab.com/jallbrit/cbonsai">cbonsai</DiscreetLink>, <DiscreetLink href="https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh">ansi2html</DiscreetLink> and some regex!</p>
+
+    <div>
+        <h2 id="changelog">Changelog</h2>
+        <div className="changelog">
+            {{ changelog }}
+        </div>
+    </div>
 
 </div>

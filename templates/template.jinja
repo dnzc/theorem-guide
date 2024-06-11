@@ -1,11 +1,15 @@
 <div className="relative w-full{{' 2xl:max-w-[90%]' if not tableOfContents else ''}} flex h-full">
-    <nav className="dirtree hidden md:flex w-[300px] md:shrink-0 md:justify-center h-100% min-h-screen border-r-2 border-elevated">
-        <ul>
-            <li>
-                <span>
-                    <Link href="/"> wiki.danielc.rocks </Link>
-                </span>
-                <ul>
+    <Sidebar>
+
+        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
+            <li className="relative bottom-4 pl-4">
+                <div className="{{"text-secondary" if pathStr=='' else "text-primary"}} mt-3 mb-0.5">
+                    <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
+                        <FaBook/>
+                        <span>root</span>
+                    </Link>
+                </div>
+                <ul className="mb-4">
                     {% for child in dirTree['children'] recursive %}
                         {% if child['is_dir'] %}
                             <Accordion title="{{child['name']}}" href="{{child['path']}}" isFolder={true} isSelected={ {{"true" if pathStr==child['path'] else "false"}} } isOpenByDefault={ {{"true" if child['depth'] < 2 or (pathStr and pathStr.startswith(child['path'])) else "false"}} } >
@@ -20,9 +24,12 @@
                 </ul>
             </li>
         </ul>
-    </nav>
+
+    </Sidebar>
 
     <article className="w-full min-w-0 px-6 pt-3">
+
+        <div className="h-[4.5rem] md:h-0"/>
 
         {% if pathList %}
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
