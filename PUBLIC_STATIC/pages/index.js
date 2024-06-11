@@ -205,7 +205,7 @@ export default function Wiki () {
             
                 <div>
                     <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
-                        <p className="text-italic italic mr-4">10 Jun 2024</p>
+                        <p className="text-italic italic mr-4">11 Jun 2024</p>
                         
                             <p className="font-bold">writeups</p>
                         
@@ -350,7 +350,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jun 2024</p>
             </li>
         
         </>
@@ -384,7 +384,7 @@ export default function Wiki () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jun 2024</p>
             </li>
         
         </>

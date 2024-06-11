@@ -185,7 +185,7 @@ export default function Writeups () {
                         <p className="relative bottom-[1px]">terminal</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jun 2024</p>
             </li>
         
         </>
@@ -201,7 +201,7 @@ export default function Writeups () {
                         <p className="relative bottom-[1px]">terminal</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jun 2024</p>
             </li>
         
         </>

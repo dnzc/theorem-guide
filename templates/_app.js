@@ -14,15 +14,16 @@ const fira = Fira_Code({
 })
 
 export default function App({ Component, pageProps }) {
+  console.log(lato)
   return (
     <>
       <Head>
-        <meta name="theme-color" content="var(--color-body)"/>
+        <meta name="theme-color" content="#282c34"/>
       </Head>
       <style jsx global>{`
         :root {
-          --font-sans: ${lato.style.fontFamily};
-          --font-mono: ${fira.style.fontFamily};
+          --font-lato: ${lato.style.fontFamily};
+          --font-fira: ${fira.style.fontFamily};
         }
       `}</style>
       <Component {...pageProps} />

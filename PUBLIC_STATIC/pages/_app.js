@@ -14,6 +14,7 @@ const fira = Fira_Code({
 })
 
 export default function App({ Component, pageProps }) {
+  console.log(lato)
   return (
     <>
       <Head>
@@ -21,8 +22,8 @@ export default function App({ Component, pageProps }) {
       </Head>
       <style jsx global>{`
         :root {
-          --font-sans: ${lato.style.fontFamily};
-          --font-mono: ${fira.style.fontFamily};
+          --font-lato: ${lato.style.fontFamily};
+          --font-fira: ${fira.style.fontFamily};
         }
       `}</style>
       <Component {...pageProps} />

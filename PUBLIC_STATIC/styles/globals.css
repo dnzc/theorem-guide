@@ -14,7 +14,7 @@
         --color-link: #56b6c2;
         --color-hover: #98c379;
 
-        --toastify-font-family: var(--font-sans) !important;
+        --toastify-font-family: var(--font-lato) !important;
         --toastify-toast-width: 250px !important;
         --toastify-color-dark: #000000 !important;
         --toastify-color-progress-dark: var(--color-primary) !important; /* same as primary */
