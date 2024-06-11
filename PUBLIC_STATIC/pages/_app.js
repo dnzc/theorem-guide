@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta name="theme-color" content="var(--color-body)"/>
+        <meta name="theme-color" content="#282c34"/>
       </Head>
       <style jsx global>{`
         :root {

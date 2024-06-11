@@ -67,6 +67,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
         document.addEventListener('keydown', (e) => {handleKeydown(e)})
         document.addEventListener('keyup', handleKeyup)
         window.addEventListener('resize', hidePopup)
+        hidePopup()
     }, [])
 
     let visibility = active ? "" : "hidden "
