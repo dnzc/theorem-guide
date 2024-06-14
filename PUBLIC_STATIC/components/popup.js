@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import resolveConfig from "tailwindcss/resolveConfig"
 import tailwindConfig from "@/tailwind.config.js";
+import Search from './search';
 
 const fullConfig = resolveConfig(tailwindConfig)
 
 var shortcuts = ['l', 'k']
 
-export default function Popup({ buttonStyle, buttonContents, keyboardShortcutIndex, listenWhenLarge, children }) {
+export default function Popup({ buttonStyle, buttonContents, keyboardShortcutIndex, listenWhenLarge, escButtonInsideModal, children }) {
 
     var lastEvent
 
@@ -67,7 +68,6 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
         document.addEventListener('keydown', (e) => {handleKeydown(e)})
         document.addEventListener('keyup', handleKeyup)
         window.addEventListener('resize', hidePopup)
-        hidePopup()
     }, [])
 
     let visibility = active ? "" : "hidden "
@@ -78,11 +78,11 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
                 {buttonContents}
             </button>
             <div onClick={handleActiveClick} className={`overlay flex items-center justify-center ${visibility}fixed w-full h-full top-0 left-0 bg-black bg-opacity-30 backdrop-blur-md z-30`}>
-                <div className="max-w-[700px] w-full h-[70%] mx-10 z-40 bg-body rounded-xl p-4">
-                    <button onClick={hidePopup} className="absolute top-4 right-4 font-bold flex text-elevated items-center space-x-6 pl-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-md px-3 py-1.5 ml-4">
+                <div className="max-w-[700px] w-full h-[70%] mx-10 z-40 bg-body rounded-xl relative">
+                    <button onClick={hidePopup} className={`${escButtonInsideModal ? 'absolute top-3 right-3' : 'fixed top-4 right-4'}  z-10 font-bold flex text-elevated items-center space-x-6 pl-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-md px-3 py-1.5 ml-4`}>
                         ESC
                     </button>
-                    {children}
+                    {children ? children : <Search active={active}/>}
                 </div>
             </div>
         </>

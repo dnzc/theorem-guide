@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '@/tailwind.config.js'
 import { FaSearch } from 'react-icons/fa'
@@ -56,7 +56,6 @@ export default function Sidebar({ children }) {
                     <span>Hide Filetree</span>
                     <span className="text-sm font-bold relative">Ctrl L</span>
                 </button>
-
             </nav>
 
             <nav className={`md:w-0 md:h-0 fixed top-0 left-0 w-full h-[calc(2.25rem+2*1rem)] py-4 z-20`}>
@@ -75,9 +74,10 @@ export default function Sidebar({ children }) {
                             </>
                         }
                         keyboardShortcutIndex={0}
-                        listenWhenLarge={false}
                     >
-                        {children}
+                        <div className="w-full h-full py-4">
+                            {children}
+                        </div>
                     </Popup>
                 </div>
                 <Popup buttonStyle="text-base text-elevated mr-4 flex bg-body space-x-4"
@@ -95,9 +95,8 @@ export default function Sidebar({ children }) {
                     }
                     keyboardShortcutIndex={1}
                     listenWhenLarge={true}
-                >
-                    <p className="italic text-italic">Coming soon...</p>
-                </Popup>
+                    escButtonInsideModal={true}
+                /> {/* no children means render search component by default */}
             </nav>
         </>
     )

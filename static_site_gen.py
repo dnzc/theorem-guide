@@ -2,6 +2,7 @@ from markdown2 import markdown
 from jinja2 import Environment, FileSystemLoader
 import os, shutil, re
 from datetime import datetime
+import html
 
 SOURCE_DIR = '/home/dnzc/Github/wiki/CONTENT_ROOT/'
 TARGET_DIR = '/home/dnzc/Github/wiki/PUBLIC_STATIC/pages/'
@@ -135,7 +136,6 @@ def gen_content(cur_dir, depth, article_list):
         with open(SOURCE_DIR+cur_dir, 'r') as markdown_file:
 
             file = markdown_file.read()
-            article_data['content'] = file
             # extract article title from markdown
             titles = re.findall(r'```.*?\n# .*?\n```|\n# (.*?)\n', '\n'+file, re.DOTALL) # extract lines starting with '# ' that aren't inside a code block (might be first line, so prepend \n)
             titles = [t for t in titles if t != ''] # for invalid titles, the capture group is empty but still exists, so need to remove them
@@ -195,6 +195,10 @@ def gen_content(cur_dir, depth, article_list):
             tableOfContents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
             page = add_link_anchors(page, cur_dir)
 
+            # markdown added class attributes, replace with "className" for react
+            page = page.replace('class=','className=')
+
+
         with open(TARGET_DIR+sanitize(cur_dir[:-3])+'.js', 'w') as output_file:
             path_list = sanitize(cur_dir).split('/')[1:-1] # path to parent folder
             timestamp = os.path.getmtime(SOURCE_DIR+cur_dir)
@@ -207,11 +211,12 @@ def gen_content(cur_dir, depth, article_list):
             pageTitle = ' '.join(parsedFilename)
 
             react = wrap_in_js(
-                    template.render(content=page.replace('class=', 'className='), pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, dateTime=date_time, tableOfContents=tableOfContents),
+                    template.render(content=page, pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, dateTime=date_time, tableOfContents=tableOfContents),
                     pageTitle, False, False
                     )
 
             article_data['name'] = filename
+            article_data['content'] = page
             article_data['timestamp'] = timestamp
             article_data['date_time'] = date_time
             article_data['dir'] = path_list
@@ -263,30 +268,40 @@ os.makedirs(TARGET_DIR, exist_ok=True)
 
 articles = []
 gen_content('', 1, articles)
-#print(articles)
+
+# for indexing search
 with open(ARTICLE_DATA_FILE, 'w') as data_file:
-    data_file.write('''
-const documents = [
-    {
-        id: 1,
-        title: 'Moby Dick',
-        text: 'Call me Ishmael. Some years ago...',
-        category: 'fiction'
-    },
-    {
-        id: 2,
-        title: 'Zen and the Art of Motorcycle Maintenance',
-        text: 'I can see by my watch...',
-        category: 'fiction'
-    },
-    {
-        id: 3,
-        title: 'Neuromancer',
-        text: 'The sky above the port was...',
-        category: 'fiction'
-    },
-]
-    ''')
+    data_file.write('const articles = [')
+    for i,article in enumerate(articles):
+        title = article['title'].replace('\'','\\\'')
+        content = article['content']
+        # replace <br/> with newlines, so that text on newlines remains separated after removing all html tags
+        content = content.replace('<br/>', '\n')
+        # remove footnote references
+        content = re.sub(r'<sup[^<>]*?footnote-ref[^<>]*?>.*?</sup>', '', content, flags=re.DOTALL)
+        # < or > might occur inside a tag; assume the only time this happens is when you have "=>" in something like "<button onClick={() => {...}}>"
+        content = re.sub(r'<[^/][^<>]*?=>[^<>]*?>', '', content, flags=re.DOTALL) # deal with the special case
+        content = re.sub(r'<.*?>', '', content, flags=re.DOTALL) # now remove tags without issue
+        # replace html literals e.g. &nbsp;
+        content = html.unescape(content)
+        content = re.sub(r'\s', ' ', content)
+        # remove link anchors
+        content = re.sub(r'¶', r'', content, flags=re.DOTALL) 
+        # delete first occurrence of title (guaranteed to be title itself, since title extraction extracted the first title)
+        content = content.replace(article['title'], '', 1)
+        # format as json string
+        content = content.replace('\\','\\\\').replace('\n',' ').replace('\'', '\\\'').strip()
+        content = re.sub(r' +', ' ', content)
+        data_file.write(f'''
+    {{
+        id: {i},
+        title: '{title}',
+        name: '{article['name']}',
+        dir: {article['dir']},
+        content: '{content}',
+    }},''')
+    data_file.write('\n]\n\nexport default articles')
+
 
 
 # root page is special

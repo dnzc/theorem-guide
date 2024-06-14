@@ -5,6 +5,8 @@
 @layer base {
 
     :root {
+        color-scheme: dark;
+        /* taken from onedark */
         --color-body: #282c34;
         --color-elevated: #abb2bf;
         --color-primary: #e5c07b;
