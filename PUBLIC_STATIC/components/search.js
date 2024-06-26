@@ -70,10 +70,10 @@ export default function Search({ active }) {
     }
 
     return (
-        <div className="w-full h-full">
-            <input ref={inputRef} type="text" onChange={searchChange} onKeyDown={handleKeyDown} placeholder="Search…" className="bg-body rounded-t-lg w-full px-4 py-4 text-lg outline-none border-b-2 border-elevated"/>
+        <div className='w-full h-full'>
+            <input ref={inputRef} type='text' onChange={searchChange} onKeyDown={handleKeyDown} placeholder='Search…' className='bg-body rounded-t-lg w-full px-4 py-4 text-lg outline-none border-b-2 border-elevated'/>
 
-            <div id="results-div" className="relative w-full h-[calc(100%-4rem)] overflow-y-scroll">
+            <div id='results-div' className='relative w-full h-[calc(100%-4rem)] overflow-y-scroll'>
                 <ol>
                     { searchResults && searchResults.map((result, i) => {
                         let re = substrsToRegex(inputRef.current.value)
@@ -87,7 +87,7 @@ export default function Search({ active }) {
                             let tokens = highlightMatchesInString(re, folder, 'text-secondary font-bold')
                             if(tokens.length>1) matchedDir = true
                             jsxDir.push(...tokens)
-                            jsxDir.push(<>&nbsp;<FaChevronRight className="text-elevated relative top-[1px]" size={12}/>&nbsp;</>)
+                            jsxDir.push(<>&nbsp;<FaChevronRight className='text-elevated relative top-[1px]' size={12}/>&nbsp;</>)
                         })
                         let name = highlightMatchesInString(re, result['name'], 'text-white font-bold')
                         let matchedName = name.length>1
@@ -108,8 +108,8 @@ export default function Search({ active }) {
                         return (
                             <li key={i} id={`result-${i}`} className={`p-4 pt-2 border-b border-elevated last:border-none text-elevated ${i==selectedResult ? 'bg-black bg-opacity-30' : ''}`} onMouseEnter={() => {setSelectedResult(i)}}>
                                 <Link href={'/'+result['dir'].join('/')+'/'+result['name']}>
-                                    <p className="flex flex-wrap items-center align-middle mb-1">{jsxDir}</p>
-                                    <p className="text-xl font-bold mb-1">{title}</p>
+                                    <p className='flex flex-wrap items-center align-middle mb-1'>{jsxDir}</p>
+                                    <p className='text-xl font-bold mb-1'>{title}</p>
                                     <p className={`${matchedTitle||matchedDir||matchedName ? 'text-elevated' : 'text-white font-bold'} ml-4`}>{content}</p>
                                 </Link>
                             </li>

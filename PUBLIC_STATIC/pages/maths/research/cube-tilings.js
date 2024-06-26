@@ -30,7 +30,7 @@ export default function CubeTilings () {
                 <>
                     
                         <ToastContainer
-                            position="top-right"
+                            position='top-right'
                             autoClose={5000}
                             hideProgressBar={false}
                             newestOnTop={false}
@@ -38,7 +38,7 @@ export default function CubeTilings () {
                             rtl={false}
                             pauseOnFocusLoss={false}
                             pauseOnHover={false}
-                            theme="dark"
+                            theme='dark'
                         />
     
                     <div className="relative w-full flex h-full">

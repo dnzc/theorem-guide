@@ -38,7 +38,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
     toastContainer = f'''
                         <ToastContainer
-                            position="top-right"
+                            position='top-right'
                             autoClose={{5000}}
                             hideProgressBar={{false}}
                             newestOnTop={{false}}
@@ -46,7 +46,7 @@ import 'react-toastify/dist/ReactToastify.css'
                             rtl={{false}}
                             pauseOnFocusLoss={{false}}
                             pauseOnHover={{false}}
-                            theme="dark"
+                            theme='dark'
                         />
     ''' if isHome or not isFolder else ''
 
@@ -122,7 +122,7 @@ def construct_tree(path, depth):
         name = name[:-3] # remove .md file extension
         d['path'] = sanitize(path[len(SOURCE_DIR)-1:][:-3])
     if name != sanitize(name):
-        print(f"Warning: {d['path']} name contains illegal characters, filtering them out...")
+        print(f'Warning: {d["path"]} name contains illegal characters, filtering them out...')
     d['name'] = sanitize(name)
     return d
 
@@ -141,11 +141,11 @@ def gen_content(cur_dir, depth, article_list):
             titles = [t for t in titles if t != ''] # for invalid titles, the capture group is empty but still exists, so need to remove them
             if len(titles) == 0:
                 article_data['title'] = 'no_title'
-                print(f"Warning: no article title found in {cur_dir}")
+                print(f'Warning: no article title found in {cur_dir}')
             else:
                 article_data['title'] = titles[0]
                 if len(titles) > 1:
-                    print(f"Warning: multiple article titles found in {cur_dir}, using first one")
+                    print(f'Warning: multiple article titles found in {cur_dir}, using first one')
 
             # replace \\ with \\\\, because for some reason later \\ is replaced with \ (probably by markdown2)
             file = file.replace('\\\\','\\\\\\\\') 
@@ -242,7 +242,7 @@ def gen_content(cur_dir, depth, article_list):
                 pageTitle = cur_dir.split('/')[-1]
                 # assume the markdown filenames consist of [a-zA-Z0-9-]
                 if(re.sub(r'[^a-zA-Z0-9-]', '', pageTitle) != pageTitle):
-                    print(f"Warning: {cur_dir} filename contains illegal characters")
+                    print(f'Warning: {cur_dir} filename contains illegal characters')
                 parsedPageTitle = []
                 for word in pageTitle.split('-'):
                     if not word.isdigit(): parsedPageTitle += [word[0].upper() + word[1:]]

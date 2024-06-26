@@ -30,7 +30,7 @@ export default function CNATs () {
                 <>
                     
                         <ToastContainer
-                            position="top-right"
+                            position='top-right'
                             autoClose={5000}
                             hideProgressBar={false}
                             newestOnTop={false}
@@ -38,7 +38,7 @@ export default function CNATs () {
                             rtl={false}
                             pauseOnFocusLoss={false}
                             pauseOnHover={false}
-                            theme="dark"
+                            theme='dark'
                         />
     
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full">

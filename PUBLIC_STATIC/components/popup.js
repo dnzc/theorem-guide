@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import resolveConfig from "tailwindcss/resolveConfig"
-import tailwindConfig from "@/tailwind.config.js";
-import Search from './search';
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '@/tailwind.config.js'
+import Search from './search'
 
 const fullConfig = resolveConfig(tailwindConfig)
 
@@ -25,15 +25,15 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
 
     function showPopup() {
         // disable scrolling
-        document.body.style.height = "100%"
-        document.body.style.overflow = "hidden"
+        document.body.style.height = '100%'
+        document.body.style.overflow = 'hidden'
         setActiveState(true)
     }
 
     function hidePopup() {
         // enable scrolling
-        document.body.style.height = ""
-        document.body.style.overflow = ""
+        document.body.style.height = ''
+        document.body.style.overflow = ''
         setActiveState(false)
     }
 
@@ -43,16 +43,19 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
     }
 
     function handleActiveClick(e) {
-        if([...e.target.classList].includes("overlay")) hidePopup()
+        if([...e.target.classList].includes('overlay')) hidePopup()
     }
 
     function handleKeydown(e) {
         if (lastEvent && lastEvent.keyCode == e.keyCode) return
         lastEvent = e
 
-        if(e.key === "Escape") {
+        let isMac = navigator.userAgent.toUpperCase().includes('MAC')
+
+        if(e.key === 'Escape' && activeRef.current) {
+            e.preventDefault()
             hidePopup()
-        } else if(e.ctrlKey && shortcuts.includes(e.key)) {
+        } else if((!isMac && e.ctrlKey || isMac && e.metaKey) && shortcuts.includes(e.key)) {
             if(!listenWhenLarge && window.innerWidth >= parseInt(fullConfig.theme.screens.md)) return
             e.preventDefault()
             if(e.key === shortcuts[keyboardShortcutIndex]) togglePopup()
@@ -65,13 +68,12 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
     }
 
     useEffect(() => {
-        document.addEventListener('keydown', (e) => {handleKeydown(e)})
+        document.addEventListener('keydown', handleKeydown)
         document.addEventListener('keyup', handleKeyup)
-        window.addEventListener('resize', hidePopup)
-        hidePopup()
-    }, [])
+        return () => {document.removeEventListener('keydown', handleKeydown); document.removeEventListener('keyup', handleKeyup)}
+    }, [active])
 
-    let visibility = active ? "" : "hidden "
+    let visibility = active ? '' : 'hidden '
 
     return (
         <>
@@ -79,7 +81,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
                 {buttonContents}
             </button>
             <div onClick={handleActiveClick} className={`overlay flex items-center justify-center ${visibility}fixed w-full h-full top-0 left-0 bg-black bg-opacity-30 backdrop-blur-md z-30`}>
-                <div className="max-w-[700px] w-full h-[70%] mx-10 z-40 bg-body rounded-xl relative">
+                <div className='max-w-[700px] w-full h-[70%] mx-10 z-40 bg-body rounded-xl relative'>
                     <button onClick={hidePopup} className={`${escButtonInsideModal ? 'absolute top-3 right-3' : 'fixed top-4 right-4'}  z-10 font-bold flex text-elevated items-center space-x-6 pl-4 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-md px-3 py-1.5 ml-4`}>
                         ESC
                     </button>

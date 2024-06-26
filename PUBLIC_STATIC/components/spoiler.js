@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 export default function Spoiler({ children }) {
     const [visible, setVisible] = useState(false);
@@ -9,10 +9,10 @@ export default function Spoiler({ children }) {
 
     return (
         <blockquote>
-            <button onClick={show} className={`absolute text-link hover:text-hover${visible ? " hidden" : ""}`}>
+            <button onClick={show} className={`absolute text-link hover:text-hover${visible ? ' hidden' : ''}`}>
                 <p>&gt;Reveal spoiler...&lt;</p>
             </button>
-            <span className={visible ? "" : "invisible"}>
+            <span className={visible ? '' : 'invisible'}>
                 {children}
             </span>
         </blockquote>
