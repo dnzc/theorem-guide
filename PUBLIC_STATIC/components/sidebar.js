@@ -5,7 +5,6 @@ import { FaSearch } from 'react-icons/fa'
 import { FaFolderTree } from 'react-icons/fa6'
 import Popup from '@/components/popup'
 import Link from 'next/link'
-import { isMobile } from 'react-device-detect'
 
 const fullConfig = resolveConfig(tailwindConfig)
 
@@ -43,13 +42,24 @@ export default function Sidebar({ children }) {
         }
     }, [active])
 
-    let visibility = active ? 'hidden md:block' : 'hidden'
-
     let [modifierKey, setModifierKey] = useState('')
+
+    let [mobile, setMobile] = useState(false)
+    function handleResize() {
+        setMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+    }
+
     useEffect(() => {
         let isMac = navigator.userAgent.toUpperCase().includes('MAC')
         setModifierKey(isMac ? '⌘' : 'Ctrl')
+
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
     }, [])
+
+    let visibility = active ? 'hidden md:block' : 'hidden'
 
     return (
         <>
@@ -60,8 +70,8 @@ export default function Sidebar({ children }) {
                 </span>
                 {children}
                 <button onClick={toggleSidebar} className='fixed bottom-8 left-2 flex text-elevated items-center space-x-6 pl-4 bg-white bg-opacity-5 hover:bg-opacity-20 rounded-md px-3 py-1.5 ml-4'>
-                    <span>Hide Filetree</span>
-                    {isMobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative'>{modifierKey} L</span>}
+                    <span>Toggle Filetree</span>
+                    {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative'>{modifierKey} L</span>}
                 </button>
             </nav>
 
@@ -77,7 +87,7 @@ export default function Sidebar({ children }) {
                         buttonContents={
                             <>
                                 <FaFolderTree/>
-                                {isMobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey} L</span>}
+                                {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey} L</span>}
                             </>
                         }
                         keyboardShortcutIndex={0}
@@ -93,7 +103,7 @@ export default function Sidebar({ children }) {
                             <div className={`flex items-center w-[50vw] fixed right-[1rem] ${active ? 'md:w-[calc(300px-2rem)] md:left-[1rem] md:top-16' : 'md:hidden'} bg-black px-3 py-1.5 hover:ring-2 ring-bold rounded-md hover:bg-white hover:bg-opacity-10`}>
                                 <FaSearch className='mr-3 h-full shrink-0'/>
                                 <span className='italic'>Search...</span>
-                                {isMobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey} K</span>}
+                                {mobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey} K</span>}
                             </div>
                             <div className={`${active ? 'hidden' : 'hidden md:flex'} bg-white fixed right-4 bg-opacity-5 hover:bg-opacity-20 h-[2.25rem] rounded-md px-3 py-1.5`}>
                                 <FaSearch className='mr-0 h-full'/>
