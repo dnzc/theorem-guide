@@ -45,7 +45,7 @@ export default function Sidebar({ children }) {
     let [modifierKey, setModifierKey] = useState('')
 
     let [mobile, setMobile] = useState(false)
-    function handleResize() {
+    function updateMobile() {
         setMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
     }
 
@@ -53,24 +53,23 @@ export default function Sidebar({ children }) {
         let isMac = navigator.userAgent.toUpperCase().includes('MAC')
         setModifierKey(isMac ? '⌘' : 'Ctrl')
 
-        window.addEventListener('resize', handleResize)
+        updateMobile()
+        window.addEventListener('resize', updateMobile)
         return () => {
-            window.removeEventListener('resize', handleResize)
+            window.removeEventListener('resize', updateMobile)
         }
     }, [])
 
-    let visibility = active ? 'hidden md:block' : 'hidden'
-
     return (
         <>
-            <div className={`${visibility} md:w-[300px] md:shrink-0 md:h-100% md:min-h-screen`}/>
-            <nav className={`${visibility} fixed md:w-[300px] md:shrink-0 md:justify-center md:h-100% md:min-h-screen md:border-r-2 md:border-elevated py-3`}>
+            <div className={`${active ? 'hidden md:block' : 'hidden 2xl:block 2xl:w-[10%]'} w-[300px] shrink-0 h-100% min-h-screen`}/> {/* static overlay behind the sidebar (which is position fixed); also used for centering main article on >=2xl screens*/}
+            <nav className={`${active ? 'hidden md:block' : 'hidden'} fixed w-[300px] shrink-0 justify-center h-100% min-h-screen border-r-2 border-elevated py-3`}>
                 <span className='sidebar-title'>
                     <Link href='/'> wiki.danielc.rocks </Link>
                 </span>
                 {children}
                 <button onClick={toggleSidebar} className='fixed bottom-8 left-2 flex text-elevated items-center space-x-6 pl-4 bg-white bg-opacity-5 hover:bg-opacity-20 rounded-md px-3 py-1.5 ml-4'>
-                    <span>Toggle Filetree</span>
+                    <span className='relative bottom-[1px]'>Toggle Filetree</span>
                     {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative'>{modifierKey} L</span>}
                 </button>
             </nav>
@@ -100,13 +99,15 @@ export default function Sidebar({ children }) {
                 <Popup buttonStyle='text-base text-elevated mr-4 flex bg-body space-x-4'
                     buttonContents={
                         <>
-                            <div className={`flex items-center w-[50vw] fixed right-[1rem] ${active ? 'md:w-[calc(300px-2rem)] md:left-[1rem] md:top-16' : 'md:hidden'} bg-black px-3 py-1.5 hover:ring-2 ring-bold rounded-md hover:bg-white hover:bg-opacity-10`}>
+                            <div className={`hidden xs:flex items-center w-[50vw] fixed right-[1rem] ${active ? 'md:w-[calc(300px-2rem)] md:left-[1rem] md:top-16' : 'md:hidden'} bg-black px-3 py-1.5 hover:ring-2 ring-bold rounded-md hover:bg-white hover:bg-opacity-10`}>
                                 <FaSearch className='mr-3 h-full shrink-0'/>
-                                <span className='italic'>Search...</span>
+                                <span className='italic relative bottom-[0.5px]'>Search...</span>
                                 {mobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey} K</span>}
                             </div>
-                            <div className={`${active ? 'hidden' : 'hidden md:flex'} bg-white fixed right-4 bg-opacity-5 hover:bg-opacity-20 h-[2.25rem] rounded-md px-3 py-1.5`}>
-                                <FaSearch className='mr-0 h-full'/>
+                            <div className={`${active ? 'hidden' : 'flex xs:hidden md:flex'} bg-body fixed right-4 h-[2.25rem] rounded-md`}>
+                                <div className='w-full h-full bg-white bg-opacity-5 hover:bg-opacity-20 px-3 py-1.5 rounded-md'>
+                                    <FaSearch className='mr-0 h-full'/>
+                                </div>
                             </div>
                         </>
                     }
