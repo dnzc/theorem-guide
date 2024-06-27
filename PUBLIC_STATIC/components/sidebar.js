@@ -113,7 +113,6 @@ export default function Sidebar({ children }) {
                     }
                     keyboardShortcutIndex={1}
                     listenWhenLarge={true}
-                    escButtonInsideModal={true}
                 /> {/* no children means render search component by default */}
             </nav>
         </>
