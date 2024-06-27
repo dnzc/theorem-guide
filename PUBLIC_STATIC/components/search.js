@@ -71,7 +71,8 @@ export default function Search({ active }) {
 
     return (
         <div className='w-full h-full'>
-            <input ref={inputRef} type='text' name='search' onChange={searchChange} onKeyDown={handleKeyDown} placeholder='Search…' className='bg-body rounded-t-lg rounded-b-none w-full px-4 py-4 text-lg outline-none border-b-2 border-elevated'/>
+
+            <input ref={inputRef} type='text' name='search' onChange={searchChange} onKeyDown={handleKeyDown} placeholder='Search…' className='bg-body rounded-t-lg rounded-b-none px-4 py-4 w-full border-b-2 border-elevated text-lg outline-none'/>
 
             <div id='results-div' className='relative w-full h-[calc(100%-4rem)] overflow-y-scroll'>
                 <ol>

@@ -104,7 +104,7 @@ export default function Sidebar({ children }) {
                                 <span className='italic relative bottom-[0.5px]'>Search...</span>
                                 {mobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey} K</span>}
                             </div>
-                            <div className={`${active ? 'hidden' : 'flex xs:hidden md:flex'} bg-body fixed right-4 h-[2.25rem] rounded-md`}>
+                            <div className={`flex xs:hidden ${active ? '' : 'md:flex '}bg-body fixed right-4 h-[2.25rem] rounded-md`}>
                                 <div className='w-full h-full bg-white bg-opacity-5 hover:bg-opacity-20 px-3 py-1.5 rounded-md'>
                                     <FaSearch className='mr-0 h-full'/>
                                 </div>
