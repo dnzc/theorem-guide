@@ -207,7 +207,11 @@ export default function Wiki () {
 
     <p className="block md:hidden text-3xl font-bold text-primary break-all">wiki.danielc.rocks</p>
 
-    <p>This site is a personal blog, as well as a collection of notes and explanations of topics I find interesting. <br/> It began as a summer project in July 2023.</p>
+    <p>
+        This site is a personal blog, as well as a collection of notes and explanations of topics I find interesting.
+        <br/>
+        It began as a summer project in July 2023.
+    </p>
     <p>See also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>.</p>
 
     <div className="pt-2 pb-4">
@@ -284,7 +288,7 @@ export default function Wiki () {
                 I wrote a static site generator in <ProminentLink href="https://www.python.org/">python</ProminentLink> to generate html content out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">jinja2</ProminentLink> templates, then wraps it in boilerplate <ProminentLink href="https://react.dev/">react</ProminentLink>. I run the python script to preview new content.
             </li>
             <li className="list-disc ml-8">
-                When I am happy with my changes, I push them to the github repository. I added a <ProminentLink href="https://vercel.com/docs/concepts/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever this happens.
+                When I am happy with my changes, I push them to the github repository. I added a <ProminentLink href="https://vercel.com/docs/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever this happens.
             </li>
         </ul>
     </div>
