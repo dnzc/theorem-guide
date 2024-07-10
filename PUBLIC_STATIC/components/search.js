@@ -9,7 +9,7 @@ const miniSearchOptions = {
     fields: ['title', 'name', 'dir', 'content'],
 }
 
-export default function Search({ active }) {
+export default function Search({ active, isMobile }) {
 
     const { search, searchResults, clearSearch } = useMiniSearch(documents, miniSearchOptions)
 
@@ -55,8 +55,14 @@ export default function Search({ active }) {
         if(spaceSeparatedSubstrs.length == 0) return null
         // escape regex chars in substrings
         spaceSeparatedSubstrs = spaceSeparatedSubstrs.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
+
         // brackets around the regexp means delimiters are kept on split
+
+        // highlight individual characters
         return new RegExp('('+ spaceSeparatedSubstrs.replaceAll(' ', '|') + ')', 'gi')
+
+        // highlight whole word
+        //return new RegExp('(\\b(?=\\w*[' + spaceSeparatedSubstrs.replaceAll(' ', '|') + '])\\w+\\b)', 'gi')
     }
 
     function highlightMatchesInString(re, str, highlightedStyle) {
@@ -72,14 +78,15 @@ export default function Search({ active }) {
     return (
         <div className='w-full h-full'>
 
-            <input ref={inputRef} type='text' name='search' onChange={searchChange} onKeyDown={handleKeyDown} placeholder='Search…' className='bg-body rounded-t-lg rounded-b-none px-4 py-4 w-full border-b-2 border-elevated text-lg outline-none'/>
+            {/* https://stackoverflow.com/questions/38619762/how-to-prevent-ios-keyboard-from-pushing-the-view-off-screen-with-css-or-js */}
+            <input ref={inputRef} type='text' name='search' onChange={searchChange} onKeyDown={handleKeyDown} onFocus={() => { window.scrollTo(0,0); document.body.scrollTop = 0 }} placeholder='Search…' className='bg-body rounded-t-lg rounded-b-none px-4 py-4 w-full border-b-2 border-elevated text-lg outline-none'/>
 
-            <div id='results-div' className='relative w-full h-[calc(100%-4rem)] overflow-y-scroll'>
+            <div id='results-div' className='relative w-full h-[calc(100%-4rem)] overflow-y-scroll' onTouchMove={ /* hide onscreen keyboard */ () => document.activeElement.blur()}>
                 <ol>
                     { searchResults && searchResults.map((result, i) => {
                         let re = substrsToRegex(inputRef.current.value)
                         if(!re) return
-                        let title = highlightMatchesInString(re, result.title, 'text-primary')
+                        let title = highlightMatchesInString(re, result.title, 'text-bold')
                         let matchedTitle = title.length>1 // split into at least two tokens means found match
 
                         let jsxDir = []
@@ -90,28 +97,32 @@ export default function Search({ active }) {
                             jsxDir.push(...tokens)
                             jsxDir.push(<>&nbsp;<FaChevronRight className='text-elevated relative top-[1px]' size={12}/>&nbsp;</>)
                         })
-                        let name = highlightMatchesInString(re, result['name'], 'text-white font-bold')
+                        jsxDir.pop()
+                        jsxDir.push(<span className='font-bold'>&nbsp;/&nbsp;</span>)
+                        let name = highlightMatchesInString(re, result['name'], 'text-secondary font-bold')
                         let matchedName = name.length>1
                         jsxDir.push(...name)
 
-                        let content = result.content
                         // highlighting content is probably too slow to be worth it, when the site gets big
-                        /*re.lastIndex = 0
-                        let search = re.exec(content)
-                        if(search) {
-                            content = content.slice(Math.max(0,search.index-20),search.index+50)
-                        }
-                        content = highlightMatchesInString(re, content.slice(0, 70))*/
-
-                        // instead, just truncate the content
+                        // don't show content, too messy
+                        /*
+                        let content = result.content
                         content = content.slice(0, 90) + '...'
+                        */
 
                         return (
-                            <li key={i} id={`result-${i}`} className={`p-4 pt-2 border-b border-elevated last:border-none text-elevated ${i==selectedResult ? 'bg-black bg-opacity-30' : ''}`} onMouseEnter={() => {setSelectedResult(i)}}>
+                            <li key={i} id={`result-${i}`} className='m-4 text-elevated' onMouseEnter={() => {setSelectedResult(i)}} onTouchStart={() => {setSelectedResult(i)}}>
                                 <Link href={'/'+result['dir'].join('/')+'/'+result['name']}>
-                                    <p className='flex flex-wrap items-center align-middle mb-1'>{jsxDir}</p>
-                                    <p className='text-xl font-bold mb-1'>{title}</p>
-                                    <p className={`${matchedTitle||matchedDir||matchedName ? 'text-elevated' : 'text-white font-bold'} ml-4`}>{content}</p>
+                                    <div className={`bg-black ${i==selectedResult ? 'text-white bg-opacity-50' : 'bg-opacity-20'} rounded-lg flex justify-between`}>
+                                        <div className='p-4 pt-2'>
+                                            <p className='flex flex-wrap items-center align-middle mb-1'>{jsxDir}</p>
+                                            <p className='text-xl font-bold mb-1'>{title}</p>
+                                            <p className={`${matchedTitle||matchedDir||matchedName ? 'hidden ' : ''}italic text-italic`}>Content matches</p>
+                                        </div>
+                                        <div className='flex justify-center items-center px-2 rounded-r-lg'>
+                                            <p className={`text-lg font-bold${i==selectedResult ? ' text-white' : ''}`}>&gt;</p>
+                                        </div>
+                                    </div>
                                 </Link>
                             </li>
                         )

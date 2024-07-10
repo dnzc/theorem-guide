@@ -85,7 +85,7 @@
     }
 
     .changelog h2 {
-        @apply text-bold;
+        @apply text-italic italic;
         margin: 0 !important;
         padding: 0 0 0.1rem 0 !important;
         text-decoration: none !important;
@@ -101,17 +101,6 @@
 
     .-z-1 {
         z-index: -1
-    }
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
     }
 
     li {
@@ -176,7 +165,7 @@
     /* markdown code blocks */
 
     .article pre {
-        @apply p-4 bg-black bg-opacity-30 rounded-xl overflow-scroll my-1 no-scrollbar;
+        @apply p-4 bg-black bg-opacity-30 rounded-xl max-w-full my-1 overflow-auto;
     }
     code {
         @apply font-mono text-base text-elevated ml-1 break-all;

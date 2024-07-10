@@ -88,6 +88,30 @@ def timestamp_to_str(timestamp):
 
 def sanitize(path):
     return re.sub(r'[^a-zA-Z0-9-/.]', '', path)
+    
+# turn html article content into plaintext
+def flatten_content(content, title):
+    # replace <br/> with newlines, so that text on newlines remains separated after removing all html tags
+    content = content.replace('<br/>', '\n')
+    # remove footnote references
+    content = re.sub(r'<sup[^<>]*?footnote-ref[^<>]*?>.*?</sup>', '', content, flags=re.DOTALL)
+    # remove copy buttons (because weird characters e.g. <> might be in the text to be copied i.e. inside the tag)
+    content = re.sub(r'<CopyButton.*?/>', '', content, flags=re.DOTALL)
+    content = re.sub(r'<CopyButton.*?>(.*?)</CopyButton>', f'\1', content, flags=re.DOTALL)
+    # < or > might occur inside a tag; assume the only time this happens is when you have "=>" in something like "<button onClick={() => {...}}>"
+    content = re.sub(r'<[^/][^<>]*?=>[^<>]*?>', '', content, flags=re.DOTALL) # deal with the special case
+    content = re.sub(r'<.*?>', '', content, flags=re.DOTALL) # now remove tags without issue
+    # replace html literals e.g. &nbsp;
+    content = html.unescape(content)
+    content = re.sub(r'\s', ' ', content)
+    # remove link anchors
+    content = re.sub(r'¶', r'', content, flags=re.DOTALL) 
+    # delete first occurrence of title (guaranteed to be title itself, since title extraction extracted the first title)
+    content = content.replace(title, '', 1)
+    # format as json string
+    content = content.replace('\\','\\\\').replace('\n',' ').replace('\'', '\\\'').strip()
+    content = re.sub(r' +', ' ', content)
+    return content
 
 def get_folder_contents(cur_dir):
     folder_contents = []
@@ -108,7 +132,6 @@ def get_folder_contents(cur_dir):
 
 # construct a representation of the directory tree that will be generated
 # so that it can be passed to the template to be displayed as a sidebar
-
 def construct_tree(path, depth):
     name = os.path.basename(path)
     d = {}
@@ -160,6 +183,13 @@ def gen_content(cur_dir, depth, article_list):
             # find literal braces, for latex (so that the backslash doesn't die when being parsed)
             file = re.sub('\\\\{', '\\&#123;', file)
             file = re.sub('\\\\}', '\\&#125;', file)
+            # in copiable code blocks, add copy buttons
+            for m in [*re.finditer(r'__COPIABLE__\n```(.*?)\n(.*?)\n```', file, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
+                lang, code = m[1], m[2]
+                copiable = code.replace('\\n', '\\\\n').replace('\n','\\n') # copy button component takes newlines as literals
+                copiable = copiable.replace('"', '&quot;')
+                modified = '__COPIABLE__\n\n<CopyButton text="' + copiable + '"/>\n\n```' + lang + '\n' + code + '\n```'
+                file = file[:m.span()[0]] + modified + file[m.span()[1]:]
 
             page = markdown(file, extras=['fenced-code-blocks', 'code-friendly', 'header-ids', 'footnotes', 'wiki-tables'])
 
@@ -176,12 +206,13 @@ def gen_content(cur_dir, depth, article_list):
 
             # add <Latex> tags
             # if not inline, make overflow hidden (assume inline latex is short enough to not overflow)
-            page = re.sub(r'\$\$(.*?)\$\$', r'<span className="block overflow-scroll no-scrollbar"><Latex>\1</Latex></span>', page)
+            page = re.sub(r'\$\$(.*?)\$\$', r'<span className="block max-w-full overflow-auto"><Latex>\1</Latex></span>', page)
             page = re.sub(r'(\$.+?\$)', r'<Latex>\1</Latex>', page)
-            page = re.sub(r'(<span className="block overflow-scroll no-scrollbar"><Latex>)(.*?)(</Latex></span>)', r'\1$$\2$$\3', page)
+            page = re.sub(r'(<span className="block max-w-full overflow-auto"><Latex>)(.*?)(</Latex></span>)', r'\1$$\2$$\3', page)
 
             # <p> tags will have been placed around <CopyButton>, remove them
             page = re.sub(r'<p><CopyButton(.*?)</CopyButton></p>', r'<CopyButton\1</CopyButton>', page)
+            page = re.sub(r'<p><CopyButton(.*?)/></p>', r'<CopyButton\1/>', page)
 
             # <p> tags will have been placed around <Spoiler>, remove them
             page = re.sub('<p><Spoiler></p>', '<Spoiler>', page)
@@ -198,28 +229,41 @@ def gen_content(cur_dir, depth, article_list):
             # markdown added class attributes, replace with "className" for react
             page = page.replace('class=','className=')
 
+            # move copy buttons generated above (i.e. in code blocks marked __COPIABLE__) into their containers
+            page = re.sub(r'<p>__COPIABLE__</p>\n\n<CopyButton(.*?)/>\n\n<div className="codehilite">\n<pre>(.*?)</pre>\n</div>', r'<div className="codehilite relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n<pre>\2</pre>\n</div>', page)
+            page = re.sub(r'<p>__COPIABLE__</p>\n\n<CopyButton(.*?)/>\n\n<pre>(.*?)</pre>', r'<pre className="relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n\2</pre>', page)
+
+            article_data['content'] = flatten_content(page, article_data['title'])
+
 
         with open(TARGET_DIR+sanitize(cur_dir[:-3])+'.js', 'w') as output_file:
             path_list = sanitize(cur_dir).split('/')[1:-1] # path to parent folder
+            article_data['dir'] = path_list
             timestamp = os.path.getmtime(SOURCE_DIR+cur_dir)
+            article_data['timestamp'] = timestamp
             date_time = timestamp_to_str(timestamp)
+            article_data['date_time'] = date_time
 
             filename = sanitize(cur_dir).split('/')[-1][:-3] # ignore file extension
+            article_data['name'] = filename
             parsedFilename = []
             for word in filename.split('-'):
                 if not word.isdigit(): parsedFilename += [word[0].upper() + word[1:]]
             pageTitle = ' '.join(parsedFilename)
 
+            plaintext = article_data['content']
+            plaintext = eval('"'+ plaintext.replace('"','\\"')+'"')
+            plaintext = html.escape(plaintext)
+            plaintext = plaintext.replace('"', '&quot;')
+            # replace braces for nextjs
+            plaintext = plaintext.replace('{', '&#123;').replace('}', '&#125;')
+            plaintext = plaintext.replace('\\n', '\\\\n').replace('\n', '\\n') # copy button component takes newlines as literals
+
             react = wrap_in_js(
-                    template.render(content=page, pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, dateTime=date_time, tableOfContents=tableOfContents),
+                    template.render(content=page, pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, dateTime=date_time, copiableArticlePlaintext=plaintext, tableOfContents=tableOfContents),
                     pageTitle, False, False
                     )
 
-            article_data['name'] = filename
-            article_data['content'] = page
-            article_data['timestamp'] = timestamp
-            article_data['date_time'] = date_time
-            article_data['dir'] = path_list
             output_file.write(react)
 
             article_list.append(article_data)
@@ -275,30 +319,13 @@ with open(ARTICLE_DATA_FILE, 'w') as data_file:
     for i,article in enumerate(articles):
         title = article['title'].replace('\'','\\\'')
         content = article['content']
-        # replace <br/> with newlines, so that text on newlines remains separated after removing all html tags
-        content = content.replace('<br/>', '\n')
-        # remove footnote references
-        content = re.sub(r'<sup[^<>]*?footnote-ref[^<>]*?>.*?</sup>', '', content, flags=re.DOTALL)
-        # < or > might occur inside a tag; assume the only time this happens is when you have "=>" in something like "<button onClick={() => {...}}>"
-        content = re.sub(r'<[^/][^<>]*?=>[^<>]*?>', '', content, flags=re.DOTALL) # deal with the special case
-        content = re.sub(r'<.*?>', '', content, flags=re.DOTALL) # now remove tags without issue
-        # replace html literals e.g. &nbsp;
-        content = html.unescape(content)
-        content = re.sub(r'\s', ' ', content)
-        # remove link anchors
-        content = re.sub(r'¶', r'', content, flags=re.DOTALL) 
-        # delete first occurrence of title (guaranteed to be title itself, since title extraction extracted the first title)
-        content = content.replace(article['title'], '', 1)
-        # format as json string
-        content = content.replace('\\','\\\\').replace('\n',' ').replace('\'', '\\\'').strip()
-        content = re.sub(r' +', ' ', content)
         data_file.write(f'''
     {{
         id: {i},
         title: '{title}',
         name: '{article['name']}',
         dir: {article['dir']},
-        content: '{content}',
+        content: '{article['content']}',
     }},''')
     data_file.write('\n]\n\nexport default articles')
 

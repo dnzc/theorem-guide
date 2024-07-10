@@ -15,11 +15,11 @@ import { MdArticle } from 'react-icons/md'
 import Folder from '@/components/folder'
 
 
-export default function Maths () {
+export default function WebDev () {
     return (
         <Layout>
             <Head>
-                <title>Maths | Daniel C</title>
+                <title>Web Dev | Daniel C</title>
             </Head>
                 <>
                     
@@ -53,7 +53,7 @@ export default function Maths () {
                         
                     
                         
-                            <Accordion title="web-dev" href="/comp-sci/web-dev" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="web-dev" href="/comp-sci/web-dev" isFolder={true} isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                         
@@ -69,7 +69,7 @@ export default function Maths () {
                         
                     
                         
-                            <Accordion title="maths" href="/maths" isFolder={true} isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="maths" href="/maths" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                         
@@ -174,7 +174,10 @@ export default function Maths () {
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/comp-sci">comp-sci</Link></p>
+                
+                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/comp-sci/web-dev">web-dev</Link></p>
                 
             </div>
         
@@ -185,39 +188,21 @@ export default function Maths () {
 
         <div className="article mb-4">
             
-    <p className="italic pb-4">Contains 0 articles and 3 folders</p>
+    <p className="italic pb-4">Contains 1 article and 0 folders</p>
 
     <Folder contents_by_date={
         <>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                <Link href="/comp-sci/web-dev/story-of-the-site">
+                    <div className="flex items-center space-x-1 text-lg">
                         
-                        <p className="relative bottom-[1px]">olympiad</p>
+                            <MdArticle className="shrink-0"/>
+                        
+                        <p className="relative bottom-[1px]">story-of-the-site</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jun 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/research">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">research</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">07 Sep 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">number-theory</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
             </li>
         
         </>
@@ -225,33 +210,15 @@ export default function Maths () {
         <>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                <Link href="/comp-sci/web-dev/story-of-the-site">
+                    <div className="flex items-center space-x-1 text-lg">
                         
-                        <p className="relative bottom-[1px]">number-theory</p>
+                            <MdArticle className="shrink-0"/>
+                        
+                        <p className="relative bottom-[1px]">story-of-the-site</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">olympiad</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jun 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/research">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">research</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">07 Sep 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
             </li>
         
         </>
@@ -261,7 +228,7 @@ export default function Maths () {
 
         
             <div className="flex justify-start mb-4">
-                <Link href="/">
+                <Link href="/comp-sci">
                     <div className="flex items-center justify-center space-x-1 text-primary">
                         <RiArrowGoBackFill/>
                         <p>up a level</p>

@@ -41,18 +41,18 @@ export default function DivisionAlgo () {
                             theme='dark'
                         />
     
-                    <div className="relative w-full flex h-full">
+                    <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
-            <li className="relative bottom-4 pl-4">
-                <div className="text-primary mt-3 mb-0.5">
+        <ul className="dirtree px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body overflow-y-scroll w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
+            <li className="relative bottom-0 pl-4">
+                <div className="text-primary mb-0.5">
                     <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
                         <FaBook/>
                         <span>root</span>
                     </Link>
                 </div>
-                <ul className="mb-4">
+                <ul className="mb-4 md:mb-0">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -64,6 +64,18 @@ export default function DivisionAlgo () {
                                     
                         
                             <Accordion title="binary-search" href="/comp-sci/algorithms/binary-search" isFolder={false} isSelected={ false } />
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="web-dev" href="/comp-sci/web-dev" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                        
+                            <Accordion title="story-of-the-site" href="/comp-sci/web-dev/story-of-the-site" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -180,19 +192,25 @@ export default function DivisionAlgo () {
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths">maths</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths/number-theory">number-theory</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/number-theory">number-theory</Link></p>
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths/number-theory/FTA-proof">FTA-proof</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/number-theory/FTA-proof">FTA-proof</Link></p>
                 
             </div>
         
 
         
-            <p className="text-elevated mb-3">Last modified on 27 Jul 2023</p>
+            <p className="text-elevated mb-4">Last modified on 27 Jul 2023</p>
+        
+
+        
+            <div className="mb-4">
+                <CopyButton text="tl;dr: A journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored. This is part 2, where we use the rigorous foundation we developed in part 1 to establish the division algorithm. In general, the level of rigor will decrease as the parts go on, so that the reader doesn&#x27;t get bored to death. But it should be obvious how to fill out everything with complete rigor. Here is a glossary of math symbols. Back to School Children tend to get taught division as repeated subtraction - for example, 14 divided by 3 is 4 remainder 2, because: $14 - 3 = 11$ $11 - 3 = 8$ $8 - 3 = 5$ $5 - 3 = 2$ And we stop because if we subtract again, the remainder becomes negative. In particular, 2&lt;3, and in general the remainder is always less than the divisor, because if it was at least as big then we could always subtract off another copy. That would definitely be enough justification to any high schooler as to why the division algorithm works. But, how do we prove it from our axioms and lemmas that we&#x27;ve developed so far? How do we make infinite descent rigorous? Let&#x27;s first formalize the statement we want to prove: Division Algorithm. For any $a \in \mathbb&#123;Z&#125;, b \in \mathbb&#123;N&#125;$, there exist integers $q,r$ such that $a = bq + r$, and $0 \leq r \lt b$. Now... how do we attempt a proof? The key is the well-ordering principle that we introduced, stating that every non-empty subset of the naturals has a least element. To use this, we can consider the set of all possible remainders, i.e. all the possible numbers we can obtain by starting with $a$ and adding or subtracting $b$. Then we can consider those remainders that are natural, and take the smallest element. If it&#x27;s at least $b$, then we can subtract $b$ again to get a smaller element of the set, contradiction. In other words, &quot;choose the smallest possible remainder, if it&#x27;s at least $b$ then subtract $b$&quot;. Do you see how this is equivalent to the infinite descent argument? Proof of the Division Algorithm. Let $a$ be a fixed integer and $b$ be a fixed natural. Consider the set: $$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = a - bq + 1, q \in \mathbb&#123;Z&#125;\&#125;$$ Then S is a subset of the naturals. Furthermore, it is nonempty, because: if $a \in \mathbb&#123;N&#125;$ or $a=0$, then when $q=0$, $n = a - b \cdot 0 + 1 = a+1$ which is natural and so it is an element of S. if $-a \in \mathbb&#123;N&#125;$, then when $q = -a$, $n = a-b(-a) + 1$ $ = (-a)(b-1) + 1$ which is natural since $(-a), (b-1)$ are nonnegative, and so it is an element of S. By Trichotomy, we considered all cases, thus S is always non-empty. Hence by the well-ordering principle, S has a least element (say $e$), occuring when $q = q_0$, so that $e = a - bq_0+1$. Claim: $e \leq b$ P.f.: Suppose not, we will show a contradiction. Then $e\gt b$, so $e-b \in \mathbb&#123;N&#125;$ (defn. &quot;$\gt$&quot;). But $e-b = (a-bq_0+1)-b$ $ = a-b(q_0+1)+1$, and so $e-b \in S$. But $e-b \lt e$, contradicting the minimality of $e$. Now at last, letting $r = e-1$, we have $a = bq_0 + r$ (since $e = a-bq_0+1$). Since $0 \lt e \leq b$, we have $0 \leq r \lt b$, which is what we wanted, and we are done. Note that I stopped writing the multiply symbol in between two letters, as per normal convention. Also, I stopped being as rigorous as in part 1 (for example writing &quot;$a-bq+1$&quot; instead of &quot;$(a-bq)+1$&quot; due to associativity), because I don&#x27;t think anyone would want to read such a long tedious proof. BUT, it should be clear (if not monotonous) how to fill out this proof into one as rigorous as in part 1. And that&#x27;s it! We&#x27;ve now proved the division algorithm. High schoolers would be very impressed (not). Can you come up with an analogous division algorithm for the complex numbers? Can you prove that it works? ↩">Copy article plaintext</CopyButton>
+            </div>
         
 
         <div className="article mb-4">
@@ -236,7 +254,7 @@ In particular, 2&lt;3, and in general the remainder is always less than the divi
   
   <p>Let <Latex>$a$</Latex> be a fixed integer and <Latex>$b$</Latex> be a fixed natural. Consider the set:</p>
   
-  <p><span className="block overflow-scroll no-scrollbar"><Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = a - bq + 1, q \in \mathbb&#123;Z&#125;\&#125;$$</Latex></span></p>
+  <p><span className="block max-w-full overflow-auto"><Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = a - bq + 1, q \in \mathbb&#123;Z&#125;\&#125;$$</Latex></span></p>
   
   <p>Then S is a subset of the naturals. Furthermore, it is nonempty, because:</p>
   
@@ -290,7 +308,7 @@ In particular, 2&lt;3, and in general the remainder is always less than the divi
                 <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#back-to-school" className="text-link">Back to School</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#back-to-school" className="text-link [@media(hover:hover)]:hover:underline">Back to School</Link></li>
                     
                 </ul>
             </div>

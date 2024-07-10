@@ -11,18 +11,36 @@ import MailLink from '@/components/mailLink'
 import { FaChevronRight, FaSearch, FaBook } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 
-import { MdArticle } from 'react-icons/md'
-import Folder from '@/components/folder'
+import 'katex/dist/katex.min.css'
+import Latex from 'react-latex-next'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
+import Image from 'next/image'
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
-export default function Maths () {
+export default function StoryOfTheSite () {
     return (
         <Layout>
             <Head>
-                <title>Maths | Daniel C</title>
+                <title>Story Of The Site | Daniel C</title>
             </Head>
                 <>
                     
+                        <ToastContainer
+                            position='top-right'
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss={false}
+                            pauseOnHover={false}
+                            theme='dark'
+                        />
+    
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
@@ -53,11 +71,11 @@ export default function Maths () {
                         
                     
                         
-                            <Accordion title="web-dev" href="/comp-sci/web-dev" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="web-dev" href="/comp-sci/web-dev" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                         
-                            <Accordion title="story-of-the-site" href="/comp-sci/web-dev/story-of-the-site" isFolder={false} isSelected={ false } />
+                            <Accordion title="story-of-the-site" href="/comp-sci/web-dev/story-of-the-site" isFolder={false} isSelected={ true } />
                         
                     
                                 
@@ -69,7 +87,7 @@ export default function Maths () {
                         
                     
                         
-                            <Accordion title="maths" href="/maths" isFolder={true} isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="maths" href="/maths" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                         
@@ -174,94 +192,36 @@ export default function Maths () {
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/comp-sci">comp-sci</Link></p>
+                
+                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/comp-sci/web-dev">web-dev</Link></p>
                 
             </div>
         
 
         
+            <p className="text-elevated mb-4">Last modified on 10 Jul 2024</p>
+        
 
+        
+            <div className="mb-4">
+                <CopyButton text="A list of some of the features this website has, how I implemented them, and a look into the inner workings of how I manage this easily maintainable site.">Copy article plaintext</CopyButton>
+            </div>
         
 
         <div className="article mb-4">
-            
-    <p className="italic pb-4">Contains 0 articles and 3 folders</p>
+            <h1 id="how-i-created-wikidanielcrocks">How I Created wiki.danielc.rocks</h1>
 
-    <Folder contents_by_date={
-        <>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">olympiad</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jun 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/research">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">research</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">07 Sep 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">number-theory</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
-            </li>
-        
-        </>
-    } contents_by_name={
-        <>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">number-theory</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">olympiad</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">11 Jun 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/research">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">research</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">07 Sep 2023</p>
-            </li>
-        
-        </>
-    } />
+<p>A list of some of the features this website has, how I implemented them, and a look into the inner workings of how I manage this easily maintainable site.</p>
+
+<p><IncompleteMessage/></p>
 
         </div>
 
         
             <div className="flex justify-start mb-4">
-                <Link href="/">
+                <Link href="/comp-sci/web-dev">
                     <div className="flex items-center justify-center space-x-1 text-primary">
                         <RiArrowGoBackFill/>
                         <p>up a level</p>

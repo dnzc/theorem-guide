@@ -1,4 +1,4 @@
-# Binary Search: an intuitive algorithm
+# Binary Search: an Intuitive Algorithm
 
 Everyone has performed a binary search without realizing: if you look for the word "gerontology" in the dictionary, you wouldn't go flip through every page until you found it. Instead you'd check the middle, and if you overshot then you'd check the middle of the first chunk, then if you if undershot you'd check the middle of the remaining chunk, and so on, until you find the word.
 
@@ -32,6 +32,7 @@ The time complexity of binary search is $O(\log n)$ , because each comparison ha
 
 I like to define the left pointer as the one you know it's definitely *greater than or equal to*, and the right pointer as the one you know it's definitely *less than*. So, $l \leq x \lt r$.
 
+__COPIABLE__
 ```ocaml
 function search(arr, length, target)
     l := 0
@@ -73,6 +74,7 @@ end
 
 Considering the smallest missing element from the array, we must have that the items before it are the positive integers in order, with no gaps. So the smallest missing element is the smallest element whose value is not equal to its index (indexing from 1). We can use binary search to find this.
 
+__COPIABLE__
 ```py
 #!/usr/bin/python3
 
@@ -123,8 +125,9 @@ def solve(array):
 
 **Example**
 
-<CopyButton text="7\n5 1\n1 2 4 5 6\n5 3\n1 3 5 6 7\n4 1000\n2 3 4 5\n9 1434\n1 4 7 9 12 15 17 18 20\n10 4\n1 3 5 7 9 11 13 15 17 19\n10 6\n1 4 7 10 13 16 19 22 25 28\n10 150000\n1 3 4 5 10 11 12 13 14 15\n">Input:</CopyButton>
+Input:
 
+__COPIABLE__
 ```
 7
 5 1
@@ -143,8 +146,9 @@ def solve(array):
 1 3 4 5 10 11 12 13 14 15
 ```
 
-<CopyButton text="3\n9\n1\n12874\n16\n18\n1\n">Output:</CopyButton>
+Output:
 
+__COPIABLE__
 ```
 3
 9
@@ -172,6 +176,7 @@ If $a_1 \neq 1$, then the answer is 1. Otherwise, we start with $x=0$ and perfor
 
 C++ solution:
 
+__COPIABLE__
 ```c++
 #include <bits/stdc++.h>
 
@@ -182,36 +187,36 @@ using namespace std;
 int n, k, a[200010];
  
 void solve() {
-  cin >> n >> k;
-  for(int i=0; i<n; ++i) {
-    cin >> a[i];
-    a[i] -= i+1;
-  }
-  if(a[0] != 0) {
-    cout << "1\n";
-    return;
-  }
- 
-  ll x = 0;
-  for(int i=0; i<k; ++i) {
-    int l=0, r=n;
-    int m;
-    while(r-l>1) {
-      m = (l+r)/2;
-      if(a[m] > x) r=m;
-      else l=m;
+    cin >> n >> k;
+    for(int i=0; i<n; ++i) {
+        cin >> a[i];
+        a[i] -= i+1;
     }
-    x += (ll)(l+1);
-  }
-  cout << x+1 << '\n';
+    if(a[0] != 0) {
+        cout << "1\n";
+        return;
+    }
+ 
+    ll x = 0;
+    for(int i=0; i<k; ++i) {
+        int l=0, r=n;
+        int m;
+        while(r-l>1) {
+            m = (l+r)/2;
+            if(a[m] > x) r=m;
+            else l=m;
+        }
+        x += (ll)(l+1);
+    }
+    cout << x+1 << '\n';
 }
  
 int main() {
-  ios::sync_with_stdio(0);
-  cin.tie(nullptr);
- 
-  int t; cin >> t;
-  while(t--) solve();
+    ios::sync_with_stdio(0);
+    cin.tie(nullptr);
+  
+    int t; cin >> t;
+    while(t--) solve();
 }
 ```
 </Spoiler>

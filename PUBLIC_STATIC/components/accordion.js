@@ -13,13 +13,13 @@ export default function Accordion({title, href, isFolder, isSelected, isOpenByDe
         setHeightState(active ? 'max-h-0' : '')
     }
 
-    let titleWrapper = (<Link href={href}>{title}</Link>)
+    let titleWrapper = (<Link href={href} className='[@media(hover:hover)]:hover:underline'>{title}</Link>)
     let titleElement = isFolder ? (
         <div className='flex items-center space-x-1'>
-            <button className={`cursor-crosshair ${isSelected ? 'text-secondary' : 'text-primary'} hover:text-secondary`} onClick={toggleAccordion}>
+            <button className={`cursor-crosshair ${isSelected ? 'text-secondary' : 'text-primary'} [@media(hover:hover)]:hover:text-secondary`} onClick={toggleAccordion}>
                 {active ? <AiFillFolderOpen size={18}/> : <AiFillFolder size={18}/>}
             </button>
-            <span className={isSelected ? 'text-secondary' : 'text-primary'}>{titleWrapper}</span>
+            <span className={`${isSelected ? 'text-secondary' : 'text-primary'} [@media(hover:hover)]:hover:underline`}>{titleWrapper}</span>
         </div>
     ) : (<p className={isSelected ? 'text-secondary' : ''}>{titleWrapper}</p>)
 

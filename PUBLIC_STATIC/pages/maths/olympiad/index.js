@@ -23,18 +23,18 @@ export default function Olympiad () {
             </Head>
                 <>
                     
-                    <div className="relative w-full 2xl:max-w-[90%] flex h-full">
+                    <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
-            <li className="relative bottom-4 pl-4">
-                <div className="text-primary mt-3 mb-0.5">
+        <ul className="dirtree px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body overflow-y-scroll w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
+            <li className="relative bottom-0 pl-4">
+                <div className="text-primary mb-0.5">
                     <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
                         <FaBook/>
                         <span>root</span>
                     </Link>
                 </div>
-                <ul className="mb-4">
+                <ul className="mb-4 md:mb-0">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -46,6 +46,18 @@ export default function Olympiad () {
                                     
                         
                             <Accordion title="binary-search" href="/comp-sci/algorithms/binary-search" isFolder={false} isSelected={ false } />
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="web-dev" href="/comp-sci/web-dev" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                        
+                            <Accordion title="story-of-the-site" href="/comp-sci/web-dev/story-of-the-site" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -162,12 +174,14 @@ export default function Olympiad () {
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths">maths</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths/olympiad">olympiad</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/olympiad">olympiad</Link></p>
                 
             </div>
+        
+
         
 
         

@@ -1,4 +1,12 @@
-## 12/05/24
+## 08/07/24
+
+### Added
+
+- highlighting in search results
+- copy buttons for code
+- "copy article plaintext" option
+
+## 12/06/24
 
 ### Added
 

@@ -1,15 +1,15 @@
-<div className="relative w-full{{' 2xl:max-w-[90%]' if not tableOfContents else ''}} flex h-full">
+<div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
-            <li className="relative bottom-4 pl-4">
-                <div className="{{"text-secondary" if pathStr=='' else "text-primary"}} mt-3 mb-0.5">
+        <ul className="dirtree px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body overflow-y-scroll w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
+            <li className="relative bottom-0 pl-4">
+                <div className="{{"text-secondary" if pathStr=='' else "text-primary"}} mb-0.5">
                     <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
                         <FaBook/>
                         <span>root</span>
                     </Link>
                 </div>
-                <ul className="mb-4">
+                <ul className="mb-4 md:mb-0">
                     {% for child in dirTree['children'] recursive %}
                         {% if child['is_dir'] %}
                             <Accordion title="{{child['name']}}" href="{{child['path']}}" isFolder={true} isSelected={ {{"true" if pathStr==child['path'] else "false"}} } isOpenByDefault={ {{"true" if child['depth'] < 2 or (pathStr and pathStr.startswith(child['path'])) else "false"}} } >
@@ -35,13 +35,19 @@
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 {% for folderName in pathList %}
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="{{'/'+'/'.join(pathList[:loop.index])}}">{{ folderName }}</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="{{'/'+'/'.join(pathList[:loop.index])}}">{{ folderName }}</Link></p>
                 {% endfor %}
             </div>
         {% endif %}
 
         {% if dateTime %}
-            <p className="text-elevated mb-3">Last modified on {{dateTime}}</p>
+            <p className="text-elevated mb-4">Last modified on {{dateTime}}</p>
+        {% endif %}
+
+        {% if copiableArticlePlaintext %}
+            <div className="mb-4">
+                <CopyButton text="{{copiableArticlePlaintext}}">Copy article plaintext</CopyButton>
+            </div>
         {% endif %}
 
         <div className="article mb-4">
@@ -67,7 +73,7 @@
                 <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     {% for title,href in tableOfContents %}
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="{{href}}" className="text-link">{{title}}</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="{{href}}" className="text-link [@media(hover:hover)]:hover:underline">{{title}}</Link></li>
                     {% endfor %}
                 </ul>
             </div>

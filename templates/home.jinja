@@ -12,18 +12,22 @@
 
     <p className="block md:hidden text-3xl font-bold text-primary break-all">wiki.danielc.rocks</p>
 
-    <p>This site is a collection of explanations of topics I find interesting (see also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>).</p>
-    I began this as a summer project in July 2023.
+    <p>
+        This site is a personal blog, as well as a collection of notes and explanations of topics I find interesting.
+        <br/>
+        It began as a summer project in July 2023.
+    </p>
+    <p>See also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>.</p>
 
     <div className="pt-2 pb-4">
 
-        <h1>Recent Articles</h1>
+        <h1>Recently Modified Articles</h1>
 
-        <div className="bg-black bg-opacity-30 p-4 space-y-4 rounded-xl">
+        <div className="space-y-4">
 
             {% for article in recentArticles %}
                 <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-elevated">
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-secondary">
                         <p className="text-italic italic mr-4">{{article['date_time']}}</p>
                         {% if article['dir']|length == 1 %}
                             <p className="font-bold">{{article['dir'][0]}}</p>
@@ -39,7 +43,7 @@
                             <p className="font-bold">{{article['dir'][-1]}}</p>
                         {% endif %}
                     </div>
-                    <p className="text-xl font-bold text-secondary"><Link href="{{'/'+'/'.join(article['dir'])+'/'+article['name']}}" className="hover:underline">{{article['title']}}</Link></p>
+                    <p className="text-xl font-bold text-bold"><Link href="{{'/'+'/'.join(article['dir'])+'/'+article['name']}}" className="hover:underline">{{article['title']}}</Link></p>
                 </div>
             {% endfor %}
 
@@ -51,7 +55,7 @@
 
     <div className="space-y-2">
         <h2 id="how-is-this-site-maintained">How is this site maintained?</h2>
-        <p>If you're curious, here is my workflow:</p>
+        <p>I wrote an in-depth explanation <DiscreetLink href="/comp-sci/web-dev/story-of-the-site">here </DiscreetLink>. If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
                 I use <ProminentLink href="https://nextjs.org/">next.js</ProminentLink> as the framework, with styling from <ProminentLink href="https://tailwindcss.com/">tailwind</ProminentLink>. The web app is hosted publicly on <ProminentLink href="https://vercel.com/">vercel</ProminentLink>.

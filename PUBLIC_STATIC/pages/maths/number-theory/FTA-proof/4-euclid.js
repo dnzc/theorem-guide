@@ -41,18 +41,18 @@ export default function Euclid () {
                             theme='dark'
                         />
     
-                    <div className="relative w-full flex h-full">
+                    <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <ul className="dirtree md:fixed px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body top-[7rem] bottom-[5.5rem] overflow-y-scroll w-full md:w-[calc(300px-2px)] break-all h-full md:h-auto">
-            <li className="relative bottom-4 pl-4">
-                <div className="text-primary mt-3 mb-0.5">
+        <ul className="dirtree px-4 pt-1 border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body overflow-y-scroll w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
+            <li className="relative bottom-0 pl-4">
+                <div className="text-primary mb-0.5">
                     <Link href="/" className="flex items-center space-x-1.5 max-w-fit">
                         <FaBook/>
                         <span>root</span>
                     </Link>
                 </div>
-                <ul className="mb-4">
+                <ul className="mb-4 md:mb-0">
                     
                         
                             <Accordion title="comp-sci" href="/comp-sci" isFolder={true} isSelected={ false } isOpenByDefault={ true } >
@@ -64,6 +64,18 @@ export default function Euclid () {
                                     
                         
                             <Accordion title="binary-search" href="/comp-sci/algorithms/binary-search" isFolder={false} isSelected={ false } />
+                        
+                    
+                                
+                            </Accordion>
+                        
+                    
+                        
+                            <Accordion title="web-dev" href="/comp-sci/web-dev" isFolder={true} isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                        
+                            <Accordion title="story-of-the-site" href="/comp-sci/web-dev/story-of-the-site" isFolder={false} isSelected={ false } />
                         
                     
                                 
@@ -180,19 +192,25 @@ export default function Euclid () {
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths">maths</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths/number-theory">number-theory</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/number-theory">number-theory</Link></p>
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary"><Link href="/maths/number-theory/FTA-proof">FTA-proof</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/number-theory/FTA-proof">FTA-proof</Link></p>
                 
             </div>
         
 
         
-            <p className="text-elevated mb-3">Last modified on 27 Jul 2023</p>
+            <p className="text-elevated mb-4">Last modified on 27 Jul 2023</p>
+        
+
+        
+            <div className="mb-4">
+                <CopyButton text="tl;dr: A journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored. This is part 4, where we use what we have so far to finally prove Euclid&#x27;s Lemma (technically, the generalized version). In general, the level of rigor will decrease as the parts go on, so that the reader doesn&#x27;t get bored to death. But it should be obvious how to fill out everything with complete rigor. Here is a glossary of math symbols. What? It&#x27;s... argh! Ask anyone to prove this: If $2x$ is divisible by $3$, then so is $x$. I bet that almost everyone would attempt to use prime factorization: &quot;in the prime factorization of $2x$, there must be a 3. But 2 is a prime, thus the 3 must occur in the prime factorization of $x$.&quot; Ok... but we&#x27;re trying to prove prime factorization, so we can&#x27;t use it! Actually, we can do something smart in this case: if $3 \mid 2x$, then $3 \mid (3x - x)$. But $3 \mid 3x$, therefore $3 \mid x$, by Lemma 4 in part 1 (i.e. that if $a \mid b, a \mid c$ then $a$ divides any linear combination of $b$ and $c$). In other words, if $2x$ is divisible by 3 then so is $-2x$, therefore so is $-2x + 3x$. Now ask them to prove the generalized version: If $a \mid bc$ and $gcd(a,b) = 1$, then $a \mid c$. Here&#x27;s where most people would really like to appeal to prime factorization: &quot;the set of prime factors of b must be completely different to the set of prime factors of a, else they would share a common factor. So in the prime factorization of bc, removing the factorization of b will not affect any primes that divide a. So a divides c.&quot; So, how do we prove this using only the things we&#x27;ve built out of axioms? We can actually generalize the trick from before! In the &quot;if $3 \mid 2x$ then $3 \mid x$&quot; case, the trick was to write 1 (the desired coefficient of $x$) as a linear combination of 2 and 3: $$x = (3-2)x = 3x-2x$$ And this let us deduce that if $3 \mid 2x$, then $3 \mid 3x - 2x$ because both $3x$ and $2x$ are divisible by 3. Let&#x27;s try with a different pair of numbers. If $51 \mid 28x$, does $51 \mid x$ ? TRICK: Try to write 1 as a linear combination of 51 and 28. But we know we can do this, by Bezout&#x27;s Lemma, which we proved in the last part! To find a concrete solution, use the magic box (see the last part if you are unfamiliar): 1 1 4 1 1 2 0 1 1 2 9 11 20 51 1 0 1 1 5 6 11 28 So, $11 \cdot 51 - 20 \cdot 28 = 1$. Now to use the trick: $$x = (11 \cdot 51 - 20 \cdot 28)x$$ $$ = 51 \cdot (11x) + 28x \cdot (-20)$$ Hence, if $51 \mid 28x$, then $51 \mid x$, because we wrote $x$ as a linear combination of things that were divisible by 51. I think we&#x27;re ready to generalize now. Claim. If $a \mid bc$ and $gcd(a,b)=1$, then $a \mid c$. True in $\mathbb&#123;Z&#125;$. Proof. Suppose $a \mid bc$ and $gcd(a,b) = 1$. Then by Bezout&#x27;s Lemma, there exist integers $x,y$ such that $ax + by = 1$. Hence, $c = (ax+by)c = a(cx) + y(bc)$. Since $a \mid bc$ and $a \mid a(cx)$, we have that $a \mid a(cx) + y(bc)$, so $a \mid c$, as required. Nice - surprisingly simple proof, right? The actual Euclid&#x27;s Lemma Actually, Euclid&#x27;s Lemma states that if $p$ is a prime and $p \mid ab$ (where $a,b$ are two integers), then $p \mid a$ or $p \mid b$. I hope you can see how what we&#x27;ve already proved is pretty much a generalized version of this: the only extra thing we need to prove is that if $p$ doesn&#x27;t divide $a$, then $gcd(p, a) = 1$. But this is true by definition of prime - if $gcd(p,a) &gt; 1$ then $p$ has a factor that isn&#x27;t $1$ or $p$ (namely, this factor is $gcd(p,a)$); contradiction. Euclid&#x27;s Lemma. If $p$ is prime and $p \mid ab$, then $p \mid a$ or $p \mid b$. Proof. See above. :)">Copy article plaintext</CopyButton>
+            </div>
         
 
         <div className="article mb-4">
@@ -230,7 +248,7 @@ export default function Euclid () {
 
 <p>In the "if <Latex>$3 \mid 2x$</Latex> then <Latex>$3 \mid x$</Latex>" case, the trick was to write 1 (the desired coefficient of <Latex>$x$</Latex>) as a <em>linear combination</em> of 2 and 3:</p>
 
-<p><span className="block overflow-scroll no-scrollbar"><Latex>$$x = (3-2)x = 3x-2x$$</Latex></span></p>
+<p><span className="block max-w-full overflow-auto"><Latex>$$x = (3-2)x = 3x-2x$$</Latex></span></p>
 
 <p>And this let us deduce that if <Latex>$3 \mid 2x$</Latex>, then <Latex>$3 \mid 3x - 2x$</Latex> because both <Latex>$3x$</Latex> and <Latex>$2x$</Latex> are divisible by 3.</p>
 
@@ -278,8 +296,8 @@ export default function Euclid () {
   
   <p>So, <Latex>$11 \cdot 51 - 20 \cdot 28 = 1$</Latex>.
   Now to use the trick:
-  <span className="block overflow-scroll no-scrollbar"><Latex>$$x = (11 \cdot 51 - 20 \cdot 28)x$$</Latex></span>
-  <span className="block overflow-scroll no-scrollbar"><Latex>$$ = 51 \cdot (11x) + 28x \cdot (-20)$$</Latex></span></p>
+  <span className="block max-w-full overflow-auto"><Latex>$$x = (11 \cdot 51 - 20 \cdot 28)x$$</Latex></span>
+  <span className="block max-w-full overflow-auto"><Latex>$$ = 51 \cdot (11x) + 28x \cdot (-20)$$</Latex></span></p>
   
   <p>Hence, if <Latex>$51 \mid 28x$</Latex>, then <Latex>$51 \mid x$</Latex>, because we wrote <Latex>$x$</Latex> as a linear combination of things that were divisible by 51.</p>
 </blockquote>
@@ -328,9 +346,9 @@ export default function Euclid () {
                 <h1 className="font-bold text-xl">In this Article</h1>
                 <ul className="text-elevated">
                     
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#what-its-argh" className="text-link"><em>What? It's... argh!</em></Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#what-its-argh" className="text-link [@media(hover:hover)]:hover:underline"><em>What? It's... argh!</em></Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#the-actual-euclids-lemma" className="text-link">The actual Euclid's Lemma</Link></li>
+                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#the-actual-euclids-lemma" className="text-link [@media(hover:hover)]:hover:underline">The actual Euclid's Lemma</Link></li>
                     
                 </ul>
             </div>
