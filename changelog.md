@@ -1,5 +1,8 @@
 ## 30/09/24
-Renamed wiki -&gt; blog
+
+### Changed
+
+- Renamed wiki -&gt; blog
 
 ## 08/07/24
 

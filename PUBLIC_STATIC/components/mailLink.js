@@ -1,7 +1,7 @@
-import DiscreetLink from './discreetLink.js'
+import ProminentLink from './prominentLink.js'
 
 export default function MailLink( {children} ) {
     return (
-        <DiscreetLink href='mailto:danielc.rocks12@gmail.com'>{ children }</DiscreetLink>
+        <ProminentLink href='mailto:danielc.rocks12@gmail.com'>{ children }</ProminentLink>
     )
 }

@@ -17,7 +17,7 @@
         <br/>
         It began as a summer project in July 2023.
     </p>
-    <p>See also: <DiscreetLink href="https://danielc.rocks">my homepage</DiscreetLink>.</p>
+    <p>See also: <ProminentLink href="https://danielc.rocks">my homepage</ProminentLink></p>
 
     <div className="pt-2 pb-4">
 
@@ -55,19 +55,19 @@
 
     <div className="space-y-2">
         <h2 id="how-is-this-site-maintained">How is this site maintained?</h2>
-        <p>I wrote an in-depth explanation <DiscreetLink href="/comp-sci/web-dev/story-of-the-site">here </DiscreetLink>. If you're curious, here is the summary of my workflow:</p>
+        <p>I wrote an in-depth explanation <ProminentLink href="/comp-sci/web-dev/story-of-the-site">here </ProminentLink>. If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
-                I use <ProminentLink href="https://nextjs.org/">next.js</ProminentLink> as the framework, with styling from <ProminentLink href="https://tailwindcss.com/">tailwind</ProminentLink>. The web app is hosted publicly on <ProminentLink href="https://vercel.com/">vercel</ProminentLink>.
+                I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted publicly on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
             </li>
             <li className="list-disc ml-8">
-                I maintain a private <ProminentLink href="https://github.com/">github</ProminentLink> repository containing the master folder with all the contents of this blog, in <ProminentLink href="https://www.markdownguide.org/getting-started/">markdown</ProminentLink> format. When I want to update the website, I edit the master folder with a markdown editor, using <ProminentLink href="https://inkscape.org/">inkscape</ProminentLink> for math diagrams.
+                I maintain a private <DiscreetLink href="https://github.com/">Github</DiscreetLink> repository containing the master folder with all the contents of this blog, in <DiscreetLink href="https://www.markdownguide.org/getting-started/">Markdown</DiscreetLink> format. When I want to update the website, I edit the master folder with a markdown editor, using <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> for math diagrams.
             </li>
             <li className="list-disc ml-8">
-                I wrote a static site generator in <ProminentLink href="https://www.python.org/">python</ProminentLink> to generate html content out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">jinja2</ProminentLink> templates, then wraps it in boilerplate <ProminentLink href="https://react.dev/">react</ProminentLink>. I run the python script to preview new content.
+                I wrote a static site generator in <DiscreetLink href="https://www.python.org/">Python</DiscreetLink> to generate html content out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wraps it in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. I run the python script to preview new content.
             </li>
             <li className="list-disc ml-8">
-                When I am happy with my changes, I push them to the github repository. I added a <ProminentLink href="https://vercel.com/docs/deployments/deploy-hooks">vercel hook</ProminentLink> to automatically deploy the public site whenever this happens.
+                When I am happy with my changes, I push them to the github repository. I added a <ProminentLink href="https://vercel.com/docs/deployments/deploy-hooks">Vercel hook</ProminentLink> to automatically deploy the public site whenever this happens.
             </li>
         </ul>
     </div>
