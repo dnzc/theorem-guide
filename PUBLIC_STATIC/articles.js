@@ -8,7 +8,7 @@ const articles = [
     },
     {
         id: 1,
-        title: 'How I Created wiki.danielc.rocks',
+        title: 'How I Created blog.danielc.rocks',
         name: 'story-of-the-site',
         dir: ['comp-sci', 'web-dev'],
         content: 'A list of some of the features this website has, how I implemented them, and a look into the inner workings of how I manage this easily maintainable site.',

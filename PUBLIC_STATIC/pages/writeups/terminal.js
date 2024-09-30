@@ -212,7 +212,7 @@ export default function Terminal () {
 
 <p>A writeup for the <DiscreetLink href='https://terminal.danielc.rocks'>hangman</DiscreetLink> challenge on my homepage.</p>
 
-<h2 id="hint-1" className="group flex">Hint 1&nbsp;<Link href="#hint-1" onClick={() => copyToClipboard("https://wiki.danielc.rocks/writeups/terminal#hint-1", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="hint-1" className="group flex">Hint 1&nbsp;<Link href="#hint-1" onClick={() => copyToClipboard("https://blog.danielc.rocks/writeups/terminal#hint-1", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <Spoiler>
 
@@ -220,7 +220,7 @@ export default function Terminal () {
 
 </Spoiler>
 
-<h2 id="hint-2" className="group flex">Hint 2&nbsp;<Link href="#hint-2" onClick={() => copyToClipboard("https://wiki.danielc.rocks/writeups/terminal#hint-2", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="hint-2" className="group flex">Hint 2&nbsp;<Link href="#hint-2" onClick={() => copyToClipboard("https://blog.danielc.rocks/writeups/terminal#hint-2", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <Spoiler>
 
@@ -231,7 +231,7 @@ So the goal is: write a python file that reads <code>/flag.txt</code>, whose alp
 
 </Spoiler>
 
-<h2 id="hint-3" className="group flex">Hint 3&nbsp;<Link href="#hint-3" onClick={() => copyToClipboard("https://wiki.danielc.rocks/writeups/terminal#hint-3", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="hint-3" className="group flex">Hint 3&nbsp;<Link href="#hint-3" onClick={() => copyToClipboard("https://blog.danielc.rocks/writeups/terminal#hint-3", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <Spoiler>
 
@@ -248,7 +248,7 @@ Also we have numbers, by doing something like:</p>
 
 </Spoiler>
 
-<h2 id="solution" className="group flex">Solution&nbsp;<Link href="#solution" onClick={() => copyToClipboard("https://wiki.danielc.rocks/writeups/terminal#solution", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="solution" className="group flex">Solution&nbsp;<Link href="#solution" onClick={() => copyToClipboard("https://blog.danielc.rocks/writeups/terminal#solution", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <Spoiler>
 
@@ -275,7 +275,7 @@ And the reduced version:
 
 </Spoiler>
 
-<h2 id="cheese-solution" className="group flex">Cheese solution&nbsp;<Link href="#cheese-solution" onClick={() => copyToClipboard("https://wiki.danielc.rocks/writeups/terminal#cheese-solution", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="cheese-solution" className="group flex">Cheese solution&nbsp;<Link href="#cheese-solution" onClick={() => copyToClipboard("https://blog.danielc.rocks/writeups/terminal#cheese-solution", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <Spoiler>
 

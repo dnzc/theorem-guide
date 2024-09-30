@@ -19,11 +19,11 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 
-export default function Wiki () {
+export default function Blog () {
     return (
         <Layout>
             <Head>
-                <title>Wiki | Daniel C</title>
+                <title>Blog | Daniel C</title>
             </Head>
                 <>
                     
@@ -205,7 +205,7 @@ export default function Wiki () {
         </div>
     </div>
 
-    <p className="block md:hidden text-3xl font-bold text-primary break-all">wiki.danielc.rocks</p>
+    <p className="block md:hidden text-3xl font-bold text-primary break-all">blog.danielc.rocks</p>
 
     <p>
         This site is a personal blog, as well as a collection of notes and explanations of topics I find interesting.
@@ -223,14 +223,14 @@ export default function Wiki () {
             
                 <div>
                     <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-secondary">
-                        <p className="text-italic italic mr-4">10 Jul 2024</p>
+                        <p className="text-italic italic mr-4">30 Sep 2024</p>
                         
                             <p className="font-bold">comp-sci</p>
                             <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
                             <p className="font-bold">web-dev</p>
                         
                     </div>
-                    <p className="text-xl font-bold text-bold"><Link href="/comp-sci/web-dev/story-of-the-site" className="hover:underline">How I Created wiki.danielc.rocks</Link></p>
+                    <p className="text-xl font-bold text-bold"><Link href="/comp-sci/web-dev/story-of-the-site" className="hover:underline">How I Created blog.danielc.rocks</Link></p>
                 </div>
             
                 <div>
@@ -275,14 +275,14 @@ export default function Wiki () {
     <h1>Metadata</h1>
 
     <div className="space-y-2">
-        <h2 id="how-is-this-site-maintained" className="group flex">How is this site maintained?&nbsp;<Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://wiki.danielc.rocks#how-is-this-site-maintained", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+        <h2 id="how-is-this-site-maintained" className="group flex">How is this site maintained?&nbsp;<Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://blog.danielc.rocks#how-is-this-site-maintained", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
         <p>I wrote an in-depth explanation <DiscreetLink href="/comp-sci/web-dev/story-of-the-site">here </DiscreetLink>. If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
                 I use <ProminentLink href="https://nextjs.org/">next.js</ProminentLink> as the framework, with styling from <ProminentLink href="https://tailwindcss.com/">tailwind</ProminentLink>. The web app is hosted publicly on <ProminentLink href="https://vercel.com/">vercel</ProminentLink>.
             </li>
             <li className="list-disc ml-8">
-                I maintain a private <ProminentLink href="https://github.com/">github</ProminentLink> repository containing the master folder with all the contents of this wiki, in <ProminentLink href="https://www.markdownguide.org/getting-started/">markdown</ProminentLink> format. When I want to update the wiki, I edit the master folder with a markdown editor, using <ProminentLink href="https://inkscape.org/">inkscape</ProminentLink> for math diagrams.
+                I maintain a private <ProminentLink href="https://github.com/">github</ProminentLink> repository containing the master folder with all the contents of this blog, in <ProminentLink href="https://www.markdownguide.org/getting-started/">markdown</ProminentLink> format. When I want to update the website, I edit the master folder with a markdown editor, using <ProminentLink href="https://inkscape.org/">inkscape</ProminentLink> for math diagrams.
             </li>
             <li className="list-disc ml-8">
                 I wrote a static site generator in <ProminentLink href="https://www.python.org/">python</ProminentLink> to generate html content out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">jinja2</ProminentLink> templates, then wraps it in boilerplate <ProminentLink href="https://react.dev/">react</ProminentLink>. I run the python script to preview new content.
@@ -302,9 +302,13 @@ export default function Wiki () {
     <p className="text-sm text-elevated">P.S. if you think the ascii tree is cool (not visible on small screens), I generated it using <DiscreetLink href="https://gitlab.com/jallbrit/cbonsai">cbonsai</DiscreetLink>, <DiscreetLink href="https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh">ansi2html</DiscreetLink> and some regex!</p>
 
     <div>
-        <h2 id="changelog" className="group flex">Changelog&nbsp;<Link href="#changelog" onClick={() => copyToClipboard("https://wiki.danielc.rocks#changelog", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+        <h2 id="changelog" className="group flex">Changelog&nbsp;<Link href="#changelog" onClick={() => copyToClipboard("https://blog.danielc.rocks#changelog", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
         <div className="changelog">
-            <h2>08/07/24</h2>
+            <h2>30/09/24</h2>
+
+<p>Renamed wiki -&gt; blog</p>
+
+<h2>08/07/24</h2>
 
 <h3>Added</h3>
 
@@ -337,7 +341,7 @@ export default function Wiki () {
 <h3>Added</h3>
 
 <ul>
-<li>this wiki</li>
+<li>this website</li>
 </ul>
 
         </div>

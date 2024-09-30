@@ -72,7 +72,7 @@ export default function Sidebar({ children }) {
             {/* sidebar */}
             <nav className={`${active ? 'hidden md:block' : 'hidden'} fixed w-[300px] shrink-0 justify-center top-0 py-3`}>
                 <span className='sidebar-title hover:text-primary'>
-                    <Link href='/'> wiki.danielc.rocks </Link>
+                    <Link href='/'> blog.danielc.rocks </Link>
                 </span>
                 <br/>
                 <br/>

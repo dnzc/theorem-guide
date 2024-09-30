@@ -222,7 +222,7 @@ export default function LagrangeMultipliers () {
 
 <p>I really recommend watching <ProminentLink href='https://youtu.be/5A39Ht9Wcu0'>this video</ProminentLink> to get some intuition first.</p>
 
-<h2 id="background-theory" className="group flex">Background Theory&nbsp;<Link href="#background-theory" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#background-theory", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="background-theory" className="group flex">Background Theory&nbsp;<Link href="#background-theory" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#background-theory", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p><em>Defn.</em> Consider a set <Latex>$M$</Latex> together with a function <Latex>$d : M \times M \to \mathbb&#123;R&#125;$</Latex>.</p>
 
@@ -428,7 +428,7 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
   Is closed in <Latex>$\mathbb&#123;R&#125;^n$</Latex>.</p>
 </blockquote>
 
-<h2 id="partial-derivatives" className="group flex">Partial Derivatives&nbsp;<Link href="#partial-derivatives" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#partial-derivatives", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="partial-derivatives" className="group flex">Partial Derivatives&nbsp;<Link href="#partial-derivatives" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#partial-derivatives", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>I'm assuming you've already met these, so I'll recap.</p>
 
@@ -445,7 +445,7 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
 <span className="block max-w-full overflow-auto"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta y&#125; = \frac&#123;\sqrt x&#125;&#123;2 \sqrt y&#125;$$</Latex></span>
 <span className="block max-w-full overflow-auto"><Latex>$$\therefore \nabla f = (\frac&#123;\sqrt y&#125;&#123;2 \sqrt x&#125;, \frac&#123;\sqrt x&#125;&#123;2 \sqrt y&#125;)$$</Latex></span></p>
 
-<h2 id="the-big-theorem" className="group flex">The Big Theorem&nbsp;<Link href="#the-big-theorem" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#the-big-theorem", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="the-big-theorem" className="group flex">The Big Theorem&nbsp;<Link href="#the-big-theorem" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#the-big-theorem", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Finally!</p>
 
@@ -465,7 +465,7 @@ Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(
   <span className="block max-w-full overflow-auto"><Latex>$$\text&#123;etc.&#125;$$</Latex></span></p>
 </blockquote>
 
-<h2 id="example-problem-1" className="group flex">Example Problem 1&nbsp;<Link href="#example-problem-1" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#example-problem-1", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="example-problem-1" className="group flex">Example Problem 1&nbsp;<Link href="#example-problem-1" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#example-problem-1", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <blockquote>
   <p>Let <Latex>$x,y,z \geq 0$</Latex> such that <Latex>$x+y+z = 1$</Latex>. Find the min and max of <Latex>$xyz$</Latex>.</p>
@@ -506,7 +506,7 @@ This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finall
 <p>Overall, all extreme values of <Latex>$f$</Latex> on <Latex>$\bar S$</Latex> are <Latex>$0$</Latex> or <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.
 <span className="block max-w-full overflow-auto"><Latex>$$\therefore 0 \leq xyz \leq \frac&#123;1&#125;&#123;27&#125;$$</Latex></span></p>
 
-<h2 id="example-problem-2" className="group flex">Example Problem 2&nbsp;<Link href="#example-problem-2" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#example-problem-2", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="example-problem-2" className="group flex">Example Problem 2&nbsp;<Link href="#example-problem-2" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#example-problem-2", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <blockquote>
   <p>Let <Latex>$x,y,z \geq 0$</Latex> such that <Latex>$x+y+z = 1$</Latex>. Show that
@@ -571,7 +571,7 @@ Since <Latex>$\nabla g \neq (0,0,0)$</Latex>, the only possibility is <Latex>$\n
 
 <p><span className="block max-w-full overflow-auto"><Latex>$$f\left(\frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;3&#125;\right) = \frac&#123;1&#125;&#123;9&#125; + \frac&#123;1&#125;&#123;9&#125; + \frac&#123;1&#125;&#123;9&#125; - \frac&#123;2&#125;&#123;27&#125; = \frac&#123;7&#125;&#123;27&#125; \;\; \checkmark$$</Latex></span></p>
 
-<h2 id="example-problem-3" className="group flex">Example problem 3&nbsp;<Link href="#example-problem-3" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#example-problem-3", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="example-problem-3" className="group flex">Example problem 3&nbsp;<Link href="#example-problem-3" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#example-problem-3", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <blockquote>
   <p>Given that <Latex>$x,y \in \mathbb&#123;R&#125;$</Latex> with <Latex>$x^2 + y^2 = 1$</Latex>, Find the max and min values of <Latex>$8x^2 - 2y$</Latex>.</p>
@@ -624,7 +624,7 @@ Then <Latex>$f,g$</Latex> are continuous and have continuous partial derivatives
 <span className="block max-w-full overflow-auto"><Latex>$$f(\pm \frac&#123;\sqrt 63&#125;&#123;8&#125;, -\frac&#123;1&#125;&#123;8&#125;) = \frac&#123;65&#125;&#123;8&#125;$$</Latex></span>
 <span className="block max-w-full overflow-auto"><Latex>$$\therefore -2 \leq 8x^2 - 2y \leq \frac&#123;65&#125;&#123;8&#125;$$</Latex></span></p>
 
-<h2 id="homogenous-trick" className="group flex">Homogenous Trick&nbsp;<Link href="#homogenous-trick" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#homogenous-trick", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="homogenous-trick" className="group flex">Homogenous Trick&nbsp;<Link href="#homogenous-trick" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#homogenous-trick", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Suppose we want to prove some inequality, but there are no constraints.</p>
 
@@ -649,7 +649,7 @@ Otherwise, let <Latex>$k = \sqrt&#123;a^2 + b^2 + c^2&#125; \gt 0$</Latex>. The 
 
 <p>We can now solve this as in the examples above, using Lagrange multipliers.</p>
 
-<h2 id="practice-problem-jbmo" className="group flex">Practice problem (JBMO)&nbsp;<Link href="#practice-problem-jbmo" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#practice-problem-jbmo", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="practice-problem-jbmo" className="group flex">Practice problem (JBMO)&nbsp;<Link href="#practice-problem-jbmo" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#practice-problem-jbmo", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <blockquote>
   <p>For <Latex>$x,y \in \mathbb&#123;R&#125;, (x,y) \neq (0,0)$</Latex>, prove that:
@@ -736,7 +736,7 @@ So in this case:
 
 </Spoiler>
 
-<h2 id="when-it-fails" className="group flex">When It Fails&nbsp;<Link href="#when-it-fails" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#when-it-fails", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="when-it-fails" className="group flex">When It Fails&nbsp;<Link href="#when-it-fails" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#when-it-fails", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <blockquote>
   <p>Let <Latex>$a,b,c \gt 0$</Latex> such that <Latex>$a+b+c=3$</Latex>. Find the minimum value of:
@@ -765,7 +765,7 @@ So in this case:
 
 <hr/>
 
-<h2 id="conclusion" className="group flex">Conclusion&nbsp;<Link href="#conclusion" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#conclusion", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="conclusion" className="group flex">Conclusion&nbsp;<Link href="#conclusion" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/olympiad/techniques/lagrange-multipliers#conclusion", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>As you've seen, it takes careful consideration to use Lagrange multipliers correctly. I wish you the best of luck using LM in olympiad problems!</p>
 

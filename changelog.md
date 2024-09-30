@@ -1,3 +1,6 @@
+## 30/09/24
+Renamed wiki -&gt; blog
+
 ## 08/07/24
 
 ### Added
@@ -24,4 +27,4 @@
 
 ### Added
 
-- this wiki
+- this website

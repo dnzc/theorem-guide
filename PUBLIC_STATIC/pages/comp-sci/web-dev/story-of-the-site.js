@@ -201,7 +201,7 @@ export default function StoryOfTheSite () {
         
 
         
-            <p className="text-elevated mb-4">Last modified on 10 Jul 2024</p>
+            <p className="text-elevated mb-4">Last modified on 30 Sep 2024</p>
         
 
         
@@ -211,7 +211,7 @@ export default function StoryOfTheSite () {
         
 
         <div className="article mb-4">
-            <h1 id="how-i-created-wikidanielcrocks">How I Created wiki.danielc.rocks</h1>
+            <h1 id="how-i-created-blogdanielcrocks">How I Created blog.danielc.rocks</h1>
 
 <p>A list of some of the features this website has, how I implemented them, and a look into the inner workings of how I manage this easily maintainable site.</p>
 

@@ -220,7 +220,7 @@ export default function Fta () {
 
 <p>This is part 5, where we stand on what we've built from axioms so far, and finally prove the <DiscreetLink href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">fundamental theorem of arithmetic</DiscreetLink> (technically, the generalized version). In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<h2 id="existence-of-a-prime-factorization" className="group flex">Existence of a prime factorization&nbsp;<Link href="#existence-of-a-prime-factorization" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/5-fta#existence-of-a-prime-factorization", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="existence-of-a-prime-factorization" className="group flex">Existence of a prime factorization&nbsp;<Link href="#existence-of-a-prime-factorization" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/number-theory/FTA-proof/5-fta#existence-of-a-prime-factorization", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Armed with everything we've done so far, we're ready to prove that every integer greater than 1 can be written as a product of primes (or is prime). Note: this doesn't imply that factorizations are unique, but we'll prove this later.</p>
 
@@ -272,7 +272,7 @@ export default function Fta () {
 
 </Spoiler>
 
-<h2 id="uniqueness" className="group flex">Uniqueness&nbsp;<Link href="#uniqueness" onClick={() => copyToClipboard("https://wiki.danielc.rocks/maths/number-theory/FTA-proof/5-fta#uniqueness", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<h2 id="uniqueness" className="group flex">Uniqueness&nbsp;<Link href="#uniqueness" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/number-theory/FTA-proof/5-fta#uniqueness", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>So, we've shown that every integer greater than 1 can be factored into primes.</p>
 

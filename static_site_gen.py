@@ -4,12 +4,12 @@ import os, shutil, re
 from datetime import datetime
 import html
 
-SOURCE_DIR = '/home/dnzc/Github/wiki/CONTENT_ROOT/'
-TARGET_DIR = '/home/dnzc/Github/wiki/PUBLIC_STATIC/pages/'
-ARTICLE_DATA_FILE = '/home/dnzc/Github/wiki/PUBLIC_STATIC/articles.js'
-TEMPLATES_DIR = '/home/dnzc/Github/wiki/templates/'
-IMAGES_DIR = '/home/dnzc/Github/wiki/PUBLIC_STATIC/public/images/'
-CHANGELOG_FILE = '/home/dnzc/Github/wiki/changelog.md'
+SOURCE_DIR = '/home/dnzc/Github/blog/CONTENT_ROOT/'
+TARGET_DIR = '/home/dnzc/Github/blog/PUBLIC_STATIC/pages/'
+ARTICLE_DATA_FILE = '/home/dnzc/Github/blog/PUBLIC_STATIC/articles.js'
+TEMPLATES_DIR = '/home/dnzc/Github/blog/templates/'
+IMAGES_DIR = '/home/dnzc/Github/blog/PUBLIC_STATIC/public/images/'
+CHANGELOG_FILE = '/home/dnzc/Github/blog/changelog.md'
 
 template_env = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
 template = template_env.get_template('template.jinja')
@@ -81,7 +81,7 @@ export default function {name.replace(' ', '')} () {{
 # find h2 tags with an id, add link anchor to them (each h2 in a markdown file is given a unique id by the header-ids extension)
 # this is an external function so that it can also be applied to the homepage (but the header ids must be manually put there)
 def add_link_anchors(page, cur_dir): 
-    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" className="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://wiki.danielc.rocks'+cur_dir[:-3]+r'#\1", true)} className="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL)
+    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" className="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://blog.danielc.rocks'+cur_dir[:-3]+r'#\1", true)} className="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
     return '' if timestamp==-1 else datetime.utcfromtimestamp(timestamp).strftime('%d %b %Y')
@@ -350,7 +350,7 @@ with open(TARGET_DIR+'index.js', 'w') as output_file:
                     file_count=sum(1 for i in folder_contents if i['is_file']=='yes'),
                     folder_count=sum(1 for i in folder_contents if i['is_file']=='no'),
                 ), pathStr='', dirTree=DIR_TREE),
-            'Wiki',
+            'Blog',
             True, True
         )
     )

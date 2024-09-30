@@ -202,7 +202,7 @@ export default function WebDev () {
                         <p className="relative bottom-[1px]">story-of-the-site</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">30 Sep 2024</p>
             </li>
         
         </>
@@ -218,7 +218,7 @@ export default function WebDev () {
                         <p className="relative bottom-[1px]">story-of-the-site</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">30 Sep 2024</p>
             </li>
         
         </>
