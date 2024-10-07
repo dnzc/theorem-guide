@@ -1,46 +1,26 @@
 import { useState, useEffect, useRef } from 'react'
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '@/tailwind.config.js'
 import { FaSearch } from 'react-icons/fa'
 import { FaFolderTree } from 'react-icons/fa6'
 import Popup from '@/components/popup'
 import Link from 'next/link'
 
-const fullConfig = resolveConfig(tailwindConfig)
-
-var lastEvent
-
 export default function Sidebar({ children }) {
 
-    const [active, setActiveState] = useState(true)
+    // https://stackoverflow.com/questions/53845595/wrong-react-hooks-behaviour-with-event-listener
+    function useStateRef(initialValue) {
+        const [value, setValue] = useState(initialValue)
+        const ref = useRef(value)
+        useEffect(() => {
+          ref.current = value
+        }, [value])
+        return [value, setValue, ref]
+    }
+
+    const [active, setActiveState, activeRef] = useStateRef(false)
 
     function toggleSidebar() {
-        setActiveState(!active)
+        setActiveState(!activeRef.current)
     }
-
-    function handleKeydown(e) {
-        if (lastEvent && lastEvent.keyCode == e.keyCode) return
-        lastEvent = e
-        if(window.innerWidth < parseInt(fullConfig.theme.screens.md)) return
-
-        if(e.ctrlKey && e.key === 'l') {
-            e.preventDefault()
-            toggleSidebar()
-        }
-    }
-
-    function handleKeyup() {
-        lastEvent = null
-    }
-
-    useEffect(() => {
-        document.addEventListener('keydown', handleKeydown)
-        document.addEventListener('keyup', handleKeyup)
-        return () => {
-            document.removeEventListener('keydown', handleKeydown)
-            document.removeEventListener('keyup', handleKeyup)
-        }
-    }, [active])
 
     let [modifierKey, setModifierKey] = useState('')
 
@@ -48,6 +28,23 @@ export default function Sidebar({ children }) {
     function updateMobile() {
         setMobile(/iPhone|iPod|Android/i.test(navigator.userAgent))
     }
+
+    function handleKeydown(e) {
+
+        let isMac = navigator.userAgent.toUpperCase().includes('MAC')
+
+        if((isMac ? e.metaKey : e.ctrlKey) && e.key==='u') {
+            e.preventDefault()
+            toggleSidebar()
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeydown)
+        return () => {
+            document.removeEventListener('keydown', handleKeydown)
+        }
+    }, [active])
 
     useEffect(() => {
         let isMac = navigator.userAgent.toUpperCase().includes('MAC')
@@ -79,7 +76,7 @@ export default function Sidebar({ children }) {
                 {children}
                 <button onClick={toggleSidebar} className='mt-4 flex text-elevated items-center space-x-6 pl-4 bg-white bg-opacity-5 [@media(hover:hover)]:hover:bg-opacity-20 rounded-md px-3 py-1.5 ml-4'>
                     <span className='relative bottom-[1px]'>Toggle Filetree</span>
-                    {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative'>{modifierKey} L</span>}
+                    {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative'>{modifierKey} U</span>}
                 </button>
                 <br/>
                 <br/>
@@ -94,7 +91,7 @@ export default function Sidebar({ children }) {
                     buttonContents={
                         <div className='bg-white bg-opacity-5 [@media(hover:hover)]:hover:bg-opacity-20 w-full h-full rounded-md pl-4 px-3 flex items-center justify-between space-x-2'>
                             <FaFolderTree/>
-                            {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey} L</span>}
+                            {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey} U</span>}
                         </div>
                     }
                     keyboardShortcutIndex={0}
@@ -105,12 +102,12 @@ export default function Sidebar({ children }) {
                 </Popup>
                 
                 {/* button group */}
-                <div className='md:w-[300px] flex justify-end space-x-4 fixed right-4 xl:right-[calc(300px+1rem)] 2xl:right-[calc(300px+1rem+10%)]'>
+                <div className='md:w-[300px] flex justify-start space-x-4 fixed left-4 xl:left-[1rem] 2xl:left-[calc(1rem+10%)]'>
                     {/* sidebar toggle button */}
                     <button className={`hidden ${active ? '' : 'md:flex '} text-base text-elevated bg-body rounded-md h-[2.25rem]`} onClick={toggleSidebar}>
                         <div className='bg-white bg-opacity-5 [@media(hover:hover)]:hover:bg-opacity-20 w-full h-full rounded-md pl-4 px-3 flex items-center justify-between space-x-2'>
                             <FaFolderTree/>
-                            {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey} L</span>}
+                            {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey} U</span>}
                         </div>
                     </button>
 
@@ -119,7 +116,7 @@ export default function Sidebar({ children }) {
                     <Popup buttonStyle='text-base text-elevated mr-4 bg-body'
                         buttonContents={
                             <>
-                                <div className={`hidden xs:flex items-center w-[50vw] fixed right-4 top-4 ${active ? 'md:w-[calc(300px-2rem)] md:left-[1rem] md:top-16' : 'md:hidden'} bg-black px-3 py-1.5 [@media(hover:hover)]:hover:ring-2 ring-bold rounded-md [@media(hover:hover)]:hover:bg-white [@media(hover:hover)]:hover:bg-opacity-10`}>
+                                <div className={`hidden xs:flex items-center w- fixed right-4 top-4 ${active ? 'md:w-[calc(300px-2rem)] md:left-[1rem] md:top-16' : 'md:hidden'} bg-black px-3 py-1.5 [@media(hover:hover)]:hover:ring-2 ring-bold rounded-md [@media(hover:hover)]:hover:bg-white [@media(hover:hover)]:hover:bg-opacity-10`}>
                                     <FaSearch className='mr-3 h-full shrink-0'/>
                                     <span className='italic relative bottom-[0.5px]'>Search...</span>
                                     {mobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey} K</span>}

@@ -5,7 +5,7 @@ import Search from './search'
 
 const fullConfig = resolveConfig(tailwindConfig)
 
-var shortcuts = ['l', 'k']
+var shortcuts = ['u', 'k']
 
 export default function Popup({ buttonStyle, buttonContents, keyboardShortcutIndex, listenWhenLarge, isMobile, children }) {
 
@@ -59,7 +59,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
         if(e.key === 'Escape' && activeRef.current) {
             e.preventDefault()
             hidePopup()
-        } else if((!isMac && e.ctrlKey || isMac && e.metaKey) && shortcuts.includes(e.key)) {
+        } else if((isMac ? e.metaKey : e.ctrlKey) && shortcuts.includes(e.key)) {
             if(!listenWhenLarge && window.innerWidth >= parseInt(fullConfig.theme.screens.md)) return
             e.preventDefault()
             if(e.key === shortcuts[keyboardShortcutIndex]) togglePopup()
