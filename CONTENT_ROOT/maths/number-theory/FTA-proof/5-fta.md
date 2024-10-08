@@ -20,7 +20,7 @@ We can flip this to use the well-ordering principle, because I think it's nicer 
 >
 > Since $e$ is not prime, there exist integers $a,b$ such that $e = ab$ and $1 \lt a \leq b \lt n$.
 >
-> Now, becase $e$ is minimal, $a$ and $b$ must both be prime or a product of primes (else they would be in the set). Hence we can write $a = p_1p_2\cdots p_k$ and $b = q_1q_2\cdots q_j$ where these are all primes[^1].
+> Now, becase $e$ is minimal, $a$ and $b$ must both be prime or a product of primes (else they would be in the set). Hence we can write $a = p_1 p_2\cdots p_k$ and $b = q_1 q_2\cdots q_j$ where these are all primes[^1].
 >
 >But, then $e = ab = (p_1p_2\cdots p_k)(q_1q_2\cdots q_j)$, thus $e$ is a product of primes, contradiction.
 

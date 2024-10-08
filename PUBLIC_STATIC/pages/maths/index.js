@@ -191,13 +191,23 @@ export default function Maths () {
         <>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/number-theory">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">number-theory</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/maths/research">
                     <div className="flex items-center space-x-1 text-lg font-bold text-primary">
                         
                         <p className="relative bottom-[1px]">research</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -207,17 +217,7 @@ export default function Maths () {
                         <p className="relative bottom-[1px]">olympiad</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">number-theory</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
             </li>
         
         </>
@@ -231,7 +231,7 @@ export default function Maths () {
                         <p className="relative bottom-[1px]">number-theory</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -241,7 +241,7 @@ export default function Maths () {
                         <p className="relative bottom-[1px]">olympiad</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -251,7 +251,7 @@ export default function Maths () {
                         <p className="relative bottom-[1px]">research</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
             </li>
         
         </>

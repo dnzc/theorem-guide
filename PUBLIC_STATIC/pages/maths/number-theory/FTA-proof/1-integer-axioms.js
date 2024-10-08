@@ -218,13 +218,13 @@ export default function IntegerAxioms () {
 
 <p><strong>tl;dr:</strong> A journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored.</p>
 
-<p>This is part 1, where we develop the basic axioms of the integers and some definitions. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
+<p>This is part 1, where we develop the basic axioms of the integers and some definitions. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary\_of\_mathematical\_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
 <h2 id="axioms-as-properties" className="group flex">Axioms as Properties&nbsp;<Link href="#axioms-as-properties" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms#axioms-as-properties", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 
 <p>Over the integers, we need a set of reduced axioms from which all the known theorems can be derived using the rules of logical inference. <em>Reduced</em> meaning that if an axiom can be proven using other axioms, then it should not be an axiom. And philosophically, our axioms should be as simple as possible. The modern approach to axiomatic proof is for our list of axioms to be the <em>properties</em> that we want our system to have; but, it's not clear what these fundamental properties of the integers should be.</p>
 
-<p>For example, it is well known that if a prime divides a product, then it divides one of the constituents (<DiscreetLink href="https://en.wikipedia.org/wiki/Euclid%27s_lemma">Euclid's Lemma</DiscreetLink>). Should this be one of our fundamental properties? It certainly feels "obvious", in the sense that proving it would not get you any extra points on an olympiad question. But does it follow from some other fundamental properties? How do you even <em>define</em> prime? In my experience, people often try to justify Euclid's lemma by using prime factorization. The problem with this is that it feels <em>backwards</em> - the fact that every integer can be uniquely prime factorized is an extremely powerful result (hence the name <strong>fundamental theorem of arithmetic</strong> (FTA)), and so using it feels like overkill and may even be circular reasoning.</p>
+<p>For example, it is well known that if a prime divides a product, then it divides one of the constituents (<DiscreetLink href="https://en.wikipedia.org/wiki/Euclid%27s\_lemma">Euclid's Lemma</DiscreetLink>). Should this be one of our fundamental properties? It certainly feels "obvious", in the sense that proving it would not get you any extra points on an olympiad question. But does it follow from some other fundamental properties? How do you even <em>define</em> prime? In my experience, people often try to justify Euclid's lemma by using prime factorization. The problem with this is that it feels <em>backwards</em> - the fact that every integer can be uniquely prime factorized is an extremely powerful result (hence the name <strong>fundamental theorem of arithmetic</strong> (FTA)), and so using it feels like overkill and may even be circular reasoning.</p>
 
 <p>We <em>could</em> have FTA as an axiom. But if we can prove it from simpler axioms, then why bother?</p>
 
@@ -589,7 +589,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 </li>
 
 <li id="fn-3">
-<p>The well-ordering principle is actually <DiscreetLink href="https://proofwiki.org/wiki/Equivalence_of_Well-Ordering_Principle_and_Induction">equivalent to induction</DiscreetLink>!&#160;<a href="#fnref-3" className="footnoteBackLink" title="Jump back to footnote 3 in the text.">&#8617;</a></p>
+<p>The well-ordering principle is actually <DiscreetLink href="https://proofwiki.org/wiki/Equivalence\_of\_Well-Ordering\_Principle\_and\_Induction">equivalent to induction</DiscreetLink>!&#160;<a href="#fnref-3" className="footnoteBackLink" title="Jump back to footnote 3 in the text.">&#8617;</a></p>
 </li>
 </ol>
 </div>

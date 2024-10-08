@@ -200,7 +200,7 @@ export default function NumberTheory () {
                         <p className="relative bottom-[1px]">FTA-proof</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
         </>
@@ -214,7 +214,7 @@ export default function NumberTheory () {
                         <p className="relative bottom-[1px]">FTA-proof</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
         </>

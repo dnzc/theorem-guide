@@ -218,7 +218,7 @@ export default function Euclid () {
 
 <p><strong>tl;dr:</strong> A journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored.</p>
 
-<p>This is part 4, where we use what we have so far to finally prove <DiscreetLink href="https://brilliant.org/wiki/bezouts-identity/">Euclid's Lemma</DiscreetLink> (technically, the generalized version). In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
+<p>This is part 4, where we use what we have so far to finally prove <DiscreetLink href="https://brilliant.org/wiki/bezouts-identity/">Euclid's Lemma</DiscreetLink> (technically, the generalized version). In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary\_of\_mathematical\_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
 <h2 id="what-its-argh" className="group flex"><em>What? It's... argh!</em>&nbsp;<Link href="#what-its-argh" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/number-theory/FTA-proof/4-euclid#what-its-argh", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 

@@ -218,7 +218,7 @@ export default function BezoutEgcd () {
 
 <p><strong>tl;dr:</strong> A journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored.</p>
 
-<p>This is part 3, where we discover and prove <DiscreetLink href="https://brilliant.org/wiki/bezouts-identity/">Bezout's lemma</DiscreetLink> using the division algorithm. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
+<p>This is part 3, where we discover and prove <DiscreetLink href="https://brilliant.org/wiki/bezouts-identity/">Bezout's lemma</DiscreetLink> using the division algorithm. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary\_of\_mathematical\_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
 <h2 id="puzzle-water-jug-problem" className="group flex">Puzzle: water-jug problem&nbsp;<Link href="#puzzle-water-jug-problem" onClick={() => copyToClipboard("https://blog.danielc.rocks/maths/number-theory/FTA-proof/3-bezout-egcd#puzzle-water-jug-problem", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
 

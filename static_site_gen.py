@@ -119,24 +119,39 @@ def flatten_content(content, title):
     content = re.sub(r' +', ' ', content)
     return content
 
+def get_folder_timestamp(cur_dir):
+    timestamp = PLACEHOLDER_TIMESTAMP
+    for child in os.listdir(SOURCE_DIR+cur_dir):
+        if child.endswith('__IMAGES__'): continue # exclude the special images directory
+        is_file = child[-3:] == '.md'
+        child_dir = cur_dir+'/'+child
+        if is_file:
+            try:
+                timestamp = datetime.strptime(open(SOURCE_DIR+child_dir).readline().strip(), '%d/%m/%Y %H:%M').timestamp()
+            except ValueError: pass
+        else:
+            if timestamp == PLACEHOLDER_TIMESTAMP: timestamp = get_folder_timestamp(child_dir)
+            else: timestamp = max(timestamp, get_folder_timestamp(child_dir))
+    return timestamp
+
 def get_folder_contents(cur_dir):
     folder_contents = []
     for child in os.listdir(SOURCE_DIR+cur_dir):
         if child.endswith('__IMAGES__'): continue # exclude the special images directory
         item = {}
         is_file = child[-3:] == '.md'
-        child_dir = SOURCE_DIR+cur_dir+'/'+child
+        child_dir = cur_dir+'/'+child
         item['is_file'] = 'yes' if is_file else 'no' # bools are uppercase in python but lowercase in js, need this instead
         item['name'] = sanitize(child[:-3] if is_file else child)
         item['path'] = cur_dir + '/' + item['name']
-        # is dfs so guaranteed to be youngest timestamp of files (not folders, since will have already been resolved)
         if is_file:
             try:
-                timestamp = datetime.strptime(open(child_dir).readline().strip(), '%d/%m/%Y %H:%M').timestamp()
+                with open(SOURCE_DIR+child_dir, 'r') as f:
+                    timestamp = datetime.strptime(f.readline().strip(), '%d/%m/%Y %H:%M').timestamp()
             except ValueError:
                 timestamp = PLACEHOLDER_TIMESTAMP
         else:
-            timestamp = max([PLACEHOLDER_TIMESTAMP] + [os.path.getmtime(child_dir+'/'+i) for i in os.listdir(child_dir)])
+            timestamp = get_folder_timestamp(child_dir)
         item['timestamp'] = timestamp
         item['date_time'] = timestamp_to_str(timestamp)
         folder_contents.append(item)
@@ -189,7 +204,7 @@ def gen_content(cur_dir, depth, article_list):
             titles = [t for t in titles if t != ''] # for invalid titles, the capture group is empty but still exists, so need to remove them
             if len(titles) == 0:
                 article_data['title'] = 'no_title'
-                warn(f'no article title found in {cur_dir}, using "no_title"')
+                warn(f'no article title found in {cur_dir}')
             else:
                 article_data['title'] = titles[0]
                 if len(titles) > 1:
@@ -215,6 +230,8 @@ def gen_content(cur_dir, depth, article_list):
                 copiable = copiable.replace('"', '&quot;')
                 modified = '__COPIABLE__\n\n<CopyButton text="' + copiable + '"/>\n\n```' + lang + '\n' + code + '\n```'
                 file = file[:m.span()[0]] + modified + file[m.span()[1]:]
+            # escape underscores
+            file = re.sub(r'_', r'\\_', file)
 
             page = markdown(file, extras=['fenced-code-blocks', 'code-friendly', 'header-ids', 'footnotes', 'wiki-tables'])
 
@@ -232,7 +249,7 @@ def gen_content(cur_dir, depth, article_list):
             # add <Latex> tags
             # if not inline, make overflow hidden (assume inline latex is short enough to not overflow)
             page = re.sub(r'\$\$(.*?)\$\$', r'<span className="block max-w-full overflow-auto"><Latex>\1</Latex></span>', page)
-            page = re.sub(r'(\$.+?\$)', r'<Latex>\1</Latex>', page)
+            page = re.sub(r'\$(.+?)\$', r'<Latex>$\1$</Latex>', page)
             page = re.sub(r'(<span className="block max-w-full overflow-auto"><Latex>)(.*?)(</Latex></span>)', r'\1$$\2$$\3', page)
 
             # <p> tags will have been placed around <CopyButton>, remove them
