@@ -1,3 +1,4 @@
+08/06/2024 17:00
 # Terminal Challenge
 
 A writeup for the <DiscreetLink href='https://terminal.danielc.rocks'>hangman</DiscreetLink> challenge on my homepage.

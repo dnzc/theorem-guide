@@ -166,7 +166,7 @@ export default function Research () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -194,18 +194,6 @@ export default function Research () {
         <>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/research/CNATs">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">CNATs</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">07 Sep 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/maths/research/cube-tilings">
                     <div className="flex items-center space-x-1 text-lg">
                         
@@ -214,7 +202,19 @@ export default function Research () {
                         <p className="relative bottom-[1px]">cube-tilings</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">01 Aug 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths/research/CNATs">
+                    <div className="flex items-center space-x-1 text-lg">
+                        
+                            <MdArticle className="shrink-0"/>
+                        
+                        <p className="relative bottom-[1px]">CNATs</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
             </li>
         
         </>
@@ -230,7 +230,7 @@ export default function Research () {
                         <p className="relative bottom-[1px]">CNATs</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">07 Sep 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -242,7 +242,7 @@ export default function Research () {
                         <p className="relative bottom-[1px]">cube-tilings</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">01 Aug 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
             </li>
         
         </>

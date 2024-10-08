@@ -1,3 +1,4 @@
+14/07/2023 17:00
 # Revenge of Analysis: Using Lagrange Multipliers to Destroy Inequalities
 
 Lagrange multipliers are a nice tool to solve inequalities, but they are rarely seen in olympiad solutions. Once you get to grips with it, it can be an overpowered way smash open inequalities without much insight. For this reason, economists love them, but most contest problem setters hate seeing it and so they will often assume that you don't actually understand the technique, giving you 0 points.

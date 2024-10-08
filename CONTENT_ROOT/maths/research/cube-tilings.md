@@ -1,3 +1,4 @@
+17/07/2023 17:00
 # Filling a cube with 1:2:3 Cuboids
 
 > A positive integer $n$ is 'lucky' if it is possible to fill a cube with $n$ cuboids, each of whom has side ratio 1:2:3. Which numbers are lucky?
@@ -9,7 +10,7 @@ It's more interesting to ask this version of the question:
 
 For example, if we managed to show that all integers greater than 100 are lucky, then an upper bound on $C$ would be 101. Of course, it might be very hard to find the actual value of $C$.
 
-Below is the best upper bound on $C$ that I could get - do try the problem yourself and compare solutions. I'd <MailLink>love to know</MailLink> if you improve the bound.
+Below is the best upper bound on $C$ that I could get - do try the problem yourself and <MailLink>let me know</MailLink> your result.
 
 <Spoiler>
 

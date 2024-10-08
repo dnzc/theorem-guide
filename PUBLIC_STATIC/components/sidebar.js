@@ -16,7 +16,7 @@ export default function Sidebar({ children }) {
         return [value, setValue, ref]
     }
 
-    const [active, setActiveState, activeRef] = useStateRef(false)
+    const [active, setActiveState, activeRef] = useStateRef(true)
 
     function toggleSidebar() {
         setActiveState(!activeRef.current)
@@ -30,6 +30,8 @@ export default function Sidebar({ children }) {
     }
 
     function handleKeydown(e) {
+
+        if(e.repeat) return
 
         let isMac = navigator.userAgent.toUpperCase().includes('MAC')
 
@@ -102,7 +104,7 @@ export default function Sidebar({ children }) {
                 </Popup>
                 
                 {/* button group */}
-                <div className='md:w-[300px] flex justify-start space-x-4 fixed left-4 xl:left-[1rem] 2xl:left-[calc(1rem+10%)]'>
+                <div className='md:w-[300px] flex justify-start space-x-4 fixed left-4 bottom-4 xl:left-[1rem] 2xl:left-[calc(1rem+10%)]'>
                     {/* sidebar toggle button */}
                     <button className={`hidden ${active ? '' : 'md:flex '} text-base text-elevated bg-body rounded-md h-[2.25rem]`} onClick={toggleSidebar}>
                         <div className='bg-white bg-opacity-5 [@media(hover:hover)]:hover:bg-opacity-20 w-full h-full rounded-md pl-4 px-3 flex items-center justify-between space-x-2'>

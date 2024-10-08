@@ -166,7 +166,7 @@ export default function Writeups () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -199,7 +199,7 @@ export default function Writeups () {
                         <p className="relative bottom-[1px]">terminal</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
         </>
@@ -215,7 +215,7 @@ export default function Writeups () {
                         <p className="relative bottom-[1px]">terminal</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
         </>

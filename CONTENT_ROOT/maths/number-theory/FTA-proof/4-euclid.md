@@ -1,3 +1,4 @@
+27/07/2023 11:00
 # Proving Euclid's Lemma
 
 **tl;dr:** A journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored.

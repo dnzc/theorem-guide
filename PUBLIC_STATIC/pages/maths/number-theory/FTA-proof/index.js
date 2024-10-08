@@ -166,7 +166,7 @@ export default function FTAProof () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -209,12 +209,12 @@ export default function FTAProof () {
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory/FTA-proof/1-integer-axioms">
+                <Link href="/maths/number-theory/FTA-proof/4-euclid">
                     <div className="flex items-center space-x-1 text-lg">
                         
                             <MdArticle className="shrink-0"/>
                         
-                        <p className="relative bottom-[1px]">1-integer-axioms</p>
+                        <p className="relative bottom-[1px]">4-euclid</p>
                     </div>
                 </Link>
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
@@ -229,7 +229,7 @@ export default function FTAProof () {
                         <p className="relative bottom-[1px]">3-bezout-egcd</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -241,19 +241,19 @@ export default function FTAProof () {
                         <p className="relative bottom-[1px]">2-division-algo</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">25 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/number-theory/FTA-proof/4-euclid">
+                <Link href="/maths/number-theory/FTA-proof/1-integer-axioms">
                     <div className="flex items-center space-x-1 text-lg">
                         
                             <MdArticle className="shrink-0"/>
                         
-                        <p className="relative bottom-[1px]">4-euclid</p>
+                        <p className="relative bottom-[1px]">1-integer-axioms</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">24 Jul 2023</p>
             </li>
         
         </>
@@ -269,7 +269,7 @@ export default function FTAProof () {
                         <p className="relative bottom-[1px]">1-integer-axioms</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">24 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -281,7 +281,7 @@ export default function FTAProof () {
                         <p className="relative bottom-[1px]">2-division-algo</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">25 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -293,7 +293,7 @@ export default function FTAProof () {
                         <p className="relative bottom-[1px]">3-bezout-egcd</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">

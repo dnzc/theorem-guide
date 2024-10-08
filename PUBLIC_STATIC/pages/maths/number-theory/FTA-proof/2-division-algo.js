@@ -184,7 +184,7 @@ export default function DivisionAlgo () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -204,7 +204,7 @@ export default function DivisionAlgo () {
         
 
         
-            <p className="text-elevated mb-4">Last modified on 27 Jul 2023</p>
+            <p className="text-elevated mb-4">Last modified on 25 Jul 2023</p>
         
 
         

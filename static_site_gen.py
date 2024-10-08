@@ -4,17 +4,23 @@ import os, shutil, re
 from datetime import datetime
 import html
 
-SOURCE_DIR = '/home/dnzc/Github/blog/CONTENT_ROOT/'
-TARGET_DIR = '/home/dnzc/Github/blog/PUBLIC_STATIC/pages/'
-ARTICLE_DATA_FILE = '/home/dnzc/Github/blog/PUBLIC_STATIC/articles.js'
-TEMPLATES_DIR = '/home/dnzc/Github/blog/templates/'
-IMAGES_DIR = '/home/dnzc/Github/blog/PUBLIC_STATIC/public/images/'
-CHANGELOG_FILE = '/home/dnzc/Github/blog/changelog.md'
+SOURCE_DIR = '/Users/daniel/Github/blog/CONTENT_ROOT/'
+TARGET_DIR = '/Users/daniel/Github/blog/PUBLIC_STATIC/pages/'
+ARTICLE_DATA_FILE = '/Users/daniel/Github/blog/PUBLIC_STATIC/articles.js'
+TEMPLATES_DIR = '/Users/daniel/Github/blog/templates/'
+IMAGES_DIR = '/Users/daniel/Github/blog/PUBLIC_STATIC/public/images/'
+CHANGELOG_FILE = '/Users/daniel/Github/blog/changelog.md'
+
+PLACEHOLDER_TIMESTAMP = 10000000000000000000000 # max timestamp, for files without a timestamp (so that they appear at the top, "coming soon")
 
 template_env = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
 template = template_env.get_template('template.jinja')
 home_template = template_env.get_template('home.jinja')
 folder_template = template_env.get_template('folder_overview.jinja')
+
+warnings = []
+def warn(message):
+    warnings.append('\033[93mWarning: ' + message + '\033[0m')
 
 def wrap_in_js(jinja, name, isFolder, isHome):
     folder_imports = f'''
@@ -84,7 +90,7 @@ def add_link_anchors(page, cur_dir):
     return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" className="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://blog.danielc.rocks'+cur_dir[:-3]+r'#\1", true)} className="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
-    return '' if timestamp==-1 else datetime.utcfromtimestamp(timestamp).strftime('%d %b %Y')
+    return '' if timestamp==PLACEHOLDER_TIMESTAMP else datetime.fromtimestamp(timestamp).strftime('%d %b %Y')
 
 def sanitize(path):
     return re.sub(r'[^a-zA-Z0-9-/.]', '', path)
@@ -124,7 +130,13 @@ def get_folder_contents(cur_dir):
         item['name'] = sanitize(child[:-3] if is_file else child)
         item['path'] = cur_dir + '/' + item['name']
         # is dfs so guaranteed to be youngest timestamp of files (not folders, since will have already been resolved)
-        timestamp = os.path.getmtime(child_dir) if is_file else max([-1] + [os.path.getmtime(child_dir+'/'+i) for i in os.listdir(child_dir)])
+        if is_file:
+            try:
+                timestamp = datetime.strptime(open(child_dir).readline().strip(), '%d/%m/%Y %H:%M').timestamp()
+            except ValueError:
+                timestamp = PLACEHOLDER_TIMESTAMP
+        else:
+            timestamp = max([PLACEHOLDER_TIMESTAMP] + [os.path.getmtime(child_dir+'/'+i) for i in os.listdir(child_dir)])
         item['timestamp'] = timestamp
         item['date_time'] = timestamp_to_str(timestamp)
         folder_contents.append(item)
@@ -145,30 +157,43 @@ def construct_tree(path, depth):
         name = name[:-3] # remove .md file extension
         d['path'] = sanitize(path[len(SOURCE_DIR)-1:][:-3])
     if name != sanitize(name):
-        print(f'Warning: {d["path"]} name contains illegal characters, filtering them out...')
+        warn(f'{d["path"]} name contains illegal characters, filtering them out...')
     d['name'] = sanitize(name)
     return d
 
 DIR_TREE = construct_tree(SOURCE_DIR, 0)
 
 # parse the source files into jsx
-# returns a list of all the markdown files and their info (for "recently added articles" and search functionality)
+# returns a list of all the markdown files and their info (for "recent articles" and search functionality)
 def gen_content(cur_dir, depth, article_list): 
+    print(cur_dir)
     if cur_dir[-3:] == '.md': # markdown file
         article_data = {}
         with open(SOURCE_DIR+cur_dir, 'r') as markdown_file:
 
-            file = markdown_file.read()
+            # extract article date from first line
+            date = markdown_file.readline().strip()
+            try:
+                date = datetime.strptime(date, '%d/%m/%Y %H:%M')
+                file = markdown_file.read()
+                article_data['timestamp'] = date.timestamp()
+                article_data['date_time'] = timestamp_to_str(date.timestamp())
+            except ValueError:
+                warn(f'no date found on first line of {cur_dir}, marking as "coming soon"')
+                file = date + '\n' + markdown_file.read()
+                article_data['timestamp'] = PLACEHOLDER_TIMESTAMP
+                article_data['date_time'] = ''
+
             # extract article title from markdown
             titles = re.findall(r'```.*?\n# .*?\n```|\n# (.*?)\n', '\n'+file, re.DOTALL) # extract lines starting with '# ' that aren't inside a code block (might be first line, so prepend \n)
             titles = [t for t in titles if t != ''] # for invalid titles, the capture group is empty but still exists, so need to remove them
             if len(titles) == 0:
                 article_data['title'] = 'no_title'
-                print(f'Warning: no article title found in {cur_dir}')
+                warn(f'no article title found in {cur_dir}, using "no_title"')
             else:
                 article_data['title'] = titles[0]
                 if len(titles) > 1:
-                    print(f'Warning: multiple article titles found in {cur_dir}, using first one')
+                    warn(f'multiple article titles found in {cur_dir}, using first one')
 
             # replace \\ with \\\\, because for some reason later \\ is replaced with \ (probably by markdown2)
             file = file.replace('\\\\','\\\\\\\\') 
@@ -235,20 +260,15 @@ def gen_content(cur_dir, depth, article_list):
 
             article_data['content'] = flatten_content(page, article_data['title'])
 
-
         with open(TARGET_DIR+sanitize(cur_dir[:-3])+'.js', 'w') as output_file:
             path_list = sanitize(cur_dir).split('/')[1:-1] # path to parent folder
             article_data['dir'] = path_list
-            timestamp = os.path.getmtime(SOURCE_DIR+cur_dir)
-            article_data['timestamp'] = timestamp
-            date_time = timestamp_to_str(timestamp)
-            article_data['date_time'] = date_time
 
             filename = sanitize(cur_dir).split('/')[-1][:-3] # ignore file extension
             article_data['name'] = filename
             parsedFilename = []
             for word in filename.split('-'):
-                if not word.isdigit(): parsedFilename += [word[0].upper() + word[1:]]
+                if not word.isdigit(): parsedFilename.append(word[0].upper() + word[1:])
             pageTitle = ' '.join(parsedFilename)
 
             plaintext = article_data['content']
@@ -260,15 +280,15 @@ def gen_content(cur_dir, depth, article_list):
             plaintext = plaintext.replace('\\n', '\\\\n').replace('\n', '\\n') # copy button component takes newlines as literals
 
             react = wrap_in_js(
-                    template.render(content=page, pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, dateTime=date_time, copiableArticlePlaintext=plaintext, tableOfContents=tableOfContents),
+                    template.render(content=page, pathStr=cur_dir[:-3], pathList=path_list, parent_path='/'+'/'.join(cur_dir[1:].split('/')[:-1]), dirTree=DIR_TREE, dateTime=article_data['date_time'], copiableArticlePlaintext=plaintext, tableOfContents=tableOfContents),
                     pageTitle, False, False
                     )
 
             output_file.write(react)
 
+            #add article data to article list
             article_list.append(article_data)
 
-            #add article data to article list
     elif cur_dir.endswith('__IMAGES__'): # special: the images directory
         # move contents into public images dir
         shutil.copytree(SOURCE_DIR+cur_dir, IMAGES_DIR)
@@ -286,10 +306,10 @@ def gen_content(cur_dir, depth, article_list):
                 pageTitle = cur_dir.split('/')[-1]
                 # assume the markdown filenames consist of [a-zA-Z0-9-]
                 if(re.sub(r'[^a-zA-Z0-9-]', '', pageTitle) != pageTitle):
-                    print(f'Warning: {cur_dir} filename contains illegal characters')
+                    warn(f'{cur_dir} filename contains illegal characters')
                 parsedPageTitle = []
                 for word in pageTitle.split('-'):
-                    if not word.isdigit(): parsedPageTitle += [word[0].upper() + word[1:]]
+                    if not word.isdigit(): parsedPageTitle.append(word[0].upper() + word[1:])
                 pageTitle = ' '.join(parsedPageTitle)
 
                 output_file.write(
@@ -361,4 +381,5 @@ with open(TARGET_DIR+'index.js', 'w') as output_file:
 shutil.copyfile(TEMPLATES_DIR+'_app.js', TARGET_DIR+'_app.js')
 shutil.copyfile(TEMPLATES_DIR+'404.js', TARGET_DIR+'404.js')
 
-print('done')
+print(*warnings, sep='\n')
+print('\033[92mdone\033[0m')

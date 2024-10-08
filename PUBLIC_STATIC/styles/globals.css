@@ -116,11 +116,11 @@
     }
 
     .article h1:after {
-        @apply content-[''] absolute top-[calc(100%+4px)] left-0 w-full border-elevated border-b-[1px];
+        @apply content-[''] absolute top-[calc(100%+2px)] left-0 w-full border-elevated border-b-[1px];
     }
 
     .article h2 {
-        @apply text-xl font-bold relative pt-2 pb-2 underline underline-offset-8 decoration-1 decoration-elevated;
+        @apply text-xl font-bold relative pt-2 pb-2 underline underline-offset-4;
         margin-top: 1rem !important;
     }
 

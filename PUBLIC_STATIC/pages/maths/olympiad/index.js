@@ -166,7 +166,7 @@ export default function Olympiad () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -200,7 +200,7 @@ export default function Olympiad () {
                         <p className="relative bottom-[1px]">techniques</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">03 Aug 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
         </>
@@ -214,7 +214,7 @@ export default function Olympiad () {
                         <p className="relative bottom-[1px]">techniques</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">03 Aug 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
         </>

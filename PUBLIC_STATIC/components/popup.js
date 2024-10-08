@@ -9,8 +9,6 @@ var shortcuts = ['u', 'k']
 
 export default function Popup({ buttonStyle, buttonContents, keyboardShortcutIndex, listenWhenLarge, isMobile, children }) {
 
-    var lastEvent
-
     // https://stackoverflow.com/questions/53845595/wrong-react-hooks-behaviour-with-event-listener
     function useStateRef(initialValue) {
         const [value, setValue] = useState(initialValue)
@@ -51,8 +49,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
     }
 
     function handleKeydown(e) {
-        if (lastEvent && lastEvent.keyCode == e.keyCode) return
-        lastEvent = e
+        if(e.repeat) return
 
         let isMac = navigator.userAgent.toUpperCase().includes('MAC')
 
@@ -67,16 +64,10 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
         }
     }
 
-    function handleKeyup() {
-        lastEvent = null
-    }
-
     useEffect(() => {
         document.addEventListener('keydown', handleKeydown)
-        document.addEventListener('keyup', handleKeyup)
         return () => {
             document.removeEventListener('keydown', handleKeydown)
-            document.removeEventListener('keyup', handleKeyup)
         }
     }, [active])
 

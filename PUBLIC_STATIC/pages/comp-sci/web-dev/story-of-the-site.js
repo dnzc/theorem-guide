@@ -184,7 +184,7 @@ export default function StoryOfTheSite () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -200,8 +200,6 @@ export default function StoryOfTheSite () {
             </div>
         
 
-        
-            <p className="text-elevated mb-4">Last modified on 30 Sep 2024</p>
         
 
         

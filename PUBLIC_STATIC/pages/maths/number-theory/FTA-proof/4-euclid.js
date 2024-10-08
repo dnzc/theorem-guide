@@ -184,7 +184,7 @@ export default function Euclid () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -307,9 +307,9 @@ export default function Euclid () {
 <blockquote>
   <p><em>Claim.</em> If <Latex>$a \mid bc$</Latex> and <Latex>$gcd(a,b)=1$</Latex>, then <Latex>$a \mid c$</Latex>. True in <Latex>$\mathbb&#123;Z&#125;$</Latex>.</p>
   
-  <p><em>Proof.</em> Suppose <Latex>$a \mid bc$</Latex> and <Latex>$gcd(a,b) = 1$</Latex>. <br />
+  <p><em>Proof.</em> Suppose <Latex>$a \mid bc$</Latex> and <Latex>$gcd(a,b) = 1$</Latex>.<br />
   Then by <strong>Bezout's Lemma</strong>, there exist integers <Latex>$x,y$</Latex> such that <Latex>$ax + by = 1$</Latex>.
-  Hence, <Latex>$c = (ax+by)c = a(cx) + y(bc)$</Latex>. <br />
+  Hence, <Latex>$c = (ax+by)c = a(cx) + y(bc)$</Latex>.<br />
   Since <Latex>$a \mid bc$</Latex> and <Latex>$a \mid a(cx)$</Latex>, we have that <Latex>$a \mid a(cx) + y(bc)$</Latex>, so <Latex>$a \mid c$</Latex>, as required.</p>
 </blockquote>
 

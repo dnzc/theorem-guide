@@ -166,7 +166,7 @@ export default function CompSci () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -191,23 +191,23 @@ export default function CompSci () {
         <>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/comp-sci/web-dev">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">web-dev</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">30 Sep 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
                 <Link href="/comp-sci/algorithms">
                     <div className="flex items-center space-x-1 text-lg font-bold text-primary">
                         
                         <p className="relative bottom-[1px]">algorithms</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/comp-sci/web-dev">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">web-dev</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
         </>
@@ -221,7 +221,7 @@ export default function CompSci () {
                         <p className="relative bottom-[1px]">algorithms</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -231,7 +231,7 @@ export default function CompSci () {
                         <p className="relative bottom-[1px]">web-dev</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">30 Sep 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
         </>

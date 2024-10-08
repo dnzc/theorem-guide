@@ -182,7 +182,7 @@ export default function Blog () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -212,59 +212,81 @@ export default function Blog () {
         <br/>
         It began as a summer project in July 2023.
     </p>
-    <p>See also: <ProminentLink href="https://danielc.rocks">my homepage</ProminentLink></p>
+    <p>
+        For some of my favourite articles, check out my <DiscreetLink href="https://blog.danielc.rocks/maths/number-theory/FTA-proof/1-integer-axioms">journey through arithmetic</DiscreetLink> or exploration of <DiscreetLink href="https://blog.danielc.rocks/maths/research/cube-tilings">cube tilings</DiscreetLink>.
+        <br/>
+        I also have a <ProminentLink href="https://danielc.rocks">homepage</ProminentLink> with links to my other projects.
+    </p>
 
     <div className="pt-2 pb-4">
 
-        <h1>Recently Modified Articles</h1>
+        <h1>Recent Articles</h1>
 
-        <div className="space-y-4">
+        <div className="space-y-5">
 
             
                 <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-secondary">
-                        <p className="text-italic italic mr-4">30 Sep 2024</p>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
+                        <p className="text-elevated mr-2">
+                            
+                                Coming soon
+                            
+                        </p>
                         
-                            <p className="font-bold">comp-sci</p>
+                            <p className="text-italic italic">comp-sci</p>
                             <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="font-bold">web-dev</p>
+                            <p className="text-italic italic">web-dev</p>
                         
                     </div>
-                    <p className="text-xl font-bold text-bold"><Link href="/comp-sci/web-dev/story-of-the-site" className="hover:underline">How I Created blog.danielc.rocks</Link></p>
+                    <p className="text-xl font-bold text-primary underline"><Link href="/comp-sci/web-dev/story-of-the-site" className="hover:underline">How I Created blog.danielc.rocks</Link></p>
                 </div>
             
                 <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-secondary">
-                        <p className="text-italic italic mr-4">10 Jul 2024</p>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
+                        <p className="text-elevated mr-2">
+                            
+                                08 Jun 2024
+                            
+                        </p>
                         
-                            <p className="font-bold">comp-sci</p>
-                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="font-bold">algorithms</p>
+                            <p className="text-italic italic">writeups</p>
                         
                     </div>
-                    <p className="text-xl font-bold text-bold"><Link href="/comp-sci/algorithms/binary-search" className="hover:underline">Binary Search: an Intuitive Algorithm</Link></p>
+                    <p className="text-xl font-bold text-primary underline"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
                 </div>
             
                 <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-secondary">
-                        <p className="text-italic italic mr-4">10 Jul 2024</p>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
+                        <p className="text-elevated mr-2">
+                            
+                                27 Jul 2023
+                            
+                        </p>
                         
-                            <p className="font-bold">writeups</p>
+                            <p className="text-italic italic">comp-sci</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="text-italic italic">algorithms</p>
                         
                     </div>
-                    <p className="text-xl font-bold text-bold"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
+                    <p className="text-xl font-bold text-primary underline"><Link href="/comp-sci/algorithms/binary-search" className="hover:underline">Binary Search: an Intuitive Algorithm</Link></p>
                 </div>
             
                 <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-secondary">
-                        <p className="text-italic italic mr-4">07 Sep 2023</p>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
+                        <p className="text-elevated mr-2">
+                            
+                                27 Jul 2023
+                            
+                        </p>
                         
-                            <p className="font-bold">maths</p>
+                            <p className="text-italic italic">maths</p>
                             <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="font-bold">research</p>
+                            <p className="text-italic italic">...</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="text-italic italic">FTA-proof</p>
                         
                     </div>
-                    <p className="text-xl font-bold text-bold"><Link href="/maths/research/CNATs" className="hover:underline">Associated Permutations of Complete Non-Ambiguous Trees</Link></p>
+                    <p className="text-xl font-bold text-primary underline"><Link href="/maths/number-theory/FTA-proof/5-fta" className="hover:underline">The Fundamental Theorem of Arithmetic: Our Journey's End</Link></p>
                 </div>
             
 
@@ -272,11 +294,11 @@ export default function Blog () {
 
     </div>
 
-    <h1>Metadata</h1>
+    <h1>About</h1>
 
     <div className="space-y-2">
         <h2 id="how-is-this-site-maintained" className="group flex">How is this site maintained?&nbsp;<Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://blog.danielc.rocks#how-is-this-site-maintained", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
-        <p>I wrote an in-depth explanation <ProminentLink href="/comp-sci/web-dev/story-of-the-site">here </ProminentLink>. If you're curious, here is the summary of my workflow:</p>
+        <p>I wrote an in-depth explanation <ProminentLink href="/comp-sci/web-dev/story-of-the-site">here</ProminentLink>. If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
                 I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted publicly on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
@@ -293,11 +315,7 @@ export default function Blog () {
         </ul>
     </div>
 
-    <p>This might sound complicated, but the end result is a fast, interactive web app (yay next.js) which is seamless to maintain - all I focus on is editing markdown files, then I run the shell script to see a preview of the result, and push to the repository when I am happy to publish.</p>
-
-    <p>Feel free to <MailLink>email me</MailLink> if you find anything interesting, or spot any errors.</p>
-
-    <p>Enjoy exploring!</p>
+    <p>Feel free to <MailLink>email me</MailLink>. Enjoy exploring!</p>
 
     <p className="text-sm text-elevated">P.S. if you think the ascii tree is cool (not visible on small screens), I generated it using <DiscreetLink href="https://gitlab.com/jallbrit/cbonsai">cbonsai</DiscreetLink>, <DiscreetLink href="https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh">ansi2html</DiscreetLink> and some regex!</p>
 
@@ -358,13 +376,13 @@ export default function Blog () {
         <>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths">
+                <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg font-bold text-primary">
                         
-                        <p className="relative bottom-[1px]">maths</p>
+                        <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -374,17 +392,17 @@ export default function Blog () {
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/writeups">
+                <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg font-bold text-primary">
                         
-                        <p className="relative bottom-[1px]">writeups</p>
+                        <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
         </>
@@ -398,7 +416,7 @@ export default function Blog () {
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -408,7 +426,7 @@ export default function Blog () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -418,7 +436,7 @@ export default function Blog () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">10 Jul 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
         </>

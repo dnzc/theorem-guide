@@ -184,7 +184,7 @@ export default function BezoutEgcd () {
 
     </Sidebar>
 
-    <article className="w-full min-w-0 px-6 pt-3">
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
 
         <div className="h-[4.5rem] md:h-0"/>
 
@@ -204,7 +204,7 @@ export default function BezoutEgcd () {
         
 
         
-            <p className="text-elevated mb-4">Last modified on 27 Jul 2023</p>
+            <p className="text-elevated mb-4">Last modified on 26 Jul 2023</p>
         
 
         
@@ -391,7 +391,7 @@ export default function BezoutEgcd () {
   
   <p>This set is nonempty (since, for example, <Latex>$a \in S$</Latex>) and a subset of the naturals by construction. Thus by the <strong>well-ordering principle</strong>, S has a least element, say <Latex>$e = ax_0 + by_0$</Latex>.</p>
   
-  <p><em>Claim.</em> <Latex>$e \mid a$</Latex>. <br />
+  <p><em>Claim.</em> <Latex>$e \mid a$</Latex>.<br />
   <em>Proof.</em> By the <strong>Divison Algorithm</strong>, write <Latex>$a = qe + r$</Latex> with <Latex>$q \in \mathbb&#123;Z&#125;$</Latex> and <Latex>$0 \leq r \lt e$</Latex>. Then <Latex>$r = a - q(ax_0 + by_0)$</Latex> is a linear combination of <Latex>$a$</Latex> and <Latex>$b$</Latex>. But <Latex>$0 \leq r \lt e$</Latex>, thus either <Latex>$r=0$</Latex>, or <Latex>$r \in S$</Latex> with <Latex>$r \lt e$</Latex>. Since the second option contradicts the minimality of <Latex>$e$</Latex>, we must have <Latex>$r=0$</Latex>, and so <Latex>$a = qe + 0$</Latex> i.e. <Latex>$e \mid a$</Latex>.</p>
   
   <p>Now by the claim, <Latex>$e \mid a$</Latex>. Similarly, repeating the above argument analogously for <Latex>$b$</Latex>, we have <Latex>$e \mid b$</Latex>. Thus <Latex>$e$</Latex> is a common divisor of <Latex>$a$</Latex> and <Latex>$b$</Latex>, so <Latex>$e \leq gcd(a,b)$</Latex> by definition of "greatest".</p>
