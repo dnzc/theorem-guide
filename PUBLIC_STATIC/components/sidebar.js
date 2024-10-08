@@ -11,7 +11,7 @@ export default function Sidebar({ children }) {
         const [value, setValue] = useState(initialValue)
         const ref = useRef(value)
         useEffect(() => {
-          ref.current = value
+            ref.current = value
         }, [value])
         return [value, setValue, ref]
     }

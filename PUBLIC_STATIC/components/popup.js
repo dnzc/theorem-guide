@@ -14,7 +14,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
         const [value, setValue] = useState(initialValue)
         const ref = useRef(value)
         useEffect(() => {
-          ref.current = value
+            ref.current = value
         }, [value])
         return [value, setValue, ref]
     }

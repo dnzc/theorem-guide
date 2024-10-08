@@ -11,7 +11,7 @@ TEMPLATES_DIR = '/Users/daniel/Github/blog/templates/'
 IMAGES_DIR = '/Users/daniel/Github/blog/PUBLIC_STATIC/public/images/'
 CHANGELOG_FILE = '/Users/daniel/Github/blog/changelog.md'
 
-PLACEHOLDER_TIMESTAMP = 10000000000000000000000 # max timestamp, for files without a timestamp (so that they appear at the top, "coming soon")
+PLACEHOLDER_TIMESTAMP = -1 # for files without a timestamp (must be negative so that any actual timestamps take priority)
 
 template_env = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
 template = template_env.get_template('template.jinja')
@@ -130,8 +130,7 @@ def get_folder_timestamp(cur_dir):
                 timestamp = datetime.strptime(open(SOURCE_DIR+child_dir).readline().strip(), '%d/%m/%Y %H:%M').timestamp()
             except ValueError: pass
         else:
-            if timestamp == PLACEHOLDER_TIMESTAMP: timestamp = get_folder_timestamp(child_dir)
-            else: timestamp = max(timestamp, get_folder_timestamp(child_dir))
+            timestamp = max(timestamp, get_folder_timestamp(child_dir))
     return timestamp
 
 def get_folder_contents(cur_dir):
@@ -373,7 +372,8 @@ with open(ARTICLE_DATA_FILE, 'w') as data_file:
 with open(TARGET_DIR+'index.js', 'w') as output_file:
     folder_contents = get_folder_contents('')
 
-    recent_articles = sorted(articles, key=lambda x:x['timestamp'],reverse=True)[:4]
+    # assume articles without timestamp are "coming soon"
+    recent_articles = sorted(articles, key=lambda x: 10000000000000000000000 if x['timestamp']==PLACEHOLDER_TIMESTAMP else x['timestamp'],reverse=True)[:4]
 
     with open(CHANGELOG_FILE, 'r') as f:
         changelog = markdown(f.read())
