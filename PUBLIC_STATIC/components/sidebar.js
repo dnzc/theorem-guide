@@ -104,7 +104,7 @@ export default function Sidebar({ children }) {
                 </Popup>
                 
                 {/* button group */}
-                <div className='md:w-[300px] flex justify-start space-x-4 fixed left-4 bottom-4 xl:left-[1rem] 2xl:left-[calc(1rem+10%)]'>
+                <div className='flex 2xl:block justify-start space-x-4 2xl:space-x-0 2xl:space-y-2 fixed left-5 bottom-4'>
                     {/* sidebar toggle button */}
                     <button className={`hidden ${active ? '' : 'md:flex '} text-base text-elevated bg-body rounded-md h-[2.25rem]`} onClick={toggleSidebar}>
                         <div className='bg-white bg-opacity-5 [@media(hover:hover)]:hover:bg-opacity-20 w-full h-full rounded-md pl-4 px-3 flex items-center justify-between space-x-2'>
