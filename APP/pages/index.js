@@ -179,6 +179,22 @@ export default function CourseNotes () {
                         
                     
                                     
+                                        
+                        
+                            <Accordion title="writeups" href="/writeups" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="terminal" href="/writeups/terminal" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
                                 
                             </Accordion>
                         
@@ -238,48 +254,14 @@ export default function CourseNotes () {
                     <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
                         <p className="text-elevated mr-2">
                             
-                                20 Dec 2024
+                                08 Jun 2024
                             
                         </p>
                         
-                            <p className="text-italic italic">maths</p>
-                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="text-italic italic">olympiad</p>
+                            <p className="text-italic italic">writeups</p>
                         
                     </div>
-                    <p className="text-xl font-bold text-primary underline"><Link href="/maths/olympiad/lagrange-multipliers" className="hover:underline">Revenge of Analysis: Using Lagrange Multipliers to Destroy Inequalities</Link></p>
-                </div>
-            
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
-                        <p className="text-elevated mr-2">
-                            
-                                20 Dec 2024
-                            
-                        </p>
-                        
-                            <p className="text-italic italic">maths</p>
-                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="text-italic italic">Analysis-Topology</p>
-                        
-                    </div>
-                    <p className="text-xl font-bold text-primary underline"><Link href="/maths/Analysis-Topology/example-sheets" className="hover:underline">Example Sheet Questions</Link></p>
-                </div>
-            
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
-                        <p className="text-elevated mr-2">
-                            
-                                19 Dec 2024
-                            
-                        </p>
-                        
-                            <p className="text-italic italic">maths</p>
-                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="text-italic italic">proving-FTA</p>
-                        
-                    </div>
-                    <p className="text-xl font-bold text-primary underline"><Link href="/maths/proving-FTA/1-integer-axioms" className="hover:underline">Developing the Axioms</Link></p>
+                    <p className="text-xl font-bold text-primary underline"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
                 </div>
             
 
@@ -398,7 +380,7 @@ export default function CourseNotes () {
 
 </div><br/><div className="border-t-[1px] border-elevated pb-2"></div><div>
 
-    <p className="italic pb-4">Contains 12 articles</p>
+    <p className="italic pb-4">Contains 13 articles</p>
 
     
     <Folder
@@ -412,6 +394,16 @@ export default function CourseNotes () {
                     </div>
                 </Link>
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/writeups">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">writeups</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
@@ -465,6 +457,16 @@ export default function CourseNotes () {
                     </div>
                 </Link>
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/writeups">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">writeups</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
      </>}

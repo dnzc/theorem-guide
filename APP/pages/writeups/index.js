@@ -16,11 +16,11 @@ import { MdArticle } from 'react-icons/md'
 import Folder from '@/components/folder'
 
 
-export default function Olympiad () {
+export default function Writeups () {
     return (
         <Layout>
             <Head>
-                <title>Olympiad | Daniel C</title>
+                <title>Writeups | Daniel C</title>
             </Head>
                 <>
                     
@@ -76,7 +76,7 @@ export default function Olympiad () {
                                     
                                         
                         
-                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" isRoot={ false } isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                                         
@@ -159,7 +159,7 @@ export default function Olympiad () {
                                     
                                         
                         
-                            <Accordion title="writeups" href="/writeups" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="writeups" href="/writeups" type="folder" isRoot={ false } isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                                         
@@ -191,10 +191,7 @@ export default function Olympiad () {
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
-                
-                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/olympiad">olympiad</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/writeups">writeups</Link></p>
                 
             </div>
         
@@ -213,30 +210,30 @@ export default function Olympiad () {
         contents_by_date={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad/lagrange-multipliers">
+                <Link href="/writeups/terminal">
                     <div className="flex items-center space-x-1 text-lg">
                         
                             <MdArticle className="shrink-0"/>
                         
-                        <p className="relative bottom-[1px]">lagrange-multipliers</p>
+                        <p className="relative bottom-[1px]">terminal</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
      </>}
         contents_by_name={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad/lagrange-multipliers">
+                <Link href="/writeups/terminal">
                     <div className="flex items-center space-x-1 text-lg">
                         
                             <MdArticle className="shrink-0"/>
                         
-                        <p className="relative bottom-[1px]">lagrange-multipliers</p>
+                        <p className="relative bottom-[1px]">terminal</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
      </>}
@@ -247,7 +244,7 @@ export default function Olympiad () {
 
         
             <div className="flex justify-start mb-4">
-                <Link href="/maths">
+                <Link href="/">
                     <div className="flex items-center justify-center space-x-1 text-primary">
                         <RiArrowGoBackFill/>
                         <p>up a level</p>

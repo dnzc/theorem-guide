@@ -175,6 +175,22 @@ export default function BezoutEgcd () {
                         
                     
                                     
+                                        
+                        
+                            <Accordion title="writeups" href="/writeups" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="terminal" href="/writeups/terminal" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
                                 
                             </Accordion>
                         
