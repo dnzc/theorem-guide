@@ -45,7 +45,7 @@ export default function CubeTilings () {
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body overflow-y-scroll w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
+        <div className="border-elevated overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
             <div className="relative bottom-0 pl-4">
                 <ul className="dirtree mb-4 md:mb-0">
                     
@@ -68,6 +68,14 @@ export default function CubeTilings () {
                         
                     
                                     
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="components" href="/components" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
                                 
                             </Accordion>
                         
@@ -284,7 +292,7 @@ export default function CubeTilings () {
 
 <Proof unquoted unbolded>
 
-<p><Image src='/images/cubetilings2.svg' width='260' height='300' alt='construction'/></p>
+<p><Image src='/images/cubetilings2.svg' width='280' height='300' alt='construction'/></p>
 
 </Proof>
 

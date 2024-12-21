@@ -57,7 +57,7 @@ See above.
 <Thm type="Claim" num="3">
 If $n$ and $m$ are lucky, then so is $n+m+8$.
 <Proof>
-<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings2.svg' width='260' height='300' alt='construction'/>
+<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings2.svg' width='280' height='300' alt='construction'/>
 </Proof>
 </Thm>
 

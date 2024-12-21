@@ -16,11 +16,11 @@ import { MdArticle } from 'react-icons/md'
 import Folder from '@/components/folder'
 
 
-export default function ProvingFTA () {
+export default function Components () {
     return (
         <Layout>
             <Head>
-                <title>Proving FTA | Daniel C</title>
+                <title>Components | Daniel C</title>
             </Head>
                 <>
                     
@@ -57,7 +57,7 @@ export default function ProvingFTA () {
                                     
                                         
                         
-                            <Accordion title="components" href="/components" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="components" href="/components" type="folder" isRoot={ false } isSelected={ true } isOpenByDefault={ true } >
                                 
                             </Accordion>
                         
@@ -92,7 +92,7 @@ export default function ProvingFTA () {
                                     
                                         
                         
-                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" isRoot={ false } isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                                         
@@ -175,10 +175,7 @@ export default function ProvingFTA () {
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
                     <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
-                
-                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/proving-FTA">proving-FTA</Link></p>
+                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/components">components</Link></p>
                 
             </div>
         
@@ -190,144 +187,14 @@ export default function ProvingFTA () {
         <div className="article mb-4">
             <div>
 
-    <p className="italic pb-4">Contains 5 articles</p>
-
-    
-    <Folder
-        contents_by_date={<> 
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/1-integer-axioms">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">1-integer-axioms</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/5-fta">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">5-fta</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/4-euclid">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">4-euclid</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/3-bezout-egcd">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">3-bezout-egcd</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/2-division-algo">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">2-division-algo</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">25 Jul 2023</p>
-            </li>
-        
-     </>}
-        contents_by_name={<> 
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/1-integer-axioms">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">1-integer-axioms</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/2-division-algo">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">2-division-algo</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">25 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/3-bezout-egcd">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">3-bezout-egcd</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/4-euclid">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">4-euclid</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA/5-fta">
-                    <div className="flex items-center space-x-1 text-lg">
-                        
-                            <MdArticle className="shrink-0"/>
-                        
-                        <p className="relative bottom-[1px]">5-fta</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
-            </li>
-        
-     </>}
-    />
+    <p className="italic">This folder is empty</p>
 
 </div>
         </div>
 
         
             <div className="flex justify-start mb-4">
-                <Link href="/maths">
+                <Link href="/">
                     <div className="flex items-center justify-center space-x-1 text-primary">
                         <RiArrowGoBackFill/>
                         <p>up a level</p>

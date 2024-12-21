@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '@/tailwind.config.mjs'
-import Search from './search'
+import Search from '@/components/search'
 
-const fullConfig = resolveConfig(tailwindConfig)
+//const fullConfig = resolveConfig(tailwindConfig)
 
 var shortcuts = ['u', 'k']
 
 export default function Popup({ buttonStyle, buttonContents, keyboardShortcutIndex, listenWhenLarge, isMobile, children }) {
+    console.log(tailwindConfig)
 
     // https://stackoverflow.com/questions/53845595/wrong-react-hooks-behaviour-with-event-listener
     function useStateRef(initialValue) {
@@ -57,7 +58,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
             e.preventDefault()
             hidePopup()
         } else if((isMac ? e.metaKey : e.ctrlKey) && shortcuts.includes(e.key)) {
-            if(!listenWhenLarge && window.innerWidth >= parseInt(fullConfig.theme.screens.md)) return
+            if(!listenWhenLarge && window.innerWidth >= 768) return
             e.preventDefault()
             if(e.key === shortcuts[keyboardShortcutIndex]) togglePopup()
             else hidePopup()
