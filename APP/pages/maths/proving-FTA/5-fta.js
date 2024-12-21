@@ -266,7 +266,7 @@ export default function Fta () {
 
 <p>Thus, we may cancel<sup className="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup> this common prime factor from both factorizations to obtain  </p>
 
-<p><div className="overflow-auto latex-display-wrapper"><Latex>$$p_2 \cdots p_k = q_2 \cdots q_j$$</Latex></div></p>
+<span className="block overflow-auto latex-display-wrapper"><Latex>$$p_2 \cdots p_k = q_2 \cdots q_j$$</Latex></span>
 
 <p>which are two distinct factorizations of an integer that is strictly smaller than <Latex>$e$</Latex>.</p>
 

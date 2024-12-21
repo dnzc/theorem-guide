@@ -291,7 +291,10 @@ If $-1$ is natural, then so is $(-1)\cdot(-1)$ by **closure**, but $(-1)\cdot (-
 
 <Lemma num="10">
 $-(a-b) = b-a$  
-<Proof> Use **Lemma 7** and **Lemma 1**: $$-(a-b) \\= (-1) \cdot (a-b) \\= (-1) \cdot a + (-1) \cdot (-b) \\= -a + -(-b) \\= -a + b \\= b-a$$
+<Proof>
+Use **Lemma 7** and **Lemma 1**:
+
+$-(a-b) \\= (-1) \cdot (a-b) \\= (-1) \cdot a + (-1) \cdot (-b) \\= -a + -(-b) \\= -a + b \\= b-a$
 </Proof>
 </Lemma>
 

@@ -266,9 +266,10 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
 
     # add <Latex> tags
     # if not inline, make overflow hidden (assume inline latex is short enough to not overflow)
+    page = re.sub(r'<p>\$\$(.*?)\$\$</p>', r'<Latex>\1</Latex>', page) # remove <p> tags that markdown added
     page = re.sub(r'\$\$(.*?)\$\$', r'<Latex>\1</Latex>', page)
     page = re.sub(r'\$(.+?)\$', r'<Latex>$\1$</Latex>', page)
-    page = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<div className="overflow-auto latex-display-wrapper"><Latex>$$\1$$</Latex></div>', page)
+    page = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="block overflow-auto latex-display-wrapper"><Latex>$$\1$$</Latex></span>', page) # need block span instead of div so that doesn't trigger hydration error
 
     # <p> tags will have been placed around the following tags (on purpose), remove them
     for i in ['CopyButton', 'Spoiler', 'hr'] + math_tags:

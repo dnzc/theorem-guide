@@ -238,7 +238,7 @@ export default function Euclid () {
 
 <p>In the "if <Latex>$3 \mid 2x$</Latex> then <Latex>$3 \mid x$</Latex>" case, the trick was to write 1 (the desired coefficient of <Latex>$x$</Latex>) as a <em>linear combination</em> of 2 and 3:</p>
 
-<p><div className="overflow-auto latex-display-wrapper"><Latex>$$x = (3-2)x = 3x-2x$$</Latex></div></p>
+<span className="block overflow-auto latex-display-wrapper"><Latex>$$x = (3-2)x = 3x-2x$$</Latex></span>
 
 <p>And this let us deduce that if <Latex>$3 \mid 2x$</Latex>, then <Latex>$3 \mid 3x - 2x$</Latex> because both <Latex>$3x$</Latex> and <Latex>$2x$</Latex> are divisible by 3.</p>
 
@@ -286,8 +286,8 @@ export default function Euclid () {
   
   <p>So, <Latex>$11 \cdot 51 - 20 \cdot 28 = 1$</Latex>.
   Now to use the trick:
-  <div className="overflow-auto latex-display-wrapper"><Latex>$$x = (11 \cdot 51 - 20 \cdot 28)x$$</Latex></div>
-  <div className="overflow-auto latex-display-wrapper"><Latex>$$ = 51 \cdot (11x) + 28x \cdot (-20)$$</Latex></div></p>
+  <span className="block overflow-auto latex-display-wrapper"><Latex>$$x = (11 \cdot 51 - 20 \cdot 28)x$$</Latex></span>
+  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 51 \cdot (11x) + 28x \cdot (-20)$$</Latex></span></p>
   
   <p>Hence, if <Latex>$51 \mid 28x$</Latex>, then <Latex>$51 \mid x$</Latex>, because we wrote <Latex>$x$</Latex> as a linear combination of things that were divisible by 51.</p>
 </blockquote>

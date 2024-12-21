@@ -245,7 +245,7 @@ In particular, 2&lt;3, and in general the remainder is always less than the divi
 
 <p>Let <Latex>$a$</Latex> be a fixed integer and <Latex>$b$</Latex> be a fixed natural. Consider the set:</p>
 
-<p><div className="overflow-auto latex-display-wrapper"><Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = a - bq + 1, q \in \mathbb&#123;Z&#125;\&#125;$$</Latex></div></p>
+<span className="block overflow-auto latex-display-wrapper"><Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = a - bq + 1, q \in \mathbb&#123;Z&#125;\&#125;$$</Latex></span>
 
 <p>Then S is a subset of the naturals. Furthermore, it is nonempty, because:</p>
 

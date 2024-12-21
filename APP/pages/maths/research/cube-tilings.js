@@ -224,7 +224,7 @@ export default function CubeTilings () {
 
 <Spoiler>
 
-<p><div className="overflow-auto latex-display-wrapper"><Latex>$$C \leq 18$$</Latex></div></p>
+<span className="block overflow-auto latex-display-wrapper"><Latex>$$C \leq 18$$</Latex></span>
 
 </Spoiler>
 

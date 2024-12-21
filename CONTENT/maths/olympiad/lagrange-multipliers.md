@@ -47,8 +47,8 @@ $$\{x \in \mathbb{R}^n \mid d(p,x) \leq r\}$$
 <Defn>$U \subseteq \mathbb{R}^n$ is **open** iff for every $p \in U$, $\exists r\gt 0$ s.t. $B(p,r) \subset U$.
 
 <div class='flex flex-wrap justify-center space-x-8'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm1.svg' width='200' height='200' alt='open set' />
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm2.svg' width='200' height='200' alt='diagram' />
+    <Image src='/CONTENT_ROOT/__IMAGES__/lm1.svg' width='150' height='160' alt='diagram' />
+    <Image src='/CONTENT_ROOT/__IMAGES__/lm2.svg' width='150' height='160' alt='diagram' />
 </div>
 </Defn>
 
@@ -114,7 +114,7 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
 </Defn>
 
 <Defn> A subset $K \subseteq \mathbb{R}^n$ is **compact** if it is closed and bounded.
-<div class='flex flex-wrap justify-around'><Image src='/CONTENT_ROOT/__IMAGES__/lm9.svg' width='200' height='200' alt='open set' /> <Image src='/CONTENT_ROOT/__IMAGES__/lm10.svg' width='200' height='200' alt='diagram' /></div>
+<div class='flex flex-wrap justify-around'><Image src='/CONTENT_ROOT/__IMAGES__/lm9.svg' width='200' height='200' alt='diagram' /> <Image src='/CONTENT_ROOT/__IMAGES__/lm10.svg' width='200' height='200' alt='diagram' /></div>
 </Defn>
 
 <Defn>
@@ -146,7 +146,7 @@ $$\exists\, x' \in K \text{ s.t. } f(x') \leq f(y) \;\forall\, y \in K$$
         <p>Let $K$ be a closed ball in $\mathbb{R}^2$, then $K$ is compact. Let $f : K \to \mathbb{R}, f(x) = d(x,(0,0))$ which is continuous.</p>
         <p>Then the theorem says that there is a point(s) on $K$ which is closest to $(0,0)$, and a point(s) which is furthest.</p>
     </div>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm11.svg' width='200' height='200'/>
+    <Image src='/CONTENT_ROOT/__IMAGES__/lm11.svg' width='200' height='200' alt='diagram'/>
 </div>
 </Example>
 
