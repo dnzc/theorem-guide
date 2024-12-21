@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "run static site generator",
+			"type": "shell",
+			"command": "/bin/python3 static_site_gen/run.py",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,8 +1,10 @@
-## 30/09/24
+## 19/12/24
 
 ### Changed
 
-- Renamed wiki -&gt; blog
+- primary purpose of the site is now storage of course notes; blog moved elsewhere
+- consistent styling of theorems, defns, examples etc
+- smaller text size
 
 ## 08/07/24
 
@@ -23,7 +25,7 @@
 
 ### Changed
 
-- filetree now toggleable
+- sidebar now toggleable
 - site more responsively designed and mobile-friendly
 
 ## 11/07/23

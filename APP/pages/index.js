@@ -1,4 +1,198 @@
-<div className="space-y-6">
+
+import Layout from '@/components/layout'
+import Head from 'next/head'
+import Accordion from '@/components/accordion'
+import Sidebar from '@/components/sidebar'
+import Link from 'next/link'
+import ProminentLink from '@/components/prominentLink'
+import DiscreetLink from '@/components/discreetLink'
+import MailLink from '@/components/mailLink'
+
+import { FaChevronRight, FaSearch } from 'react-icons/fa'
+import { RiArrowGoBackFill } from 'react-icons/ri'
+
+import { FaBook } from 'react-icons/fa'
+import { MdArticle } from 'react-icons/md'
+import Folder from '@/components/folder'
+
+import 'katex/dist/katex.min.css'
+import Latex from 'react-latex-next'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
+import Image from 'next/image'
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
+
+
+export default function CourseNotes () {
+    return (
+        <Layout>
+            <Head>
+                <title>Course Notes | Daniel C</title>
+            </Head>
+                <>
+                    
+                        <ToastContainer
+                            position='top-right'
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss={false}
+                            pauseOnHover={false}
+                            theme='dark'
+                        />
+    
+                    <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
+    <Sidebar>
+
+        <div className="border-elevated scrollbar-thin scrollbar-thumb-elevated scrollbar-track-body overflow-y-scroll w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
+            <div className="relative bottom-0 pl-4">
+                <ul className="dirtree mb-4 md:mb-0">
+                    
+                    
+
+                    
+                    
+                        
+                            <Accordion title="root" href="" type="folder" isRoot={ true } isSelected={ true } isOpenByDefault={ true } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="comp-sci" href="/comp-sci" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="maths" href="/maths" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="research" href="/maths/research" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" isRoot={false} isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+
+    </Sidebar>
+
+    <article className="w-full min-w-0 px-6 pt-3 mb-14">
+
+        <div className="h-[4.5rem] md:h-0"/>
+
+        
+
+        
+
+        
+
+        <div className="article mb-4">
+            <div className="space-y-6">
 
     <div className="text-xs font-mono leading-[0.8rem] flex flex-col">
         <div className="hidden sm:block">
@@ -31,33 +225,55 @@
 
         <div className="space-y-5">
 
-            {% for article in recentArticles %}
+            
                 <div>
                     <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
                         <p className="text-elevated mr-2">
-                            {% if article['date_time'] %}
-                                {{article['date_time']}}
-                            {% else %}
-                                Coming soon
-                            {% endif %}
+                            
+                                20 Dec 2024
+                            
                         </p>
-                        {% if article['dir']|length == 1 %}
-                            <p className="text-italic italic">{{article['dir'][0]}}</p>
-                        {% elif article['dir']|length == 2 %}
-                            <p className="text-italic italic">{{article['dir'][0]}}</p>
+                        
+                            <p className="text-italic italic">maths</p>
                             <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="text-italic italic">{{article['dir'][1]}}</p>
-                        {% else %}
-                            <p className="text-italic italic">{{article['dir'][0]}}</p>
-                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="text-italic italic">...</p>
-                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                            <p className="text-italic italic">{{article['dir'][-1]}}</p>
-                        {% endif %}
+                            <p className="text-italic italic">olympiad</p>
+                        
                     </div>
-                    <p className="text-xl font-bold text-primary underline"><Link href="{{'/'+'/'.join(article['dir'])+'/'+article['name']}}" className="hover:underline">{{article['title']}}</Link></p>
+                    <p className="text-xl font-bold text-primary underline"><Link href="/maths/olympiad/lagrange-multipliers" className="hover:underline">Revenge of Analysis: Using Lagrange Multipliers to Destroy Inequalities</Link></p>
                 </div>
-            {% endfor %}
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
+                        <p className="text-elevated mr-2">
+                            
+                                20 Dec 2024
+                            
+                        </p>
+                        
+                            <p className="text-italic italic">maths</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="text-italic italic">Analysis-Topology</p>
+                        
+                    </div>
+                    <p className="text-xl font-bold text-primary underline"><Link href="/maths/Analysis-Topology/example-sheets" className="hover:underline">Example Sheet Questions</Link></p>
+                </div>
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
+                        <p className="text-elevated mr-2">
+                            
+                                19 Dec 2024
+                            
+                        </p>
+                        
+                            <p className="text-italic italic">maths</p>
+                            <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
+                            <p className="text-italic italic">proving-FTA</p>
+                        
+                    </div>
+                    <p className="text-xl font-bold text-primary underline"><Link href="/maths/proving-FTA/1-integer-axioms" className="hover:underline">Developing the Axioms</Link></p>
+                </div>
+            
 
         </div>
 
@@ -66,7 +282,7 @@
     <h1>About</h1>
 
     <div className="space-y-2">
-        <h2 id="how-is-this-site-maintained">How is this site maintained?</h2>
+        <h2 id="how-is-this-site-maintained" className="group flex">How is this site maintained?&nbsp;<Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
         <p>If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
@@ -82,7 +298,7 @@
                 When I am happy with my changes, I push them to the repository. I added a hook to automatically deploy the public site whenever this happens.
             </li>
         </ul>
-        <h2 id="features">Features</h2>
+        <h2 id="features" className="group flex">Features&nbsp;<Link href="#features" onClick={() => copyToClipboard("https://notes.danielc.rocks/#features", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
         <ul className="space-y-0">
             <li className="list-disc ml-8">
                 Toggleable sidebar with keyboard shortcuts, containing collapsible filetree
@@ -121,8 +337,120 @@
     <h1>Changelog</h1>
     <div>
         <div className="changelog">
-            {{ changelog }}
+            <h2>19/12/24</h2>
+
+<h3>Changed</h3>
+
+<ul>
+<li>primary purpose of the site is now storage of course notes; blog moved elsewhere</li>
+<li>consistent styling of theorems, defns, examples etc</li>
+<li>smaller text size</li>
+</ul>
+
+<h2>08/07/24</h2>
+
+<h3>Added</h3>
+
+<ul>
+<li>highlighting in search results</li>
+<li>copy buttons for code</li>
+<li>"copy article plaintext" option</li>
+</ul>
+
+<h2>12/06/24</h2>
+
+<h3>Added</h3>
+
+<ul>
+<li>this changelog</li>
+<li>list of recent articles</li>
+<li>search and filetree modals</li>
+<li>keyboard shortcuts</li>
+</ul>
+
+<h3>Changed</h3>
+
+<ul>
+<li>sidebar now toggleable</li>
+<li>site more responsively designed and mobile-friendly</li>
+</ul>
+
+<h2>11/07/23</h2>
+
+<h3>Added</h3>
+
+<ul>
+<li>this website</li>
+</ul>
+
         </div>
     </div>
 
+</div><br/><div className="border-t-[1px] border-elevated pb-2"></div><div>
+
+    <p className="italic pb-4">Contains 12 articles</p>
+
+    
+    <Folder
+        contents_by_date={<> 
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">maths</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/comp-sci">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">comp-sci</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+            </li>
+        
+     </>}
+        contents_by_name={<> 
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/comp-sci">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">comp-sci</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+                <Link href="/maths">
+                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                        
+                        <p className="relative bottom-[1px]">maths</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+            </li>
+        
+     </>}
+    />
+
 </div>
+        </div>
+
+        
+
+    </article>
+
+    
+</div>
+                </>
+        </Layout>
+    )
+}
+    

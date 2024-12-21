@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    :root {
+        color-scheme: dark;
+        /* taken from onedark */
+        --color-body: #282c34;
+        --color-elevated: #abb2bf;
+        --color-primary: #e5c07b;
+        --color-secondary: #e06c75;
+        --color-bold: #61afef;
+        --color-italic: #c678dd;
+        --color-link: #56b6c2;
+        --color-hover: #98c379;
+
+        --toastify-font-family: var(--font-lato) !important;
+        --toastify-toast-width: 250px !important;
+        --toastify-color-dark: #000000 !important;
+        --toastify-color-progress-dark: var(--color-primary) !important; /* same as primary */
+    }
+
+    body {
+        @apply bg-body text-white font-sans;
+    }
+
+    .latex-display-wrapper > span > * {
+        margin: 0.5rem !important; /* override the default margin, because it's too big */
+    }
+
+}
+
+@layer components {
+
+    .dirtree {
+        @apply text-lg;
+    }
+
+
+    .dirtree li {
+        @apply relative py-1 pl-7;
+    }
+
+    .dirtree li:before {
+        @apply content-[''] absolute top-[18px] left-2 w-4 h-[2px] bg-elevated;
+    }
+
+    .dirtree .sidebar-file > p {
+        @apply relative top-[1px] left-[1px];
+    }
+
+    .dirtree button {
+        @apply relative top-[1px]
+    }
+
+    .dirtree li:after {
+        @apply content-[''] absolute top-0 bottom-0 left-2 h-full w-[2px] bg-elevated;
+    }
+
+    .dirtree li:last-child:after {
+        @apply h-[18px];
+    }
+
+    /* first tree item is special (root) */
+
+    .dirtree > li:before, .dirtree > li:after {
+        @apply hidden;
+    }
+
+    .dirtree > li {
+        @apply pl-0;
+    }
+
+    .sidebar-title {
+        @apply w-full justify-center text-3xl font-bold text-white mb-3 mt-1 hidden md:flex;
+    }
+
+    .changelog {
+        @apply text-sm text-elevated;
+    }
+
+    .changelog * {
+        @apply ml-4;
+    }
+
+    .changelog h2 {
+        @apply text-italic italic;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-decoration: none !important;
+    }
+
+    .changelog h3 {
+        @apply text-lg text-white font-bold;
+    }
+
+}
+
+@layer utilities {
+
+    .-z-1 {
+        z-index: -1
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .article {
+        @apply text-base space-y-2;
+    }
+
+    .article h1 {
+        @apply text-3xl font-bold relative mb-6;
+    }
+
+    .article h1:after {
+        @apply content-[''] absolute top-[calc(100%+2px)] left-0 w-full border-elevated border-b-[1px];
+    }
+
+    .article h2 {
+        @apply text-xl font-bold relative pt-2 pb-2 underline underline-offset-4;
+        margin-top: 1rem !important;
+    }
+
+    .article em {
+        @apply text-italic;
+    }
+
+    .article strong {
+        @apply text-bold;
+    }
+
+    .article ul li {
+        @apply list-disc ml-8;
+    }
+
+    .article ol li {
+        @apply list-decimal ml-8;
+    }
+
+    .folder-li {
+        margin-left: 0 !important;
+    }
+
+    .article blockquote {
+        @apply border-l-4 border-elevated p-2 pl-4 bg-black bg-opacity-30 rounded-xl;
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* markdown footnotes */
+
+    .article .footnotes {
+        @apply text-sm text-elevated pt-4;
+    }
+    .article .footnote-ref {
+        @apply text-sm text-elevated;
+    }
+    .article .footnotes > ol {
+        @apply pt-2;
+    }
+
+    /* markdown code blocks */
+
+    .article pre {
+        @apply p-4 bg-black bg-opacity-30 rounded-xl max-w-full my-1 overflow-auto;
+    }
+    code {
+        @apply font-mono text-base text-elevated ml-1 break-all;
+    }
+    pre > code {
+        @apply text-white ml-0 whitespace-nowrap;
+    }
+
+    /* markdown tables */
+
+    .article table {
+        @apply table-auto my-2;
+    }
+    .article td {
+        @apply border-2 border-elevated py-1 px-3 text-center;
+    }
+
+}

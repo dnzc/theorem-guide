@@ -1,0 +1,15 @@
+Content naming conventions:
+    - only alphanumeric chars or dashes allowed in folder names. words separated by dashes
+    - add "[COURSE] " prefix to folder to mark it as a course (must be a folder)
+    - optionally, add a README.md file inside of a folder (that isn't root) to give it a description
+    - capitalized course names
+    - lowercase file names
+    - markdown (excluding course readmes):
+        - first line of file contains date updated, in the form "created dd/mm/yyyy hh:mm" (if no date supplied, then marked as "coming soon")
+        - first line beginning with "#" is extracted as the article title
+    - unlike other files, readmes should not have date on first line
+
+
+
+todo:
+purple italic stuff

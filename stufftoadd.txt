@@ -1,3 +1,9 @@
+App for writing wiki
+Kakuro app (with zoom)
+
+exposition:
+- how i made the terminal
+
 AI:
 - stanford-cs234-notes
 - alignment-problem-review
@@ -25,7 +31,6 @@ maths:
 - babylonian approximation
 - number-theory/generators
 - number-theory/quadratic-reciprocity
-- research/CNATS: INCLUDE PRUFER CONJECTURE
 
 physics:
 - feynmann-notes
