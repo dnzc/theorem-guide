@@ -53,7 +53,7 @@ export default function ExampleSheets () {
 
                     
                         <li className="max-w-fit">
-                            <Link href="//maths">
+                            <Link href="/maths">
                                 <div className="flex items-center justify-center space-x-1 text-elevated text-base">
                                     <RiArrowGoBackFill/>
                                     <p>exit course</p>

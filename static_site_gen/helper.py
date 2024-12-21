@@ -325,8 +325,7 @@ def gen_content(cur_dir, depth, article_list, dir_tree, displayed_dir_tree, chec
         print('\033[2m'+'skipped '+ cur_dir.rjust(1,'/') +'\033[0m')
         return
     print(cur_dir)
-
-    course_parent_path = '/'+'/'.join(displayed_dir_tree['path'].split('/')[:-1])
+    course_parent_path = '/'.join(displayed_dir_tree['path'].split('/')[:-1])
 
     # exclude readmes
     if cur_dir.endswith('README.md'): return
