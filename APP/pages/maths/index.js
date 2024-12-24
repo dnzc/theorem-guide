@@ -227,7 +227,7 @@ export default function Maths () {
                 <Link href="/maths/proving-FTA">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">proving-FTA</p>
                     </div>
@@ -239,7 +239,7 @@ export default function Maths () {
                 <Link href="/maths/research">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">research</p>
                     </div>
@@ -251,7 +251,7 @@ export default function Maths () {
                 <Link href="/maths/olympiad">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">olympiad</p>
                     </div>
@@ -278,7 +278,7 @@ export default function Maths () {
                 <Link href="/maths/olympiad">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">olympiad</p>
                     </div>
@@ -290,7 +290,7 @@ export default function Maths () {
                 <Link href="/maths/proving-FTA">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">proving-FTA</p>
                     </div>
@@ -302,7 +302,7 @@ export default function Maths () {
                 <Link href="/maths/research">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">research</p>
                     </div>

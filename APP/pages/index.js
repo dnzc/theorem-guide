@@ -408,7 +408,7 @@ export default function CourseNotes () {
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
@@ -420,7 +420,7 @@ export default function CourseNotes () {
                 <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
@@ -432,7 +432,7 @@ export default function CourseNotes () {
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
@@ -447,7 +447,7 @@ export default function CourseNotes () {
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
@@ -459,7 +459,7 @@ export default function CourseNotes () {
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
@@ -471,7 +471,7 @@ export default function CourseNotes () {
                 <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>

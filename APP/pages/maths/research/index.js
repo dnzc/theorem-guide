@@ -218,7 +218,7 @@ export default function Research () {
                 <Link href="/maths/research/cube-tilings">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">cube-tilings</p>
                     </div>
@@ -230,7 +230,7 @@ export default function Research () {
                 <Link href="/maths/research/CNATs">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">CNATs</p>
                     </div>
@@ -245,7 +245,7 @@ export default function Research () {
                 <Link href="/maths/research/CNATs">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">CNATs</p>
                     </div>
@@ -257,7 +257,7 @@ export default function Research () {
                 <Link href="/maths/research/cube-tilings">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">cube-tilings</p>
                     </div>

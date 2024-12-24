@@ -215,7 +215,7 @@ export default function Writeups () {
                 <Link href="/writeups/terminal">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">terminal</p>
                     </div>
@@ -230,7 +230,7 @@ export default function Writeups () {
                 <Link href="/writeups/terminal">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">terminal</p>
                     </div>

@@ -153,7 +153,7 @@ export default function AnalysisTopology () {
                 <Link href="/maths/Analysis-Topology/example-sheets">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">example-sheets</p>
                     </div>
@@ -165,7 +165,7 @@ export default function AnalysisTopology () {
                 <Link href="/maths/Analysis-Topology/A-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">A-metric-spaces</p>
                     </div>
@@ -180,7 +180,7 @@ export default function AnalysisTopology () {
                 <Link href="/maths/Analysis-Topology/A-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">A-metric-spaces</p>
                     </div>
@@ -192,7 +192,7 @@ export default function AnalysisTopology () {
                 <Link href="/maths/Analysis-Topology/example-sheets">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">example-sheets</p>
                     </div>

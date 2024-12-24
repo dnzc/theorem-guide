@@ -218,7 +218,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/4-euclid">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">4-euclid</p>
                     </div>
@@ -230,7 +230,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/5-fta">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">5-fta</p>
                     </div>
@@ -242,7 +242,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/3-bezout-egcd">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">3-bezout-egcd</p>
                     </div>
@@ -254,7 +254,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/1-integer-axioms">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">1-integer-axioms</p>
                     </div>
@@ -266,7 +266,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/2-division-algo">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">2-division-algo</p>
                     </div>
@@ -281,7 +281,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/1-integer-axioms">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">1-integer-axioms</p>
                     </div>
@@ -293,7 +293,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/2-division-algo">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">2-division-algo</p>
                     </div>
@@ -305,7 +305,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/3-bezout-egcd">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">3-bezout-egcd</p>
                     </div>
@@ -317,7 +317,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/4-euclid">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">4-euclid</p>
                     </div>
@@ -329,7 +329,7 @@ export default function ProvingFTA () {
                 <Link href="/maths/proving-FTA/5-fta">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">5-fta</p>
                     </div>
