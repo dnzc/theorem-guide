@@ -90,6 +90,7 @@ def sanitize(path):
 
 def checksum(path):
     hash = lambda plaintext: hashlib.md5(bytes(plaintext,'u8')).hexdigest()
+    if path.endswith('__IMAGES__'): return hash('')
     if not os.path.isdir(path):
         with open(path, 'r') as f:
             return hash(f.read())
@@ -255,7 +256,7 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
         file = re.sub(r'<(/?)' + tag + r'([^>]*?)>\n?([^\n])', r'<\1' + tag + r'\2>\n\n\3', file)
         file = re.sub(r'([^\n])\n?<(/?)' + tag + r'([^>]*?)>', r'\1\n\n<\2' + tag + r'\3>', file)
     # replace images directory inside image tags, to be the public one
-    file = re.sub('CONTENT_ROOT/__IMAGES__', 'images', file)
+    file = re.sub('/__IMAGES__', '/images', file)
     # find literal braces, for latex (so that the backslash doesn't die when being parsed)
     file = re.sub('\\\\{', '\\&#123;', file)
     file = re.sub('\\\\}', '\\&#125;', file)
@@ -348,6 +349,14 @@ def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, display
     # exclude readmes
     if cur_dir.endswith('README.md'): return
 
+    # the images directory
+    if cur_dir.endswith('__IMAGES__'): 
+        # move contents into public images dir
+        if os.path.exists(IMAGES_DIR):
+            shutil.rmtree(IMAGES_DIR)
+        shutil.copytree(SOURCE_DIR+cur_dir, IMAGES_DIR)
+        return
+
     # skip if nothing changed since last compile
     if not COMPILE_EVERYTHING and cur_dir.endswith('.md') and bool(checksum_tree) and checksum(cur_path) == checksum_tree['checksum']:
         # load old article data
@@ -358,16 +367,8 @@ def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, display
         return
     course_parent_path = '/'.join(displayed_dir_tree['path'].split('/')[:-1])
 
-    # the images directory
-    if cur_dir.endswith('__IMAGES__'): 
-        # move contents into public images dir
-        if os.path.exists(IMAGES_DIR):
-            shutil.rmtree(IMAGES_DIR)
-        shutil.copytree(SOURCE_DIR+cur_dir, IMAGES_DIR)
-        return
-
     # markdown file
-    elif cur_dir.endswith('.md'):
+    if cur_dir.endswith('.md'):
         print(cur_dir)
         with open(cur_path, 'r') as markdown_file:
             file = markdown_file.read()
@@ -458,7 +459,7 @@ def gen_checksum_tree(path):
     d['path'] = path
     d['checksum'] = checksum(path)
     if os.path.isdir(path):
-        d['children'] = [gen_checksum_tree(path+'/'+child) for child in os.listdir(path)]
+        d['children'] = [gen_checksum_tree(path+'/'+child) for child in os.listdir(path) if not child.endswith('__IMAGES__')]
     return d
 
 def handle_warnings():

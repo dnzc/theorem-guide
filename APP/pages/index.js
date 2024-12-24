@@ -210,11 +210,11 @@ export default function CourseNotes () {
     <div className="text-xs font-mono leading-[0.8rem] flex flex-col">
 
         <div className="hidden md:block text-highlight-strong font-bold">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;__|&nbsp;|&nbsp;__&nbsp;_&nbsp;_&nbsp;__&nbsp;&#40;_&#41;&nbsp;___|&nbsp;|&nbsp;___&nbsp;&nbsp;&nbsp;_&nbsp;__&nbsp;___&nbsp;&nbsp;&nbsp;___|&nbsp;|&nbsp;_____&nbsp;<br/>&nbsp;/&nbsp;_`&nbsp;|/&nbsp;_`&nbsp;|&nbsp;'_&nbsp;\|&nbsp;|/&nbsp;_&nbsp;\&nbsp;|/&nbsp;__|&nbsp;|&nbsp;'__/&nbsp;_&nbsp;\&nbsp;/&nbsp;__|&nbsp;|/&nbsp;/&nbsp;__|<br/>|&nbsp;&#40;_|&nbsp;|&nbsp;&#40;_|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;__/&nbsp;|&nbsp;&#40;__&nbsp;_|&nbsp;|&nbsp;|&nbsp;&#40;_&#41;&nbsp;|&nbsp;&#40;__|&nbsp;&nbsp;&nbsp;&lt;\__&nbsp;\<br/>&nbsp;\__,_|\__,_|_|&nbsp;|_|_|\___|_|\___&#40;_&#41;_|&nbsp;&nbsp;\___/&nbsp;\___|_|\_\___/
+        <Image src='/images/home.png' width='250' height='200' alt='diagram'/>
         </div>
     </div>
 
-    <p className="block md:hidden text-3xl font-bold text-highlight-strong break-all">notes.danielc.rocks</p>
+    <p className="block md:hidden text-3xl font-bold text-text-primary break-all">notes.danielc.rocks</p>
 
     <p>
         This site is a collection of in-depth notes I've written for various courses, including some in Part IB of the Mathematical Tripos.

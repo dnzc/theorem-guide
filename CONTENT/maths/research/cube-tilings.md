@@ -30,7 +30,7 @@ This sort of feels like trying to build a cube out of wooden blocks, but the onl
 
 With this mental imagery, we can find another construction:
 
-<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings1.svg' width='320' height='240' alt='construction' />
+<Image src='/__IMAGES__/cubetilings1.svg' width='320' height='240' alt='construction' />
 
 We used 2 cubes and 3 cuboids, thus if $n$ and $m$ are lucky, we can scale two cubes tiled with $n$ and $m$ cuboids to fit inside this construction. Hence we know that:
 
@@ -57,14 +57,14 @@ See above.
 <Thm type="Claim" num="3">
 If $n$ and $m$ are lucky, then so is $n+m+8$.
 <Proof>
-<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings2.svg' width='280' height='300' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings2.svg' width='280' height='300' alt='construction'/>
 </Proof>
 </Thm>
 
 <Thm type="Claim" num="4">
 If $n$ is lucky, then so is $n+15$.
 <Proof>
-<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings3.svg' width='240' height='300' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings3.svg' width='240' height='300' alt='construction'/>
 
 We can make a 6x6x3 cuboid with eleven 1:2:3 cuboids, as shown. Then, we can make another 6x6x3 cuboid using the same construction as in the proof of claim 3, where we wrap 4 cuboids around a cube. Thus we can combine these two 6x6x3 cuboids to form a 6x6x6 cube, using fifteen 1:2:3 cuboids and one smaller cube.
 </Proof>
@@ -73,14 +73,14 @@ We can make a 6x6x3 cuboid with eleven 1:2:3 cuboids, as shown. Then, we can mak
 <Thm type="Claim" num="5">
 If $n$ is lucky, then so is $n+13$.
 <Proof>
-<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings4.svg' width='288' height='400' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings4.svg' width='288' height='400' alt='construction'/>
 </Proof>
 </Thm>
 
 <Thm type="Claim" num="6">
 If $n$ is lucky, then so is $n+12$.
 <Proof>
-<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings5.svg' width='300' height='300' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings5.svg' width='300' height='300' alt='construction'/>
 </Proof>
 </Thm>
 
@@ -91,7 +91,7 @@ To actually find a lucky number, we remove cubes from our lego building blocks a
 <Thm type="Claim" num="7">
 8 is lucky.
 <Proof>
-<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings6.svg' width='200' height='200' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings6.svg' width='200' height='200' alt='construction'/>
 </Proof>
 </Thm>
 
@@ -198,6 +198,6 @@ If the program finds $(1,1,1)$ in $S_k$ (i.e. a cube, although you can search fo
 
 **The program found the following construction**, proving that 18 is lucky:
 
-<Image src='/CONTENT_ROOT/__IMAGES__/cubetilings7.svg' width='480' height='640' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings7.svg' width='480' height='640' alt='construction'/>
 
 Thus, 18+7=25 is also lucky, and so **$C \leq 18$**.

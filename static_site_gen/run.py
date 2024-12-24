@@ -15,7 +15,9 @@ os.makedirs(TARGET_DIR, exist_ok=True)
 content_checksums = {}
 if os.path.exists(CONTENT_CHECKSUMS_FILE):
     with open(CONTENT_CHECKSUMS_FILE, 'r') as f:
-        content_checksums = json.loads(f.read())
+        try:
+            content_checksums = json.loads(f.read())
+        except json.decoder.JSONDecodeError: pass
 
 # load stored articles (so that if skipping compilation, can reuse the article data)
 stored_articles = []

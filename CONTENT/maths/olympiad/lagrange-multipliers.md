@@ -42,14 +42,14 @@ $$\{x \in \mathbb{R}^n \mid d(p,x) \leq r\}$$
 
 <Example plural>
 - Any finite open interval in $\mathbb{R}$ is an open ball ($n=1$), because for any open interval $(a,b) \subset \mathbb{R}$, it is equal to $B(\frac{a+b}{2}, \frac{b-a}{2})$.
-- <div class='flex flex-wrap items-center space-x-4'><p>$B[0,1]$ in $\mathbb{R}^2$ is</p> <Image src='/CONTENT_ROOT/__IMAGES__/lm3.svg' width='100' height='100' alt='diagram' /></div>
+- <div class='flex flex-wrap items-center space-x-4'><p>$B[0,1]$ in $\mathbb{R}^2$ is</p> <Image src='/__IMAGES__/lm3.svg' width='100' height='100' alt='diagram' /></div>
 </Example>
 
 <Defn>$U \subseteq \mathbb{R}^n$ is **open** iff for every $p \in U$, $\exists r\gt 0$ s.t. $B(p,r) \subset U$.
 
 <div class='flex flex-wrap justify-center space-x-8'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm1.svg' width='150' height='160' alt='diagram' />
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm2.svg' width='150' height='160' alt='diagram' />
+    <Image src='/__IMAGES__/lm1.svg' width='150' height='160' alt='diagram' />
+    <Image src='/__IMAGES__/lm2.svg' width='150' height='160' alt='diagram' />
 </div>
 </Defn>
 
@@ -84,19 +84,19 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
 <Defn>Let $A \in \mathbb{R}^n$. The **closure** of $A$, denoted $\bar A$, is the smallest closed set containing $A$.
 
 <div class='w-full flex justify-center'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm4.svg' width='250' height='125' alt='diagram'/>
+    <Image src='/__IMAGES__/lm4.svg' width='250' height='125' alt='diagram'/>
 </div>
 </Defn>
 
 <Thm type="Fact">$A \subseteq \mathbb{R}^n$ is closed if and only if $\mathbb{R}^n \setminus A$ is open.
 <div class='w-full flex justify-center'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm5.svg' width='300' height='150' alt='diagram'/>
+    <Image src='/__IMAGES__/lm5.svg' width='300' height='150' alt='diagram'/>
 </div>
 </Thm>
 
 <Thm type="Fact">Let $U,V$ be open sets. Then $U \cap V$ and $U \cup V$ are also open sets. This extends to finite intersections[^2] and infinite unions.
 <div class='w-full flex justify-center'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm6.svg' width='150' height='150' alt='diagram'/>
+    <Image src='/__IMAGES__/lm6.svg' width='150' height='150' alt='diagram'/>
 </div>
 </Thm>
 
@@ -104,18 +104,18 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
 
 <Thm type="Fact"> Let $S,T$ be closed sets. Then $S \cap T$ and $S \cup T$ are also closed sets. This extends to infinite intersections and finite unions.
 <div class='w-full flex justify-center'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm7.svg' width='150' height='150' alt='diagram'/>
+    <Image src='/__IMAGES__/lm7.svg' width='150' height='150' alt='diagram'/>
 </div>
 </Thm>
 
 <Defn>$A \subseteq \mathbb{R}^n$ is **bounded** iff $\exists\, R \in \mathbb{R}, R\gt 0$ such that $A \subseteq B(0, R)$.
 <div class='w-full flex justify-center mt-2'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm8.svg' width='150' height='150' alt='diagram'/>
+    <Image src='/__IMAGES__/lm8.svg' width='150' height='150' alt='diagram'/>
 </div>
 </Defn>
 
 <Defn> A subset $K \subseteq \mathbb{R}^n$ is **compact** if it is closed and bounded.
-<div class='flex flex-wrap justify-around'><Image src='/CONTENT_ROOT/__IMAGES__/lm9.svg' width='200' height='200' alt='diagram' /> <Image src='/CONTENT_ROOT/__IMAGES__/lm10.svg' width='200' height='200' alt='diagram' /></div>
+<div class='flex flex-wrap justify-around'><Image src='/__IMAGES__/lm9.svg' width='200' height='200' alt='diagram' /> <Image src='/__IMAGES__/lm10.svg' width='200' height='200' alt='diagram' /></div>
 </Defn>
 
 <Defn>
@@ -147,7 +147,7 @@ $$\exists\, x' \in K \text{ s.t. } f(x') \leq f(y) \;\forall\, y \in K$$
         <p>Let $K$ be a closed ball in $\mathbb{R}^2$, then $K$ is compact. Let $f : K \to \mathbb{R}, f(x) = d(x,(0,0))$ which is continuous.</p>
         <p>Then the theorem says that there is a point(s) on $K$ which is closest to $(0,0)$, and a point(s) which is furthest.</p>
     </div>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm11.svg' width='200' height='200' alt='diagram'/>
+    <Image src='/__IMAGES__/lm11.svg' width='200' height='200' alt='diagram'/>
 </div>
 </Example>
 
@@ -206,7 +206,7 @@ Let $f(x,y,z) = xyz$ and $g(x,y,z)=x+y+z$; these are polynomial functions and so
 $0 \leq x,y,z \leq 1$ so we're only interested in the cube $[0,1] \times [0,1] \times [0,1]$.
 
 <div class='flex flex-wrap justify-center items-center space-x-4'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm12.svg' width='250' height='200' alt='diagram'/><p>$x+y+z=1$ is a plane (coloured green)</p>
+    <Image src='/__IMAGES__/lm12.svg' width='250' height='200' alt='diagram'/><p>$x+y+z=1$ is a plane (coloured green)</p>
 </div>
 
 Let $U = (0,1)^3$, then $\bar U = [0,1]^3$.
@@ -446,7 +446,7 @@ In particular, $f(x,y) \geq 0$ as required.
 If we attempt to use LM:
 
 <div class='flex justify-center'>
-    <Image src='/CONTENT_ROOT/__IMAGES__/lm13.svg' width='250' height='200' alt='diagram'/>
+    <Image src='/__IMAGES__/lm13.svg' width='250' height='200' alt='diagram'/>
 </div>
 
 The problem is that $f$ is not defined on the boundary, so we cannot say $f$ has a global max and min in the area we're looking at (indeed $f$ can be arbitrarily large if we let $a$ approach zero for example). Boo, we can't use LM.
