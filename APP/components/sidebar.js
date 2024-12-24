@@ -106,9 +106,9 @@ export default function Sidebar({ children }) {
                 </Popup>
                 
                 {/* button group */}
-                <div className='flex 2xl:block justify-start 2xl:space-y-2 fixed left-5 bottom-4'>
+                <div className='flex 2xl:block justify-start fixed left-5 bottom-4'>
                     {/* sidebar toggle button */}
-                    <button className={`hidden ${active ? '' : 'md:flex '} mr-4 text-base text-text-secondary bg-layer [@media(hover:hover)]:hover:bg-layer-hover rounded-md h-[2.25rem]`} onClick={toggleSidebar}>
+                    <button className={`hidden ${active ? '' : 'md:flex '} mr-4 2xl:mb-2 text-base text-text-secondary bg-layer [@media(hover:hover)]:hover:bg-layer-hover rounded-md h-[2.25rem]`} onClick={toggleSidebar}>
                         <div className='w-full h-full rounded-md pl-4 px-3 flex items-center justify-between space-x-2'>
                             <BsLayoutTextSidebarReverse/>
                             {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey} U</span>}
