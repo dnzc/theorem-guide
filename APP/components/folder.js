@@ -33,8 +33,8 @@ export default function Folder({contents_by_date, contents_by_name}) {
     let dateIcon = orderByState == 'date' ? (<BsFillArrowUpCircleFill/>) : (<BsCircle/>)
 
     return (
-        <div className='w-full border-elevated border-x-2 border-t-2 rounded-t-lg'>
-            <div className='flex justify-between border-elevated border-b-2 py-4 px-3'>
+        <div className='w-full border-border-strong border-x-2 border-t-2 rounded-t-lg'>
+            <div className='flex justify-between border-border-strong border-b-2 py-4 px-3'>
                 <div className='flex space-x-2 items-center'>
                     <p className='text-lg hidden xs:block'>Name</p>
                     <button onClick={nameButtonClicked} className={directionState=='asc' ? 'rotate-180' : ''}>
@@ -42,7 +42,7 @@ export default function Folder({contents_by_date, contents_by_name}) {
                     </button>
                 </div>
                 <div className='flex space-x-2 items-center'>
-                    <p className='text-lg hidden xs:block'>Updated</p>
+                    <p className='text-lg hidden xs:block'>Created</p>
                     <button onClick={dateButtonClicked} className={directionState=='desc' ? 'rotate-180' : ''}>
                         {dateIcon}
                     </button>

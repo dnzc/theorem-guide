@@ -1,13 +1,13 @@
 <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="border-elevated overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
-            <div className="relative bottom-0 pl-4">
-                <ul className="dirtree mb-4 md:mb-0">
+        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+            <div className="relative bottom-0">
+                <ul className="dirtree mb-4 md:mb-0 group">
                     {% set start_depth = dir_tree['depth'] %}
                     {% macro dump_tree(dir_tree) %}
                         {% if dir_tree['is_dir'] and not dir_tree['is_marked_as_course'] or dir_tree['depth']==start_depth and dir_tree['is_marked_as_course'] %}
-                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="{{'course' if dir_tree['is_marked_as_course'] else 'folder'}}" isRoot={ {{"true" if dir_tree['depth']==start_depth else "false"}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } isOpenByDefault={ {{"true" if dir_tree['depth']-start_depth < 2 or (path_str and path_str.startswith(dir_tree['path'])) else "false"}} } >
+                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="{{'course' if dir_tree['is_marked_as_course'] else 'folder'}}" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } isOpenByDefault={ {{"true" if dir_tree['depth']-start_depth < 2 or (path_str and path_str.startswith(dir_tree['path'])) else "false"}} } >
                                 {% if dir_tree['children'] %}
                                     {% for child in dir_tree['children'] %}
                                         {{ dump_tree(child)}}
@@ -15,21 +15,21 @@
                                 {% endif %}
                             </Accordion>
                         {% elif dir_tree['is_marked_as_course'] %}
-                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="course" isRoot={false} isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } />
+                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="course" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } />
                         {% else %}
-                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="file" isRoot={false} isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } />
+                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="file" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } />
                         {% endif %}
                     {% endmacro %}
 
                     {% if start_depth > 0 and course_parent_path %}
-                        <li className="max-w-fit">
-                            <Link href="{{course_parent_path}}">
-                                <div className="flex items-center justify-center space-x-1 text-elevated text-base">
-                                    <RiArrowGoBackFill/>
+                        <Link href="{{course_parent_path}}">
+                            <li className="w-full flex justify-start p-1 pl-2 hover:bg-background-hover">
+                                <div className="flex items-center justify-center space-x-1 text-text-secondary text-base">
+                                    <CiLogout size="19"/>
                                     <p>exit course</p>
                                 </div>
-                            </Link>
-                        </li>
+                            </li>
+                        </Link>
                     {% endif %}
                     {{ dump_tree(dir_tree) }}
                 </ul>
@@ -45,46 +45,52 @@
         {% if folder_path_list %}
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 {% for folderName in folder_path_list %}
-                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="{{'/'+'/'.join(folder_path_list[:loop.index])}}">{{ folderName }}</Link></p>
+                    <span className="font-bold text-text-secondary">/</span>
+                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="{{'/'+'/'.join(folder_path_list[:loop.index])}}">{{ folderName }}</Link></p>
                 {% endfor %}
             </div>
         {% endif %}
 
-        {% if date_time %}
-            <p className="text-elevated mb-4">Last updated {{date_time}}</p>
-        {% endif %}
-
-        {% if copiable_article_plaintext %}
-            <div className="mb-4">
-                <CopyButton text="{{copiable_article_plaintext}}">Copy article plaintext</CopyButton>
-            </div>
+        {% if cr_date_time and mod_date_time != cr_date_time %}
+            <p className="text-text-secondary mb-2">Created {{cr_date_time}}. Last updated {{mod_date_time}}</p>
+        {% elif cr_date_time %}
+            <p className="text-text-secondary mb-2">Created {{cr_date_time}}</p>
         {% endif %}
 
         <div className="article mb-4">
             {{ content }}
         </div>
 
-        {% if parent_path %}
-            <div className="flex justify-start mb-4">
-                <Link href="{{parent_path}}">
-                    <div className="flex items-center justify-center space-x-1 text-primary">
-                        <RiArrowGoBackFill/>
-                        <p>up a level</p>
+        {% if parent_path or copiable_article_plaintext %}
+            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+                {% if parent_path %}
+                    <div className="flex justify-start">
+                        <Link href="{{parent_path}}">
+                            <div className="flex items-center justify-center space-x-1 text-text-secondary underline">
+                                <RiArrowGoBackFill/>
+                                <p>up a level</p>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
+                {% endif %}
+
+                {% if copiable_article_plaintext %}
+                    <div className="">
+                        <CopyButton text="{{copiable_article_plaintext}}">Copy article plaintext</CopyButton>
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
 
     </article>
 
     {% if table_of_contents %}
-        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-elevated px-6 py-4">
-            <div className="fixed">
-                <h1 className="font-bold text-xl">In this Article</h1>
-                <ul className="text-elevated">
-                    {% for title,href in table_of_contents%}
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="{{href}}" className="text-link [@media(hover:hover)]:hover:underline">{{title}}</Link></li>
+        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
+            <div className="fixed text-text-secondary">
+                <h1 className="text-lg">Table of contents</h1>
+                <ul>
+                    {% for title,href in table_of_contents %}
+                        <li className="pt-1 font-bold"><Link href="{{href}}" className="text-link [@media(hover:hover)]:hover:underline">{{title}}</Link></li>
                     {% endfor %}
                 </ul>
             </div>

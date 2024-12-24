@@ -18,4 +18,4 @@ FOLDER_TEMPLATE = TEMPLATE_ENV.get_template('folder_overview.jinja')
 PLACEHOLDER_TIMESTAMP = -1 # for files without a timestamp
 COURSE_INDICATOR = '[COURSE] '
 
-COMPILE_EVERYTHING = 0
+COMPILE_EVERYTHING = 1

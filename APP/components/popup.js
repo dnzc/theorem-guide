@@ -1,14 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '@/tailwind.config.mjs'
 import Search from '@/components/search'
-
-//const fullConfig = resolveConfig(tailwindConfig)
 
 var shortcuts = ['u', 'k']
 
 export default function Popup({ buttonStyle, buttonContents, keyboardShortcutIndex, listenWhenLarge, isMobile, children }) {
-    console.log(tailwindConfig)
 
     // https://stackoverflow.com/questions/53845595/wrong-react-hooks-behaviour-with-event-listener
     function useStateRef(initialValue) {
@@ -46,6 +41,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
     }
 
     function handleActiveClick(e) {
+        console.log(e.target)
         if([...e.target.classList].includes('overlay')) hidePopup()
     }
 
@@ -58,7 +54,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
             e.preventDefault()
             hidePopup()
         } else if((isMac ? e.metaKey : e.ctrlKey) && shortcuts.includes(e.key)) {
-            if(!listenWhenLarge && window.innerWidth >= 768) return
+            if(!listenWhenLarge && window.innerWidth >= 768) return // screens.md in tailwind config
             e.preventDefault()
             if(e.key === shortcuts[keyboardShortcutIndex]) togglePopup()
             else hidePopup()
@@ -79,10 +75,10 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
             <button onClick={showPopup} className={buttonStyle}>
                 {buttonContents}
             </button>
-            <div onClick={handleActiveClick} className={`overlay flex md:items-center justify-center ${active ? '' : 'hidden '}fixed w-full h-full top-0 left-0 z-30 bg-black bg-opacity-30 backdrop-blur-md`}>
-                <div className='max-w-[700px] w-full h-[80%] mt-4 md:mt-0 mx-4 z-40 bg-body rounded-xl relative'>
+            <div onClick={handleActiveClick} className={`overlay flex md:items-center justify-center ${active ? '' : 'hidden '}fixed w-full h-full top-0 left-0 z-30 bg-overlay backdrop-blur-md`}>
+                <div className='max-w-[700px] w-full h-[80%] mt-4 md:mt-0 mx-4 z-40 bg-background rounded-xl relative'>
                     {/* https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices */}
-                    <button onClick={hidePopup} className='absolute top-3 right-3 z-10 font-bold flex text-elevated items-center space-x-6 pl-4 bg-white bg-opacity-10 [@media(hover:hover)]:hover:bg-opacity-20 rounded-md px-3 py-1.5 ml-4'>
+                    <button onClick={hidePopup} className='absolute top-3 right-3 z-10 font-bold flex text-text-secondary items-center space-x-6 pl-4 bg-layer [@media(hover:hover)]:hover:bg-layer-hover rounded-md px-3 py-1.5 ml-4'>
                         ESC
                     </button>
                     {children ? children : <Search active={active} isMobile={isMobile}/>}

@@ -85,8 +85,8 @@ __COPIABLE__
 
 ## Cheese solution
 <Spoiler>
-The way I got python to run in the browser was with <DiscreetLink href='https://pyodide.org/en/stable/'>pyodide</DiscreetLink> and a <DiscreetLink href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers'>web-worker</DiscreetLink>.
-So the python runs client-side (!) i.e. this is all really a fake prison-break environment. In particular the flag file has to be generated somehow, so the flag is somewhere in the source.
+The way I got python to run in the browser was with <DiscreetLink href='https://pyodide.org/en/stable/'>Pyodide</DiscreetLink> and a <DiscreetLink href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers'>web worker</DiscreetLink>.
+The python runs client-side i.e. this is all really a fake prison-break environment. In particular the flag file has to be generated somehow, so the flag is somewhere in the source.
 
 <br/>
 

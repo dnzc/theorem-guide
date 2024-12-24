@@ -1,12 +1,11 @@
 import '../styles/globals.css'
 import '../styles/codehilite.css'
-import { Lato, Fira_Code } from 'next/font/google'
+import { Fira_Code } from 'next/font/google'
+import localFont from 'next/font/local'
 import Head from 'next/head'
 
-const lato = Lato({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
+const iAWriterQuattro = localFont({
+  src: '../fonts/iAWriterQuattroV.ttf'
 })
 
 const fira = Fira_Code({
@@ -18,12 +17,12 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta name="theme-color" content="#282c34"/>
+        <meta name="theme-color" content="#f4f4f0"/>
       </Head>
       <style jsx global>{`
         :root {
-          --font-lato: ${lato.style.fontFamily};
-          --font-fira: ${fira.style.fontFamily};
+          --font-text: ${iAWriterQuattro.style.fontFamily};
+          --font-code: ${fira.style.fontFamily};
         }
       `}</style>
       <Component {...pageProps} />

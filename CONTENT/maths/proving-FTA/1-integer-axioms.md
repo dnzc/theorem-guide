@@ -1,4 +1,5 @@
 19/12/2024 11:00
+created 25/07/2023 17:00
 # Developing the Axioms
 
 **tl;dr:** A journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored.

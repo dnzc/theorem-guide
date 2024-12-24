@@ -5,11 +5,7 @@ Content naming conventions:
     - capitalized course names
     - lowercase file names
     - markdown (excluding course readmes):
-        - first line of file contains date updated, in the form "created dd/mm/yyyy hh:mm" (if no date supplied, then marked as "coming soon")
+        - first line of file contains date last modified, in the form "dd/mm/yyyy hh:mm" (if no date supplied, then marked as "coming soon")
+        - optional second line specifying date created, in the form "created dd/mm/yyyy hh:mm". if not supplied, then date last modified used as date created
         - first line beginning with "#" is extracted as the article title
     - unlike other files, readmes should not have date on first line
-
-
-
-todo:
-purple italic stuff

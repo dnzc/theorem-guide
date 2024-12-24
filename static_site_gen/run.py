@@ -16,22 +16,22 @@ content_checksums = {}
 if os.path.exists(CONTENT_CHECKSUMS_FILE):
     with open(CONTENT_CHECKSUMS_FILE, 'r') as f:
         content_checksums = json.loads(f.read())
-# parse the source files into jsx
-gen_content('', 1, articles, DIR_TREE, DIR_TREE, content_checksums)
+
+# load stored articles (so that if skipping compilation, can reuse the article data)
+stored_articles = []
+if not COMPILE_EVERYTHING:
+    with open(ARTICLE_DATA_FILE, 'r') as f:
+        stored_articles = json.loads(f.read())
+
+# parse the source files into jsx and populate article info
+articles = []
+gen_content('', 1, articles, stored_articles, DIR_TREE, DIR_TREE, content_checksums)
+
 # store content checksums (in order to skip compiling unchanged content)
 with open(CONTENT_CHECKSUMS_FILE, 'w') as f:
     json.dump(gen_checksum_tree(SOURCE_DIR), f)
 
-
-# write to article data file (for indexing search)
-if not COMPILE_EVERYTHING:
-    # add stored articles that were not overwritten
-    with open(ARTICLE_DATA_FILE, 'r') as f:
-        article_data = json.loads(f.read())
-        collapse = lambda a: '/'.join(a['dir'])+'/'+a['name']
-        for stored_article in article_data:
-            if collapse(stored_article) in [collapse(i) for i in articles]: continue
-            articles.append(stored_article)
+# store article data (for indexing search)
 with open(ARTICLE_DATA_FILE, 'w') as f:
     json.dump(articles, f)
 

@@ -7,9 +7,10 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
-
+import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
+import { CiLogout } from 'react-icons/ci'
 
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
@@ -17,7 +18,6 @@ import Spoiler from '@/components/spoiler'
 import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
 
@@ -29,51 +29,49 @@ export default function Basics () {
                 <title>Basics | Daniel C</title>
             </Head>
                 <>
-                    
-                        <ToastContainer
-                            position='top-right'
-                            autoClose={5000}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss={false}
-                            pauseOnHover={false}
-                            theme='dark'
-                        />
-    
+                    <ToastContainer
+                        position='top-right'
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss={false}
+                        pauseOnHover={false}
+                        theme='light'
+                    />
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="border-elevated overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
-            <div className="relative bottom-0 pl-4">
-                <ul className="dirtree mb-4 md:mb-0">
+        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+            <div className="relative bottom-0">
+                <ul className="dirtree mb-4 md:mb-0 group">
                     
                     
 
                     
-                        <li className="max-w-fit">
-                            <Link href="/maths">
-                                <div className="flex items-center justify-center space-x-1 text-elevated text-base">
-                                    <RiArrowGoBackFill/>
+                        <Link href="/maths">
+                            <li className="w-full flex justify-start p-1 pl-2 hover:bg-background-hover">
+                                <div className="flex items-center justify-center space-x-1 text-text-secondary text-base">
+                                    <CiLogout size="19"/>
                                     <p>exit course</p>
                                 </div>
-                            </Link>
-                        </li>
+                            </li>
+                        </Link>
                     
                     
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" isRoot={ true } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="A-metric-spaces" href="/maths/Analysis-Topology/A-metric-spaces" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="A-metric-spaces" href="/maths/Analysis-Topology/A-metric-spaces" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-basics" href="/maths/Analysis-Topology/A-metric-spaces/1-basics" type="file" isRoot={false} isSelected={ true } />
+                            <Accordion title="1-basics" href="/maths/Analysis-Topology/A-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ true } />
                         
                     
                                     
@@ -84,7 +82,7 @@ export default function Basics () {
                                     
                                         
                         
-                            <Accordion title="example-sheets" href="/maths/Analysis-Topology/example-sheets" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="example-sheets" href="/maths/Analysis-Topology/example-sheets" type="file" relDepth={ 1 } isSelected={ false } />
                         
                     
                                     
@@ -105,22 +103,20 @@ export default function Basics () {
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
-                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                    <span className="font-bold text-text-secondary">/</span>
+                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                 
-                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology">Analysis-Topology</Link></p>
+                    <span className="font-bold text-text-secondary">/</span>
+                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology">Analysis-Topology</Link></p>
                 
-                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology/A-metric-spaces">A-metric-spaces</Link></p>
+                    <span className="font-bold text-text-secondary">/</span>
+                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology/A-metric-spaces">A-metric-spaces</Link></p>
                 
             </div>
         
 
         
-            <p className="text-elevated mb-4">Last updated 16 Dec 2024</p>
-        
-
+            <p className="text-text-secondary mb-2">Created 16 Dec 2024</p>
         
 
         <div className="article mb-4">
@@ -128,7 +124,7 @@ export default function Basics () {
 
 <p>We want to formalise our intuition about distances in the real world, and try to generalise.</p>
 
-<h2 id="11-definitions-and-examples" className="group flex">1.1 Definitions and Examples&nbsp;<Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="11-definitions-and-examples" className="underline underline-offset-2">1.1 Definitions and Examples</h2><Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 
 <Defn name="metric space">
 
@@ -149,25 +145,31 @@ export default function Basics () {
         </div>
 
         
-            <div className="flex justify-start mb-4">
-                <Link href="/maths/Analysis-Topology/A-metric-spaces">
-                    <div className="flex items-center justify-center space-x-1 text-primary">
-                        <RiArrowGoBackFill/>
-                        <p>up a level</p>
+            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+                
+                    <div className="flex justify-start">
+                        <Link href="/maths/Analysis-Topology/A-metric-spaces">
+                            <div className="flex items-center justify-center space-x-1 text-text-secondary underline">
+                                <RiArrowGoBackFill/>
+                                <p>up a level</p>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
+                
+
+                
             </div>
         
 
     </article>
 
     
-        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-elevated px-6 py-4">
-            <div className="fixed">
-                <h1 className="font-bold text-xl">In this Article</h1>
-                <ul className="text-elevated">
+        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
+            <div className="fixed text-text-secondary">
+                <h1 className="text-lg">Table of contents</h1>
+                <ul>
                     
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#11-definitions-and-examples" className="text-link [@media(hover:hover)]:hover:underline">1.1 Definitions and Examples</Link></li>
+                        <li className="pt-1 font-bold"><Link href="#11-definitions-and-examples" className="text-link [@media(hover:hover)]:hover:underline">1.1 Definitions and Examples</Link></li>
                     
                 </ul>
             </div>

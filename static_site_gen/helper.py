@@ -7,7 +7,6 @@ import html
 from markdown2 import markdown
 from constants import *
 
-articles = []
 warnings = set()
 math_tags = ['Thm', 'Lemma', 'Prop', 'Proof', 'Defn', 'Example']
 
@@ -18,7 +17,8 @@ def wrap_in_js(jinja, name, isFolder, isReadmeOrHome):
     imports = ''
     if isFolder: imports += f'''
 import {{ FaBook }} from 'react-icons/fa'
-import {{ MdArticle }} from 'react-icons/md'
+import {{ GrArticle }} from "react-icons/gr";
+import {{ AiFillFolder }} from 'react-icons/ai'
 import Folder from '@/components/folder'
 '''
     if isReadmeOrHome or not isFolder: imports += f'''
@@ -28,25 +28,9 @@ import Spoiler from '@/components/spoiler'
 import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import {{ copyToClipboard, CopyButton }} from '@/components/copyButton'
-import {{ ToastContainer }} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import {{ {', '.join(math_tags)} }} from '@/components/math'
 '''
-
-    toastContainer = f'''
-                        <ToastContainer
-                            position='top-right'
-                            autoClose={{5000}}
-                            hideProgressBar={{false}}
-                            newestOnTop={{false}}
-                            closeOnClick
-                            rtl={{false}}
-                            pauseOnFocusLoss={{false}}
-                            pauseOnHover={{false}}
-                            theme='dark'
-                        />
-    ''' if isReadmeOrHome or not isFolder else ''
-
     return f'''
 import Layout from '@/components/layout'
 import Head from 'next/head'
@@ -56,9 +40,10 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
-
+import {{ ToastContainer }} from 'react-toastify'
 import {{ FaChevronRight, FaSearch }} from 'react-icons/fa'
 import {{ RiArrowGoBackFill }} from 'react-icons/ri'
+import {{ CiLogout }} from 'react-icons/ci'
 {imports}
 
 export default function {name.replace(' ', '')} () {{
@@ -68,7 +53,17 @@ export default function {name.replace(' ', '')} () {{
                 <title>{name} | Daniel C</title>
             </Head>
                 <>
-                    {toastContainer}
+                    <ToastContainer
+                        position='top-right'
+                        autoClose={{5000}}
+                        hideProgressBar={{false}}
+                        newestOnTop={{false}}
+                        closeOnClick
+                        rtl={{false}}
+                        pauseOnFocusLoss={{false}}
+                        pauseOnHover={{false}}
+                        theme='light'
+                    />
                     {jinja}
                 </>
         </Layout>
@@ -79,7 +74,8 @@ export default function {name.replace(' ', '')} () {{
 # find h2 tags with an id, add link anchor to them (each h2 in a markdown file is given a unique id by the header-ids extension)
 # this is an external function so that it can also be applied to the homepage (but the header ids must be manually put there)
 def add_link_anchors(page, cur_target_dir): 
-    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" className="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden group-hover:block text-primary">¶</Link></h2>', page, flags=re.DOTALL)
+    # return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" className="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden group-hover:block text-highlight-subtle no-underline">¶</Link></h2>', page, flags=re.DOTALL)
+    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="\1" className="underline underline-offset-2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
     return '' if timestamp==PLACEHOLDER_TIMESTAMP else datetime.fromtimestamp(timestamp).strftime('%d %b %Y')
@@ -93,11 +89,15 @@ def sanitize(path):
     return re.sub(r'[^a-zA-Z0-9-/]', '', path)
 
 def checksum(path):
+    hash = lambda plaintext: hashlib.md5(bytes(plaintext,'u8')).hexdigest()
     if not os.path.isdir(path):
         with open(path, 'r') as f:
-            return hashlib.md5(bytes(f.read(),'u8')).hexdigest()
-    concat = ''.join(checksum(path+'/'+child) for child in os.listdir(path))
-    return hashlib.md5(bytes(concat,'u8')).hexdigest()
+            return hash(f.read())
+    concat = []
+    for child in os.listdir(path):
+        concat.append(checksum(path+'/'+child)) # detect changes in children
+    concat.append(hash(path)) # detect new folders
+    return hash(''.join(concat))
     
 # turn html article content into plaintext
 def flatten_content(content, title):
@@ -123,18 +123,23 @@ def flatten_content(content, title):
     content = re.sub(r' +', ' ', content)
     return content
 
-def get_timestamp_and_filecount(cur_dir):
+def get_creation_timestamp_and_filecount(cur_dir):
     timestamp = PLACEHOLDER_TIMESTAMP
     if cur_dir.endswith('.md'):
-        try:
-            with open(SOURCE_DIR+cur_dir, 'r') as f:
-                timestamp = datetime.strptime(f.readline().strip(), '%d/%m/%Y %H:%M').timestamp()
-        except ValueError: pass
+        with open(SOURCE_DIR+cur_dir, 'r') as f:
+            try:
+                first = f.readline().strip()
+                second = f.readline().strip()
+                if second.startswith('created '):
+                    timestamp = datetime.strptime(second.split(' ', 1)[1], '%d/%m/%Y %H:%M').timestamp()
+                else:
+                    timestamp = datetime.strptime(first, '%d/%m/%Y %H:%M').timestamp()
+            except ValueError: pass
         return timestamp, 1
     filecount = 0
     for child in os.listdir(SOURCE_DIR+cur_dir):
         if child.endswith('__IMAGES__'): continue # exclude the special images directory
-        child_timestamp, child_filecount = get_timestamp_and_filecount(cur_dir+'/'+child)
+        child_timestamp, child_filecount = get_creation_timestamp_and_filecount(cur_dir+'/'+child)
         timestamp = max(timestamp, child_timestamp)
         filecount += child_filecount
     return timestamp, filecount
@@ -154,8 +159,8 @@ def get_folder_contents(cur_dir):
         child_dir = cur_dir+'/'+child
         item['name'] = sanitize(beautify(child))
         item['path'] = sanitize(beautify(cur_dir + '/' + item['name']))
-        item['timestamp'], item['filecount'] = get_timestamp_and_filecount(child_dir)
-        item['date_time'] = timestamp_to_str(item['timestamp'])
+        item['cr_timestamp'], item['filecount'] = get_creation_timestamp_and_filecount(child_dir)
+        item['cr_date_time'] = timestamp_to_str(item['cr_timestamp'])
         folder_contents.append(item)
     return folder_contents
 
@@ -194,19 +199,35 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
     article_data['coming_soon'] = False
     if extract_date:
         try:
-            date, truncated_file = file.split('\n', 1)
-            date = datetime.strptime(date, '%d/%m/%Y %H:%M')
-            article_data['timestamp'] = date.timestamp()
-            article_data['date_time'] = timestamp_to_str(date.timestamp())
-            file = truncated_file
+            first, second, rest = file.split('\n', 2)
+            if second.startswith('created '):
+                mod_date = datetime.strptime(first, '%d/%m/%Y %H:%M').timestamp()
+                article_data['mod_timestamp'] = mod_date
+                article_data['mod_date_time'] = timestamp_to_str(mod_date)
+                cr_date = datetime.strptime(second.split(' ', 1)[1], '%d/%m/%Y %H:%M').timestamp()
+                article_data['cr_timestamp'] = cr_date
+                article_data['cr_date_time'] = timestamp_to_str(cr_date)
+                file = rest
+            else: # no creation date supplied
+                mod_date = datetime.strptime(first, '%d/%m/%Y %H:%M').timestamp()
+                article_data['mod_timestamp'] = mod_date
+                article_data['mod_date_time'] = timestamp_to_str(mod_date)
+                article_data['cr_timestamp'] = mod_date
+                article_data['cr_date_time'] = timestamp_to_str(mod_date)
+                file = second + '\n' + rest
+                
         except ValueError:
             warn(f'no date found on first line of {path}, marking as "coming soon"')
-            article_data['timestamp'] = PLACEHOLDER_TIMESTAMP
-            article_data['date_time'] = ''
+            article_data['mod_timestamp'] = PLACEHOLDER_TIMESTAMP
+            article_data['mod_date_time'] = ''
+            article_data['cr_timestamp'] = PLACEHOLDER_TIMESTAMP
+            article_data['cr_date_time'] = ''
             article_data['coming_soon'] = True
     else:
-        article_data['timestamp'] = PLACEHOLDER_TIMESTAMP
-        article_data['date_time'] = ''
+        article_data['mod_timestamp'] = PLACEHOLDER_TIMESTAMP
+        article_data['mod_date_time'] = ''
+        article_data['cr_timestamp'] = PLACEHOLDER_TIMESTAMP
+        article_data['cr_date_time'] = ''
 
     # extract article title from markdown
     titles = re.findall(r'```.*?\n# .*?\n```|\n# (.*?)\n', '\n'+file, re.DOTALL) # extract lines starting with '# ' that aren't inside a code block (might be first line, so prepend \n)
@@ -287,7 +308,7 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
     page = re.sub(r'<p>__COPIABLE__</p>\n\n<CopyButton(.*?)/>\n\n<pre>(.*?)</pre>', r'<pre className="relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n\2</pre>', page)
 
     article_data['content'] = flatten_content(page, article_data['title'])
-    article_data['id'] = checksum(SOURCE_DIR+path)
+    article_data['id'] = hash(path)
 
     path_list = sanitize(beautify(path)).split('/')[1:-1] # path to parent folder
     article_data['dir'] = path_list
@@ -313,23 +334,29 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
     
     return page, article_data, page_title, copiable_article_plaintext, table_of_contents
 
+def get_path(article_data):
+    return '/'+'/'.join(article_data['dir'])+'/'+article_data['name']
+
 # parse the source files into jsx
 # returns a list of all the markdown files and their info (for "recent articles" and search functionality)
 # the root of dir_tree is the current node
 # the root of displayed_dir_tree is the closest parent folder marked as a course
-def gen_content(cur_dir, depth, article_list, dir_tree, displayed_dir_tree, checksum_tree): 
+def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree): 
     cur_path = SOURCE_DIR+cur_dir
     cur_target_dir = sanitize(beautify(cur_dir))
 
-    # skip if nothing changed since last compile
-    if not COMPILE_EVERYTHING and bool(checksum_tree) and checksum(cur_path) == checksum_tree['checksum']:
-        print('\033[2m'+'skipped '+ cur_dir.rjust(1,'/') +'\033[0m')
-        return
-    print(cur_dir)
-    course_parent_path = '/'.join(displayed_dir_tree['path'].split('/')[:-1])
-
     # exclude readmes
     if cur_dir.endswith('README.md'): return
+
+    # skip if nothing changed since last compile
+    if not COMPILE_EVERYTHING and cur_dir.endswith('.md') and bool(checksum_tree) and checksum(cur_path) == checksum_tree['checksum']:
+        # load old article data
+        old_article = [i for i in stored_articles if get_path(i) == cur_target_dir]
+        assert len(old_article) == 1
+        article_list.append(old_article[0])
+        print('\033[2m'+'skipped '+ cur_dir.rjust(1,'/') +'\033[0m')
+        return
+    course_parent_path = '/'.join(displayed_dir_tree['path'].split('/')[:-1])
 
     # the images directory
     if cur_dir.endswith('__IMAGES__'): 
@@ -341,13 +368,14 @@ def gen_content(cur_dir, depth, article_list, dir_tree, displayed_dir_tree, chec
 
     # markdown file
     elif cur_dir.endswith('.md'):
+        print(cur_dir)
         with open(cur_path, 'r') as markdown_file:
             file = markdown_file.read()
             page, article_data, page_title, copiable_article_plaintext, table_of_contents = parse_md_file_to_react(cur_dir, cur_target_dir, file)
 
         with open(TARGET_DIR+cur_target_dir+'.js', 'w') as output_file:
             react = wrap_in_js(
-                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, date_time=article_data['date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents),
+                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents),
                 page_title, False, False
             )
             output_file.write(react)
@@ -375,7 +403,7 @@ def gen_content(cur_dir, depth, article_list, dir_tree, displayed_dir_tree, chec
         child_displayed_dir_tree = displayed_dir_tree
         if bool(child_dir_tree) and child_dir_tree['is_marked_as_course']: child_displayed_dir_tree = child_dir_tree
 
-        gen_content(child_dir, depth+1, article_list, child_dir_tree, child_displayed_dir_tree, child_checksum_tree)
+        gen_content(child_dir, depth+1, article_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree)
 
     with open(TARGET_DIR+cur_target_dir+'/index.js', 'w') as output_file:
         folder_contents = get_folder_contents(cur_dir)
@@ -393,7 +421,7 @@ def gen_content(cur_dir, depth, article_list, dir_tree, displayed_dir_tree, chec
             page_title = ' '.join(page_title)
 
         folder_mainpage = ''
-        separator = '<br/><div className="border-t-[1px] border-elevated pb-2"></div>'
+        separator = '<br/><div className="border-t-[1px] border-border-strong pb-2"></div>'
         readme_exists = os.path.exists(cur_path+'/README.md')
         if readme_exists: # render folder readme
             with open(cur_path+'/README.md', 'r') as f:
@@ -403,8 +431,8 @@ def gen_content(cur_dir, depth, article_list, dir_tree, displayed_dir_tree, chec
             folder_mainpage = page + separator
         elif cur_dir == '': # render homepage
             # articles will have been populated, since root page is rendered last
-            recent_articles = list(filter(lambda x: x['timestamp']!=PLACEHOLDER_TIMESTAMP or x['coming_soon'], articles)) # remove articles without date
-            recent_articles.sort(key=lambda x:10000000000000000000000 if x['timestamp']==PLACEHOLDER_TIMESTAMP else x['timestamp'],reverse=True)
+            recent_articles = list(filter(lambda x: x['cr_timestamp']!=PLACEHOLDER_TIMESTAMP or x['coming_soon'], article_list)) # remove articles without date
+            recent_articles.sort(key=lambda x:10000000000000000000000 if x['cr_timestamp']==PLACEHOLDER_TIMESTAMP else x['cr_timestamp'],reverse=True)
             recent_articles = recent_articles[:3]
             with open(CHANGELOG_FILE, 'r') as f:
                 changelog = markdown(f.read())
@@ -414,7 +442,7 @@ def gen_content(cur_dir, depth, article_list, dir_tree, displayed_dir_tree, chec
             wrap_in_js(
                 TEMPLATE.render(
                     content=folder_mainpage+FOLDER_TEMPLATE.render(
-                        contents_by_time=sorted(folder_contents,key=lambda x:x['timestamp'], reverse=True),
+                        contents_by_time=sorted(folder_contents,key=lambda x:x['cr_timestamp'], reverse=True),
                         contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                         file_count=sum(item['filecount'] for item in folder_contents),
                     ),
@@ -438,7 +466,7 @@ def handle_warnings():
         print('\033[1;33mWarning: ' + i + '\033[0m')
 
     old_warnings = set()
-    if os.path.exists(WARNINGS_FILE):
+    if not COMPILE_EVERYTHING and os.path.exists(WARNINGS_FILE):
         with open(WARNINGS_FILE, 'r') as f:
             for line in f.readlines():
                 if line.strip() == '': continue

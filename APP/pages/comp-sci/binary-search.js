@@ -7,9 +7,10 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
-
+import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
+import { CiLogout } from 'react-icons/ci'
 
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
@@ -17,7 +18,6 @@ import Spoiler from '@/components/spoiler'
 import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
 
@@ -29,77 +29,40 @@ export default function BinarySearch () {
                 <title>Binary Search | Daniel C</title>
             </Head>
                 <>
-                    
-                        <ToastContainer
-                            position='top-right'
-                            autoClose={5000}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss={false}
-                            pauseOnHover={false}
-                            theme='dark'
-                        />
-    
+                    <ToastContainer
+                        position='top-right'
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss={false}
+                        pauseOnHover={false}
+                        theme='light'
+                    />
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="border-elevated overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
-            <div className="relative bottom-0 pl-4">
-                <ul className="dirtree mb-4 md:mb-0">
+        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+            <div className="relative bottom-0">
+                <ul className="dirtree mb-4 md:mb-0 group">
                     
                     
 
                     
                     
                         
-                            <Accordion title="root" href="" type="folder" isRoot={ true } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="root" href="" type="folder" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="comp-sci" href="/comp-sci" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="comp-sci" href="/comp-sci" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" isRoot={false} isSelected={ true } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="components" href="/components" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="maths" href="/maths" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" relDepth={ 2 } isSelected={ true } />
                         
                     
                                     
@@ -110,36 +73,23 @@ export default function BinarySearch () {
                                     
                                         
                         
-                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="maths" href="/maths" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
                                         
                         
-                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
+                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
+                                
                                     
                                         
                         
-                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
@@ -150,18 +100,58 @@ export default function BinarySearch () {
                                     
                                         
                         
-                            <Accordion title="research" href="/maths/research" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                                         
                         
-                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
                                         
                         
-                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="research" href="/maths/research" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
@@ -177,12 +167,12 @@ export default function BinarySearch () {
                                     
                                         
                         
-                            <Accordion title="writeups" href="/writeups" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="writeups" href="/writeups" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="terminal" href="/writeups/terminal" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="terminal" href="/writeups/terminal" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -208,20 +198,14 @@ export default function BinarySearch () {
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
-                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/comp-sci">comp-sci</Link></p>
+                    <span className="font-bold text-text-secondary">/</span>
+                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/comp-sci">comp-sci</Link></p>
                 
             </div>
         
 
         
-            <p className="text-elevated mb-4">Last updated 27 Jul 2023</p>
-        
-
-        
-            <div className="mb-4">
-                <CopyButton text="Everyone has performed a binary search without realizing: if you look for the word &quot;gerontology&quot; in the dictionary, you wouldn&#x27;t go flip through every page until you found it. Instead you&#x27;d check the middle, and if you overshot then you&#x27;d check the middle of the first chunk, then if you if undershot you&#x27;d check the middle of the remaining chunk, and so on, until you find the word. In programmer terms, we can use binary search to search for an item in a sorted array. We keep track of a left pointer and a right poiner. Then we check the middle index by (left + right) / 2 (rounding down). For example, if we were wanted to find the index of 8 in the array [1, 2, 5, 7, 8, 9, 10], we&#x27;d start by setting the left and right pointer to index 0 and index 6 respectively. [1, 2, 5, 7, 8, 9, 10] ^ ^ ^ left=0 mid=3 right=6 Then, since the item we&#x27;re looking for (8) is larger than the item at the middle, we know that it has to lie to the right of the middle pointer, thus we can update the left pointer to be mid+1. [1, 2, 5, 7, 8, 9, 10] ^ ^ l=4 r=6 Now the middle pointer is at index 5, and points to 9. This is more than 8, so we can update the right pointer to be mid-1: [1, 2, 5, 7, 8, 9, 10] ^ l=r=4 Now the left and right pointer point to the same thing, so we&#x27;ve found the index of 8: it&#x27;s 4. Well actually, we need one more check that the item that&#x27;s being pointed to is actually 8 - for example, if it was 7.5 instead, we&#x27;d still end up with left = right = 4. The time complexity of binary search is $O(\log n)$ , because each comparison halves the search space, so it takes a logarithmic number of operations (and $\log_2(n) = \frac&#123;\log n&#125;&#123;\log 2&#125;$). Pseudocode I like to define the left pointer as the one you know it&#x27;s definitely greater than or equal to, and the right pointer as the one you know it&#x27;s definitely less than. So, $l \leq x \lt r$. function search(arr, length, target) l := 0 r := n-1 while l+1 &lt; r do m := floor((l+r) / 2) if arr[m] &gt; target then r := m else if arr[m] &lt; target then l := m+1 else return m end end end Example problem: Minimum excludant Given a sorted array of distinct positive integers, find the smallest positive integer that is not in the array. Examples Input: [1, 2, 3, 5, 9, 12, 13] Output: 4 Input: [3, 5, 7, 10] Output: 1 Input: [1, 2, 3, 4] Output: 5 Solution Considering the smallest missing element from the array, we must have that the items before it are the positive integers in order, with no gaps. So the smallest missing element is the smallest element whose value is not equal to its index (indexing from 1). We can use binary search to find this. #!/usr/bin/python3 def solve(array): l = 0 r = len(array) while l != r: m = (l+r) // 2 if array[m] != m+1: r = m else: l = m+1 return l+1 Harder problem: Ntarsis&#x27; Set View problem on codeforces Ntarsis has been given a set $S$, initially containing the integers $1, 2, 3 \cdots, 10^&#123;1000&#125;$ in sorted order. Every day, he removes the $a_1$-th, $a_2$-th, $\cdots$, $a_n$-th smallest numbers in $S$ simultaneously. What is the smallest element in $S$ after $k$ days? Input The first line contains the number of testcases $t \;(1 \leq t \leq 10^5)$. The description of the testcases follows. The first line of each testcase consists of two integers $n$ and $k$ ($1 \leq n, k \leq 2 \cdot 10^5$) - the length of $a$ and the number of days. The following line of each testcase consists of $n$ integers $a_1, a_2, \cdots, a_n$ ($1 \leq a_i \leq 10^9$) - the elements of array $a$. It is guaranteed that: the sum of $n$ over all testcases does not exceed $2 \cdot 10^5$ the sum of $k$ over all testcases does not exceed $2 \cdot 10^5$ $a_1 \lt a_2 \lt \cdots \lt a_n$ for all testcases. Output For each testcase, print an integer that is the smallest element in $S$ after $k$ days. Example Input: 7 5 1 1 2 4 5 6 5 3 1 3 5 6 7 4 1000 2 3 4 5 9 1434 1 4 7 9 12 15 17 18 20 10 4 1 3 5 7 9 11 13 15 17 19 10 6 1 4 7 10 13 16 19 22 25 28 10 150000 1 3 4 5 10 11 12 13 14 15 Output: 3 9 1 12874 16 18 1499986 Solution Let&#x27;s simulate backwards instead of forwards. Instead of deleting the positions $a_1, a_2, \cdots, a_n$ each time then checking the first number after $k$ operations, let&#x27;s start with the number $1$ at the front and insert zeroes at positions $a_1 - 1, a_2 - 2, \cdots, a_n - n$ so that the zeroes will occupy positions $a_1, a_2, \cdots, a_n$ after insertion. After $k$ insertions, we check what position $1$ is in. If the current position of $1$ is $x$, then we need to find how many of $a_1, a_2, \cdots, a_n$ (note this is a nondecreasing sequence) are less than or equal to $x$. We can do this by binary searching on $a_1, a_2, \cdots, a_n$ to find the rightmost occurence of the largest number less than or equal to $x$. The index of that item is how many items will be inserted before the 1; thus we add it to $x$ to get the new position of the 1. If $a_1 \\neq 1$, then the answer is 1. Otherwise, we start with $x=0$ and perform the process described above $k$ times. The time complexity is $O(n + k \log n)$. C++ solution: __COPIABLE__ #include &lt;bits/stdc++.h&gt; #define ll long long using namespace std; int n, k, a[200010]; void solve() &#123; cin &gt;&gt; n &gt;&gt; k; for(int i=0; i&lt;n; ++i) &#123; cin &gt;&gt; a[i]; a[i] -= i+1; &#125; if(a[0] != 0) &#123; cout &lt;&lt; &quot;1\\n&quot;; return; &#125; ll x = 0; for(int i=0; i&lt;k; ++i) &#123; int l=0, r=n; int m; while(r-l&gt;1) &#123; m = (l+r)/2; if(a[m] &gt; x) r=m; else l=m; &#125; x += (ll)(l+1); &#125; cout &lt;&lt; x+1 &lt;&lt; &#x27;\\n&#x27;; &#125; int main() &#123; ios::sync_with_stdio(0); cin.tie(nullptr); int t; cin &gt;&gt; t; while(t--) solve(); &#125;">Copy article plaintext</CopyButton>
-            </div>
+            <p className="text-text-secondary mb-2">Created 27 Jul 2023</p>
         
 
         <div className="article mb-4">
@@ -254,7 +238,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 
 <p>The time complexity of binary search is <Latex>$O(\log n)$</Latex> , because each comparison halves the search space, so it takes a logarithmic number of operations (and <Latex>$\log_2(n) = \frac&#123;\log n&#125;&#123;\log 2&#125;$</Latex>).</p>
 
-<h2 id="pseudocode" className="group flex">Pseudocode&nbsp;<Link href="#pseudocode" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#pseudocode", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="pseudocode" className="underline underline-offset-2">Pseudocode</h2><Link href="#pseudocode" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#pseudocode", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 
 <p>I like to define the left pointer as the one you know it's definitely <em>greater than or equal to</em>, and the right pointer as the one you know it's definitely <em>less than</em>. So, <Latex>$l \leq x \lt r$</Latex>.</p>
 
@@ -263,7 +247,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 <pre><span></span><code><span className="k">function</span> <span className="n">search</span><span className="o">(</span><span className="n">arr</span><span className="o">,</span> <span className="n">length</span><span className="o">,</span> <span className="n">target</span><span className="o">)</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">l</span> <span className="o">:=</span> <span className="mi">0</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">r</span> <span className="o">:=</span> <span className="n">n</span><span className="o">-</span><span className="mi">1</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">while</span> <span className="n">l</span><span className="o">+</span><span className="mi">1</span> <span className="o">&lt;</span> <span className="n">r</span> <span className="k">do</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">m</span> <span className="o">:=</span> <span className="n">floor</span><span className="o">((</span><span className="n">l</span><span className="o">+</span><span className="n">r</span><span className="o">)</span> <span className="o">/</span> <span className="mi">2</span><span className="o">)</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">if</span> <span className="n">arr</span><span className="o">[</span><span className="n">m</span><span className="o">]</span> <span className="o">&gt;</span> <span className="n">target</span> <span className="k">then</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">r</span> <span className="o">:=</span> <span className="n">m</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">else</span> <span className="k">if</span> <span className="n">arr</span><span className="o">[</span><span className="n">m</span><span className="o">]</span> <span className="o">&lt;</span> <span className="n">target</span> <span className="k">then</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">l</span> <span className="o">:=</span> <span className="n">m</span><span className="o">+</span><span className="mi">1</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">else</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="n">return</span> <span className="n">m</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">end</span><br/><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span className="k">end</span><br/><span className="k">end</span><br/></code></pre>
 </div>
 
-<h2 id="example-problem-minimum-excludant" className="group flex">Example problem: Minimum excludant&nbsp;<Link href="#example-problem-minimum-excludant" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#example-problem-minimum-excludant", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="example-problem-minimum-excludant" className="underline underline-offset-2">Example problem: Minimum excludant</h2><Link href="#example-problem-minimum-excludant" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#example-problem-minimum-excludant", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 
 <blockquote>
   <p>Given a sorted array of distinct positive integers, find the smallest positive integer that is not in the array.</p>
@@ -302,7 +286,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 
 </Spoiler>
 
-<h2 id="harder-problem-ntarsis-set" className="group flex">Harder problem: Ntarsis' Set&nbsp;<Link href="#harder-problem-ntarsis-set" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#harder-problem-ntarsis-set", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="harder-problem-ntarsis-set" className="underline underline-offset-2">Harder problem: Ntarsis' Set</h2><Link href="#harder-problem-ntarsis-set" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#harder-problem-ntarsis-set", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 
 <p><ProminentLink href="https://codeforces.com/contest/1853/problem/C">View problem on codeforces</ProminentLink></p>
 
@@ -381,29 +365,39 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
         </div>
 
         
-            <div className="flex justify-start mb-4">
-                <Link href="/comp-sci">
-                    <div className="flex items-center justify-center space-x-1 text-primary">
-                        <RiArrowGoBackFill/>
-                        <p>up a level</p>
+            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+                
+                    <div className="flex justify-start">
+                        <Link href="/comp-sci">
+                            <div className="flex items-center justify-center space-x-1 text-text-secondary underline">
+                                <RiArrowGoBackFill/>
+                                <p>up a level</p>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
+                
+
+                
+                    <div className="">
+                        <CopyButton text="Everyone has performed a binary search without realizing: if you look for the word &quot;gerontology&quot; in the dictionary, you wouldn&#x27;t go flip through every page until you found it. Instead you&#x27;d check the middle, and if you overshot then you&#x27;d check the middle of the first chunk, then if you if undershot you&#x27;d check the middle of the remaining chunk, and so on, until you find the word. In programmer terms, we can use binary search to search for an item in a sorted array. We keep track of a left pointer and a right poiner. Then we check the middle index by (left + right) / 2 (rounding down). For example, if we were wanted to find the index of 8 in the array [1, 2, 5, 7, 8, 9, 10], we&#x27;d start by setting the left and right pointer to index 0 and index 6 respectively. [1, 2, 5, 7, 8, 9, 10] ^ ^ ^ left=0 mid=3 right=6 Then, since the item we&#x27;re looking for (8) is larger than the item at the middle, we know that it has to lie to the right of the middle pointer, thus we can update the left pointer to be mid+1. [1, 2, 5, 7, 8, 9, 10] ^ ^ l=4 r=6 Now the middle pointer is at index 5, and points to 9. This is more than 8, so we can update the right pointer to be mid-1: [1, 2, 5, 7, 8, 9, 10] ^ l=r=4 Now the left and right pointer point to the same thing, so we&#x27;ve found the index of 8: it&#x27;s 4. Well actually, we need one more check that the item that&#x27;s being pointed to is actually 8 - for example, if it was 7.5 instead, we&#x27;d still end up with left = right = 4. The time complexity of binary search is $O(\log n)$ , because each comparison halves the search space, so it takes a logarithmic number of operations (and $\log_2(n) = \frac&#123;\log n&#125;&#123;\log 2&#125;$). Pseudocode I like to define the left pointer as the one you know it&#x27;s definitely greater than or equal to, and the right pointer as the one you know it&#x27;s definitely less than. So, $l \leq x \lt r$. function search(arr, length, target) l := 0 r := n-1 while l+1 &lt; r do m := floor((l+r) / 2) if arr[m] &gt; target then r := m else if arr[m] &lt; target then l := m+1 else return m end end end Example problem: Minimum excludant Given a sorted array of distinct positive integers, find the smallest positive integer that is not in the array. Examples Input: [1, 2, 3, 5, 9, 12, 13] Output: 4 Input: [3, 5, 7, 10] Output: 1 Input: [1, 2, 3, 4] Output: 5 Solution Considering the smallest missing element from the array, we must have that the items before it are the positive integers in order, with no gaps. So the smallest missing element is the smallest element whose value is not equal to its index (indexing from 1). We can use binary search to find this. #!/usr/bin/python3 def solve(array): l = 0 r = len(array) while l != r: m = (l+r) // 2 if array[m] != m+1: r = m else: l = m+1 return l+1 Harder problem: Ntarsis&#x27; Set View problem on codeforces Ntarsis has been given a set $S$, initially containing the integers $1, 2, 3 \cdots, 10^&#123;1000&#125;$ in sorted order. Every day, he removes the $a_1$-th, $a_2$-th, $\cdots$, $a_n$-th smallest numbers in $S$ simultaneously. What is the smallest element in $S$ after $k$ days? Input The first line contains the number of testcases $t \;(1 \leq t \leq 10^5)$. The description of the testcases follows. The first line of each testcase consists of two integers $n$ and $k$ ($1 \leq n, k \leq 2 \cdot 10^5$) - the length of $a$ and the number of days. The following line of each testcase consists of $n$ integers $a_1, a_2, \cdots, a_n$ ($1 \leq a_i \leq 10^9$) - the elements of array $a$. It is guaranteed that: the sum of $n$ over all testcases does not exceed $2 \cdot 10^5$ the sum of $k$ over all testcases does not exceed $2 \cdot 10^5$ $a_1 \lt a_2 \lt \cdots \lt a_n$ for all testcases. Output For each testcase, print an integer that is the smallest element in $S$ after $k$ days. Example Input: 7 5 1 1 2 4 5 6 5 3 1 3 5 6 7 4 1000 2 3 4 5 9 1434 1 4 7 9 12 15 17 18 20 10 4 1 3 5 7 9 11 13 15 17 19 10 6 1 4 7 10 13 16 19 22 25 28 10 150000 1 3 4 5 10 11 12 13 14 15 Output: 3 9 1 12874 16 18 1499986 Solution Let&#x27;s simulate backwards instead of forwards. Instead of deleting the positions $a_1, a_2, \cdots, a_n$ each time then checking the first number after $k$ operations, let&#x27;s start with the number $1$ at the front and insert zeroes at positions $a_1 - 1, a_2 - 2, \cdots, a_n - n$ so that the zeroes will occupy positions $a_1, a_2, \cdots, a_n$ after insertion. After $k$ insertions, we check what position $1$ is in. If the current position of $1$ is $x$, then we need to find how many of $a_1, a_2, \cdots, a_n$ (note this is a nondecreasing sequence) are less than or equal to $x$. We can do this by binary searching on $a_1, a_2, \cdots, a_n$ to find the rightmost occurence of the largest number less than or equal to $x$. The index of that item is how many items will be inserted before the 1; thus we add it to $x$ to get the new position of the 1. If $a_1 \\neq 1$, then the answer is 1. Otherwise, we start with $x=0$ and perform the process described above $k$ times. The time complexity is $O(n + k \log n)$. C++ solution: __COPIABLE__ #include &lt;bits/stdc++.h&gt; #define ll long long using namespace std; int n, k, a[200010]; void solve() &#123; cin &gt;&gt; n &gt;&gt; k; for(int i=0; i&lt;n; ++i) &#123; cin &gt;&gt; a[i]; a[i] -= i+1; &#125; if(a[0] != 0) &#123; cout &lt;&lt; &quot;1\\n&quot;; return; &#125; ll x = 0; for(int i=0; i&lt;k; ++i) &#123; int l=0, r=n; int m; while(r-l&gt;1) &#123; m = (l+r)/2; if(a[m] &gt; x) r=m; else l=m; &#125; x += (ll)(l+1); &#125; cout &lt;&lt; x+1 &lt;&lt; &#x27;\\n&#x27;; &#125; int main() &#123; ios::sync_with_stdio(0); cin.tie(nullptr); int t; cin &gt;&gt; t; while(t--) solve(); &#125;">Copy article plaintext</CopyButton>
+                    </div>
+                
             </div>
         
 
     </article>
 
     
-        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-elevated px-6 py-4">
-            <div className="fixed">
-                <h1 className="font-bold text-xl">In this Article</h1>
-                <ul className="text-elevated">
+        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
+            <div className="fixed text-text-secondary">
+                <h1 className="text-lg">Table of contents</h1>
+                <ul>
                     
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#pseudocode" className="text-link [@media(hover:hover)]:hover:underline">Pseudocode</Link></li>
+                        <li className="pt-1 font-bold"><Link href="#pseudocode" className="text-link [@media(hover:hover)]:hover:underline">Pseudocode</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#example-problem-minimum-excludant" className="text-link [@media(hover:hover)]:hover:underline">Example problem: Minimum excludant</Link></li>
+                        <li className="pt-1 font-bold"><Link href="#example-problem-minimum-excludant" className="text-link [@media(hover:hover)]:hover:underline">Example problem: Minimum excludant</Link></li>
                     
-                        <li className="pt-2 text-lg font-bold flex items-start justify-start space-x-1"><FaChevronRight className="relative top-2" size={12}/><Link href="#harder-problem-ntarsis-set" className="text-link [@media(hover:hover)]:hover:underline">Harder problem: Ntarsis' Set</Link></li>
+                        <li className="pt-1 font-bold"><Link href="#harder-problem-ntarsis-set" className="text-link [@media(hover:hover)]:hover:underline">Harder problem: Ntarsis' Set</Link></li>
                     
                 </ul>
             </div>

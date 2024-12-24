@@ -7,12 +7,14 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
-
+import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
+import { CiLogout } from 'react-icons/ci'
 
 import { FaBook } from 'react-icons/fa'
-import { MdArticle } from 'react-icons/md'
+import { GrArticle } from "react-icons/gr";
+import { AiFillFolder } from 'react-icons/ai'
 import Folder from '@/components/folder'
 
 
@@ -23,65 +25,40 @@ export default function Writeups () {
                 <title>Writeups | Daniel C</title>
             </Head>
                 <>
-                    
+                    <ToastContainer
+                        position='top-right'
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss={false}
+                        pauseOnHover={false}
+                        theme='light'
+                    />
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="border-elevated overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
-            <div className="relative bottom-0 pl-4">
-                <ul className="dirtree mb-4 md:mb-0">
+        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+            <div className="relative bottom-0">
+                <ul className="dirtree mb-4 md:mb-0 group">
                     
                     
 
                     
                     
                         
-                            <Accordion title="root" href="" type="folder" isRoot={ true } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="root" href="" type="folder" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="comp-sci" href="/comp-sci" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="comp-sci" href="/comp-sci" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="components" href="/components" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="maths" href="/maths" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -92,36 +69,23 @@ export default function Writeups () {
                                     
                                         
                         
-                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="maths" href="/maths" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
                                         
                         
-                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
+                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
+                                
                                     
                                         
                         
-                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
@@ -132,18 +96,58 @@ export default function Writeups () {
                                     
                                         
                         
-                            <Accordion title="research" href="/maths/research" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                                         
                         
-                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
                                         
                         
-                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="research" href="/maths/research" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
@@ -159,12 +163,12 @@ export default function Writeups () {
                                     
                                         
                         
-                            <Accordion title="writeups" href="/writeups" type="folder" isRoot={ false } isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="writeups" href="/writeups" type="folder" relDepth={ 1 } isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="terminal" href="/writeups/terminal" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="terminal" href="/writeups/terminal" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -190,12 +194,10 @@ export default function Writeups () {
         
             <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
                 
-                    <span className="relative top-[0.1em] text-elevated"> <FaChevronRight size={12}/> </span>
-                    <p className="text-lg font-bold text-secondary [@media(hover:hover)]:hover:underline"><Link href="/writeups">writeups</Link></p>
+                    <span className="font-bold text-text-secondary">/</span>
+                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/writeups">writeups</Link></p>
                 
             </div>
-        
-
         
 
         
@@ -209,11 +211,11 @@ export default function Writeups () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/writeups/terminal">
-                    <div className="flex items-center space-x-1 text-lg">
+                    <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <MdArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">terminal</p>
                     </div>
@@ -224,11 +226,11 @@ export default function Writeups () {
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/writeups/terminal">
-                    <div className="flex items-center space-x-1 text-lg">
+                    <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <MdArticle className="shrink-0"/>
+                            <AiFillFolder className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">terminal</p>
                     </div>
@@ -243,13 +245,19 @@ export default function Writeups () {
         </div>
 
         
-            <div className="flex justify-start mb-4">
-                <Link href="/">
-                    <div className="flex items-center justify-center space-x-1 text-primary">
-                        <RiArrowGoBackFill/>
-                        <p>up a level</p>
+            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+                
+                    <div className="flex justify-start">
+                        <Link href="/">
+                            <div className="flex items-center justify-center space-x-1 text-text-secondary underline">
+                                <RiArrowGoBackFill/>
+                                <p>up a level</p>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
+                
+
+                
             </div>
         
 

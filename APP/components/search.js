@@ -1,7 +1,7 @@
 import { useMiniSearch } from 'react-minisearch'
 import documents from '@/article_data.json'
 import { useEffect, useRef, useState } from 'react'
-import { FaChevronRight } from 'react-icons/fa'
+import { FaArrowRight, FaChevronRight } from 'react-icons/fa'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -52,8 +52,7 @@ export default function Search({ active, isMobile }) {
             setSelectedResult(newSelectedResult)
         } else if (e.key == 'Enter') {
             let result = searchResults[selectedResult]
-            //router.push(getPath(result.dir, result.name))
-            router.push('//asdf')
+            router.push(getPath(result.dir, result.name))
             router.refresh() // else, if select search result equal to current page then nothing happens
         }
     }
@@ -94,20 +93,18 @@ export default function Search({ active, isMobile }) {
                     { searchResults && searchResults.map((result, i) => {
                         let re = substrsToRegex(inputRef.current.value)
                         if(!re) return
-                        let title = highlightMatchesInString(re, result.title, 'text-bold')
+                        let title = highlightMatchesInString(re, result.title, 'text-highlight-strong font-bold')
                         let matchedTitle = title.length>1 // split into at least two tokens means found match
 
                         let jsxDir = []
                         let matchedDir = false
                         result.dir.forEach((folder) => {
-                            let tokens = highlightMatchesInString(re, folder, 'text-secondary font-bold')
+                            let tokens = highlightMatchesInString(re, folder, 'text-highlight-subtle font-bold')
                             if(tokens.length>1) matchedDir = true
                             jsxDir.push(...tokens)
-                            jsxDir.push(<>&nbsp;<FaChevronRight className='text-elevated relative top-[1px]' size={12}/>&nbsp;</>)
+                            jsxDir.push(<span className='font-bold text-text-secondary mx-0.5'>/</span>)
                         })
-                        jsxDir.pop()
-                        jsxDir.push(<span className='font-bold'>&nbsp;/&nbsp;</span>)
-                        let name = highlightMatchesInString(re, result.name, 'text-secondary font-bold')
+                        let name = highlightMatchesInString(re, result.name, 'text-highlight-subtle font-bold')
                         let matchedName = name.length>1
                         jsxDir.push(...name)
 
@@ -119,16 +116,16 @@ export default function Search({ active, isMobile }) {
                         */
 
                         return (
-                            <li key={i} id={`result-${i}`} className='m-4 text-elevated' onMouseEnter={() => {setSelectedResult(i)}} onTouchStart={() => {setSelectedResult(i)}}>
+                            <li key={i} id={`result-${i}`} className='m-4 text-text-primary' onMouseMove={() => {setSelectedResult(i)}} onTouchStart={() => {setSelectedResult(i)}}>
                                 <Link href={getPath(result.dir, result.name)}>
-                                    <div className={`bg-black ${i==selectedResult ? 'text-white bg-opacity-50' : 'bg-opacity-20'} rounded-lg flex justify-between`}>
+                                    <div className={`${i==selectedResult ? 'bg-layer-hover' : 'bg-layer'} rounded-lg flex justify-between`}>
                                         <div className='p-4 pt-2'>
-                                            <p className='flex flex-wrap items-center align-middle mb-1'>{jsxDir}</p>
-                                            <p className='text-xl font-bold mb-1'>{title}</p>
-                                            <p className={`${matchedTitle||matchedDir||matchedName ? 'hidden ' : ''}italic text-italic`}>Content matches</p>
+                                            <p className='text-text-secondary flex flex-wrap items-center align-middle mb-1'>{jsxDir}</p>
+                                            <p className='text-xl'>{title}</p>
+                                            <p className={`${matchedTitle||matchedDir||matchedName ? 'hidden ' : 'mt-1'} italic text-link`}>Content matches</p>
                                         </div>
                                         <div className='flex justify-center items-center px-2 rounded-r-lg'>
-                                            <p className={`text-lg font-bold${i==selectedResult ? ' text-white' : ''}`}>&gt;</p>
+                                            <p className={`text-lg${i==selectedResult ? ' text-text-inverse' : ''}`}><FaArrowRight/></p>
                                         </div>
                                     </div>
                                 </Link>

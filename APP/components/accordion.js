@@ -2,9 +2,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { AiFillFolder } from 'react-icons/ai'
 import { AiFillFolderOpen } from 'react-icons/ai'
-import { FaBook } from 'react-icons/fa'
+import { FaBook, FaChevronRight, FaChevronDown } from 'react-icons/fa'
+import { GrArticle } from "react-icons/gr";
 
-export default function Accordion({title, href, type, isRoot, isSelected, isOpenByDefault, children}) {
+export default function Accordion({title, href, type, relDepth, isSelected, isOpenByDefault, children}) {
 
     if(href==="") href = "/"
 
@@ -14,41 +15,47 @@ export default function Accordion({title, href, type, isRoot, isSelected, isOpen
         setActiveState(!active)
     }
 
-    let titleWrapper = (
-        <Link href={href} className='[@media(hover:hover)]:hover:underline'>
-            {title}
-        </Link>
-    )
-    let titleElement = ""
-    if(type === 'folder' || type === 'course' && isRoot ) {
-        titleElement = (
-            <div className={`font-bold flex items-center space-x-1 ${isSelected ? 'text-secondary' : 'text-primary'}`}>
-                {type === 'folder' ? (
-                    <button className='cursor-crosshair [@media(hover:hover)]:hover:text-secondary' onClick={toggleAccordion}>
-                        {active ? <AiFillFolderOpen size={20}/> : <AiFillFolder size={20}/>}
-                    </button>
-                ) : (
-                    <FaBook size={18}/>
-                )}
-                {titleWrapper}
+    function handleClick(event) {
+        event.preventDefault() // stop link from triggering
+        toggleAccordion()
+    }
+
+    let padding = []
+    for(let i=0; i<relDepth; ++i) padding.push(<div className='flex self-stretch pl-[9px] pr-0'><div className={`border-l-2 ${isSelected ? 'border-background-inverse [@media(hover:hover)]:group-hover:border-border-inverse' : 'border-background [@media(hover:hover)]:group-hover:border-border-subtle'}`}></div></div>)
+
+    var icon
+    if(type === 'folder' || type === 'course' && relDepth==0) {
+        icon = ( type === 'folder' ? (
+            <div className="flex self-stretch">
+                <button className={`${isSelected ? '[@media(hover:hover)]:hover:bg-background-hover-hover' : '[@media(hover:hover)]:hover:bg-background-inverse-hover'} flex items-center relative px-[2px]`} onClick={handleClick}>
+                    {active ? <FaChevronDown size={16}/> : <FaChevronRight size={16}/>}
+                </button>
+                <div className="flex items-center ml-[2px]">
+                    {active ? <AiFillFolderOpen size={20}/> : <AiFillFolder size={20}/>}
+                </div>
             </div>
-        )
-    } else if(type === 'course' && !isRoot) {
-        titleElement = (
-            <div className={`flex items-center space-x-1 ${isSelected ? 'text-secondary' : ''}`}>
-                <span className='text-elevated'><FaBook/></span>
-                {titleWrapper}
-            </div>
+        ) : (
+            <FaBook size={18}/>
+        ))
+    } else if(type === 'course' && !relDepth==0) {
+        icon = (
+            <span className='pl-[22px]'><FaBook size={18}/></span>
         )
     } else if(type === 'file') {
-        titleElement = (
-            <p className={isSelected ? 'text-secondary' : ''}>{titleWrapper}</p>
+        icon = (
+            <>&nbsp;&nbsp;<GrArticle size={20}/></>
         )
     }
 
     return (
         <li>
-            {titleElement}
+            <Link href={href}>
+                <div className={`w-full flex items-center pl-2 ${isSelected ? 'text-text-inverse bg-background-inverse' : 'text-text-secondary [@media(hover:hover)]:hover:bg-background-hover '}`}>
+                    {padding}
+                    {icon}
+                    <span className='ml-1'>{title}</span>
+                </div>
+            </Link>
             <ul className={`${active ? '' : 'max-h-0'} overflow-hidden`}>
                 {children}
             </ul>

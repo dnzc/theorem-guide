@@ -4,10 +4,10 @@ export default function Layout({ children }) {
     return (
         <div>
             <Head>
-                <meta name='description' content='Daniel C&apos;s personal site' />
+                <meta name='description' content='Daniel C&apos;s course notes' />
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <meta name='og:image' content='/favicon.ico' />
-                <meta name='og:title' content='Daniel C' />
+                <meta name='og:title' content='Course Notes | Daniel C' />
                 <meta name='twitter:card' content='summary_large_image' />
 
                 <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />

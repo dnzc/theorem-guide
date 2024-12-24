@@ -9,11 +9,11 @@
 function render_statement(statement, outofline, type, name, num, unbolded ) {
     let displayed_num = num != -1 ? <> {num}</> : <></>
     let displayed_name = name ? <>({name})</> : <></>
-    let title_style = unbolded ?  'italic text-elevated underline underline-offset-2' : 'italic text-italic font-bold underline underline-offset-2'
+    let title_style = 'italic text-highlight-subtle' + (unbolded ? '' : ' font-bold')
     let title = (
         <div className='inline-flex flex-wrap gap-1 text-left'>
             <span className={title_style}>{type}{displayed_num}.</span>
-            <span className='text-elevated font-bold'>{displayed_name}</span>
+            <span className='text-text-secondary'>{displayed_name}</span>
         </div>
     )
     if(outofline) return (

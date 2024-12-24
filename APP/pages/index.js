@@ -7,12 +7,14 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
-
+import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
+import { CiLogout } from 'react-icons/ci'
 
 import { FaBook } from 'react-icons/fa'
-import { MdArticle } from 'react-icons/md'
+import { GrArticle } from "react-icons/gr";
+import { AiFillFolder } from 'react-icons/ai'
 import Folder from '@/components/folder'
 
 import 'katex/dist/katex.min.css'
@@ -21,7 +23,6 @@ import Spoiler from '@/components/spoiler'
 import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
 
@@ -33,77 +34,40 @@ export default function CourseNotes () {
                 <title>Course Notes | Daniel C</title>
             </Head>
                 <>
-                    
-                        <ToastContainer
-                            position='top-right'
-                            autoClose={5000}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss={false}
-                            pauseOnHover={false}
-                            theme='dark'
-                        />
-    
+                    <ToastContainer
+                        position='top-right'
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss={false}
+                        pauseOnHover={false}
+                        theme='light'
+                    />
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="border-elevated overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-auto md:max-h-[calc(100vh-15rem)] break-all">
-            <div className="relative bottom-0 pl-4">
-                <ul className="dirtree mb-4 md:mb-0">
+        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+            <div className="relative bottom-0">
+                <ul className="dirtree mb-4 md:mb-0 group">
                     
                     
 
                     
                     
                         
-                            <Accordion title="root" href="" type="folder" isRoot={ true } isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="root" href="" type="folder" relDepth={ 0 } isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="comp-sci" href="/comp-sci" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="comp-sci" href="/comp-sci" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="components" href="/components" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="maths" href="/maths" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -114,36 +78,23 @@ export default function CourseNotes () {
                                     
                                         
                         
-                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="maths" href="/maths" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
                                         
                         
-                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
+                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
+                                
                                     
                                         
                         
-                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" isRoot={false} isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
@@ -154,18 +105,58 @@ export default function CourseNotes () {
                                     
                                         
                         
-                            <Accordion title="research" href="/maths/research" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ false } >
+                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
                                 
                                     
                                         
                         
-                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
                                         
                         
-                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                
+                            </Accordion>
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="research" href="/maths/research" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
+                                
+                                    
+                                        
+                        
+                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" relDepth={ 3 } isSelected={ false } />
+                        
+                    
+                                    
+                                        
+                        
+                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" relDepth={ 3 } isSelected={ false } />
                         
                     
                                     
@@ -181,12 +172,12 @@ export default function CourseNotes () {
                                     
                                         
                         
-                            <Accordion title="writeups" href="/writeups" type="folder" isRoot={ false } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="writeups" href="/writeups" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="terminal" href="/writeups/terminal" type="file" isRoot={false} isSelected={ false } />
+                            <Accordion title="terminal" href="/writeups/terminal" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -213,22 +204,17 @@ export default function CourseNotes () {
 
         
 
-        
-
         <div className="article mb-4">
             <div className="space-y-6">
 
     <div className="text-xs font-mono leading-[0.8rem] flex flex-col">
-        <div className="hidden sm:block">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold text-green-400">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;&amp;</span></span><span className="text-green-800">&amp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-800"><span className="font-bold text-green-400">&amp;</span></span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span>&nbsp;<span className="font-bold text-green-400">&amp;</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold text-green-400"><span className="text-green-800">&amp;&amp;&amp;</span></span><span className="font-bold"><span className="font-bold text-yellow-800">&amp;</span></span><span className="text-yellow-400">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="font-bold text-green-400">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-green-400"><span className="font-bold text-yellow-800">&amp;</span></span></span><span className="text-yellow-400">&amp;</span><span className="font-bold"><span className="font-bold text-yellow-800">&amp;</span></span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-800">&amp;<span className="font-bold text-green-400">&amp;<span className="text-yellow-400">&amp;&amp;<span className="text-green-800">&amp;&amp;</span></span></span></span><span className="font-bold"><span className="font-bold text-yellow-800">\</span></span><span className="font-bold text-green-400">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="font-bold text-green-400">&amp;<span className="text-yellow-400">\<span className="text-green-800">&amp;&amp;</span></span></span>&nbsp;&nbsp;<span className="text-green-800">&amp;<span className="font-bold text-green-400">&amp;</span></span><span className="font-bold"><span className="font-bold text-green-400">&amp;<span className="font-bold text-yellow-800">/</span></span></span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold text-green-400">&amp;</span>&nbsp;<span className="text-green-800">&amp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="text-green-800">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="font-bold text-green-400">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="font-bold text-green-400">&amp;</span><span className="font-bold text-green-400">&amp;</span><span className="text-green-800">&amp;&amp;&amp;&amp;<span className="font-bold text-green-400">&amp;<span className="text-green-800">&amp;&amp;&amp;<span className="font-bold text-green-400">&amp;<span className="text-yellow-400">/<span className="text-green-800">&amp;</span></span></span></span></span></span><span className="font-bold text-green-400">&amp;<span className="font-bold text-green-400">&amp;</span></span><span className="text-green-800">&amp;</span><br/><span className="text-green-800">&amp;</span>&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="font-bold text-green-400">&amp;</span>&nbsp;<span className="font-bold text-green-400">&amp;&amp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold text-green-400"><span className="text-green-800">&amp;&amp;&amp;<span className="font-bold text-green-400">&amp;<span className="text-green-800">&amp;&amp;&amp;</span></span></span></span><span className="font-bold text-green-400">&amp;</span><span className="text-yellow-400">~</span><span className="font-bold"><span className="font-bold text-yellow-800">\<span className="font-bold text-green-400">&amp;<span className="text-green-800">&amp;<span className="font-bold text-green-400">&amp;&amp;</span></span></span></span></span><span className="text-green-800">&amp;</span><span className="font-bold"><span className="font-bold text-yellow-800">/</span></span><span className="text-green-800">&amp;&amp;<span className="font-bold text-green-400">&amp;</span></span>&nbsp;<span className="font-bold text-green-400">&amp;</span><br/>&nbsp;<span className="font-bold"><span className="font-bold text-yellow-800">&amp;&amp;</span></span>&nbsp;<span className="text-yellow-400">&amp;</span>&nbsp;<span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="text-green-800">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="text-yellow-400">\_</span><span className="font-bold"><span className="font-bold text-yellow-800">|</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold text-yellow-800"><span className="font-bold text-green-400">&amp;</span></span><span className="text-yellow-400">|\<span className="text-green-800">&amp;</span></span><span className="font-bold"><span className="font-bold text-yellow-800">\/|\</span></span><span className="text-yellow-400">/<span className="text-green-800">&amp;&amp;&amp;</span></span><span className="font-bold"><span className="font-bold text-yellow-800">|</span></span><span className="text-yellow-400">/~</span><br/>&nbsp;&nbsp;&nbsp;<span className="font-bold text-green-400">&amp;</span><span className="text-green-800">&amp;&amp;</span><span className="font-bold text-green-400">&amp;<span className="font-bold text-green-400">&amp;</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400">\__</span><span className="font-bold"><span className="font-bold text-yellow-800">\__</span></span><span className="text-yellow-400">\<span className="font-bold text-green-400">&amp;</span></span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="text-yellow-400">\<span className="font-bold text-green-400">&amp;</span></span><span className="font-bold"><span className="font-bold text-yellow-800">|/~</span></span><span className="text-green-800">&amp;&amp;&amp;</span>&nbsp;<span className="text-yellow-400">|/</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="font-bold text-green-400">&amp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold text-green-400">&amp;</span><span className="font-bold"><span className="font-bold text-yellow-800">/</span></span><span className="text-yellow-400">|//</span><span className="font-bold"><span className="font-bold text-green-400">&amp;&amp;<span className="text-green-800">&amp;<span className="font-bold text-green-400">&amp;<span className="font-bold text-yellow-800">|/</span></span></span></span></span><span className="font-bold text-green-400">&amp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-800">&amp;</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-yellow-800">\|</span></span><span className="text-yellow-400">|/</span><span className="font-bold"><span className="font-bold text-yellow-800">~</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-yellow-800">|/</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-800">&amp;</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-yellow-800">|/</span></span><span className="text-yellow-400">\</span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400">\|</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400"><span className="text-green-800">&amp;</span></span><span className="font-bold"><span className="font-bold text-green-400">&amp;&amp;&amp;</span></span><span className="text-yellow-400">&amp;<span className="font-bold text-green-400">&amp;</span></span>&nbsp;<span className="font-bold"><span className="text-green-800"><span className="font-bold">&amp;<br/></span></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400">|//</span><span className="font-bold"><span className="font-bold text-yellow-800">|\</span></span>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400">/~</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-800">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="font-bold text-green-400">&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;</span></span><span className="text-yellow-400">_&amp;</span><span className="font-bold"><span className="font-bold text-green-400">&amp;&amp;</span></span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-green-400"><span className="font-bold text-yellow-800">\|</span></span></span><span className="text-yellow-400">//|\</span>&nbsp;&nbsp;<span className="text-yellow-400">|/_</span><span className="font-bold"><span className="font-bold text-yellow-800">__/</span></span><span className="text-yellow-400">_/</span><span className="font-bold"><span className="font-bold text-green-400">&amp;<span className="font-bold text-yellow-800">_/</span></span></span>&nbsp;<span className="font-bold text-green-400">&amp;<span className="text-green-800">&amp;<span className="font-bold text-green-400">&amp;</span></span></span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold text-green-400"><span className="text-green-800"><span className="font-bold text-green-400"><span className="text-yellow-400">\</span></span></span></span><span className="font-bold"><span className="font-bold text-yellow-800">/~\</span></span><span className="text-yellow-400">|</span>&nbsp;&nbsp;<span className="text-yellow-400">\|</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-yellow-800">/~</span></span>&nbsp;<span className="font-bold"><span className="font-bold text-yellow-800">|/</span></span><span className="text-yellow-400">/|</span><span className="font-bold"><span className="font-bold text-yellow-800">/~</span></span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400">/|/</span><span className="font-bold"><span className="font-bold text-yellow-800">/~</span></span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400">/</span><span className="font-bold"><span className="font-bold text-yellow-800">|/~</span></span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-yellow-400">/~</span><span className="font-bold"><span className="font-bold text-yellow-800">/</span></span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold"><span className="font-bold text-yellow-800">//</span></span><span className="text-yellow-400">/~</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="font-bold text-yellow-800">./~~~\.</span>
-        </div>
 
-        <div className="hidden md:block text-primary font-bold">
+        <div className="hidden md:block text-highlight-strong font-bold">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>&nbsp;&nbsp;__|&nbsp;|&nbsp;__&nbsp;_&nbsp;_&nbsp;__&nbsp;&#40;_&#41;&nbsp;___|&nbsp;|&nbsp;___&nbsp;&nbsp;&nbsp;_&nbsp;__&nbsp;___&nbsp;&nbsp;&nbsp;___|&nbsp;|&nbsp;_____&nbsp;<br/>&nbsp;/&nbsp;_`&nbsp;|/&nbsp;_`&nbsp;|&nbsp;'_&nbsp;\|&nbsp;|/&nbsp;_&nbsp;\&nbsp;|/&nbsp;__|&nbsp;|&nbsp;'__/&nbsp;_&nbsp;\&nbsp;/&nbsp;__|&nbsp;|/&nbsp;/&nbsp;__|<br/>|&nbsp;&#40;_|&nbsp;|&nbsp;&#40;_|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;__/&nbsp;|&nbsp;&#40;__&nbsp;_|&nbsp;|&nbsp;|&nbsp;&#40;_&#41;&nbsp;|&nbsp;&#40;__|&nbsp;&nbsp;&nbsp;&lt;\__&nbsp;\<br/>&nbsp;\__,_|\__,_|_|&nbsp;|_|_|\___|_|\___&#40;_&#41;_|&nbsp;&nbsp;\___/&nbsp;\___|_|\_\___/
         </div>
     </div>
 
-    <p className="block md:hidden text-3xl font-bold text-primary break-all">notes.danielc.rocks</p>
+    <p className="block md:hidden text-3xl font-bold text-highlight-strong break-all">notes.danielc.rocks</p>
 
     <p>
         This site is a collection of in-depth notes I've written for various courses, including some in Part IB of the Mathematical Tripos.
@@ -251,17 +237,51 @@ export default function CourseNotes () {
 
             
                 <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base">
-                        <p className="text-elevated mr-2">
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
+                        <p className="text-highlight-subtle mr-2">
+                            
+                                20 Dec 2024
+                            
+                        </p>
+                        
+                            <p className="italic">maths</p>
+                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
+                            <p className="italic">Analysis-Topology</p>
+                        
+                    </div>
+                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/Analysis-Topology/example-sheets" className="hover:underline">Example Sheet Questions</Link></p>
+                </div>
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
+                        <p className="text-highlight-subtle mr-2">
+                            
+                                16 Dec 2024
+                            
+                        </p>
+                        
+                            <p className="italic">maths</p>
+                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
+                            <p className="italic">...</p>
+                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
+                            <p className="italic">A-metric-spaces</p>
+                        
+                    </div>
+                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/Analysis-Topology/A-metric-spaces/1-basics" className="hover:underline">1 - Basics</Link></p>
+                </div>
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
+                        <p className="text-highlight-subtle mr-2">
                             
                                 08 Jun 2024
                             
                         </p>
                         
-                            <p className="text-italic italic">writeups</p>
+                            <p className="italic">writeups</p>
                         
                     </div>
-                    <p className="text-xl font-bold text-primary underline"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
+                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
                 </div>
             
 
@@ -272,7 +292,7 @@ export default function CourseNotes () {
     <h1>About</h1>
 
     <div className="space-y-2">
-        <h2 id="how-is-this-site-maintained" className="group flex">How is this site maintained?&nbsp;<Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
+        <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="how-is-this-site-maintained" className="underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
         <p>If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
@@ -288,8 +308,8 @@ export default function CourseNotes () {
                 When I am happy with my changes, I push them to the repository. I added a hook to automatically deploy the public site whenever this happens.
             </li>
         </ul>
-        <h2 id="features" className="group flex">Features&nbsp;<Link href="#features" onClick={() => copyToClipboard("https://notes.danielc.rocks/#features", true)} className="hidden group-hover:block text-primary">¶</Link></h2>
-        <ul className="space-y-0">
+        <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="features" className="underline underline-offset-2">Features</h2><Link href="#features" onClick={() => copyToClipboard("https://notes.danielc.rocks/#features", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+        <ul className="">
             <li className="list-disc ml-8">
                 Toggleable sidebar with keyboard shortcuts, containing collapsible filetree
             </li>
@@ -324,8 +344,6 @@ export default function CourseNotes () {
 
     <p>Feel free to <MailLink>email me</MailLink>. Enjoy exploring!</p>
 
-    <p className="text-sm text-elevated">P.S. if you think the ascii tree is cool (not visible on small screens), I generated it using <DiscreetLink href="https://gitlab.com/jallbrit/cbonsai">cbonsai</DiscreetLink>, <DiscreetLink href="https://github.com/pixelb/scripts/blob/master/scripts/ansi2html.sh">ansi2html</DiscreetLink> and some regex!</p>
-
     <h1>Changelog</h1>
     <div>
         <div className="changelog">
@@ -336,7 +354,7 @@ export default function CourseNotes () {
 <ul>
 <li>primary purpose of the site is now storage of course notes; blog moved elsewhere</li>
 <li>consistent styling of theorems, defns, examples etc</li>
-<li>smaller text size</li>
+<li>revamp to light theme for easier readability (colours and font taken from <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">Sanctum theme for Obsidian</DiscreetLink>)</li>
 </ul>
 
 <h2>08/07/24</h2>
@@ -378,7 +396,7 @@ export default function CourseNotes () {
         </div>
     </div>
 
-</div><br/><div className="border-t-[1px] border-elevated pb-2"></div><div>
+</div><br/><div className="border-t-[1px] border-border-strong pb-2"></div><div>
 
     <p className="italic pb-4">Contains 13 articles</p>
 
@@ -386,9 +404,11 @@ export default function CourseNotes () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/maths">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
@@ -396,9 +416,11 @@ export default function CourseNotes () {
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/writeups">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
@@ -406,32 +428,26 @@ export default function CourseNotes () {
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/comp-sci">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
                 </Link>
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/components">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">components</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
             </li>
         
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/comp-sci">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
@@ -439,19 +455,11 @@ export default function CourseNotes () {
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
-                <Link href="/components">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
-                        
-                        <p className="relative bottom-[1px]">components</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2"></p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/maths">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
@@ -459,9 +467,11 @@ export default function CourseNotes () {
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-elevated border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/writeups">
-                    <div className="flex items-center space-x-1 text-lg font-bold text-primary">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0"/>
                         
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
