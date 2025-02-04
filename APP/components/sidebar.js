@@ -71,11 +71,7 @@ export default function Sidebar({ children }) {
 
             {/* sidebar */}
             <nav className={`${active ? 'hidden md:block' : 'hidden'} fixed w-[300px] shrink-0 justify-center top-0 py-3`}>
-                <span className='w-full justify-center font-bold text-2xl text-text-primary mb-3 hidden md:flex [@media(hover:hover)]:hover:text-highlight-subtle'>
-                    <Link href='/'> notes.danielc.rocks </Link>
-                </span>
-                <br/>
-                <br/>
+                <div className='h-14'/>
                 {children}
                 <button onClick={toggleSidebar} className='mt-4 flex text-text-secondary items-center space-x-6 pl-4 bg-layer [@media(hover:hover)]:hover:bg-layer-hover rounded-md px-3 py-1.5 ml-4'>
                     <span className='relative bottom-[1px]'>Toggle Sidebar</span>
@@ -120,7 +116,7 @@ export default function Sidebar({ children }) {
                     <Popup buttonStyle='flex text-text-secondary'
                         buttonContents={
                             <>
-                                <div className={`hidden xs:flex items-center fixed right-4 top-4 ${active ? 'md:w-[calc(300px-2rem)] md:left-[1rem] md:top-14' : 'md:hidden'} bg-field px-3 py-1.5 [@media(hover:hover)]:hover:ring-4 ring-focus rounded-md [@media(hover:hover)]:hover:bg-field-hover`}>
+                                <div className={`hidden xs:flex items-center fixed right-4 top-4 ${active ? 'md:w-[calc(300px-2rem)] md:left-[1rem]' : 'md:hidden'} ring-2 ring-border-strong bg-field px-3 py-1.5 [@media(hover:hover)]:hover:ring-4 [@media(hover:hover)]:hover:ring-focus rounded-md [@media(hover:hover)]:hover:bg-field-hover`}>
                                     <FaSearch className='mr-3 h-full shrink-0'/>
                                     <span className='italic relative bottom-[0.5px] text-text-placeholder'>Search...</span>
                                     {mobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey} K</span>}

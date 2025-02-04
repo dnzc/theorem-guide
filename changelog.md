@@ -4,7 +4,7 @@
 
 - primary purpose of the site is now storage of course notes; blog moved elsewhere
 - consistent styling of theorems, defns, examples etc
-- revamp to light theme for easier readability (colours and font taken from <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">Sanctum theme for Obsidian</DiscreetLink>)
+- revamp to light theme for easier readability: inspiration taken from <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">Sanctum theme for Obsidian</DiscreetLink>
 
 ## 08/07/24
 

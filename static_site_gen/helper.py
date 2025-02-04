@@ -185,7 +185,7 @@ def construct_tree(cur_dir, depth):
     else:
         assert COURSE_INDICATOR not in name
     if depth == 0:
-        d['name'] = "root"
+        d['name'] = 'root'
         return d
     name = beautify(name)
     if name != sanitize(name):
@@ -434,7 +434,7 @@ def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, display
             # articles will have been populated, since root page is rendered last
             recent_articles = list(filter(lambda x: x['cr_timestamp']!=PLACEHOLDER_TIMESTAMP or x['coming_soon'], article_list)) # remove articles without date
             recent_articles.sort(key=lambda x:10000000000000000000000 if x['cr_timestamp']==PLACEHOLDER_TIMESTAMP else x['cr_timestamp'],reverse=True)
-            recent_articles = recent_articles[:3]
+            recent_articles = recent_articles[:5]
             with open(CHANGELOG_FILE, 'r') as f:
                 changelog = markdown(f.read())
             folder_mainpage = add_link_anchors(HOME_TEMPLATE.render(recentArticles=recent_articles, changelog=changelog), '/') + separator

@@ -40,6 +40,8 @@ export default {
         'text-inverse': 'var(--text-inverse)',
         'focus': 'var(--focus)',
         'link': 'var(--link)',
+        'folder-icon': 'var(--folder-icon)',
+        'course-icon': 'var(--course-icon)',
         'overlay': 'var(--overlay)',
       },
       fontFamily: {

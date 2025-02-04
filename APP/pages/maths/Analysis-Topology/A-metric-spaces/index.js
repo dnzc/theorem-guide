@@ -126,7 +126,7 @@ export default function AMetricSpaces () {
                 <Link href="/maths/Analysis-Topology/A-metric-spaces/1-basics">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
                         <p className="relative bottom-[1px]">1-basics</p>
                     </div>
@@ -141,7 +141,7 @@ export default function AMetricSpaces () {
                 <Link href="/maths/Analysis-Topology/A-metric-spaces/1-basics">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
                         <p className="relative bottom-[1px]">1-basics</p>
                     </div>

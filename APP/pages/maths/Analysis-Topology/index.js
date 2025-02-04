@@ -122,11 +122,11 @@ export default function AnalysisTopology () {
         <div className="article mb-4">
             <h1 id="ib-analysis-and-topology">IB Analysis and Topology</h1>
 
-<p>Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. I was inspired to make these notes because a lot of the lectured material was taught badly...</p>
+<p>Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. The goal is to be able to provide motivation and intuition for topics that were presented to me very abstractly.</p>
 
 <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="course-prerequisites" className="underline underline-offset-2">Course Prerequisites</h2><Link href="#course-prerequisites" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#course-prerequisites", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 
-<p>Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">here</DiscreetLink>). Proofs of theorems from <ProminentLink href="https://gowers.wordpress.com/2014/01/11/introduction-to-cambridge-ia-analysis-i-2014/">IA Analysis I</ProminentLink> are good to know but not needed; the theorem statements themselves are useful but easily googleable.</p>
+<p>Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">here</DiscreetLink>). Basic set theory, for example definition and results regarding function preimage (e.g. preimage of union is union of preimages). Proofs of theorems from <ProminentLink href="https://gowers.wordpress.com/2014/01/11/introduction-to-cambridge-ia-analysis-i-2014/">IA Analysis I</ProminentLink> are good to know but not needed; the theorem statements themselves are useful but easily googleable.</p>
 
 <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="glossary-and-style" className="underline underline-offset-2">Glossary and Style</h2><Link href="#glossary-and-style" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#glossary-and-style", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 
@@ -137,7 +137,7 @@ export default function AnalysisTopology () {
 <ul>
 <li>defn = definition</li>
 <li>iff = if and only if</li>
-<li><Latex>$\subset$</Latex> means the same thing as <Latex>$\subseteq$</Latex></li>
+<li><Latex>$\subset$</Latex> means the same thing as <Latex>$\subseteq$</Latex> (i.e. "is a subset of, could be equal to")</li>
 </ul>
 
 <p><IncompleteMessage/></p>
@@ -153,7 +153,7 @@ export default function AnalysisTopology () {
                 <Link href="/maths/Analysis-Topology/example-sheets">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
                         <p className="relative bottom-[1px]">example-sheets</p>
                     </div>
@@ -165,7 +165,7 @@ export default function AnalysisTopology () {
                 <Link href="/maths/Analysis-Topology/A-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
                         <p className="relative bottom-[1px]">A-metric-spaces</p>
                     </div>
@@ -180,7 +180,7 @@ export default function AnalysisTopology () {
                 <Link href="/maths/Analysis-Topology/A-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
                         <p className="relative bottom-[1px]">A-metric-spaces</p>
                     </div>
@@ -192,7 +192,7 @@ export default function AnalysisTopology () {
                 <Link href="/maths/Analysis-Topology/example-sheets">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
                         <p className="relative bottom-[1px]">example-sheets</p>
                     </div>

@@ -1,6 +1,7 @@
 make images display better on light background
 
 
+soroban practice page
 
 App for writing wiki
 Kakuro app (with zoom)

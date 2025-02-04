@@ -1,10 +1,10 @@
 # IB Analysis and Topology
 
-Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. I was inspired to make these notes because a lot of the lectured material was taught badly...
+Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. The goal is to be able to provide motivation and intuition for topics that were presented to me very abstractly.
 
 ## Course Prerequisites
 
-Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">here</DiscreetLink>). Proofs of theorems from <ProminentLink href="https://gowers.wordpress.com/2014/01/11/introduction-to-cambridge-ia-analysis-i-2014/">IA Analysis I</ProminentLink> are good to know but not needed; the theorem statements themselves are useful but easily googleable.
+Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">here</DiscreetLink>). Basic set theory, for example definition and results regarding function preimage (e.g. preimage of union is union of preimages). Proofs of theorems from <ProminentLink href="https://gowers.wordpress.com/2014/01/11/introduction-to-cambridge-ia-analysis-i-2014/">IA Analysis I</ProminentLink> are good to know but not needed; the theorem statements themselves are useful but easily googleable.
 
 ## Glossary and Style
 
@@ -14,6 +14,6 @@ Abbreviations:
 
 - defn = definition
 - iff = if and only if
-- $\subset$ means the same thing as $\subseteq$
+- $\subset$ means the same thing as $\subseteq$ (i.e. "is a subset of, could be equal to")
 
 <IncompleteMessage/>

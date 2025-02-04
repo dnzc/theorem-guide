@@ -120,7 +120,7 @@ export default function Basics () {
         
 
         <div className="article mb-4">
-            <h1 id="1-basics">1 - Basics</h1>
+            <h1 id="1-basics">§1 Basics</h1>
 
 <p>We want to formalise our intuition about distances in the real world, and try to generalise.</p>
 

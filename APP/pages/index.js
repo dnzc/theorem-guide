@@ -207,22 +207,26 @@ export default function CourseNotes () {
         <div className="article mb-4">
             <div className="space-y-6">
 
-    <div className="text-xs font-mono leading-[0.8rem] flex flex-col">
-
-        <div className="hidden md:block text-highlight-strong font-bold">
-        <Image src='/images/home.png' width='250' height='200' alt='diagram'/>
-        </div>
-    </div>
-
-    <p className="block md:hidden text-3xl font-bold text-text-primary break-all">notes.danielc.rocks</p>
+    <p className="mt-2 text-3xl font-bold text-text-primary break-all">notes.danielc.rocks</p>
 
     <p>
-        This site is a collection of in-depth notes I've written for various courses, including some in Part IB of the Mathematical Tripos.
+        This site is a collection of notes I've written for various courses in Part IB of the Mathematical Tripos.
         <br/>
-        I've also added intuition-based explanations of topics I find interesting.
+        The goal is to be able to provide motivation and intuition for topics that were presented very abstractly.
+        <br/>
+        Each course is denoted as
+            <span className="text-course-icon inline-flex mx-1"><FaBook/></span>
+        in the sidebar, containing articles
+            <span className="text-text-secondary inline-flex mx-1 relative top-[0.1rem]"><GrArticle/></span>
+        and folders
+            <span className="text-folder-icon inline-flex mx-1 relative top-[0.2rem]"><AiFillFolder size={20}/></span>
+        which can be viewed once inside the course.
+        <br/>
+        I've also added intuition-focused explanations of topics I find interesting, which are articles not contained inside a course.
         <br/>
         It began as a summer project in July 2023.
     </p>
+
     <p>
         For some of my favourite articles, check out the <DiscreetLink internal href="/maths/proving-FTA/3-bezout-egcd">magic box</DiscreetLink> or explore how to <DiscreetLink internal href="/maths/research/cube-tilings">tile a cube</DiscreetLink>.
         <br/>
@@ -249,7 +253,7 @@ export default function CourseNotes () {
                             <p className="italic">Analysis-Topology</p>
                         
                     </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/Analysis-Topology/example-sheets" className="hover:underline">Example Sheet Questions</Link></p>
+                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/Analysis-Topology/example-sheets" className="hover:underline">A&T Example Sheet Questions</Link></p>
                 </div>
             
                 <div>
@@ -267,7 +271,7 @@ export default function CourseNotes () {
                             <p className="italic">A-metric-spaces</p>
                         
                     </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/Analysis-Topology/A-metric-spaces/1-basics" className="hover:underline">1 - Basics</Link></p>
+                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/Analysis-Topology/A-metric-spaces/1-basics" className="hover:underline">§1 Basics</Link></p>
                 </div>
             
                 <div>
@@ -284,6 +288,36 @@ export default function CourseNotes () {
                     <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
                 </div>
             
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
+                        <p className="text-highlight-subtle mr-2">
+                            
+                                27 Jul 2023
+                            
+                        </p>
+                        
+                            <p className="italic">comp-sci</p>
+                        
+                    </div>
+                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/comp-sci/binary-search" className="hover:underline">Binary Search: an Intuitive Algorithm</Link></p>
+                </div>
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
+                        <p className="text-highlight-subtle mr-2">
+                            
+                                27 Jul 2023
+                            
+                        </p>
+                        
+                            <p className="italic">maths</p>
+                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
+                            <p className="italic">proving-FTA</p>
+                        
+                    </div>
+                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/proving-FTA/4-euclid" className="hover:underline">Proving Euclid's Lemma</Link></p>
+                </div>
+            
 
         </div>
 
@@ -292,22 +326,6 @@ export default function CourseNotes () {
     <h1>About</h1>
 
     <div className="space-y-2">
-        <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="how-is-this-site-maintained" className="underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
-        <p>If you're curious, here is the summary of my workflow:</p>
-        <ul className="space-y-2">
-            <li className="list-disc ml-8">
-                I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
-            </li>
-            <li className="list-disc ml-8">
-                A private Github repository contains a master folder with all the content, written in markdown. When I want to update the website, I edit the files in the master folder, using <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> for math diagrams.
-            </li>
-            <li className="list-disc ml-8">
-                I wrote a static site generator in Python to generate html out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wraps it in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. I configured a VSCode shortcut to seamlessly run this and preview content.
-            </li>
-            <li className="list-disc ml-8">
-                When I am happy with my changes, I push them to the repository. I added a hook to automatically deploy the public site whenever this happens.
-            </li>
-        </ul>
         <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="features" className="underline underline-offset-2">Features</h2><Link href="#features" onClick={() => copyToClipboard("https://notes.danielc.rocks/#features", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
         <ul className="">
             <li className="list-disc ml-8">
@@ -340,6 +358,22 @@ export default function CourseNotes () {
                 </ul>
             </li>
         </ul>
+        <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="how-is-this-site-maintained" className="underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+        <p>If you're curious, here is the summary of my workflow:</p>
+        <ul className="space-y-2">
+            <li className="list-disc ml-8">
+                I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
+            </li>
+            <li className="list-disc ml-8">
+                A private Github repository contains a master folder with all the content, written in markdown. When I want to update the website, I edit the files in the master folder, using <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> for math diagrams.
+            </li>
+            <li className="list-disc ml-8">
+                I wrote a static site generator in Python to generate html out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wraps it in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. I configured a VSCode shortcut to seamlessly run this and preview content.
+            </li>
+            <li className="list-disc ml-8">
+                When I am happy with my changes, I push them to the repository. I added a hook to automatically deploy the public site whenever this happens.
+            </li>
+        </ul>
     </div>
 
     <p>Feel free to <MailLink>email me</MailLink>. Enjoy exploring!</p>
@@ -354,7 +388,7 @@ export default function CourseNotes () {
 <ul>
 <li>primary purpose of the site is now storage of course notes; blog moved elsewhere</li>
 <li>consistent styling of theorems, defns, examples etc</li>
-<li>revamp to light theme for easier readability (colours and font taken from <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">Sanctum theme for Obsidian</DiscreetLink>)</li>
+<li>revamp to light theme for easier readability: inspiration taken from <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">Sanctum theme for Obsidian</DiscreetLink></li>
 </ul>
 
 <h2>08/07/24</h2>
@@ -408,7 +442,7 @@ export default function CourseNotes () {
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
@@ -420,7 +454,7 @@ export default function CourseNotes () {
                 <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
@@ -432,7 +466,7 @@ export default function CourseNotes () {
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
@@ -447,7 +481,7 @@ export default function CourseNotes () {
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
@@ -459,7 +493,7 @@ export default function CourseNotes () {
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
@@ -471,7 +505,7 @@ export default function CourseNotes () {
                 <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>

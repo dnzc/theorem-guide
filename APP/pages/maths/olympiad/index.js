@@ -218,7 +218,7 @@ export default function Olympiad () {
                 <Link href="/maths/olympiad/lagrange-multipliers">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
                         <p className="relative bottom-[1px]">lagrange-multipliers</p>
                     </div>
@@ -233,7 +233,7 @@ export default function Olympiad () {
                 <Link href="/maths/olympiad/lagrange-multipliers">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
                         <p className="relative bottom-[1px]">lagrange-multipliers</p>
                     </div>

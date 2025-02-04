@@ -10,11 +10,11 @@
                 <Link href="{{item['path']}}">
                     <div className="flex items-center space-x-1 text-lg underline">
                         {% if item['type']=='folder' %}
-                            <AiFillFolder className="shrink-0"/>
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
                         {% elif item['type']=='course' %}
-                            <FaBook className="shrink-0"/>
+                            <FaBook className="shrink-0 text-course-icon"/>
                         {% else %}
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         {% endif %}
                         <p className="relative bottom-[1px]">{{item['name']}}</p>
                     </div>

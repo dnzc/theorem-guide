@@ -215,7 +215,7 @@ export default function CompSci () {
                 <Link href="/comp-sci/binary-search">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
                         <p className="relative bottom-[1px]">binary-search</p>
                     </div>
@@ -230,7 +230,7 @@ export default function CompSci () {
                 <Link href="/comp-sci/binary-search">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <GrArticle className="shrink-0"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
                         <p className="relative bottom-[1px]">binary-search</p>
                     </div>

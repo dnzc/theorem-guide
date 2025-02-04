@@ -2,15 +2,15 @@
 created 14/07/2023 17:00
 # Revenge of Analysis: Using Lagrange Multipliers to Destroy Inequalities
 
-Lagrange multipliers are a nice tool to solve inequalities, but they are rarely seen in olympiad solutions. Once you are comfortable with it, it can be an overpowered way smash open inequalities without much insight. For this reason, economists love them, but most contest problem setters hate it and so they will often assume that you don't actually understand what's going on behind the scenes, giving you zero marks.
-
-So, we have to approach this rigorously, and prove to the markers that we really know what's going on!
+Lagrange multipliers are a nice tool to solve inequalities, but they are rarely seen in olympiad solutions. Once you are comfortable with it, it can be an overpowered way smash open inequalities without much insight. (So economists love them!) For this reason, we need to approach it rigorously, to ensure we can justify earning marks.
 
 I really recommend watching <ProminentLink href='https://youtu.be/5A39Ht9Wcu0'>this video</ProminentLink> to get some intuition first.
 
 ## Background Theory
 
 All of this is covered in my <ProminentLink href="/maths/Analysis-Topology" internal>course notes for IB Analysis and Topology</ProminentLink>, in the relevant sections. The results and definitions in this article are correct only for $\mathbb{R}^n$ (e.g. compactness is something different, but the Heine-Borel theorem says that in $\mathbb{R}^n$ it's equivalent to being closed and bounded). For the more general definitions and a deeper understanding, check out the course notes.
+
+<br/>
 
 <Defn>
 Consider a set $M$ together with a function $d : M \times M \to \mathbb{R}$.
