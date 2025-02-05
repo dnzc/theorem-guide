@@ -44,11 +44,11 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:0.5;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1"
        d="m 26.343281,20.533555 c -6.137387,1.24219 -11.392534,3.794982 -14.908187,9.068461 -8.3942519,12.591378 8.143358,30.197316 18.715755,34.603745 6.789669,2.829841 22.756876,-1.792827 26.00086,-8.954537 2.13913,-4.722537 -4.238124,-10.508885 -1.731539,-14.686528 3.618963,-6.031603 9.329963,-5.112867 13.647219,-9.369423 C 73.610151,25.730442 72.110778,15.278305 65.69808,11.839838 63.841544,10.84437 60.604134,7.8783172 58.3353,7.8783172 c -12.376071,0 -21.048755,10.1573478 -31.992019,12.6552378 z"
        id="path321" />
     <circle
-       style="fill:none;stroke:#ffffff;stroke-width:0.499999;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1"
        id="path1613"
        cx="57.012196"
        cy="14.306569"
@@ -57,13 +57,13 @@
        id="g2313"
        transform="translate(-0.48329409,-3.4345352)">
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:0.2;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          d="m 58.551354,16.752556 -2.143915,2.143913"
          id="path1843" />
       <g
          id="g2308">
         <path
-           style="fill:none;stroke:#ffffff;stroke-width:0.2;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            d="m 56.418145,16.760918 2.143913,2.143915"
            id="path1843-3" />
       </g>
@@ -71,7 +71,7 @@
     <g
        aria-label="Open set"
        id="text4187"
-       style="font-weight:bold;font-size:7.76111px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code Bold';fill:#ffffff;stroke-width:0.2;stroke-linejoin:bevel">
+       style="font-weight:bold;font-size:7.76111px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code Bold';fill:#000000;stroke-width:0.2;stroke-linejoin:bevel">
       <path
          d="m 24.142432,74.179339 q 0,0.875612 -0.250743,1.528341 -0.250744,0.64875 -0.744271,1.010935 -0.489547,0.358205 -1.213917,0.358205 -0.72039,0 -1.213917,-0.350245 -0.493527,-0.354225 -0.744271,-1.002974 -0.250743,-0.64875 -0.250743,-1.544262 0,-0.875613 0.250743,-1.524362 0.250744,-0.648749 0.744271,-1.006954 0.493527,-0.362185 1.213917,-0.362185 0.72437,0 1.213917,0.350245 0.493527,0.350245 0.744271,0.998994 0.250743,0.648749 0.250743,1.544262 z m -1.337298,0 q 0,-1.018895 -0.202983,-1.480581 -0.202983,-0.461687 -0.66865,-0.461687 -0.465666,0 -0.668649,0.465667 -0.202983,0.461686 -0.202983,1.476601 0,1.018894 0.206963,1.480581 0.206963,0.461686 0.664669,0.461686 0.477607,0 0.67263,-0.465666 0.199003,-0.469647 0.199003,-1.476601 z"
          id="path5275" />

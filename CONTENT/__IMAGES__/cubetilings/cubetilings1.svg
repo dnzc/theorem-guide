@@ -68,11 +68,11 @@
        y="20.794"
        width="9.4058"
        height="9.4058"
-       stroke="#fff"
+       stroke="#abb2bf"
        id="rect1" />
     <path
        d="m54.299 30.2 4.7029-4.7029v-9.4058"
-       stroke="#fff"
+       stroke="#abb2bf"
        id="path2" />
     <g
        stroke="#61afef"
@@ -103,7 +103,7 @@
          id="path6" />
     </g>
     <g
-       stroke="#fff"
+       stroke="#abb2bf"
        id="g10">
       <rect
          x="76.783"
@@ -146,7 +146,7 @@
          id="path32" />
     </g>
     <g
-       stroke="#fff"
+       stroke="#abb2bf"
        id="g16">
       <rect
          x="66.573"
@@ -176,18 +176,18 @@
        id="path17" />
     <path
        d="m87.722 51.631-1e-5 9.4058-2.3367 2.3367"
-       stroke="#fff"
+       stroke="#abb2bf"
        id="path18" />
     <path
        d="m80.682 53.968-4.7029 4.7029"
-       stroke="#fff"
+       stroke="#abb2bf"
        id="path19" />
     <path
        d="m80.675 49.272 7e-3 4.6955h4.7029l2.3367-2.3367 7e-3 -4.7103-2.3367 2.3367-7e-3 4.7103"
        stroke="#61afef"
        id="path20" />
     <g
-       stroke="#fff"
+       stroke="#abb2bf"
        id="g23">
       <rect
          x="23.739"
@@ -221,7 +221,7 @@
        id="path25" />
     <path
        d="m42.55 54.075 2.3367-2.3367 7e-3 -4.7103"
-       stroke="#fff"
+       stroke="#abb2bf"
        id="path26" />
     <path
        d="m33.145 68.184-2.64e-4 -14.109 4.6955-4.6955 4.7176-0.01474"

@@ -170,22 +170,22 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linejoin:bevel;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-opacity:1"
        id="rect69066"
        width="39.6875"
        height="39.6875"
        x="28.672626"
        y="29.612318" />
     <path
-       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.00012;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00012;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="M 28.672625,29.612317 55.649981,7.3829795 H 95.337483 L 68.360127,29.612317 V 69.299821 L 95.337483,47.07048 V 7.3829795"
        id="path70004" />
     <path
-       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.00012;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:3.00037, 3.00037;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00012;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:3.00037, 3.00037;stroke-dashoffset:0;stroke-opacity:1"
        d="M 28.672625,69.299821 55.649981,47.07048 V 7.3829795"
        id="path70300" />
     <path
-       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.00012;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:3.00037, 3.00037;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00012;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:3.00037, 3.00037;stroke-dashoffset:0;stroke-opacity:1"
        d="M 55.649981,47.07048 H 95.337483"
        id="path70302" />
     <path

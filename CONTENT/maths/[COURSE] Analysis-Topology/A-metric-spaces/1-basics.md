@@ -13,6 +13,8 @@ A **metric** on $X$ is a function $d:X \times X \rightarrow \mathbb{R}$ such tha
 - $d(x,y) \geq 0$, equality iff $x=y$ ("positive semi-definite")
 - $d(x,y) = d(y,x)$ ("symmetric")
 - $d(x,y) + d(y,z) \geq d(x,z)$ ("triangle inequality")
+
+We say $(X,d)$ is a **metric space**.
 </Defn>
 
 <IncompleteMessage/>

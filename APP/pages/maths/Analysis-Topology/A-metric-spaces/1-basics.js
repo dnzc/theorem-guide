@@ -80,12 +80,6 @@ export default function Basics () {
                         
                     
                                     
-                                        
-                        
-                            <Accordion title="example-sheets" href="/maths/Analysis-Topology/example-sheets" type="file" relDepth={ 1 } isSelected={ false } />
-                        
-                    
-                                    
                                 
                             </Accordion>
                         
@@ -137,6 +131,8 @@ export default function Basics () {
 <li><Latex>$d(x,y) = d(y,x)$</Latex> ("symmetric")</li>
 <li><Latex>$d(x,y) + d(y,z) \geq d(x,z)$</Latex> ("triangle inequality")</li>
 </ul>
+
+<p>We say <Latex>$(X,d)$</Latex> is a <strong>metric space</strong>.</p>
 
 </Defn>
 

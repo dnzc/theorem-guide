@@ -205,7 +205,7 @@ export default function Maths () {
         <div className="article mb-4">
             <div>
 
-    <p className="italic pb-4">Contains 11 articles</p>
+    <p className="italic pb-4">Contains 10 articles</p>
 
     
     <Folder
@@ -220,7 +220,7 @@ export default function Maths () {
                         <p className="relative bottom-[1px]">Analysis-Topology</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
@@ -271,7 +271,7 @@ export default function Maths () {
                         <p className="relative bottom-[1px]">Analysis-Topology</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">

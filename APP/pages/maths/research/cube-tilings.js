@@ -250,7 +250,7 @@ export default function CubeTilings () {
 
 <p>With this mental imagery, we can find another construction:</p>
 
-<p><Image src='/images/cubetilings1.svg' width='320' height='240' alt='construction' /></p>
+<p><Image src='/images/cubetilings/cubetilings1.svg' width='320' height='240' alt='construction' /></p>
 
 <p>We used 2 cubes and 3 cuboids, thus if <Latex>$n$</Latex> and <Latex>$m$</Latex> are lucky, we can scale two cubes tiled with <Latex>$n$</Latex> and <Latex>$m$</Latex> cuboids to fit inside this construction. Hence we know that:</p>
 
@@ -292,7 +292,7 @@ export default function CubeTilings () {
 
 <Proof unquoted unbolded>
 
-<p><Image src='/images/cubetilings2.svg' width='280' height='300' alt='construction'/></p>
+<p><Image src='/images/cubetilings/cubetilings2.svg' width='280' height='300' alt='construction'/></p>
 
 </Proof>
 
@@ -304,7 +304,7 @@ export default function CubeTilings () {
 
 <Proof unquoted unbolded>
 
-<p><Image src='/images/cubetilings3.svg' width='240' height='300' alt='construction'/></p>
+<p><Image src='/images/cubetilings/cubetilings3.svg' width='240' height='300' alt='construction'/></p>
 
 <p>We can make a 6x6x3 cuboid with eleven 1:2:3 cuboids, as shown. Then, we can make another 6x6x3 cuboid using the same construction as in the proof of claim 3, where we wrap 4 cuboids around a cube. Thus we can combine these two 6x6x3 cuboids to form a 6x6x6 cube, using fifteen 1:2:3 cuboids and one smaller cube.</p>
 
@@ -318,7 +318,7 @@ export default function CubeTilings () {
 
 <Proof unquoted unbolded>
 
-<p><Image src='/images/cubetilings4.svg' width='288' height='400' alt='construction'/></p>
+<p><Image src='/images/cubetilings/cubetilings4.svg' width='288' height='400' alt='construction'/></p>
 
 </Proof>
 
@@ -330,7 +330,7 @@ export default function CubeTilings () {
 
 <Proof unquoted unbolded>
 
-<p><Image src='/images/cubetilings5.svg' width='300' height='300' alt='construction'/></p>
+<p><Image src='/images/cubetilings/cubetilings5.svg' width='300' height='300' alt='construction'/></p>
 
 </Proof>
 
@@ -346,7 +346,7 @@ export default function CubeTilings () {
 
 <Proof unquoted unbolded>
 
-<p><Image src='/images/cubetilings6.svg' width='200' height='200' alt='construction'/></p>
+<p><Image src='/images/cubetilings/cubetilings6.svg' width='200' height='200' alt='construction'/></p>
 
 </Proof>
 
@@ -366,7 +366,7 @@ export default function CubeTilings () {
             <td>5</td>
             <td>6</td>
             <td>7</td>
-            <td><strong>8</strong></td>
+            <td><p className="font-bold text-highlight-strong">8</p></td>
             <td>9</td>
             <td>10</td>
         </tr>
@@ -375,7 +375,7 @@ export default function CubeTilings () {
             <td>12</td>
             <td>13</td>
             <td>14</td>
-            <td><strong>15</strong></td>
+            <td><p className="font-bold text-highlight-strong">15</p></td>
             <td>16</td>
             <td>17</td>
             <td>18</td>
@@ -384,14 +384,14 @@ export default function CubeTilings () {
         </tr>
         <tr>
             <td>21</td>
-            <td><strong>22</strong></td>
+            <td><p className="font-bold text-highlight-strong">22</p></td>
             <td>23</td>
             <td>24</td>
             <td>25</td>
             <td>26</td>
             <td>27</td>
             <td>28</td>
-            <td><strong>29</strong></td>
+            <td><p className="font-bold text-highlight-strong">29</p></td>
             <td>30</td>
         </tr>
         <tr>
@@ -400,7 +400,7 @@ export default function CubeTilings () {
             <td>33</td>
             <td>34</td>
             <td>35</td>
-            <td><strong>36</strong></td>
+            <td><p className="font-bold text-highlight-strong">36</p></td>
             <td>37</td>
             <td>38</td>
             <td>39</td>
@@ -424,7 +424,7 @@ export default function CubeTilings () {
             <td>5</td>
             <td>6</td>
             <td>7</td>
-            <td><strong>8</strong></td>
+            <td><p className="font-bold text-highlight-strong">8</p></td>
             <td>9</td>
             <td>10</td>
         </tr>
@@ -433,36 +433,36 @@ export default function CubeTilings () {
             <td>12</td>
             <td>13</td>
             <td>14</td>
-            <td><strong>15</strong></td>
+            <td><p className="font-bold text-highlight-strong">15</p></td>
             <td>16</td>
             <td>17</td>
             <td>18</td>
-            <td><strong>19</strong></td>
+            <td><p className="font-bold text-highlight-strong">19</p></td>
             <td>20</td>
         </tr>
         <tr>
             <td>21</td>
-            <td><strong>22</strong></td>
+            <td><p className="font-bold text-highlight-strong">22</p></td>
             <td>23</td>
             <td>24</td>
             <td>25</td>
-            <td><strong>26</strong></td>
+            <td><p className="font-bold text-highlight-strong">26</p></td>
             <td>27</td>
             <td>28</td>
-            <td><strong>29</strong></td>
+            <td><p className="font-bold text-highlight-strong">29</p></td>
             <td>30</td>
         </tr>
         <tr>
             <td>31</td>
             <td>32</td>
-            <td><strong>33</strong></td>
+            <td><p className="font-bold text-highlight-strong">33</p></td>
             <td>34</td>
             <td>35</td>
-            <td><strong>36</strong></td>
+            <td><p className="font-bold text-highlight-strong">36</p></td>
             <td>37</td>
             <td>38</td>
             <td>39</td>
-            <td><strong>40</strong></td>
+            <td><p className="font-bold text-highlight-strong">40</p></td>
         </tr>
         <tr>
             <td>etc.</td>
@@ -482,7 +482,7 @@ export default function CubeTilings () {
             <td>5</td>
             <td>6</td>
             <td>7</td>
-            <td><strong>8</strong></td>
+            <td><p className="font-bold text-highlight-strong">8</p></td>
             <td>9</td>
             <td>10</td>
         </tr>
@@ -491,36 +491,36 @@ export default function CubeTilings () {
             <td>12</td>
             <td>13</td>
             <td>14</td>
-            <td><strong>15</strong></td>
+            <td><p className="font-bold text-highlight-strong">15</p></td>
             <td>16</td>
             <td>17</td>
             <td>18</td>
-            <td><strong>19</strong></td>
-            <td><strong>20</strong></td>
+            <td><p className="font-bold text-highlight-strong">19</p></td>
+            <td><p className="font-bold text-highlight-strong">20</p></td>
         </tr>
         <tr>
-            <td><strong>21</strong></td>
-            <td><strong>22</strong></td>
-            <td><strong>23</strong></td>
-            <td><strong>24</strong></td>
+            <td><p className="font-bold text-highlight-strong">21</p></td>
+            <td><p className="font-bold text-highlight-strong">22</p></td>
+            <td><p className="font-bold text-highlight-strong">23</p></td>
+            <td><p className="font-bold text-highlight-strong">24</p></td>
             <td>25</td>
-            <td><strong>26</strong></td>
-            <td><strong>27</strong></td>
-            <td><strong>28</strong></td>
-            <td><strong>29</strong></td>
-            <td><strong>30</strong></td>
+            <td><p className="font-bold text-highlight-strong">26</p></td>
+            <td><p className="font-bold text-highlight-strong">27</p></td>
+            <td><p className="font-bold text-highlight-strong">28</p></td>
+            <td><p className="font-bold text-highlight-strong">29</p></td>
+            <td><p className="font-bold text-highlight-strong">30</p></td>
         </tr>
         <tr>
-            <td><strong>31</strong></td>
-            <td><strong>32</strong></td>
-            <td><strong>33</strong></td>
-            <td><strong>34</strong></td>
-            <td><strong>35</strong></td>
-            <td><strong>36</strong></td>
-            <td><strong>37</strong></td>
-            <td><strong>38</strong></td>
-            <td><strong>39</strong></td>
-            <td><strong>40</strong></td>
+            <td><p className="font-bold text-highlight-strong">31</p></td>
+            <td><p className="font-bold text-highlight-strong">32</p></td>
+            <td><p className="font-bold text-highlight-strong">33</p></td>
+            <td><p className="font-bold text-highlight-strong">34</p></td>
+            <td><p className="font-bold text-highlight-strong">35</p></td>
+            <td><p className="font-bold text-highlight-strong">36</p></td>
+            <td><p className="font-bold text-highlight-strong">37</p></td>
+            <td><p className="font-bold text-highlight-strong">38</p></td>
+            <td><p className="font-bold text-highlight-strong">39</p></td>
+            <td><p className="font-bold text-highlight-strong">40</p></td>
         </tr>
         <tr>
             <td>etc.</td>
@@ -548,7 +548,7 @@ export default function CubeTilings () {
 
 <p><strong>The program found the following construction</strong>, proving that 18 is lucky:</p>
 
-<p><Image src='/images/cubetilings7.svg' width='480' height='640' alt='construction'/></p>
+<p><Image src='/images/cubetilings/cubetilings7.svg' width='480' height='640' alt='construction'/></p>
 
 <p>Thus, 18+7=25 is also lucky, and so <strong><Latex>$C \leq 18$</Latex></strong>.</p>
 

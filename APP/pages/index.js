@@ -244,22 +244,6 @@ export default function CourseNotes () {
                     <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
                         <p className="text-highlight-subtle mr-2">
                             
-                                20 Dec 2024
-                            
-                        </p>
-                        
-                            <p className="italic">maths</p>
-                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
-                            <p className="italic">Analysis-Topology</p>
-                        
-                    </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/Analysis-Topology/example-sheets" className="hover:underline">A&T Example Sheet Questions</Link></p>
-                </div>
-            
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
-                        <p className="text-highlight-subtle mr-2">
-                            
                                 16 Dec 2024
                             
                         </p>
@@ -316,6 +300,22 @@ export default function CourseNotes () {
                         
                     </div>
                     <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/proving-FTA/4-euclid" className="hover:underline">Proving Euclid's Lemma</Link></p>
+                </div>
+            
+                <div>
+                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
+                        <p className="text-highlight-subtle mr-2">
+                            
+                                27 Jul 2023
+                            
+                        </p>
+                        
+                            <p className="italic">maths</p>
+                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
+                            <p className="italic">proving-FTA</p>
+                        
+                    </div>
+                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/proving-FTA/5-fta" className="hover:underline">The Fundamental Theorem of Arithmetic: Our Journey's End</Link></p>
                 </div>
             
 
@@ -432,7 +432,7 @@ export default function CourseNotes () {
 
 </div><br/><div className="border-t-[1px] border-border-strong pb-2"></div><div>
 
-    <p className="italic pb-4">Contains 13 articles</p>
+    <p className="italic pb-4">Contains 12 articles</p>
 
     
     <Folder
@@ -447,7 +447,7 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
@@ -498,7 +498,7 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">

@@ -85,12 +85,6 @@ export default function AnalysisTopology () {
                         
                     
                                     
-                                        
-                        
-                            <Accordion title="example-sheets" href="/maths/Analysis-Topology/example-sheets" type="file" relDepth={ 1 } isSelected={ false } />
-                        
-                    
-                                    
                                 
                             </Accordion>
                         
@@ -143,23 +137,11 @@ export default function AnalysisTopology () {
 <p><IncompleteMessage/></p>
 <br/><div className="border-t-[1px] border-border-strong pb-2"></div><div>
 
-    <p className="italic pb-4">Contains 2 articles</p>
+    <p className="italic pb-4">Contains 1 article</p>
 
     
     <Folder
         contents_by_date={<> 
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
-                <Link href="/maths/Analysis-Topology/example-sheets">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <GrArticle className="shrink-0 text-text-secondary"/>
-                        
-                        <p className="relative bottom-[1px]">example-sheets</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
-            </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/maths/Analysis-Topology/A-metric-spaces">
@@ -186,18 +168,6 @@ export default function AnalysisTopology () {
                     </div>
                 </Link>
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
-                <Link href="/maths/Analysis-Topology/example-sheets">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <GrArticle className="shrink-0 text-text-secondary"/>
-                        
-                        <p className="relative bottom-[1px]">example-sheets</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
      </>}

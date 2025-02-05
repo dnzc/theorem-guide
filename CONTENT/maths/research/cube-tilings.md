@@ -30,7 +30,7 @@ This sort of feels like trying to build a cube out of wooden blocks, but the onl
 
 With this mental imagery, we can find another construction:
 
-<Image src='/__IMAGES__/cubetilings1.svg' width='320' height='240' alt='construction' />
+<Image src='/__IMAGES__/cubetilings/cubetilings1.svg' width='320' height='240' alt='construction' />
 
 We used 2 cubes and 3 cuboids, thus if $n$ and $m$ are lucky, we can scale two cubes tiled with $n$ and $m$ cuboids to fit inside this construction. Hence we know that:
 
@@ -57,14 +57,14 @@ See above.
 <Thm type="Claim" num="3">
 If $n$ and $m$ are lucky, then so is $n+m+8$.
 <Proof>
-<Image src='/__IMAGES__/cubetilings2.svg' width='280' height='300' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings/cubetilings2.svg' width='280' height='300' alt='construction'/>
 </Proof>
 </Thm>
 
 <Thm type="Claim" num="4">
 If $n$ is lucky, then so is $n+15$.
 <Proof>
-<Image src='/__IMAGES__/cubetilings3.svg' width='240' height='300' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings/cubetilings3.svg' width='240' height='300' alt='construction'/>
 
 We can make a 6x6x3 cuboid with eleven 1:2:3 cuboids, as shown. Then, we can make another 6x6x3 cuboid using the same construction as in the proof of claim 3, where we wrap 4 cuboids around a cube. Thus we can combine these two 6x6x3 cuboids to form a 6x6x6 cube, using fifteen 1:2:3 cuboids and one smaller cube.
 </Proof>
@@ -73,14 +73,14 @@ We can make a 6x6x3 cuboid with eleven 1:2:3 cuboids, as shown. Then, we can mak
 <Thm type="Claim" num="5">
 If $n$ is lucky, then so is $n+13$.
 <Proof>
-<Image src='/__IMAGES__/cubetilings4.svg' width='288' height='400' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings/cubetilings4.svg' width='288' height='400' alt='construction'/>
 </Proof>
 </Thm>
 
 <Thm type="Claim" num="6">
 If $n$ is lucky, then so is $n+12$.
 <Proof>
-<Image src='/__IMAGES__/cubetilings5.svg' width='300' height='300' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings/cubetilings5.svg' width='300' height='300' alt='construction'/>
 </Proof>
 </Thm>
 
@@ -91,7 +91,7 @@ To actually find a lucky number, we remove cubes from our lego building blocks a
 <Thm type="Claim" num="7">
 8 is lucky.
 <Proof>
-<Image src='/__IMAGES__/cubetilings6.svg' width='200' height='200' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings/cubetilings6.svg' width='200' height='200' alt='construction'/>
 </Proof>
 </Thm>
 
@@ -99,26 +99,26 @@ Now, let's see what numbers we can conquer with what we have so far.
 
 By Claim 1, we know that 8, 15, 22, 29, 36 etc. are all lucky.
 
-|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || **8** || 9 || 10 ||
-|| 11 || 12 || 13 || 14 || **15** || 16 || 17 || 18 || 19 || 20 ||
-|| 21 || **22** || 23 || 24 || 25 || 26 || 27 || 28 || **29** || 30 ||
-|| 31 || 32 || 33 || 34 || 35 || **36** || 37 || 38 || 39 || 40 ||
+|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-highlight-strong">8</p> || 9 || 10 ||
+|| 11 || 12 || 13 || 14 || <p className="font-bold text-highlight-strong">15</p> || 16 || 17 || 18 || 19 || 20 ||
+|| 21 || <p className="font-bold text-highlight-strong">22</p> || 23 || 24 || 25 || 26 || 27 || 28 || <p className="font-bold text-highlight-strong">29</p> || 30 ||
+|| 31 || 32 || 33 || 34 || 35 || <p className="font-bold text-highlight-strong">36</p> || 37 || 38 || 39 || 40 ||
 || etc. ||
 
 Now we can use Claim 2 to conquer 8+8+3=19, 8+15+3=26, 15+15+3=33, 15+22+3=40, etc.
 
-|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || **8** || 9 || 10 ||
-|| 11 || 12 || 13 || 14 || **15** || 16 || 17 || 18 || **19** || 20 ||
-|| 21 || **22** || 23 || 24 || 25 || **26** || 27 || 28 || **29** || 30 ||
-|| 31 || 32 || **33** || 34 || 35 || **36** || 37 || 38 || 39 || **40** ||
+|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-highlight-strong">8</p> || 9 || 10 ||
+|| 11 || 12 || 13 || 14 || <p className="font-bold text-highlight-strong">15</p> || 16 || 17 || 18 || <p className="font-bold text-highlight-strong">19</p> || 20 ||
+|| 21 || <p className="font-bold text-highlight-strong">22</p> || 23 || 24 || 25 || <p className="font-bold text-highlight-strong">26</p> || 27 || 28 || <p className="font-bold text-highlight-strong">29</p> || 30 ||
+|| 31 || 32 || <p className="font-bold text-highlight-strong">33</p> || 34 || 35 || <p className="font-bold text-highlight-strong">36</p> || 37 || 38 || 39 || <p className="font-bold text-highlight-strong">40</p> ||
 || etc. ||
 
 And so on, utilising all of the Claims. In the end, we conquer the following numbers up to 40:
 
-|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || **8** || 9 || 10 ||
-|| 11 || 12 || 13 || 14 || **15** || 16 || 17 || 18 || **19** || **20** ||
-|| **21** || **22** || **23** || **24** || 25 || **26** || **27** || **28** || **29** || **30** ||
-|| **31** || **32** || **33** || **34** || **35** || **36** || **37** || **38** || **39** || **40** ||
+|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-highlight-strong">8</p> || 9 || 10 ||
+|| 11 || 12 || 13 || 14 || <p className="font-bold text-highlight-strong">15</p> || 16 || 17 || 18 || <p className="font-bold text-highlight-strong">19</p> || <p className="font-bold text-highlight-strong">20</p> ||
+|| <p className="font-bold text-highlight-strong">21</p> || <p className="font-bold text-highlight-strong">22</p> || <p className="font-bold text-highlight-strong">23</p> || <p className="font-bold text-highlight-strong">24</p> || 25 || <p className="font-bold text-highlight-strong">26</p> || <p className="font-bold text-highlight-strong">27</p> || <p className="font-bold text-highlight-strong">28</p> || <p className="font-bold text-highlight-strong">29</p> || <p className="font-bold text-highlight-strong">30</p> ||
+|| <p className="font-bold text-highlight-strong">31</p> || <p className="font-bold text-highlight-strong">32</p> || <p className="font-bold text-highlight-strong">33</p> || <p className="font-bold text-highlight-strong">34</p> || <p className="font-bold text-highlight-strong">35</p> || <p className="font-bold text-highlight-strong">36</p> || <p className="font-bold text-highlight-strong">37</p> || <p className="font-bold text-highlight-strong">38</p> || <p className="font-bold text-highlight-strong">39</p> || <p className="font-bold text-highlight-strong">40</p> ||
 || etc. ||
 
 OK - great! Now we have seven consecutive numbers (26 to 32) all being lucky. Since $n \implies n+7$ (Claim 1), this means every integer greater than or equal to 26 is lucky. So $C$ is at most 26.
@@ -198,6 +198,6 @@ If the program finds $(1,1,1)$ in $S_k$ (i.e. a cube, although you can search fo
 
 **The program found the following construction**, proving that 18 is lucky:
 
-<Image src='/__IMAGES__/cubetilings7.svg' width='480' height='640' alt='construction'/>
+<Image src='/__IMAGES__/cubetilings/cubetilings7.svg' width='480' height='640' alt='construction'/>
 
 Thus, 18+7=25 is also lucky, and so **$C \leq 18$**.

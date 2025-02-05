@@ -76,12 +76,6 @@ export default function AMetricSpaces () {
                         
                     
                                     
-                                        
-                        
-                            <Accordion title="example-sheets" href="/maths/Analysis-Topology/example-sheets" type="file" relDepth={ 1 } isSelected={ false } />
-                        
-                    
-                                    
                                 
                             </Accordion>
                         

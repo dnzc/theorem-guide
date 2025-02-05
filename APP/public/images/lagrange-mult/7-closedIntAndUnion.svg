@@ -65,16 +65,16 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="M 14.600736,14.087686 C 5.8638819,21.181173 3.9660821,38.19762 9.2727053,48.184917 c 4.0186207,7.56322 13.3940177,8.807132 21.0797727,8.948875 7.24019,0.133527 15.973597,0.928433 23.261418,0 4.891014,-0.623091 3.209862,-14.58803 3.382788,-17.602664 C 57.478848,31.125591 58.485196,21.960882 52.174073,15.27693 48.123458,10.987023 18.906758,4.6228735 14.600736,14.087686 Z"
        id="path5178" />
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 31.134886,30.306869 c -9.899142,6.069037 -9.480947,26.932874 0.540832,33.238101 4.645055,2.92245 11.985684,3.868537 17.175999,4.78627 2.959979,0.523375 8.69921,2.066277 11.819719,0.958607 3.318645,-1.178002 6.367568,-4.367853 8.850027,-6.728124 C 77.917764,54.578696 73.672924,49.195507 65.9827,43.353004 62.23606,40.506564 61.003829,36.201419 56.316151,33.959932 47.316327,29.656524 39.871545,30.267813 31.134886,30.306869 Z"
        id="path5180" />
     <path
        id="path5178-7"
-       style="fill:url(#pattern5488);fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 37.489538,30.256226 c -2.067164,-0.0044 -4.170487,0.04088 -6.354652,0.05064 -7.531965,4.617752 -9.089422,17.799389 -4.989875,26.617497 1.429321,0.123449 2.845107,0.184164 4.207494,0.20929 7.240191,0.133527 15.973293,0.928434 23.261114,0 4.891014,-0.623091 3.21033,-14.58791 3.383257,-17.602544 0.09535,-1.662247 0.209031,-3.354285 0.284736,-5.050854 -0.305853,-0.182894 -0.625401,-0.357846 -0.965316,-0.520382 -6.749868,-3.227556 -12.625269,-3.690329 -18.826758,-3.70365 z" />
   </g>
 </svg>

@@ -266,7 +266,7 @@ export default function LagrangeMultipliers () {
 
 <ul>
 <li>Any finite open interval in <Latex>$\mathbb&#123;R&#125;$</Latex> is an open ball (<Latex>$n=1$</Latex>), because for any open interval <Latex>$(a,b) \subset \mathbb&#123;R&#125;$</Latex>, it is equal to <Latex>$B(\frac&#123;a+b&#125;&#123;2&#125;, \frac&#123;b-a&#125;&#123;2&#125;)$</Latex>.</li>
-<li><div className='flex flex-wrap items-center space-x-4'><p><Latex>$B[0,1]$</Latex> in <Latex>$\mathbb&#123;R&#125;^2$</Latex> is</p> <Image src='/images/lm3.svg' width='100' height='100' alt='diagram' /></div></li>
+<li><div className='flex flex-wrap items-center space-x-4'><p><Latex>$B[0,1]$</Latex> in <Latex>$\mathbb&#123;R&#125;^2$</Latex> is</p> <Image src='/images/lagrange-mult/1-closedBall-0-1.svg' width='100' height='100' alt='diagram' /></div></li>
 </ul>
 
 </Example>
@@ -276,8 +276,8 @@ export default function LagrangeMultipliers () {
 <p><Latex>$U \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>open</strong> iff for every <Latex>$p \in U$</Latex>, <Latex>$\exists r\gt 0$</Latex> s.t. <Latex>$B(p,r) \subset U$</Latex>.</p>
 
 <div className='flex flex-wrap justify-center space-x-8'>
-    <Image src='/images/lm1.svg' width='150' height='160' alt='diagram' />
-    <Image src='/images/lm2.svg' width='150' height='160' alt='diagram' />
+    <Image src='/images/lagrange-mult/2-openSet.svg' width='150' height='160' alt='diagram' />
+    <Image src='/images/lagrange-mult/3-notOpenSet.svg' width='150' height='160' alt='diagram' />
 </div>
 
 </Defn>
@@ -331,7 +331,7 @@ export default function LagrangeMultipliers () {
 <p>Let <Latex>$A \in \mathbb&#123;R&#125;^n$</Latex>. The <strong>closure</strong> of <Latex>$A$</Latex>, denoted <Latex>$\bar A$</Latex>, is the smallest closed set containing <Latex>$A$</Latex>.</p>
 
 <div className='w-full flex justify-center'>
-    <Image src='/images/lm4.svg' width='250' height='125' alt='diagram'/>
+    <Image src='/images/lagrange-mult/4-closure.svg' width='250' height='125' alt='diagram'/>
 </div>
 
 </Defn>
@@ -341,7 +341,7 @@ export default function LagrangeMultipliers () {
 <p><Latex>$A \subseteq \mathbb&#123;R&#125;^n$</Latex> is closed if and only if <Latex>$\mathbb&#123;R&#125;^n \setminus A$</Latex> is open.</p>
 
 <div className='w-full flex justify-center'>
-    <Image src='/images/lm5.svg' width='300' height='150' alt='diagram'/>
+    <Image src='/images/lagrange-mult/5-closedOpenComplement.svg' width='300' height='150' alt='diagram'/>
 </div>
 
 </Thm>
@@ -351,7 +351,7 @@ export default function LagrangeMultipliers () {
 <p>Let <Latex>$U,V$</Latex> be open sets. Then <Latex>$U \cap V$</Latex> and <Latex>$U \cup V$</Latex> are also open sets. This extends to finite intersections<sup className="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup> and infinite unions.</p>
 
 <div className='w-full flex justify-center'>
-    <Image src='/images/lm6.svg' width='150' height='150' alt='diagram'/>
+    <Image src='/images/lagrange-mult/6-openIntAndUnion.svg' width='150' height='150' alt='diagram'/>
 </div>
 
 </Thm>
@@ -361,7 +361,7 @@ export default function LagrangeMultipliers () {
 <p>Let <Latex>$S,T$</Latex> be closed sets. Then <Latex>$S \cap T$</Latex> and <Latex>$S \cup T$</Latex> are also closed sets. This extends to infinite intersections and finite unions.</p>
 
 <div className='w-full flex justify-center'>
-    <Image src='/images/lm7.svg' width='150' height='150' alt='diagram'/>
+    <Image src='/images/lagrange-mult/7-closedIntAndUnion.svg' width='150' height='150' alt='diagram'/>
 </div>
 
 </Thm>
@@ -371,7 +371,7 @@ export default function LagrangeMultipliers () {
 <p><Latex>$A \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>bounded</strong> iff <Latex>$\exists\, R \in \mathbb&#123;R&#125;, R\gt 0$</Latex> such that <Latex>$A \subseteq B(0, R)$</Latex>.</p>
 
 <div className='w-full flex justify-center mt-2'>
-    <Image src='/images/lm8.svg' width='150' height='150' alt='diagram'/>
+    <Image src='/images/lagrange-mult/8-bounded.svg' width='150' height='150' alt='diagram'/>
 </div>
 
 </Defn>
@@ -380,7 +380,7 @@ export default function LagrangeMultipliers () {
 
 <p>A subset <Latex>$K \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>compact</strong> if it is closed and bounded.</p>
 
-<div className='flex flex-wrap justify-around'><Image src='/images/lm9.svg' width='200' height='200' alt='diagram' /> <Image src='/images/lm10.svg' width='200' height='200' alt='diagram' /></div>
+<div className='flex flex-wrap justify-around'><Image src='/images/lagrange-mult/9-notCompact.svg' width='200' height='200' alt='diagram' /> <Image src='/images/lagrange-mult/10-compact.svg' width='200' height='200' alt='diagram' /></div>
 
 </Defn>
 
@@ -427,7 +427,7 @@ export default function LagrangeMultipliers () {
         <p>Let <Latex>$K$</Latex> be a closed ball in <Latex>$\mathbb&#123;R&#125;^2$</Latex>, then <Latex>$K$</Latex> is compact. Let <Latex>$f : K \to \mathbb&#123;R&#125;, f(x) = d(x,(0,0))$</Latex> which is continuous.</p>
         <p>Then the theorem says that there is a point(s) on <Latex>$K$</Latex> which is closest to <Latex>$(0,0)$</Latex>, and a point(s) which is furthest.</p>
     </div>
-    <Image src='/images/lm11.svg' width='200' height='200' alt='diagram'/>
+    <Image src='/images/lagrange-mult/11-closedBall.svg' width='200' height='200' alt='diagram'/>
 </div>
 
 </Example>
@@ -503,7 +503,7 @@ export default function LagrangeMultipliers () {
 <p><Latex>$0 \leq x,y,z \leq 1$</Latex> so we're only interested in the cube <Latex>$[0,1] \times [0,1] \times [0,1]$</Latex>.</p>
 
 <div className='flex flex-wrap justify-center items-center space-x-4'>
-    <Image src='/images/lm12.svg' width='250' height='200' alt='diagram'/><p><Latex>$x+y+z=1$</Latex> is a plane (coloured green)</p>
+    <Image src='/images/lagrange-mult/12-cube.svg' width='250' height='200' alt='diagram'/><p><Latex>$x+y+z=1$</Latex> is a plane (coloured green)</p>
 </div>
 
 <p>Let <Latex>$U = (0,1)^3$</Latex>, then <Latex>$\bar U = [0,1]^3$</Latex>.</p>
@@ -821,7 +821,7 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 <p>If we attempt to use LM:</p>
 
 <div className='flex justify-center'>
-    <Image src='/images/lm13.svg' width='250' height='200' alt='diagram'/>
+    <Image src='/images/lagrange-mult/13-notBoundary.svg' width='250' height='200' alt='diagram'/>
 </div>
 
 <p>The problem is that <Latex>$f$</Latex> is not defined on the boundary, so we cannot say <Latex>$f$</Latex> has a global max and min in the area we're looking at (indeed <Latex>$f$</Latex> can be arbitrarily large if we let <Latex>$a$</Latex> approach zero for example). Boo, we can't use LM.</p>
