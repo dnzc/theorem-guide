@@ -1,6 +1,5 @@
 soroban practice page
 
-App for writing wiki
 Kakuro app (with zoom)
 
 exposition:
