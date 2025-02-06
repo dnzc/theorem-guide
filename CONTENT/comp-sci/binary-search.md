@@ -73,7 +73,9 @@ end
 
 <Spoiler>
 
-Considering the smallest missing element from the array, we must have that the items before it are the positive integers in order, with no gaps. So the smallest missing element is the smallest element whose value is not equal to its index (indexing from 1). We can use binary search to find this.
+- Considering the smallest missing element from the array, we must have that the items before it are the positive integers in order, with no gaps.
+
+- So the smallest missing element is the smallest element whose value is not equal to its index (indexing from 1). We can use binary search to find this.
 
 __COPIABLE__
 ```py

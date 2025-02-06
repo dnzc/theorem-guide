@@ -282,7 +282,9 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
     # pre doesn't work in nextjs, so find all whitespace inside pre tags and replace with character codes
     for m in [i.span() for i in re.finditer(r'(?<=<pre>)(.*?)(?=</pre>)', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
         target = page[m[0]:m[1]]
-        target = re.sub('    ', '<span>&nbsp;</span>'*4, target) # replace indents
+        target = re.sub('span ', 'span#', target) # temp
+        target = re.sub(' ', '&nbsp;', target) # replace whitespace
+        target = re.sub('span#', 'span ', target)
         target = re.sub('\n', '<br/>', target) # replace newlines
         page = page[:m[0]] + target + page[m[1]:]
 
@@ -295,7 +297,7 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
 
     # <p> tags will have been placed around the following tags (on purpose), remove them
     for i in ['CopyButton', 'Spoiler', 'hr'] + math_tags:
-        page = re.sub(r'<p>(</?' + i + r'[^>]*?>)</p>', r'\1', page)
+        page = re.sub(r'<p>(</?' + i + r'.*?>)</p>', r'\1', page)
 
     # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
     table_of_contents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]

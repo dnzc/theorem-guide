@@ -46,7 +46,7 @@
         --field: rgb(var(--white));
         --field-hover: rgb(var(--gray-20));
         --blockquote: rgb(var(--gray-10));
-        --code: rgba(0,0,0,0.9);
+        --unhighlighted-code: rgba(var(--gray-20), 0.5);
         --border-subtle: rgb(var(--gray-20));
         --border-subtle-selected: rgb(var(--gray-30));
         --border-strong: rgb(var(--gray-50));
@@ -172,14 +172,26 @@
 
     /* markdown code blocks */
 
-    .article pre {
-        @apply p-4 bg-code rounded-xl max-w-full my-1 overflow-auto;
+    .article .codehilite {
+        @apply p-4 rounded-xl mt-4;
     }
+    .article pre {
+        @apply max-w-full py-1 overflow-auto;
+    }
+
+    .article pre:not(.codehilite *) {
+        @apply p-4 rounded-xl bg-unhighlighted-code;
+    }
+
+    .article pre:not(.codehilite *) code {
+        @apply block max-w-full py-1 overflow-auto;
+    }
+
     code {
-        @apply font-code text-base text-text-secondary ml-1 break-all;
+        @apply font-code break-all;
     }
     pre > code {
-        @apply text-white ml-0 whitespace-nowrap;
+        @apply whitespace-nowrap;
     }
 
     /* markdown tables */

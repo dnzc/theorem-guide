@@ -27,7 +27,7 @@ export default {
         'field': 'var(--field)',
         'field-hover': 'var(--field-hover)',
         'blockquote': 'var(--blockquote)',
-        'code': 'var(--code)',
+        'unhighlighted-code': 'var(--unhighlighted-code)',
         'border-subtle': 'var(--border-subtle)',
         'border-subtle-selected': 'var(--border-subtle-selected)',
         'border-strong': 'var(--border-strong)',
