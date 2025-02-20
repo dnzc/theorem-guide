@@ -89,17 +89,7 @@ export default function CourseNotes () {
                                     
                                         
                         
-                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
+                            <Accordion title="lagrange-multipliers" href="/maths/lagrange-multipliers" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -207,24 +197,23 @@ export default function CourseNotes () {
         <div className="article mb-4">
             <div className="space-y-6">
 
-    <p className="mt-2 text-3xl font-bold text-text-primary break-all">notes.danielc.rocks</p>
+    <p className="mt-2 text-3xl font-bold break-all">
+        <span className="text-highlight-strong">notes.</span>
+        <span className="text-link">daniel</span>
+        <span className="text-highlight-subtle">c.</span>
+        <span className="text-black">rocks</span>
+    </p>
 
     <p>
-        This site is a collection of notes I've written for various courses in Part IB of the Mathematical Tripos.
+        This site is a collection of notes I've written for various courses, as well as explanations of topics I find interesting. Everything is written in my own words - the primary goal is to be able to provide intuition for topics that were presented to me very abstractly.
         <br/>
-        The goal is to be able to provide motivation and intuition for topics that were presented very abstractly.
-        <br/>
-        Each course is denoted as
+        Most of the courses are from Part IB of the Mathematical Tripos. Each course is denoted as
             <span className="text-course-icon inline-flex mx-1"><FaBook/></span>
         in the sidebar, containing articles
             <span className="text-text-secondary inline-flex mx-1 relative top-[0.1rem]"><GrArticle/></span>
         and folders
             <span className="text-folder-icon inline-flex mx-1 relative top-[0.2rem]"><AiFillFolder size={20}/></span>
         which can be viewed once inside the course.
-        <br/>
-        I've also added intuition-focused explanations of topics I find interesting, which are articles not contained inside a course.
-        <br/>
-        It began as a summer project in July 2023.
     </p>
 
     <p>
@@ -235,90 +224,39 @@ export default function CourseNotes () {
 
     <div className="pt-2 pb-4">
 
-        <h1>Recent Articles</h1>
+        <h1>Course List</h1>
 
-        <div className="space-y-5">
-
-            
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
-                        <p className="text-highlight-subtle mr-2">
-                            
-                                16 Dec 2024
-                            
-                        </p>
-                        
-                            <p className="italic">maths</p>
-                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
-                            <p className="italic">...</p>
-                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
-                            <p className="italic">A-metric-spaces</p>
-                        
-                    </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/Analysis-Topology/A-metric-spaces/1-basics" className="hover:underline">§1 Basics</Link></p>
-                </div>
-            
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
-                        <p className="text-highlight-subtle mr-2">
-                            
-                                08 Jun 2024
-                            
-                        </p>
-                        
-                            <p className="italic">writeups</p>
-                        
-                    </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/writeups/terminal" className="hover:underline">Terminal Challenge</Link></p>
-                </div>
-            
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
-                        <p className="text-highlight-subtle mr-2">
-                            
-                                27 Jul 2023
-                            
-                        </p>
-                        
-                            <p className="italic">comp-sci</p>
-                        
-                    </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/comp-sci/binary-search" className="hover:underline">Binary Search: an Intuitive Algorithm</Link></p>
-                </div>
-            
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
-                        <p className="text-highlight-subtle mr-2">
-                            
-                                27 Jul 2023
-                            
-                        </p>
-                        
-                            <p className="italic">maths</p>
-                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
-                            <p className="italic">proving-FTA</p>
-                        
-                    </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/proving-FTA/4-euclid" className="hover:underline">Proving Euclid's Lemma</Link></p>
-                </div>
-            
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
-                        <p className="text-highlight-subtle mr-2">
-                            
-                                27 Jul 2023
-                            
-                        </p>
-                        
-                            <p className="italic">maths</p>
-                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
-                            <p className="italic">proving-FTA</p>
-                        
-                    </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="/maths/proving-FTA/5-fta" className="hover:underline">The Fundamental Theorem of Arithmetic: Our Journey's End</Link></p>
-                </div>
-            
-
+        <div class="overflow-x-auto rounded-lg">
+            <table class="notmdtable w-full text-sm text-left text-text-secondary">
+                <thead class="text-xs text-text-secondary uppercase bg-gray-200">
+                    <tr className="whitespace-nowrap">
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Updated
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Applied-o-meter
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white even:bg-gray-50 border-b border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900">
+                            <ProminentLink href="/maths/Analysis-Topology" internal>
+                            IB Analysis & Topology
+                            </ProminentLink>
+                        </th>
+                        <td class="px-6 py-4">
+                            16 Dec 2024
+                        </td>
+                        <td class="px-6 py-4">
+                            purer than my search history
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>
@@ -326,38 +264,6 @@ export default function CourseNotes () {
     <h1>About</h1>
 
     <div className="space-y-2">
-        <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="features" className="underline underline-offset-2">Features</h2><Link href="#features" onClick={() => copyToClipboard("https://notes.danielc.rocks/#features", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
-        <ul className="">
-            <li className="list-disc ml-8">
-                Toggleable sidebar with keyboard shortcuts, containing collapsible filetree
-            </li>
-            <li className="list-disc ml-8">
-                Fully indexed search with result highlighting
-            </li>
-            <li className="list-disc ml-8">
-                Mobile-friendly
-            </li>
-            <li className="list-disc ml-8">
-                Miscellaneous:
-                <ul>
-                    <li className="list-disc ml-8">
-                        Spoiler blocks
-                    </li>
-                    <li className="list-disc ml-8">
-                        Copiable code blocks and articles (but not course notes :D)
-                    </li>
-                    <li className="list-disc ml-8">
-                        Links to headings
-                    </li>
-                    <li className="list-disc ml-8">
-                        LaTeX rendering; consistent presentation across all pages
-                    </li>
-                    <li className="list-disc ml-8">
-                        Folder sorting
-                    </li>
-                </ul>
-            </li>
-        </ul>
         <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="how-is-this-site-maintained" className="underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
         <p>If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
@@ -447,7 +353,7 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
@@ -498,7 +404,7 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">

@@ -196,10 +196,10 @@
 
     /* markdown tables */
 
-    .article table {
+    .article table:not(.notmdtable) {
         @apply table-auto my-2;
     }
-    .article td {
+    .article td:not(.notmdtable *) { /* manual tables should be marked as notmdtable */
         @apply border-2 border-border-strong py-1 px-3 text-center;
     }
 

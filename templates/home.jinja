@@ -1,23 +1,22 @@
 <div className="space-y-6">
 
-    <p className="mt-2 text-3xl font-bold text-text-primary break-all">notes.danielc.rocks</p>
+    <p className="mt-2 text-3xl font-bold break-all">
+        <span className="text-highlight-strong">notes.</span>
+        <span className="text-link">daniel</span>
+        <span className="text-highlight-subtle">c.</span>
+        <span className="text-black">rocks</span>
+    </p>
 
     <p>
-        This site is a collection of notes I've written for various courses in Part IB of the Mathematical Tripos.
+        This site is a collection of notes I've written for various courses, as well as explanations of topics I find interesting. Everything is written in my own words - the primary goal is to be able to provide intuition for topics that were presented to me very abstractly.
         <br/>
-        The goal is to be able to provide motivation and intuition for topics that were presented very abstractly.
-        <br/>
-        Each course is denoted as
+        Most of the courses are from Part IB of the Mathematical Tripos. Each course is denoted as
             <span className="text-course-icon inline-flex mx-1"><FaBook/></span>
         in the sidebar, containing articles
             <span className="text-text-secondary inline-flex mx-1 relative top-[0.1rem]"><GrArticle/></span>
         and folders
             <span className="text-folder-icon inline-flex mx-1 relative top-[0.2rem]"><AiFillFolder size={20}/></span>
         which can be viewed once inside the course.
-        <br/>
-        I've also added intuition-focused explanations of topics I find interesting, which are articles not contained inside a course.
-        <br/>
-        It began as a summer project in July 2023.
     </p>
 
     <p>
@@ -28,38 +27,39 @@
 
     <div className="pt-2 pb-4">
 
-        <h1>Recent Articles</h1>
+        <h1>Course List</h1>
 
-        <div className="space-y-5">
-
-            {% for article in recentArticles %}
-                <div>
-                    <div className="flex flex-wrap items-center align-middle space-x-1 mb-0 text-base text-text-secondary">
-                        <p className="text-highlight-subtle mr-2">
-                            {% if article['cr_date_time'] %}
-                                {{article['cr_date_time']}}
-                            {% else %}
-                                Coming soon
-                            {% endif %}
-                        </p>
-                        {% if article['dir']|length == 1 %}
-                            <p className="italic">{{article['dir'][0]}}</p>
-                        {% elif article['dir']|length == 2 %}
-                            <p className="italic">{{article['dir'][0]}}</p>
-                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
-                            <p className="italic">{{article['dir'][1]}}</p>
-                        {% else %}
-                            <p className="italic">{{article['dir'][0]}}</p>
-                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
-                            <p className="italic">...</p>
-                            <span className="relative top-[0.1em]"> <FaChevronRight size={12}/> </span>
-                            <p className="italic">{{article['dir'][-1]}}</p>
-                        {% endif %}
-                    </div>
-                    <p className="text-xl text-primary text-link underline underline-offset-2"><Link href="{{'/'+'/'.join(article['dir'])+'/'+article['name']}}" className="hover:underline">{{article['title']}}</Link></p>
-                </div>
-            {% endfor %}
-
+        <div class="overflow-x-auto rounded-lg">
+            <table class="notmdtable w-full text-sm text-left text-text-secondary">
+                <thead class="text-xs text-text-secondary uppercase bg-gray-200">
+                    <tr className="whitespace-nowrap">
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Updated
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Applied-o-meter
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white even:bg-gray-50 border-b border-gray-200">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900">
+                            <ProminentLink href="/maths/Analysis-Topology" internal>
+                            IB Analysis & Topology
+                            </ProminentLink>
+                        </th>
+                        <td class="px-6 py-4">
+                            16 Dec 2024
+                        </td>
+                        <td class="px-6 py-4">
+                            purer than my search history
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>
@@ -67,38 +67,6 @@
     <h1>About</h1>
 
     <div className="space-y-2">
-        <h2 id="features">Features</h2>
-        <ul className="">
-            <li className="list-disc ml-8">
-                Toggleable sidebar with keyboard shortcuts, containing collapsible filetree
-            </li>
-            <li className="list-disc ml-8">
-                Fully indexed search with result highlighting
-            </li>
-            <li className="list-disc ml-8">
-                Mobile-friendly
-            </li>
-            <li className="list-disc ml-8">
-                Miscellaneous:
-                <ul>
-                    <li className="list-disc ml-8">
-                        Spoiler blocks
-                    </li>
-                    <li className="list-disc ml-8">
-                        Copiable code blocks and articles (but not course notes :D)
-                    </li>
-                    <li className="list-disc ml-8">
-                        Links to headings
-                    </li>
-                    <li className="list-disc ml-8">
-                        LaTeX rendering; consistent presentation across all pages
-                    </li>
-                    <li className="list-disc ml-8">
-                        Folder sorting
-                    </li>
-                </ul>
-            </li>
-        </ul>
         <h2 id="how-is-this-site-maintained">How is this site maintained?</h2>
         <p>If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">

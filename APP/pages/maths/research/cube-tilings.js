@@ -84,17 +84,7 @@ export default function CubeTilings () {
                                     
                                         
                         
-                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
+                            <Accordion title="lagrange-multipliers" href="/maths/lagrange-multipliers" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     

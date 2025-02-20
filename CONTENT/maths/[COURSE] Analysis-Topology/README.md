@@ -1,6 +1,6 @@
-# IB Analysis and Topology
+# IB Analysis and Topology <IncompleteMessage/>
 
-Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. The goal is to be able to provide motivation and intuition for topics that were presented to me very abstractly.
+Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. Aimed at second-year undergraduates. Hopefully I can provide some inutition that might not be present elsewhere.
 
 ## Course Prerequisites
 

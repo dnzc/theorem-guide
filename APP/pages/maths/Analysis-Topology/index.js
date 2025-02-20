@@ -114,9 +114,9 @@ export default function AnalysisTopology () {
         
 
         <div className="article mb-4">
-            <h1 id="ib-analysis-and-topology">IB Analysis and Topology</h1>
+            <h1 id="ib-analysis-and-topology-incompletemessage">IB Analysis and Topology <IncompleteMessage/></h1>
 
-<p>Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. The goal is to be able to provide motivation and intuition for topics that were presented to me very abstractly.</p>
+<p>Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. Aimed at second-year undergraduates. Hopefully I can provide some inutition that might not be present elsewhere.</p>
 
 <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="course-prerequisites" className="underline underline-offset-2">Course Prerequisites</h2><Link href="#course-prerequisites" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#course-prerequisites", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 

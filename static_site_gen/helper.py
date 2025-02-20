@@ -124,23 +124,19 @@ def flatten_content(content, title):
     content = re.sub(r' +', ' ', content)
     return content
 
-def get_creation_timestamp_and_filecount(cur_dir):
+def get_updation_timestamp_and_filecount(cur_dir):
     timestamp = PLACEHOLDER_TIMESTAMP
     if cur_dir.endswith('.md'):
         with open(SOURCE_DIR+cur_dir, 'r') as f:
             try:
                 first = f.readline().strip()
-                second = f.readline().strip()
-                if second.startswith('created '):
-                    timestamp = datetime.strptime(second.split(' ', 1)[1], '%d/%m/%Y %H:%M').timestamp()
-                else:
-                    timestamp = datetime.strptime(first, '%d/%m/%Y %H:%M').timestamp()
+                timestamp = datetime.strptime(first, '%d/%m/%Y %H:%M').timestamp()
             except ValueError: pass
         return timestamp, 1
     filecount = 0
     for child in os.listdir(SOURCE_DIR+cur_dir):
         if child.endswith('__IMAGES__'): continue # exclude the special images directory
-        child_timestamp, child_filecount = get_creation_timestamp_and_filecount(cur_dir+'/'+child)
+        child_timestamp, child_filecount = get_updation_timestamp_and_filecount(cur_dir+'/'+child)
         timestamp = max(timestamp, child_timestamp)
         filecount += child_filecount
     return timestamp, filecount
@@ -160,8 +156,8 @@ def get_folder_contents(cur_dir):
         child_dir = cur_dir+'/'+child
         item['name'] = sanitize(beautify(child))
         item['path'] = sanitize(beautify(cur_dir + '/' + item['name']))
-        item['cr_timestamp'], item['filecount'] = get_creation_timestamp_and_filecount(child_dir)
-        item['cr_date_time'] = timestamp_to_str(item['cr_timestamp'])
+        item['mod_timestamp'], item['filecount'] = get_updation_timestamp_and_filecount(child_dir)
+        item['mod_date_time'] = timestamp_to_str(item['mod_timestamp'])
         folder_contents.append(item)
     return folder_contents
 
@@ -434,18 +430,16 @@ def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, display
             folder_mainpage = page + separator
         elif cur_dir == '': # render homepage
             # articles will have been populated, since root page is rendered last
-            recent_articles = list(filter(lambda x: x['cr_timestamp']!=PLACEHOLDER_TIMESTAMP or x['coming_soon'], article_list)) # remove articles without date
-            recent_articles.sort(key=lambda x:10000000000000000000000 if x['cr_timestamp']==PLACEHOLDER_TIMESTAMP else x['cr_timestamp'],reverse=True)
-            recent_articles = recent_articles[:5]
+
             with open(CHANGELOG_FILE, 'r') as f:
                 changelog = markdown(f.read())
-            folder_mainpage = add_link_anchors(HOME_TEMPLATE.render(recentArticles=recent_articles, changelog=changelog), '/') + separator
+            folder_mainpage = add_link_anchors(HOME_TEMPLATE.render(changelog=changelog), '/') + separator
 
         output_file.write(
             wrap_in_js(
                 TEMPLATE.render(
                     content=folder_mainpage+FOLDER_TEMPLATE.render(
-                        contents_by_time=sorted(folder_contents,key=lambda x:x['cr_timestamp'], reverse=True),
+                        contents_by_time=sorted(folder_contents,key=lambda x:x['mod_timestamp'], reverse=True),
                         contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                         file_count=sum(item['filecount'] for item in folder_contents),
                     ),

@@ -80,17 +80,7 @@ export default function Maths () {
                                     
                                         
                         
-                            <Accordion title="olympiad" href="/maths/olympiad" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="lagrange-multipliers" href="/maths/olympiad/lagrange-multipliers" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
+                            <Accordion title="lagrange-multipliers" href="/maths/lagrange-multipliers" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -212,6 +202,30 @@ export default function Maths () {
         contents_by_date={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+                <Link href="/maths/lagrange-multipliers">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0 text-text-secondary"/>
+                        
+                        <p className="relative bottom-[1px]">lagrange-multipliers</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+                <Link href="/maths/proving-FTA">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <AiFillFolder className="shrink-0 text-folder-icon"/>
+                        
+                        <p className="relative bottom-[1px]">proving-FTA</p>
+                    </div>
+                </Link>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/maths/Analysis-Topology">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -224,18 +238,6 @@ export default function Maths () {
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
-                <Link href="/maths/proving-FTA">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">proving-FTA</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
                 <Link href="/maths/research">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -245,18 +247,6 @@ export default function Maths () {
                     </div>
                 </Link>
                 <p className="text-sm break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">olympiad</p>
-                    </div>
-                </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
             </li>
         
      </>}
@@ -275,15 +265,15 @@ export default function Maths () {
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
-                <Link href="/maths/olympiad">
+                <Link href="/maths/lagrange-multipliers">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
+                            <GrArticle className="shrink-0 text-text-secondary"/>
                         
-                        <p className="relative bottom-[1px]">olympiad</p>
+                        <p className="relative bottom-[1px]">lagrange-multipliers</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
@@ -295,7 +285,7 @@ export default function Maths () {
                         <p className="relative bottom-[1px]">proving-FTA</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">

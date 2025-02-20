@@ -42,7 +42,7 @@ export default function Folder({contents_by_date, contents_by_name}) {
                     </button>
                 </div>
                 <div className='flex space-x-2 items-center'>
-                    <p className='text-lg hidden xs:block'>Created</p>
+                    <p className='text-lg hidden xs:block'>Updated</p>
                     <button onClick={dateButtonClicked} className={directionState=='desc' ? 'rotate-180' : ''}>
                         {dateIcon}
                     </button>
