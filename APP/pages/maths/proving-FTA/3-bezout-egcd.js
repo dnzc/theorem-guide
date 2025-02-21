@@ -44,9 +44,9 @@ export default function BezoutEgcd () {
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
-            <div className="relative bottom-0">
-                <ul className="dirtree mb-4 md:mb-0 group">
+        
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(40vh)] md:h-[calc(100vh-36rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+                <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
 
@@ -177,8 +177,26 @@ export default function BezoutEgcd () {
                         
                     
                 </ul>
-            </div>
         </div>
+
+    
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(30vh)] md:h-[18rem] xl:hidden shrink-0 px-4 py-2 border-t-2 md:border-t-0 md:border-b-2 border-border-subtle">
+            <h1 className="text-text-secondary text-lg">Table of contents</h1>
+            <ul>
+                
+                    <li className="pt-1 font-bold"><Link href="#puzzle-water-jug-problem" className="text-link [@media(hover:hover)]:hover:underline">Puzzle: water-jug problem</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#numerical-evidence" className="text-link [@media(hover:hover)]:hover:underline">Numerical Evidence</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#bezouts-lemma-proof" className="text-link [@media(hover:hover)]:hover:underline">Bezout's Lemma: Proof</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#magic-box" className="text-link [@media(hover:hover)]:hover:underline">Magic box</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#remarks-first-unobvious-result" className="text-link [@media(hover:hover)]:hover:underline">Remarks: first unobvious result?</Link></li>
+                
+            </ul>
+        </div>
+    
 
     </Sidebar>
 
@@ -279,14 +297,14 @@ export default function BezoutEgcd () {
 <p>Let's try:</p>
 
 <blockquote>
-  <p><span className="block overflow-auto latex-display-wrapper"><Latex>$$1 = 1\cdot 1 + 2\cdot 0$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = (3-2)\cdot 1 + 2\cdot 0$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 3\cdot 1 + 2\cdot (0-1)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 3\cdot 1 + (5-3)\cdot (-1)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 3\cdot (1+1) + 5\cdot (-1)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = (8-5)\cdot 2 + 5\cdot (-1)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 8\cdot 2 + 5\cdot (-1-2)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 8\cdot 2 - 5\cdot 3$$</Latex></span></p>
+  <p><span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$1 = 1\cdot 1 + 2\cdot 0$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = (3-2)\cdot 1 + 2\cdot 0$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 3\cdot 1 + 2\cdot (0-1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 3\cdot 1 + (5-3)\cdot (-1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 3\cdot (1+1) + 5\cdot (-1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = (8-5)\cdot 2 + 5\cdot (-1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 8\cdot 2 + 5\cdot (-1-2)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 8\cdot 2 - 5\cdot 3$$</Latex></span></p>
 </blockquote>
 
 <p>Which is a linear combination of 5 and 8!</p>
@@ -296,16 +314,16 @@ export default function BezoutEgcd () {
 <p>Let's do the same thing. Note that a linear combination of 155 and 27 is a linear combination of (27*5 + 20) and 27, which is a linear combination of 20 and 27 because <Latex>$155x + 27y$</Latex> <Latex>$ = (27\cdot 5 + 20)x + 27y$</Latex> <Latex>$= 27(5x+y) + 20x$</Latex>. And so on, this is a linear combination of 7 and 20, which is a combination of 7 and 6 (because 20 divided by 7 has remainder 6), which is a combination of 7-6=1 and 6. We've hit 1, so we can start building up the desired combination by going backwards.</p>
 
 <blockquote>
-  <p><span className="block overflow-auto latex-display-wrapper"><Latex>$$1 = 1\cdot 1 + 6\cdot 0$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = (7-6)\cdot 1 + 6\cdot 0$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 7\cdot 1 + 6\cdot (0-1)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 7\cdot 1 + (20-2\cdot 7)\cdot (-1)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 7\cdot (1+2\cdot 1) + 20\cdot (-1)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = (27-20)\cdot 3 + 20\cdot (-1)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 27\cdot 3 + 20\cdot (-1-3)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 27\cdot 3 + (155-5\cdot 27)\cdot (-4)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 27\cdot (3+5\cdot 4) + (155\cdot (-4)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 27\cdot 23 - 155\cdot 4$$</Latex></span></p>
+  <p><span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$1 = 1\cdot 1 + 6\cdot 0$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = (7-6)\cdot 1 + 6\cdot 0$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 7\cdot 1 + 6\cdot (0-1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 7\cdot 1 + (20-2\cdot 7)\cdot (-1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 7\cdot (1+2\cdot 1) + 20\cdot (-1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = (27-20)\cdot 3 + 20\cdot (-1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 27\cdot 3 + 20\cdot (-1-3)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 27\cdot 3 + (155-5\cdot 27)\cdot (-4)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 27\cdot (3+5\cdot 4) + (155\cdot (-4)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 27\cdot 23 - 155\cdot 4$$</Latex></span></p>
 </blockquote>
 
 <p>Are you starting to get the idea? Let's do one more example (I also strongly recommend trying some on your own). This time, we'll write out the divisions that we're doing at the start, as well as the reconstruction steps.</p>
@@ -315,53 +333,53 @@ export default function BezoutEgcd () {
   
   <p>First, our division steps that "reduce" the problem:</p>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$443 = 259 \cdot 1 + 184 \text&#123;, new pair is (259,184)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$443 = 259 \cdot 1 + 184 \text&#123;, new pair is (259,184)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$259 = 184 \cdot 1 + 75 \text&#123;, new pair is (184,75)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$259 = 184 \cdot 1 + 75 \text&#123;, new pair is (184,75)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$184 = 75 \cdot 2 + 34 \text&#123;, new pair is (75,34)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$184 = 75 \cdot 2 + 34 \text&#123;, new pair is (75,34)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$75 = 34 \cdot 2 + 7 \text&#123;, new pair is (34,7)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$75 = 34 \cdot 2 + 7 \text&#123;, new pair is (34,7)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$34 = 7 \cdot 4 + 6 \text&#123;, new pair is (7,6)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$34 = 7 \cdot 4 + 6 \text&#123;, new pair is (7,6)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$7 = 6 \cdot 1 + 1 \text&#123;, new pair is (6,1)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$7 = 6 \cdot 1 + 1 \text&#123;, new pair is (6,1)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$6 = 1 \cdot 6 + 0 \text&#123;, new pair is (1,0)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$6 = 1 \cdot 6 + 0 \text&#123;, new pair is (1,0)&#125;$$</Latex></span>
   
   <p>We stop once we hit (1,0). Now, <Latex>$1 = 1\cdot 1 - 0\cdot 0$</Latex> so we can start reconstructing, by travelling back up the list of divisions.</p>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$1 = 1\cdot 1 - 0 \cdot 0$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$1 = 1\cdot 1 - 0 \cdot 0$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 1\cdot 1 - (6 - 1\cdot 6) \cdot 0 \text&#123; (see last line of the division list)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 1\cdot 1 - (6 - 1\cdot 6) \cdot 0 \text&#123; (see last line of the division list)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 1\cdot (1+6\cdot 0) - 6 \cdot 0$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 1\cdot (1+6\cdot 0) - 6 \cdot 0$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = (7-6 \cdot 1)\cdot 1 - 6 \cdot 0 \text&#123; (see penultimate line)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = (7-6 \cdot 1)\cdot 1 - 6 \cdot 0 \text&#123; (see penultimate line)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 7\cdot 1 - 6 \cdot (0+1\cdot 1)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 7\cdot 1 - 6 \cdot (0+1\cdot 1)$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 7\cdot 1 - (34 - 7 \cdot 4) \cdot 1 \text&#123; (see... etc)&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 7\cdot 1 - (34 - 7 \cdot 4) \cdot 1 \text&#123; (see... etc)&#125;$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 7\cdot (1+4\cdot 1) - 34 \cdot 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 7\cdot (1+4\cdot 1) - 34 \cdot 1$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = (75 - 34\cdot 2)\cdot 5 - 34 \cdot 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = (75 - 34\cdot 2)\cdot 5 - 34 \cdot 1$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 75\cdot 5 - 34 \cdot (1+2\cdot 5)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 75\cdot 5 - 34 \cdot (1+2\cdot 5)$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 75\cdot 5 - (184 - 75 \cdot 2) \cdot 11$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 75\cdot 5 - (184 - 75 \cdot 2) \cdot 11$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 75\cdot (5 + 2\cdot 11) - 184 \cdot 11$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 75\cdot (5 + 2\cdot 11) - 184 \cdot 11$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = (259-184\cdot 1)\cdot 27 - 184 \cdot 11$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = (259-184\cdot 1)\cdot 27 - 184 \cdot 11$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 259\cdot 27 - 184 \cdot (11 + 1\cdot 27)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 259\cdot 27 - 184 \cdot (11 + 1\cdot 27)$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 259\cdot 27 - (443 - 259 \cdot 1) \cdot 38$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 259\cdot 27 - (443 - 259 \cdot 1) \cdot 38$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 259\cdot (27 + 1\cdot 38) - 443 \cdot 38$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 259\cdot (27 + 1\cdot 38) - 443 \cdot 38$$</Latex></span>
   
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 259\cdot 65 - 443 \cdot 38$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 259\cdot 65 - 443 \cdot 38$$</Latex></span>
   
   <p>which is a solution.</p>
 </blockquote>
@@ -392,7 +410,7 @@ export default function BezoutEgcd () {
 
 <p>Let <Latex>$a,b \in \mathbb&#123;N&#125;$</Latex>. Consider the set</p>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = ax + by,\; x,y \in \mathbb&#123;Z&#125;\&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$S = \&#123;n \in \mathbb&#123;N&#125; \mid n = ax + by,\; x,y \in \mathbb&#123;Z&#125;\&#125;$$</Latex></span>
 
 <p>This set is nonempty (since, for example, <Latex>$a \in S$</Latex>) and a subset of the naturals by construction. Thus by the <strong>well-ordering principle</strong>, S has a least element, say <Latex>$e = ax_0 + by_0$</Latex>.</p>
 
@@ -423,17 +441,17 @@ export default function BezoutEgcd () {
 <p>We could do what we did before, which was the Euclidean Algorithm and then building a solution <strong>in reverse</strong><sup className="footnote-ref" id="fnref-6"><a href="#fn-6">6</a></sup>. But what if we try the same thing but going forwards?</p>
 
 <blockquote>
-  <p><span className="block overflow-auto latex-display-wrapper"><Latex>$$29x + 11y = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$(2\cdot 11 + 7)x + 11y = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$7x + 11(2x+y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$7x + (7\cdot 1+4)(2x+y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$7(3x+y) + 4(2x+y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$(4+3)(3x+y) + 4(2x+y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$3(3x+y) + 4(5x+2y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$3(3x+y) + (3+1)(5x+2y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$3(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$(3\cdot 1 + 0)(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$0(8x+3y) + 1(29x + 11y) = 1$$</Latex></span></p>
+  <p><span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$29x + 11y = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$(2\cdot 11 + 7)x + 11y = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$7x + 11(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$7x + (7\cdot 1+4)(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$7(3x+y) + 4(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$(4+3)(3x+y) + 4(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$3(3x+y) + 4(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$3(3x+y) + (3+1)(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$3(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$(3\cdot 1 + 0)(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$0(8x+3y) + 1(29x + 11y) = 1$$</Latex></span></p>
 </blockquote>
 
 <p>Uh, oh, it looks like we started with <Latex>$29x + 11y = 1$</Latex> and ended up with <Latex>$0 + 1(29x+11y) = 1$</Latex>. Did we go in a circle? It certainly looks like it, apart from one thing - why did we get <Latex>$(8x+3y)$</Latex> in that bracket? Surely there's something special about it.</p>
@@ -449,12 +467,12 @@ So could it be that the significance of <Latex>$(8x+3y)$</Latex> is that it give
 <p>In fact, it looks like something even better is true: for convenience, I'll write a compressed version of what we did again:</p>
 
 <blockquote>
-  <p><span className="block overflow-auto latex-display-wrapper"><Latex>$$29x + 11y = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$7x + 11(2x+y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$7(3x+y) + 4(2x+y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$3(3x+y) + 4(5x+2y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$3(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$0(8x+3y) + 1(29x + 11y) = 1$$</Latex></span></p>
+  <p><span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$29x + 11y = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$7x + 11(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$7(3x+y) + 4(2x+y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$3(3x+y) + 4(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$3(8x+3y) + 1(5x+2y) = 1$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$0(8x+3y) + 1(29x + 11y) = 1$$</Latex></span></p>
 </blockquote>
 
 <p>Look at the coefficients of <Latex>$x$</Latex> and <Latex>$y$</Latex> in the last line: it fits the pattern that <Latex>$11\cdot 8 - 29\cdot 3 = 1$</Latex></p>
@@ -503,13 +521,13 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
 
 <p>So what's the next line? Well, we reduce: write <Latex>$m = qn + m'$</Latex>, so <Latex>$q$</Latex> is the next quotient in the Euclidean algorithm, and <Latex>$m'$</Latex> is the remainder.</p>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$m(ax + by) + n(cx + dy)$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$m(ax + by) + n(cx + dy)$$</Latex></span>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$ = (qn+m')(ax + by) + n(cx + dy)$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$ = (qn+m')(ax + by) + n(cx + dy)$$</Latex></span>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$ = m'(ax + by) + n(q(ax+by)+(cx + dy))$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$ = m'(ax + by) + n(q(ax+by)+(cx + dy))$$</Latex></span>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$ = m'(ax + by) + n((qa+c)x+(qb+d)y)$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$ = m'(ax + by) + n((qa+c)x+(qb+d)y)$$</Latex></span>
 
 <p>And so, if we have the two brackets <Latex>$(cx+dy)$</Latex> and <Latex>$(ax+by)$</Latex>, then the next bracket is <Latex>$((qa+c)x + (qb+d)y)$</Latex>.</p>
 
@@ -767,22 +785,22 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
   <p>Let's say the list of quotients is <Latex>$t_1, t_2, \cdots, t_n$</Latex> .</p>
   
   <p>Then we build a sequence of matrices (which are the 2x2 squares in the magic box, from left to right): the first is <Latex>$M_1 = \begin&#123;pmatrix&#125;0 &amp; 1\\1 &amp; 0\end&#123;pmatrix&#125;$</Latex>, and for any matrix <Latex>$M_i$</Latex> in the sequence with <Latex>$M_i = \begin&#123;pmatrix&#125; p_i &amp; p_&#123;i+1&#125; \\ q_i &amp; q_&#123;i+1&#125; \end&#123;pmatrix&#125;$</Latex>, we have that:
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$M_&#123;i+1&#125; = \begin&#123;pmatrix&#125; p_&#123;i+1&#125; &amp; t_i p_&#123;i+1&#125; + p_i \\ q_&#123;i+1&#125; &amp; t_i q_&#123;i+1&#125; + q_i\end&#123;pmatrix&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$M_&#123;i+1&#125; = \begin&#123;pmatrix&#125; p_&#123;i+1&#125; &amp; t_i p_&#123;i+1&#125; + p_i \\ q_&#123;i+1&#125; &amp; t_i q_&#123;i+1&#125; + q_i\end&#123;pmatrix&#125;$$</Latex></span>
   Now we can write this in terms of <Latex>$M_i$</Latex> like so:
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$M_&#123;i+1&#125; = \begin&#123;pmatrix&#125; p_&#123;i+1&#125; &amp;  p_i \\ q_&#123;i+1&#125; &amp; q_i\end&#123;pmatrix&#125; + \begin&#123;pmatrix&#125; 0 &amp; t_i p_&#123;i+1&#125; \\ 0 &amp; t_i q_&#123;i+1&#125;\end&#123;pmatrix&#125;$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$= M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; 0 \end&#123;pmatrix&#125; + M_i\begin&#123;pmatrix&#125; 0 &amp; 0 \\ 0 &amp; t_i \end&#123;pmatrix&#125;$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$= M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;$$</Latex></span></p>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$M_&#123;i+1&#125; = \begin&#123;pmatrix&#125; p_&#123;i+1&#125; &amp;  p_i \\ q_&#123;i+1&#125; &amp; q_i\end&#123;pmatrix&#125; + \begin&#123;pmatrix&#125; 0 &amp; t_i p_&#123;i+1&#125; \\ 0 &amp; t_i q_&#123;i+1&#125;\end&#123;pmatrix&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; 0 \end&#123;pmatrix&#125; + M_i\begin&#123;pmatrix&#125; 0 &amp; 0 \\ 0 &amp; t_i \end&#123;pmatrix&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;$$</Latex></span></p>
   
   <p>Now, using this recurrence, we have that the last 2x2 square in the magic box, the one that gives the solution to <Latex>$ax + by = \pm 1$</Latex>, is:
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$\begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; 0\end&#123;pmatrix&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_1\end&#123;pmatrix&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_2\end&#123;pmatrix&#125; (\cdots) \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_n\end&#123;pmatrix&#125;$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = \prod_&#123;0 \leq i \leq n&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i\end&#123;pmatrix&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; 0\end&#123;pmatrix&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_1\end&#123;pmatrix&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_2\end&#123;pmatrix&#125; (\cdots) \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_n\end&#123;pmatrix&#125;$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = \prod_&#123;0 \leq i \leq n&#125; \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i\end&#123;pmatrix&#125;$$</Latex></span>
   Where we extend the definition of the <Latex>$t_i$</Latex> to include <Latex>$t_0 = 0$</Latex>.</p>
   
   <p>Note: this recurrence also justifies that the determinant of each 2x2 square in the magic box alternates between 1 and -1, because:
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$det(M_&#123;i+1&#125;)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$= det\left(M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;\right)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$= det(M_i) \, det\left(\begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;\right)$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = -det(M_i)$$</Latex></span></p>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$det(M_&#123;i+1&#125;)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= det\left(M_i \begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;\right)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= det(M_i) \, det\left(\begin&#123;pmatrix&#125; 0 &amp; 1 \\ 1 &amp; t_i \end&#123;pmatrix&#125;\right)$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = -det(M_i)$$</Latex></span></p>
 </blockquote>
 
 <div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="remarks-first-unobvious-result" className="underline underline-offset-2">Remarks: first unobvious result?</h2><Link href="#remarks-first-unobvious-result" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#remarks-first-unobvious-result", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
@@ -854,7 +872,7 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
     </article>
 
     
-        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
+        <nav className="hidden xl:flex w-[270px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
             <div className="fixed text-text-secondary">
                 <h1 className="text-lg">Table of contents</h1>
                 <ul>

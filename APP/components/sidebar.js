@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, cloneElement } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { FaFolderTree } from 'react-icons/fa6'
 import Popup from '@/components/popup'
@@ -60,19 +60,92 @@ export default function Sidebar({ children }) {
         }
     }, [])
 
+    let filetree = children
+    let toc = []
+    if(children.constructor === Array) {
+        filetree = children[0]
+        toc = children[1]
+    }
+    let filetreeDivStyle = filetree.props.className
+    filetree = filetree.props.children // remove wrapper, add it back later with ref attached
+    let tocDivStyle = null
+    if(toc.constructor !== Array) { // toc exists
+        tocDivStyle = toc.props.className
+        toc = toc.props.children // remove wrapper to attach div later
+    }
+    const filetreeRef = useRef(null)
+    const tocRef = useRef(null)
+    const [isInsideFiletree, setIsInsideFiletree] = useState(false)
+    const [isInsideToc, setIsInsideToc] = useState(false)
+    const handleMouseEnterFiletree = () => {
+        setIsInsideFiletree(true)
+    }
+    const handleMouseLeaveFiletree = () => {
+        setIsInsideFiletree(false)
+    }
+    const handleMouseEnterToc = () => {
+        setIsInsideToc(true)
+    }
+    const handleMouseLeaveToc = () => {
+        setIsInsideToc(false)
+    }
+    const handleWheelEvent = (e) => {
+        if (isInsideFiletree && filetreeRef.current) {
+            filetreeRef.current.scrollTop += e.deltaY*0.3
+            e.preventDefault()
+        } else if (isInsideToc && tocRef.current) {
+            tocRef.current.scrollTop += e.deltaY*0.3
+            e.preventDefault()
+        }
+    }
+    useEffect(() => {
+        document.addEventListener('wheel', handleWheelEvent, { passive: false })
+        if (filetreeRef.current) {
+            filetreeRef.current.addEventListener('mouseenter', handleMouseEnterFiletree)
+            filetreeRef.current.addEventListener('mouseleave', handleMouseLeaveFiletree)
+        }
+        return () => {
+            document.removeEventListener('wheel', handleWheelEvent)
+            if (filetreeRef.current) {
+                filetreeRef.current.removeEventListener('mouseenter', handleMouseEnterFiletree)
+                filetreeRef.current.removeEventListener('mouseleave', handleMouseLeaveFiletree)
+            }
+        }
+    }, [isInsideFiletree])
+    useEffect(() => {
+        document.addEventListener('wheel', handleWheelEvent, { passive: false })
+        if (tocRef.current) {
+            tocRef.current.addEventListener('mouseenter', handleMouseEnterToc)
+            tocRef.current.addEventListener('mouseleave', handleMouseLeaveToc)
+        }
+        return () => {
+            document.removeEventListener('wheel', handleWheelEvent)
+            if (tocRef.current) {
+                tocRef.current.removeEventListener('mouseenter', handleMouseEnterToc)
+                tocRef.current.removeEventListener('mouseleave', handleMouseLeaveToc)
+            }
+        }
+    }, [isInsideToc])
+
+
     return (
         <>
             {/* static space filler behind the sidebar (which is position fixed) */}
             {/* dvh to fix scrolling on ipad bug (top bar showing/hiding messes with viewport height) */} 
-            <div className={`hidden ${active ? 'md:block ' : ''}w-[300px] shrink-0 min-h-[100dvh] float-left overflow-y-hidden border-r-2 border-elevated`}/>
+            <div className={`hidden ${active ? 'md:block ' : ''}w-[270px] shrink-0 min-h-[100dvh] float-left overflow-y-hidden border-r-2 border-elevated`}/>
 
             {/* space filler to center article on large screens */}
             <div className={`w-[10%] hidden ${active ? '' : '2xl:block '} shrink-0 min-h-[100dvh]`}/>
 
             {/* sidebar */}
-            <nav className={`${active ? 'hidden md:block' : 'hidden'} fixed w-[300px] shrink-0 justify-center top-0 py-3`}>
+            <nav className={`${active ? 'hidden md:block' : 'hidden'} fixed w-[270px] shrink-0 justify-center top-0 py-3`}>
                 <div className='h-14'/>
-                {children}
+                <div ref={filetreeRef} className={` ${filetreeDivStyle}`}>
+                    {filetree}
+                </div>
+                <div ref={tocRef} className={tocDivStyle}>
+                    {toc}
+                </div>
                 <button onClick={toggleSidebar} className='mt-4 flex text-text-secondary items-center space-x-6 pl-4 bg-layer [@media(hover:hover)]:hover:bg-layer-hover rounded-md px-3 py-1.5 ml-4'>
                     <span className='relative bottom-[1px]'>Toggle Sidebar</span>
                     {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative'>{modifierKey} U</span>}
@@ -116,7 +189,7 @@ export default function Sidebar({ children }) {
                     <Popup buttonStyle='flex text-text-secondary'
                         buttonContents={
                             <>
-                                <div className={`hidden xs:flex items-center fixed right-4 top-4 ${active ? 'md:w-[calc(300px-2rem)] md:left-[1rem]' : 'md:hidden'} ring-2 ring-border-strong bg-field px-3 py-1.5 [@media(hover:hover)]:hover:ring-4 [@media(hover:hover)]:hover:ring-focus rounded-md [@media(hover:hover)]:hover:bg-field-hover`}>
+                                <div className={`hidden xs:flex items-center fixed right-4 top-4 ${active ? 'md:w-[calc(270px-2rem)] md:left-[1rem]' : 'md:hidden'} ring-2 ring-border-strong bg-field px-3 py-1.5 [@media(hover:hover)]:hover:ring-4 [@media(hover:hover)]:hover:ring-focus rounded-md [@media(hover:hover)]:hover:bg-field-hover`}>
                                     <FaSearch className='mr-3 h-full shrink-0'/>
                                     <span className='italic relative bottom-[0.5px] text-text-placeholder'>Search...</span>
                                     {mobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey} K</span>}

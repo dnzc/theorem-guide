@@ -44,9 +44,9 @@ export default function Basics () {
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
-            <div className="relative bottom-0">
-                <ul className="dirtree mb-4 md:mb-0 group">
+        
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(40vh)] md:h-[calc(100vh-36rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+                <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
 
@@ -86,8 +86,18 @@ export default function Basics () {
                         
                     
                 </ul>
-            </div>
         </div>
+
+    
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(30vh)] md:h-[18rem] xl:hidden shrink-0 px-4 py-2 border-t-2 md:border-t-0 md:border-b-2 border-border-subtle">
+            <h1 className="text-text-secondary text-lg">Table of contents</h1>
+            <ul>
+                
+                    <li className="pt-1 font-bold"><Link href="#11-definitions-and-examples" className="text-link [@media(hover:hover)]:hover:underline">1.1 Definitions and Examples</Link></li>
+                
+            </ul>
+        </div>
+    
 
     </Sidebar>
 
@@ -165,7 +175,7 @@ export default function Basics () {
     </article>
 
     
-        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
+        <nav className="hidden xl:flex w-[270px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
             <div className="fixed text-text-secondary">
                 <h1 className="text-lg">Table of contents</h1>
                 <ul>

@@ -44,9 +44,9 @@ export default function CNATs () {
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
-            <div className="relative bottom-0">
-                <ul className="dirtree mb-4 md:mb-0 group">
+        
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(40vh)] md:h-[calc(100vh-36rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+                <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
 
@@ -177,8 +177,9 @@ export default function CNATs () {
                         
                     
                 </ul>
-            </div>
         </div>
+
+    
 
     </Sidebar>
 
@@ -221,7 +222,7 @@ export default function CNATs () {
 
 <p>Let <Latex>$h(n,k)$</Latex> be the number of Prufer sequences ending in <Latex>$k$</Latex> that represent a tree whose adjacency matrix is a valid CNAT of size <Latex>$n$</Latex>. Then:</p>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$h(n,k) = \begin&#123;cases&#125; \frac&#123;(n-1)!&#125;&#123;k(k+1)&#125; &amp; \text&#123;if &#125; 1\leq k &lt; n-1\\0 &amp; \text&#123;if &#125; k=n-1\\(n-2)! &amp; \text&#123;if &#125; k=n \end&#123;cases&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$h(n,k) = \begin&#123;cases&#125; \frac&#123;(n-1)!&#125;&#123;k(k+1)&#125; &amp; \text&#123;if &#125; 1\leq k &lt; n-1\\0 &amp; \text&#123;if &#125; k=n-1\\(n-2)! &amp; \text&#123;if &#125; k=n \end&#123;cases&#125;$$</Latex></span>
 
 <p>We were only able to prove the last two cases.</p>
 

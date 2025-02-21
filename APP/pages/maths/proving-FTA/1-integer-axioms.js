@@ -44,9 +44,9 @@ export default function IntegerAxioms () {
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
-            <div className="relative bottom-0">
-                <ul className="dirtree mb-4 md:mb-0 group">
+        
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(40vh)] md:h-[calc(100vh-36rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+                <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
 
@@ -177,8 +177,32 @@ export default function IntegerAxioms () {
                         
                     
                 </ul>
-            </div>
         </div>
+
+    
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(30vh)] md:h-[18rem] xl:hidden shrink-0 px-4 py-2 border-t-2 md:border-t-0 md:border-b-2 border-border-subtle">
+            <h1 className="text-text-secondary text-lg">Table of contents</h1>
+            <ul>
+                
+                    <li className="pt-1 font-bold"><Link href="#axioms-as-properties" className="text-link [@media(hover:hover)]:hover:underline">Axioms as Properties</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#how-deep-do-we-go" className="text-link [@media(hover:hover)]:hover:underline">How deep do we go?</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#basic-properties" className="text-link [@media(hover:hover)]:hover:underline">Basic properties</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#uniqueness" className="text-link [@media(hover:hover)]:hover:underline">Uniqueness</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#ordering-of-z" className="text-link [@media(hover:hover)]:hover:underline">Ordering of Z</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#definitions" className="text-link [@media(hover:hover)]:hover:underline">Definitions</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#structuring-logic-building-lemmas" className="text-link [@media(hover:hover)]:hover:underline">Structuring logic, building lemmas</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#lemma-list" className="text-link [@media(hover:hover)]:hover:underline">Lemma List</Link></li>
+                
+            </ul>
+        </div>
+    
 
     </Sidebar>
 
@@ -248,21 +272,21 @@ export default function IntegerAxioms () {
 <li><strong>Commutativity</strong>: the order of multiplication and addition does not matter. In symbols:</li>
 </ul>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$\forall a,b \in \mathbb&#123;Z&#125;, \; a \cdot b = b \cdot a, \; a+b=b+a$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b \in \mathbb&#123;Z&#125;, \; a \cdot b = b \cdot a, \; a+b=b+a$$</Latex></span>
 
 <ul>
 <li><strong>Associativity</strong>: in repeated addition or multiplication, the brackets do not matter. In symbols:</li>
 </ul>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; (a \cdot b) \cdot c = a \cdot (b \cdot c),$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; (a \cdot b) \cdot c = a \cdot (b \cdot c),$$</Latex></span>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$(a+b)+c = a+(b+c)$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$(a+b)+c = a+(b+c)$$</Latex></span>
 
 <ul>
 <li><strong>Distributivity</strong>: multiplication is distributive over addition. In symbols:</li>
 </ul>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; a\cdot(b+c) = a\cdot b + a \cdot c$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; a\cdot(b+c) = a\cdot b + a \cdot c$$</Latex></span>
 
 <p>I hope you agree that these properties seem pretty fundamental. Let's add some more:</p>
 
@@ -270,19 +294,19 @@ export default function IntegerAxioms () {
 <li><strong>Additive Identity</strong>: there exists an integer we call <Latex>$0$</Latex>, which when added to any integer, does nothing:</li>
 </ul>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$\exists \, 0 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a+0=a$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\exists \, 0 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a+0=a$$</Latex></span>
 
 <ul>
 <li><strong>Additive Inverse</strong>: for every integer <Latex>$a$</Latex>, there is another integer that when added to <Latex>$a$</Latex>, gives 0.</li>
 </ul>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$\forall a \in \mathbb&#123;Z&#125;, \exists \, a' \in \mathbb&#123;Z&#125; \; s.t.\;  a + a' = 0$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a \in \mathbb&#123;Z&#125;, \exists \, a' \in \mathbb&#123;Z&#125; \; s.t.\;  a + a' = 0$$</Latex></span>
 
 <ul>
 <li><strong>Multiplicative Identity</strong>: there exists an integer we call <Latex>$1$</Latex>, which when multiplying by any integer, does nothing:</li>
 </ul>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$\exists \, 1 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a\cdot 1=a$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\exists \, 1 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a\cdot 1=a$$</Latex></span>
 
 <p>Note that we <em>don't</em> have multiplicative inverses, because then we would have to include reciprocals of integers.</p>
 
@@ -803,7 +827,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
     </article>
 
     
-        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
+        <nav className="hidden xl:flex w-[270px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
             <div className="fixed text-text-secondary">
                 <h1 className="text-lg">Table of contents</h1>
                 <ul>

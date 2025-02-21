@@ -297,11 +297,21 @@ def parse_md_file_to_react(path, target_dir, file, is_readme=False):
         page = page[:m[0]] + target + page[m[1]:]
 
     # add <Latex> tags
-    # if not inline, make overflow hidden (assume inline latex is short enough to not overflow)
+    # for blocks inside blockquotes, the background is not white (so add scrollshadow-horizontal-blockquote instead of scrollshadow-horizontal)
     page = re.sub(r'<p>\$\$(.*?)\$\$</p>', r'<Latex>\1</Latex>', page) # remove <p> tags that markdown added
-    page = re.sub(r'\$\$(.*?)\$\$', r'<Latex>\1</Latex>', page)
+    page = re.sub(r'\$\$(.*?)\$\$', r'<Latex>\1</Latex>', page) # temporarily remove double dollar signs, so that can deal with single dollar signs first
     page = re.sub(r'\$(.+?)\$', r'<Latex>$\1$</Latex>', page)
-    page = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="block overflow-auto latex-display-wrapper"><Latex>$$\1$$</Latex></span>', page) # need block span instead of div so that doesn't trigger hydration error
+    # need block span instead of div so that doesn't trigger hydration error
+    for tag in [('Thm',''), ('Lemma',''), ('Proof',''), ('Defn',''), ('Example','quoted'), ('blockquote','')]:
+        tag,quoted = tag
+        for m in [i.span() for i in re.finditer(r'<'+tag+r'[^>]*?'+quoted+r'.*?>.*?</'+tag+r'>', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
+            target = page[m[0]:m[1]]
+            # unquoted blocks aren't grey, so skip
+            if 'unquoted' in re.findall(r'<.*?>',target)[0]: continue
+            # replace $$
+            target = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\1$$</Latex></span>', target)
+            page = page[:m[0]] + target + page[m[1]:]
+    page = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\1$$</Latex></span>', page)
 
     # <p> tags will have been placed around the following tags (on purpose), remove them
     for i in ['CopyButton', 'Spoiler', 'hr'] + math_tags:
@@ -435,10 +445,11 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         separator = '<br/><div className="border-t-[1px] border-border-strong pb-2"></div>'
         readme_exists = os.path.exists(cur_path+'/README.md')
         tags_to_render = []
+        table_of_contents = None
         if readme_exists: # render folder readme
             with open(cur_path+'/README.md', 'r') as f:
                 readme_file = f.read()
-            page, article_data, page_title, *_ = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_readme=True)
+            page, article_data, page_title, _, table_of_contents = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_readme=True)
             article_list.append(article_data)
             if COURSE_INDICATOR in cur_dir.split('/')[-1]:
                 course_data = {}
@@ -464,7 +475,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
                         contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                         file_count=sum(item['filecount'] for item in folder_contents),
                     ),
-                    path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, tags=tags_to_render),
+                    path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
                 page_title, True, cur_dir=='' or readme_exists
             )
         )

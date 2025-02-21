@@ -44,9 +44,9 @@ export default function Euclid () {
                     <div className="relative w-full 2xl:max-w-[90%] flex h-full"> {/* whole thing (including large-screen left space filler, which is 10%) is max 90%; so 10% each side */}
     <Sidebar>
 
-        <div className="overflow-y-auto w-full md:w-[calc(300px-2px)] h-full md:h-[calc(100vh-15rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
-            <div className="relative bottom-0">
-                <ul className="dirtree mb-4 md:mb-0 group">
+        
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(40vh)] md:h-[calc(100vh-36rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+                <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
 
@@ -177,8 +177,20 @@ export default function Euclid () {
                         
                     
                 </ul>
-            </div>
         </div>
+
+    
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(30vh)] md:h-[18rem] xl:hidden shrink-0 px-4 py-2 border-t-2 md:border-t-0 md:border-b-2 border-border-subtle">
+            <h1 className="text-text-secondary text-lg">Table of contents</h1>
+            <ul>
+                
+                    <li className="pt-1 font-bold"><Link href="#what-its-argh" className="text-link [@media(hover:hover)]:hover:underline">What? It's... argh!</Link></li>
+                
+                    <li className="pt-1 font-bold"><Link href="#the-actual-euclids-lemma" className="text-link [@media(hover:hover)]:hover:underline">The actual Euclid's Lemma</Link></li>
+                
+            </ul>
+        </div>
+    
 
     </Sidebar>
 
@@ -245,7 +257,7 @@ export default function Euclid () {
 
 <p>In the "if <Latex>$3 \mid 2x$</Latex> then <Latex>$3 \mid x$</Latex>" case, the trick was to write 1 (the desired coefficient of <Latex>$x$</Latex>) as a <em>linear combination</em> of 2 and 3:</p>
 
-<span className="block overflow-auto latex-display-wrapper"><Latex>$$x = (3-2)x = 3x-2x$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$x = (3-2)x = 3x-2x$$</Latex></span>
 
 <p>And this let us deduce that if <Latex>$3 \mid 2x$</Latex>, then <Latex>$3 \mid 3x - 2x$</Latex> because both <Latex>$3x$</Latex> and <Latex>$2x$</Latex> are divisible by 3.</p>
 
@@ -293,8 +305,8 @@ export default function Euclid () {
   
   <p>So, <Latex>$11 \cdot 51 - 20 \cdot 28 = 1$</Latex>.
   Now to use the trick:
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$x = (11 \cdot 51 - 20 \cdot 28)x$$</Latex></span>
-  <span className="block overflow-auto latex-display-wrapper"><Latex>$$ = 51 \cdot (11x) + 28x \cdot (-20)$$</Latex></span></p>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x = (11 \cdot 51 - 20 \cdot 28)x$$</Latex></span>
+  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = 51 \cdot (11x) + 28x \cdot (-20)$$</Latex></span></p>
   
   <p>Hence, if <Latex>$51 \mid 28x$</Latex>, then <Latex>$51 \mid x$</Latex>, because we wrote <Latex>$x$</Latex> as a linear combination of things that were divisible by 51.</p>
 </blockquote>
@@ -351,7 +363,7 @@ export default function Euclid () {
     </article>
 
     
-        <nav className="hidden xl:flex w-[300px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
+        <nav className="hidden xl:flex w-[270px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
             <div className="fixed text-text-secondary">
                 <h1 className="text-lg">Table of contents</h1>
                 <ul>

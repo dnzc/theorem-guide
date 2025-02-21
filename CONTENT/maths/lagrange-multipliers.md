@@ -335,12 +335,12 @@ Thus we need to solve the following 3 simultaneous equations:
 
 - If $x=0$, then $y^2 = 1$, so $(x,y) = (0,1)$ or $(0,-1)$.
 
-- If $x\neq 0$, then $\lambda = 8$, so $-2 = 16y$. Hence $y=-\frac{1}{8}$ and so $x^2 = 1 - \frac{1}{64}$, so $x = \pm \frac{\sqrt 63}{8}$.
+- If $x\neq 0$, then $\lambda = 8$, so $-2 = 16y$. Hence $y=-\frac{1}{8}$ and so $x^2 = 1 - \frac{1}{64}$, so $x = \pm \frac{\sqrt{63}}{8}$.
 
-Hence we need to check $(0,1)$,$(0,-1)$, $(\frac{\sqrt 63}{8}, -\frac{1}{8})$, $(-\frac{\sqrt 63}{8}, -\frac{1}{8})$.
+Hence we need to check $(0,1)$,$(0,-1)$, $(\frac{\sqrt{63}}{8}, -\frac{1}{8})$, $(-\frac{\sqrt{63}}{8}, -\frac{1}{8})$.
 
 $$f(0, \pm 1) = \mp 2$$
-$$f(\pm \frac{\sqrt 63}{8}, -\frac{1}{8}) = \frac{65}{8}$$
+$$f(\pm \frac{\sqrt{63}}{8}, -\frac{1}{8}) = \frac{65}{8}$$
 $$\therefore -2 \leq 8x^2 - 2y \leq \frac{65}{8}$$
 </Proof>
 

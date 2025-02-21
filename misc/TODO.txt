@@ -1,6 +1,6 @@
 quizzes
-desmos embed
-pyodide
+desmos embed (?)
+pyodide (?)
 
 intuition-focused explanation of derivatives
 
