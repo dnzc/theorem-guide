@@ -9,7 +9,7 @@ const miniSearchOptions = {
     fields: ['title', 'name', 'dir', 'content'],
 }
 
-export default function Search({ active, isMobile }) {
+export default function Search({ active, hidePopupFunction }) {
 
     const { search, searchResults, clearSearch } = useMiniSearch(documents, miniSearchOptions)
 
@@ -118,7 +118,7 @@ export default function Search({ active, isMobile }) {
                         return (
                             <li key={i} id={`result-${i}`} className='m-4 text-text-primary' onMouseMove={() => {setSelectedResult(i)}} onTouchStart={() => {setSelectedResult(i)}}>
                                 <Link href={getPath(result.dir, result.name)}>
-                                    <div className={`${i==selectedResult ? 'bg-layer-hover' : 'bg-layer'} rounded-lg flex justify-between`}>
+                                    <div className={`${i==selectedResult ? 'bg-layer-hover' : 'bg-layer'} rounded-lg flex justify-between`} onClick={hidePopupFunction}>
                                         <div className='p-4 pt-2'>
                                             <p className='text-text-secondary flex flex-wrap items-center align-middle mb-1'>{jsxDir}</p>
                                             <p className='text-xl'>{title}</p>

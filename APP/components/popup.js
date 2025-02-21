@@ -81,7 +81,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
                     <button onClick={hidePopup} className='absolute top-3 right-3 z-10 font-bold flex text-text-secondary items-center space-x-6 pl-4 bg-layer [@media(hover:hover)]:hover:bg-layer-hover rounded-md px-3 py-1.5 ml-4'>
                         ESC
                     </button>
-                    {children ? children : <Search active={active} isMobile={isMobile}/>}
+                    {children ? children : <Search active={active} hidePopupFunction={hidePopup}/>}
                 </div>
             </div>
         </>
