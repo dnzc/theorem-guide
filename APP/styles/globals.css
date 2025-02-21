@@ -154,7 +154,7 @@
     }
 
     .article blockquote {
-        @apply border-l-4 border-border-subtle p-2 pl-4 bg-blockquote;
+        @apply border-l-4 border-border-subtle p-2 pl-4 bg-blockquote shadow-lg;
         @apply !my-4;
     }
 

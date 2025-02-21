@@ -7,6 +7,7 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
+import Badge from '@/components/badge'
 import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -99,28 +100,44 @@ export default function AnalysisTopology () {
 
         <div className="h-[4.5rem] md:h-0"/>
 
-        
-            <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
+        <div className="flex flex-wrap items-center space-x-2 mb-3">
+            
+                <div className="flex flex-wrap items-center align-middle space-x-1 mr-2">
+                    
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                    
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology">Analysis-Topology</Link></p>
+                    
+                </div>
+            
+
+            
                 
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                <Badge color="indigo">pure-maths</Badge>
                 
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology">Analysis-Topology</Link></p>
+                <Badge color="red">TODO</Badge>
                 
-            </div>
-        
+            
+        </div>
 
         
 
         <div className="article mb-4">
-            <h1 id="ib-analysis-and-topology-incompletemessage">IB Analysis and Topology <IncompleteMessage/></h1>
+            <h1 id="ib-analysis-and-topology">IB Analysis and Topology</h1>
 
 <p>Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. Aimed at second-year undergraduates. Hopefully I can provide some inutition that might not be present elsewhere.</p>
 
 <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="course-prerequisites" className="underline underline-offset-2">Course Prerequisites</h2><Link href="#course-prerequisites" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#course-prerequisites", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 
 <p>Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">here</DiscreetLink>). Basic set theory, for example definition and results regarding function preimage (e.g. preimage of union is union of preimages). Proofs of theorems from <ProminentLink href="https://gowers.wordpress.com/2014/01/11/introduction-to-cambridge-ia-analysis-i-2014/">IA Analysis I</ProminentLink> are good to know but not needed; the theorem statements themselves are useful but easily googleable.</p>
+
+<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="resources" className="underline underline-offset-2">Resources</h2><Link href="#resources" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#resources", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+
+<ul>
+<li><DiscreetLink href="https://www.dpmms.cam.ac.uk/study/IB/AnalysisandTopology/">Example sheet questions</DiscreetLink></li>
+</ul>
 
 <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="glossary-and-style" className="underline underline-offset-2">Glossary and Style</h2><Link href="#glossary-and-style" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#glossary-and-style", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
 
@@ -143,7 +160,7 @@ export default function AnalysisTopology () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
                 <Link href="/maths/Analysis-Topology/A-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -152,13 +169,13 @@ export default function AnalysisTopology () {
                         <p className="relative bottom-[1px]">A-metric-spaces</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
                 <Link href="/maths/Analysis-Topology/A-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -167,7 +184,7 @@ export default function AnalysisTopology () {
                         <p className="relative bottom-[1px]">A-metric-spaces</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
      </>}

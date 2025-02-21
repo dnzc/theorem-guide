@@ -27,7 +27,8 @@ if not COMPILE_EVERYTHING:
 
 # parse the source files into jsx and populate article info
 articles = []
-gen_content('', 1, articles, stored_articles, DIR_TREE, DIR_TREE, content_checksums)
+course_list = []
+gen_content('', 1, articles, course_list, stored_articles, DIR_TREE, DIR_TREE, content_checksums)
 
 # store content checksums (in order to skip compiling unchanged content)
 with open(CONTENT_CHECKSUMS_FILE, 'w') as f:

@@ -42,14 +42,22 @@
 
         <div className="h-[4.5rem] md:h-0"/>
 
-        {% if folder_path_list %}
-            <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
-                {% for folderName in folder_path_list %}
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="{{'/'+'/'.join(folder_path_list[:loop.index])}}">{{ folderName }}</Link></p>
+        <div className="flex flex-wrap items-center space-x-2 mb-3">
+            {% if folder_path_list %}
+                <div className="flex flex-wrap items-center align-middle space-x-1 mr-2">
+                    {% for folderName in folder_path_list %}
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="{{'/'+'/'.join(folder_path_list[:loop.index])}}">{{ folderName }}</Link></p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if tags %}
+                {% for tag in tags %}
+                <Badge color="{{tag['colour']}}">{{tag['name']}}</Badge>
                 {% endfor %}
-            </div>
-        {% endif %}
+            {% endif %}
+        </div>
 
         {% if cr_date_time and mod_date_time != cr_date_time %}
             <p className="text-text-secondary mb-2">Created {{cr_date_time}}. Last updated {{mod_date_time}}</p>

@@ -29,35 +29,39 @@
 
         <h1>Course List</h1>
 
-        <div class="overflow-x-auto rounded-lg">
-            <table class="notmdtable w-full text-sm text-left text-text-secondary">
-                <thead class="text-xs text-text-secondary uppercase bg-gray-200">
-                    <tr className="whitespace-nowrap">
-                        <th scope="col" class="px-6 py-3">
+        <div className="overflow-x-auto shadow-lg rounded-t-lg">
+            <table className="notmdtable w-full text-left text-text-secondary whitespace-nowrap">
+                <thead className="bg-layer">
+                    <tr>
+                        <th className="px-3 py-2">
                             Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th className="px-3 py-2">
                             Updated
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Applied-o-meter
+                        <th className="px-3 py-2">
+                            Tags
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="odd:bg-white even:bg-gray-50 border-b border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900">
-                            <ProminentLink href="/maths/Analysis-Topology" internal>
-                            IB Analysis & Topology
+                    {% for course in course_list %}
+                    <tr className="border-t-2">
+                        <td className="px-3 py-2">
+                            <ProminentLink href="{{course['path']}}" internal>
+                            {{ course['name'] }}
                             </ProminentLink>
-                        </th>
-                        <td class="px-6 py-4">
-                            16 Dec 2024
                         </td>
-                        <td class="px-6 py-4">
-                            purer than my search history
+                        <td className="px-3 space-x-2 py-2 text-sm">
+                            {{ course['mod_date_time'] }}
+                        </td>
+                        <td className="px-3 space-x-2 py-2">
+                            {% for tag in course['tags'] %}
+                                <Badge color="{{tag['colour']}}">{{tag['name']}}</Badge>
+                            {% endfor %}
                         </td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

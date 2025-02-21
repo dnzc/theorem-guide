@@ -1,4 +1,5 @@
 17/07/2023 17:00
+[TAGS] coding blue, diagrams green
 # Filling a cube with 1:2:3 Cuboids
 
 > A positive integer $n$ is 'lucky' if it is possible to fill a cube with $n$ cuboids, each of whom has side ratio 1:2:3. Which numbers are lucky?

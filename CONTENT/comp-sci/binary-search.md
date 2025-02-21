@@ -1,4 +1,5 @@
 27/07/2023 19:50
+[TAGS] coding blue
 # Binary Search: an Intuitive Algorithm
 
 Everyone has performed a binary search without realizing: if you look for the word "gerontology" in the dictionary, you wouldn't go flip through every page until you found it. Instead you'd check the middle, and if you overshot then you'd check the middle of the first chunk, then if you if undershot you'd check the middle of the remaining chunk, and so on, until you find the word.

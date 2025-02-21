@@ -1,5 +1,6 @@
 19/12/2024 10:00
 created 27/07/2023 11:00
+[TAGS] number-theory pink, theorem green
 # The Fundamental Theorem of Arithmetic: Our Journey's End
 
 **tl;dr:** A journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored.

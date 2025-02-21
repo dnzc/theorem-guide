@@ -4,12 +4,18 @@ Content naming conventions:
     - capitalized course names
     - lowercase file names
 
+
 Markdown (excluding readmes):
     - first line of file contains date last modified, in the form "dd/mm/yyyy hh:mm" (if no date supplied, then marked as "coming soon")
     - optional second line specifying date created, in the form "created dd/mm/yyyy hh:mm". if not supplied, then date last modified used as date created
-    - first line beginning with "#" is extracted as the article title
 
 Optionally, add a README.md file inside of a folder (that isn't root) to give it a description
 - readmes:
     - unlike other markdown files, readmes should not have date
-    - if course readme, optional first line starting with [APPLIED-O-METER] specifies data for the course list on home page
+
+Markdown:
+    - first line beginning with "#" is read as the article title
+    - optional: one of the first three lines specifies article tags, line starts with "[TAGS]" e.g.: [TAGS] example-tag colour, exampletag2 colour2
+
+Features:
+- add [COPIABLE] before a code block to make it copiable

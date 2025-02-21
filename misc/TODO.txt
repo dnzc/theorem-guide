@@ -3,10 +3,6 @@ quizzes
 applied-o-meter
 pyodide
 
-automate generation of course list
-[APPLIED-O-METER] thing in readmes
-"Resources" section in A&T readme
-
 intuition-focused explanation of derivatives
 
 soroban practice page

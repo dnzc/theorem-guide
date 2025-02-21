@@ -7,6 +7,7 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
+import Badge from '@/components/badge'
 import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -190,7 +191,11 @@ export default function CourseNotes () {
 
         <div className="h-[4.5rem] md:h-0"/>
 
-        
+        <div className="flex flex-wrap items-center space-x-2 mb-3">
+            
+
+            
+        </div>
 
         
 
@@ -226,35 +231,41 @@ export default function CourseNotes () {
 
         <h1>Course List</h1>
 
-        <div class="overflow-x-auto rounded-lg">
-            <table class="notmdtable w-full text-sm text-left text-text-secondary">
-                <thead class="text-xs text-text-secondary uppercase bg-gray-200">
-                    <tr className="whitespace-nowrap">
-                        <th scope="col" class="px-6 py-3">
+        <div className="overflow-x-auto shadow-lg rounded-t-lg">
+            <table className="notmdtable w-full text-left text-text-secondary whitespace-nowrap">
+                <thead className="bg-layer">
+                    <tr>
+                        <th className="px-3 py-2">
                             Name
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th className="px-3 py-2">
                             Updated
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Applied-o-meter
+                        <th className="px-3 py-2">
+                            Tags
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="odd:bg-white even:bg-gray-50 border-b border-gray-200">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900">
+                    
+                    <tr className="border-t-2">
+                        <td className="px-3 py-2">
                             <ProminentLink href="/maths/Analysis-Topology" internal>
-                            IB Analysis & Topology
+                            IB Analysis and Topology
                             </ProminentLink>
-                        </th>
-                        <td class="px-6 py-4">
+                        </td>
+                        <td className="px-3 space-x-2 py-2 text-sm">
                             16 Dec 2024
                         </td>
-                        <td class="px-6 py-4">
-                            purer than my search history
+                        <td className="px-3 space-x-2 py-2">
+                            
+                                <Badge color="indigo">pure-maths</Badge>
+                            
+                                <Badge color="red">TODO</Badge>
+                            
                         </td>
                     </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -344,7 +355,7 @@ export default function CourseNotes () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -353,10 +364,10 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -365,10 +376,10 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -377,13 +388,13 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -392,10 +403,10 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">comp-sci</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -404,10 +415,10 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
                 <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -416,7 +427,7 @@ export default function CourseNotes () {
                         <p className="relative bottom-[1px]">writeups</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
      </>}

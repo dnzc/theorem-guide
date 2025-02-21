@@ -7,6 +7,7 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
+import Badge from '@/components/badge'
 import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -181,17 +182,21 @@ export default function Research () {
 
         <div className="h-[4.5rem] md:h-0"/>
 
-        
-            <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
-                
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
-                
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/research">research</Link></p>
-                
-            </div>
-        
+        <div className="flex flex-wrap items-center space-x-2 mb-3">
+            
+                <div className="flex flex-wrap items-center align-middle space-x-1 mr-2">
+                    
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                    
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/research">research</Link></p>
+                    
+                </div>
+            
+
+            
+        </div>
 
         
 
@@ -204,7 +209,7 @@ export default function Research () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/research/cube-tilings">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -213,10 +218,10 @@ export default function Research () {
                         <p className="relative bottom-[1px]">cube-tilings</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
                 <Link href="/maths/research/CNATs">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -225,13 +230,13 @@ export default function Research () {
                         <p className="relative bottom-[1px]">CNATs</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
             </li>
         
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/research/CNATs">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -240,10 +245,10 @@ export default function Research () {
                         <p className="relative bottom-[1px]">CNATs</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
                 <Link href="/maths/research/cube-tilings">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -252,7 +257,7 @@ export default function Research () {
                         <p className="relative bottom-[1px]">cube-tilings</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
             </li>
         
      </>}

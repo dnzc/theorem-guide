@@ -1,5 +1,6 @@
 20/12/2024 23:30
 created 14/07/2023 17:00
+[TAGS] olympiad purple, analysis-intro indigo
 # Revenge of Analysis: Using Lagrange Multipliers to Destroy Olympiad Inequalities
 
 Goal: learn how to use Lagrange multipliers in olympiads.

@@ -7,6 +7,7 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
+import Badge from '@/components/badge'
 import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -185,17 +186,27 @@ export default function IntegerAxioms () {
 
         <div className="h-[4.5rem] md:h-0"/>
 
-        
-            <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
+        <div className="flex flex-wrap items-center space-x-2 mb-3">
+            
+                <div className="flex flex-wrap items-center align-middle space-x-1 mr-2">
+                    
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                    
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/proving-FTA">proving-FTA</Link></p>
+                    
+                </div>
+            
+
+            
                 
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                <Badge color="pink">number-theory</Badge>
                 
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/proving-FTA">proving-FTA</Link></p>
+                <Badge color="yellow">pedantic</Badge>
                 
-            </div>
-        
+            
+        </div>
 
         
             <p className="text-text-secondary mb-2">Created 25 Jul 2023. Last updated 19 Dec 2024</p>

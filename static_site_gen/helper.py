@@ -40,6 +40,7 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
+import Badge from '@/components/badge'
 import {{ ToastContainer }} from 'react-toastify'
 import {{ FaChevronRight, FaSearch }} from 'react-icons/fa'
 import {{ RiArrowGoBackFill }} from 'react-icons/ri'
@@ -117,7 +118,7 @@ def flatten_content(content, title):
     content = re.sub(r'\s', ' ', content)
     # remove link anchors
     content = re.sub(r'¶', r'', content, flags=re.DOTALL) 
-    # delete first occurrence of title (guaranteed to be title itself, since title extraction extracted the first title)
+    # delete first occurrence of title (guaranteed to be title itself, since title identification identified the first title)
     content = content.replace(title, '', 1)
     # format as json string
     content = content.replace('\\','\\\\').replace('\n',' ').replace('\'', '\\\'').strip()
@@ -189,12 +190,12 @@ def construct_tree(cur_dir, depth):
     d['name'] = sanitize(name)
     return d
 
-def parse_md_file_to_react(path, target_dir, file, extract_date=True):
+def parse_md_file_to_react(path, target_dir, file, is_readme=False):
     article_data = {}
 
     # extract article date from first line
     article_data['coming_soon'] = False
-    if extract_date:
+    if not is_readme: # don't extract date from readmes
         try:
             first, second, rest = file.split('\n', 2)
             if second.startswith('created '):
@@ -226,8 +227,20 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
         article_data['cr_timestamp'] = PLACEHOLDER_TIMESTAMP
         article_data['cr_date_time'] = ''
 
-    # extract article title from markdown
-    titles = re.findall(r'```.*?\n# .*?\n```|\n# (.*?)\n', '\n'+file, re.DOTALL) # extract lines starting with '# ' that aren't inside a code block (might be first line, so prepend \n)
+    # extract article tags, if they exist
+    first, rest = file.split('\n', 1)
+    article_data['tags'] = []
+    if first.startswith('[TAGS]'):
+        for tag in first.removeprefix('[TAGS]').split(','):
+            split_tag = tag.strip().split()
+            if len(split_tag) == 2:
+                article_data['tags'] .append({'name': split_tag[0], 'colour': split_tag[1]})
+            else:
+                warn(f'something wrong with the tags specified in {path}, skipping tag extraction')
+        file = rest
+
+    # identify article title
+    titles = re.findall(r'```.*?\n# .*?\n```|\n# (.*?)\n', '\n'+file, re.DOTALL) # identify lines starting with '# ' that aren't inside a code block (might be first line, so prepend \n)
     titles = [t for t in titles if t != ''] # for invalid titles, the capture group is empty but still exists, so need to remove them
     if len(titles) == 0:
         article_data['title'] = 'no_title'
@@ -310,7 +323,7 @@ def parse_md_file_to_react(path, target_dir, file, extract_date=True):
     article_data['id'] = hash(path)
 
     path_list = sanitize(beautify(path)).split('/')[1:-1] # path to parent folder
-    article_data['dir'] = path_list
+    article_data['dir'] = path_list if not is_readme else path_list[:-1] # readmes should be elevated
 
     article_name = target_dir.split('/')[-1]
     article_data['name'] = article_name
@@ -340,7 +353,7 @@ def get_path(article_data):
 # returns a list of all the markdown files and their info (for "recent articles" and search functionality)
 # the root of dir_tree is the current node
 # the root of displayed_dir_tree is the closest parent folder marked as a course
-def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree): 
+def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree): 
     cur_path = SOURCE_DIR+cur_dir
     cur_target_dir = sanitize(beautify(cur_dir))
 
@@ -374,7 +387,7 @@ def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, display
 
         with open(TARGET_DIR+cur_target_dir+'.js', 'w') as output_file:
             react = wrap_in_js(
-                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents),
+                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
                 page_title, False, False
             )
             output_file.write(react)
@@ -402,7 +415,7 @@ def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, display
         child_displayed_dir_tree = displayed_dir_tree
         if bool(child_dir_tree) and child_dir_tree['is_marked_as_course']: child_displayed_dir_tree = child_dir_tree
 
-        gen_content(child_dir, depth+1, article_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree)
+        gen_content(child_dir, depth+1, article_list, course_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree)
 
     with open(TARGET_DIR+cur_target_dir+'/index.js', 'w') as output_file:
         folder_contents = get_folder_contents(cur_dir)
@@ -422,18 +435,27 @@ def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, display
         folder_mainpage = ''
         separator = '<br/><div className="border-t-[1px] border-border-strong pb-2"></div>'
         readme_exists = os.path.exists(cur_path+'/README.md')
+        tags_to_render = []
         if readme_exists: # render folder readme
             with open(cur_path+'/README.md', 'r') as f:
                 readme_file = f.read()
-            page, article_data, page_title, *_ = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, extract_date=False)
+            page, article_data, page_title, *_ = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_readme=True)
             article_list.append(article_data)
+            if COURSE_INDICATOR in cur_dir.split('/')[-1]:
+                course_data = {}
+                course_data['name'] = article_data['title']
+                course_data['path'] = '/' + '/'.join(article_data['dir']) + '/' + article_data['name']
+                course_data['mod_timestamp'] = max(i['mod_timestamp'] for i in folder_contents)
+                course_data['mod_date_time'] = timestamp_to_str(course_data['mod_timestamp'])
+                course_data['tags'] = article_data['tags'] # tags from readme are elevated to folder
+                tags_to_render = course_data['tags']
+                course_list.append(course_data)
             folder_mainpage = page + separator
         elif cur_dir == '': # render homepage
-            # articles will have been populated, since root page is rendered last
-
+            # article_list and course_list will have been populated, since root page is rendered last
             with open(CHANGELOG_FILE, 'r') as f:
                 changelog = markdown(f.read())
-            folder_mainpage = add_link_anchors(HOME_TEMPLATE.render(changelog=changelog), '/') + separator
+            folder_mainpage = add_link_anchors(HOME_TEMPLATE.render(course_list=course_list, changelog=changelog), '/') + separator
 
         output_file.write(
             wrap_in_js(
@@ -443,7 +465,7 @@ def gen_content(cur_dir, depth, article_list, stored_articles, dir_tree, display
                         contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                         file_count=sum(item['filecount'] for item in folder_contents),
                     ),
-                    path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree),
+                    path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, tags=tags_to_render),
                 page_title, True, cur_dir=='' or readme_exists
             )
         )

@@ -1,4 +1,5 @@
 08/06/2024 17:00
+[TAGS] python-golf gray
 # Terminal Challenge
 
 A writeup for the <DiscreetLink href='https://terminal.danielc.rocks'>hangman</DiscreetLink> challenge on my homepage. As far as I know it's a completely original challenge; if anything I'm proud of the implementation and how real the terminal feels. The core idea came from talking with a friend about writing a python file that sanitizes to a fixed string, reminiscent of <DiscreetLink href='https://en.wikipedia.org/wiki/Quine_(computing)'>quines</DiscreetLink>.

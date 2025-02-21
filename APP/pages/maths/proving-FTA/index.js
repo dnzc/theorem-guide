@@ -7,6 +7,7 @@ import Link from 'next/link'
 import ProminentLink from '@/components/prominentLink'
 import DiscreetLink from '@/components/discreetLink'
 import MailLink from '@/components/mailLink'
+import Badge from '@/components/badge'
 import { ToastContainer } from 'react-toastify'
 import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -181,17 +182,21 @@ export default function ProvingFTA () {
 
         <div className="h-[4.5rem] md:h-0"/>
 
-        
-            <div className="flex flex-wrap items-center align-middle space-x-1 mb-3">
-                
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
-                
-                    <span className="font-bold text-text-secondary">/</span>
-                    <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/proving-FTA">proving-FTA</Link></p>
-                
-            </div>
-        
+        <div className="flex flex-wrap items-center space-x-2 mb-3">
+            
+                <div className="flex flex-wrap items-center align-middle space-x-1 mr-2">
+                    
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
+                    
+                        <span className="font-bold text-text-secondary">/</span>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/proving-FTA">proving-FTA</Link></p>
+                    
+                </div>
+            
+
+            
+        </div>
 
         
 
@@ -204,7 +209,7 @@ export default function ProvingFTA () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/proving-FTA/1-integer-axioms">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -213,10 +218,10 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">1-integer-axioms</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/proving-FTA/5-fta">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -225,10 +230,10 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">5-fta</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/proving-FTA/4-euclid">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -237,10 +242,10 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">4-euclid</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/proving-FTA/3-bezout-egcd">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -249,10 +254,10 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">3-bezout-egcd</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
                 <Link href="/maths/proving-FTA/2-division-algo">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -261,13 +266,13 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">2-division-algo</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">25 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">25 Jul 2023</p>
             </li>
         
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/proving-FTA/1-integer-axioms">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -276,10 +281,10 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">1-integer-axioms</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/proving-FTA/2-division-algo">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -288,10 +293,10 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">2-division-algo</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">25 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">25 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/proving-FTA/3-bezout-egcd">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -300,10 +305,10 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">3-bezout-egcd</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">26 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
                 <Link href="/maths/proving-FTA/4-euclid">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -312,10 +317,10 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">4-euclid</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-strong border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
                 <Link href="/maths/proving-FTA/5-fta">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -324,7 +329,7 @@ export default function ProvingFTA () {
                         <p className="relative bottom-[1px]">5-fta</p>
                     </div>
                 </Link>
-                <p className="text-sm break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
             </li>
         
      </>}
