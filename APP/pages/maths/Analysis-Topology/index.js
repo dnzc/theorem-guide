@@ -25,7 +25,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
-import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
+import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
 export default function AnalysisTopology () {
@@ -129,19 +129,19 @@ export default function AnalysisTopology () {
 
 <p>Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. Aimed at second-year undergraduates. Hopefully I can provide some inutition that might not be present elsewhere.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="course-prerequisites" className="underline underline-offset-2">Course Prerequisites</h2><Link href="#course-prerequisites" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#course-prerequisites", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="course-prerequisites" className="underline underline-offset-2">Course Prerequisites</h2><Link href="#course-prerequisites" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#course-prerequisites", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">here</DiscreetLink>). Basic set theory, for example definition and results regarding function preimage (e.g. preimage of union is union of preimages). Proofs of theorems from <ProminentLink href="https://gowers.wordpress.com/2014/01/11/introduction-to-cambridge-ia-analysis-i-2014/">IA Analysis I</ProminentLink> are good to know but not needed; the theorem statements themselves are useful but easily googleable.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="resources" className="underline underline-offset-2">Resources</h2><Link href="#resources" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#resources", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="resources" className="underline underline-offset-2">Resources</h2><Link href="#resources" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#resources", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <ul>
 <li><DiscreetLink href="https://www.dpmms.cam.ac.uk/study/IB/AnalysisandTopology/">Example sheet questions</DiscreetLink></li>
 </ul>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="glossary-and-style" className="underline underline-offset-2">Glossary and Style</h2><Link href="#glossary-and-style" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#glossary-and-style", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="glossary-and-style" className="underline underline-offset-2">Glossary and Style</h2><Link href="#glossary-and-style" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#glossary-and-style", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
-<p>In definitions, the phrase that we define is highlighted like <strong>this</strong>.</p>
+<p>In definitions, the phrase that we define is highlighted like <span className="font-bold text-highlight-blue">this</span>.</p>
 
 <p>Abbreviations:</p>
 

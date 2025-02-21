@@ -20,7 +20,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
-import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
+import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
 export default function Fta () {
@@ -219,7 +219,7 @@ export default function Fta () {
 
 <p>This is part 5, where we stand on what we've built from axioms so far, and finally prove the <DiscreetLink href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">fundamental theorem of arithmetic</DiscreetLink> (technically, the generalized version). In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="existence-of-a-prime-factorization" className="underline underline-offset-2">Existence of a prime factorization</h2><Link href="#existence-of-a-prime-factorization" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/5-fta#existence-of-a-prime-factorization", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="existence-of-a-prime-factorization" className="underline underline-offset-2">Existence of a prime factorization</h2><Link href="#existence-of-a-prime-factorization" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/5-fta#existence-of-a-prime-factorization", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>Armed with everything we've done so far, we're ready to prove that every integer greater than 1 can be uniquely written as a product of positive primes.</p>
 
@@ -247,7 +247,7 @@ export default function Fta () {
 
 </Lemma>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="uniqueness" className="underline underline-offset-2">Uniqueness</h2><Link href="#uniqueness" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/5-fta#uniqueness", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="uniqueness" className="underline underline-offset-2">Uniqueness</h2><Link href="#uniqueness" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/5-fta#uniqueness", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>So, we've shown that every integer greater than 1 can be factored into positive primes.</p>
 

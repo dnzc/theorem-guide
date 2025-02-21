@@ -53,7 +53,7 @@ Let's try with a different pair of numbers.
 
 I think we're ready to generalize now.
 
-<Prop>
+<Lemma type="Proposition">
 If $a \mid bc$ and $gcd(a,b)=1$, then $a \mid c$. True in $\mathbb{Z}$.
 <Proof>
 Suppose $a \mid bc$ and $gcd(a,b) = 1$.  
@@ -64,7 +64,7 @@ Hence, $c = (ax+by)c = a(cx) + y(bc)$.
 
 Since $a \mid bc$ and $a \mid a(cx)$, we have that $a \mid a(cx) + y(bc)$, so $a \mid c$, as required.
 </Proof>
-</Prop>
+</Lemma>
 
 Nice - surprisingly simple proof, right?
 

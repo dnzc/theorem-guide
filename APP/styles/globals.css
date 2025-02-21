@@ -31,6 +31,7 @@
         --black:
             0, 0, 0;
         --blue: hsl(199.5, 38.8%, 40.4%);
+        --bright-blue: #6cd0d0;
         --orange: hsl(18.3, 75%, 54.5%);
         --pink: hsl(343.4, 62.8%, 49.6%);
 
@@ -45,14 +46,15 @@
         --layer-hover: rgba(var(--gray-30));
         --field: rgb(var(--white));
         --field-hover: rgb(var(--gray-20));
-        --blockquote: rgb(var(--gray-10));
+        --blockquote: rgba(var(--gray-10), 0.5);
         --unhighlighted-code: rgba(var(--gray-20), 0.5);
         --border-subtle: rgb(var(--gray-20));
         --border-subtle-selected: rgb(var(--gray-30));
         --border-strong: rgb(var(--gray-50));
         --border-inverse: rgb(var(--gray-100));
-        --highlight-subtle: var(--orange);
-        --highlight-strong: var(--pink);
+        --highlight-orange: var(--orange);
+        --highlight-pink: var(--pink);
+        --highlight-blue: var(--bright-blue);
         --text-primary: rgb(var(--black));
         --text-secondary: rgb(var(--gray-70));
         --text-placeholder: rgb(var(--gray-40));
@@ -94,7 +96,7 @@
     }
 
     .changelog h2 {
-        @apply text-highlight-subtle italic mt-3 text-base;
+        @apply text-highlight-orange italic mt-3 text-base;
     }
 
     .changelog h2:first-of-type {
@@ -102,7 +104,7 @@
     }
 
     .changelog h3 {
-        @apply text-lg text-highlight-strong font-bold ml-4;
+        @apply text-lg text-highlight-pink font-bold ml-4;
     }
 
     .changelog li {
@@ -134,7 +136,7 @@
     }
 
     .article em {
-        @apply text-highlight-strong;
+        @apply text-highlight-pink;
     }
 
     .article ul li {
@@ -201,6 +203,11 @@
     }
     .article td:not(.notmdtable *) { /* manual tables should be marked as notmdtable */
         @apply border-2 border-border-strong py-1 px-3 text-center;
+    }
+
+    /* bold inside definitions */
+    .defn strong {
+        @apply text-highlight-blue;
     }
 
 }

@@ -8,7 +8,7 @@ from markdown2 import markdown
 from constants import *
 
 warnings = set()
-math_tags = ['Thm', 'Lemma', 'Prop', 'Proof', 'Defn', 'Example']
+math_tags = ['Thm', 'Lemma', 'Proof', 'Defn', 'Example']
 
 def warn(message):
     warnings.add(message)
@@ -75,8 +75,7 @@ export default function {name.replace(' ', '')} () {{
 # find h2 tags with an id, add link anchor to them (each h2 in a markdown file is given a unique id by the header-ids extension)
 # this is an external function so that it can also be applied to the homepage (but the header ids must be manually put there)
 def add_link_anchors(page, cur_target_dir): 
-    # return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 id="\1" className="group flex">\2&nbsp;<Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden group-hover:block text-highlight-subtle no-underline">¶</Link></h2>', page, flags=re.DOTALL)
-    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="\1" className="underline underline-offset-2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>', page, flags=re.DOTALL)
+    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="\1" className="underline underline-offset-2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
     return '' if timestamp==PLACEHOLDER_TIMESTAMP else datetime.fromtimestamp(timestamp).strftime('%d %b %Y')
@@ -277,7 +276,7 @@ def parse_md_file_to_react(path, target_dir, file, is_readme=False):
         modified = '__COPIABLE__\n\n<CopyButton text="' + copiable + '"/>\n\n```' + lang + '\n' + code + '\n```'
         file = file[:m.span()[0]] + modified + file[m.span()[1]:]
     # set proofs inside theorem blocks to be unquoted and unbolded
-    for tag in ['Thm', 'Lemma', 'Prop']:
+    for tag in ['Thm', 'Lemma']:
         for m in [*re.finditer(r'(<'+tag+r'[^>]*?>)(.*?)(</'+tag+r'>)', file, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
             modified = re.sub(r'(<Proof[^>]*?)(>.*?)(</Proof>)', r'\1 unquoted unbolded\2\3', m[2], flags=re.DOTALL)
             file = file[:m.span()[0]] + m[1] + modified + m[3] + file[m.span()[1]:]

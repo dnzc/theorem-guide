@@ -25,7 +25,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
-import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
+import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
 export default function CourseNotes () {
@@ -203,9 +203,9 @@ export default function CourseNotes () {
             <div className="space-y-6">
 
     <p className="mt-2 text-3xl font-bold break-all">
-        <span className="text-highlight-strong">notes.</span>
+        <span className="text-highlight-pink">notes.</span>
         <span className="text-link">daniel</span>
-        <span className="text-highlight-subtle">c.</span>
+        <span className="text-highlight-orange">c.</span>
         <span className="text-black">rocks</span>
     </p>
 
@@ -275,7 +275,7 @@ export default function CourseNotes () {
     <h1>About</h1>
 
     <div className="space-y-2">
-        <div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="how-is-this-site-maintained" className="underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+        <div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="how-is-this-site-maintained" className="underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
         <p>If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">

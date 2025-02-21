@@ -13,7 +13,7 @@ Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink
 
 ## Glossary and Style
 
-In definitions, the phrase that we define is highlighted like **this**.
+In definitions, the phrase that we define is highlighted like <span className="font-bold text-highlight-blue">this</span>.
 
 Abbreviations:
 

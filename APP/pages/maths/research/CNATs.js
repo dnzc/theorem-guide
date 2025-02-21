@@ -20,7 +20,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
-import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
+import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
 export default function CNATs () {

@@ -1,6 +1,5 @@
-exercises
 quizzes
-applied-o-meter
+desmos embed
 pyodide
 
 intuition-focused explanation of derivatives
@@ -44,3 +43,90 @@ physics:
 - feynmann-notes
 
 puzzles? linguistics?
+
+
+
+
+
+
+
+
+
+1. Typography & Readability
+
+✅ Good:
+
+    Uses LaTeX rendering for math, which keeps the notes professional and readable.
+    Text is fairly clean and distraction-free.
+
+❌ Needs Improvement:
+
+    Font choice & spacing: The text can feel a bit dense, especially in long theorem-proof sections. Slightly larger line height and better spacing between paragraphs would improve readability.
+    Color contrast: Some parts of the text (e.g., links, headings) could be better distinguished from body text with subtle color differentiation.
+    Better emphasis: Key definitions and theorems could be highlighted using subtle background colors or boxes rather than just bold text.
+
+✅ Suggestions:
+
+    Increase line height for easier reading (line-height: 1.6 instead of 1.4).
+    Use a slightly larger font for body text (e.g., 16px instead of 14px).
+    Color-code theorem boxes, definition boxes, and remarks for better differentiation.
+
+2. Layout & Structure
+
+✅ Good:
+
+    Simple, distraction-free design—keeps the focus on the math.
+    Consistent formatting across sections.
+
+❌ Needs Improvement:
+
+    Left alignment: Centered text on wider screens can be harder to read. A left-aligned layout (with a margin for readability) might be better.
+    Better section separation: Long walls of text can make it difficult to skim through content.
+    Navigation issues: Currently, there’s no quick way to jump between sections in a long document.
+
+✅ Suggestions:
+
+    Add a sidebar TOC for better navigation.
+    Use collapsible sections for long proofs.
+    Consider a two-column layout (wide screens: text on the left, interactive elements on the right).
+
+3. Colors & Visual Hierarchy
+
+✅ Good:
+
+    Minimalist and clean—avoids unnecessary clutter.
+    The color palette is neutral and doesn’t distract from the content.
+
+❌ Needs Improvement:
+
+    Monochrome feel: Everything is too uniform in color, making it hard to distinguish different elements.
+    No visual highlights: Theorems, definitions, and examples blend into the text instead of standing out.
+
+✅ Suggestions:
+
+    Introduce soft-colored boxes for theorems, corollaries, and definitions (e.g., a light blue for theorems, light yellow for definitions).
+    Use a slightly different background shade for proof sections.
+    Add subtle hover effects on interactive elements (buttons, links).
+
+4. Mobile-Friendliness
+
+✅ Good:
+
+    It’s usable on mobile, and text scales decently.
+
+❌ Needs Improvement:
+
+    Math rendering issues: Sometimes, equations don’t wrap well on smaller screens.
+    No responsive menu: A collapsible menu would help navigate on mobile.
+
+✅ Suggestions:
+
+    Ensure math equations scale properly (perhaps use overflow-x: auto; to avoid breaking formatting).
+    Add a hamburger menu for easy navigation on mobile.
+
+Overall Style Rating: 7.5/10
+
+✅ Strengths: Minimalist, functional, LaTeX support, structured content.
+❌ Weaknesses: Could improve readability, navigation, and visual hierarchy.
+
+Would you like a live CSS tweak suggestion to see how improvements would look?

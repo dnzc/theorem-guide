@@ -13,8 +13,6 @@ I really recommend watching <ProminentLink href='https://youtu.be/5A39Ht9Wcu0'>t
 
 All of this is covered in my <ProminentLink href="/maths/Analysis-Topology" internal>course notes for IB Analysis and Topology</ProminentLink>, in the relevant sections. The results and definitions in this article are correct only for $\mathbb{R}^n$ (e.g. compactness is something different, but the Heine-Borel theorem says that in $\mathbb{R}^n$ it's equivalent to being closed and bounded). For the more general definitions and a deeper understanding, check out the course notes.
 
-<br/>
-
 <Defn>
 Consider a set $M$ together with a function $d : M \times M \to \mathbb{R}$.
 
@@ -91,6 +89,8 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
 </div>
 </Defn>
 
+<br/><hr/>
+
 <Thm type="Fact">$A \subseteq \mathbb{R}^n$ is closed if and only if $\mathbb{R}^n \setminus A$ is open.
 <div class='w-full flex justify-center'>
     <Image src='/__IMAGES__/lagrange-mult/5-closedOpenComplement.svg' width='300' height='150' alt='diagram'/>
@@ -110,6 +110,8 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
     <Image src='/__IMAGES__/lagrange-mult/7-closedIntAndUnion.svg' width='150' height='150' alt='diagram'/>
 </div>
 </Thm>
+
+<br/><hr/>
 
 <Defn>$A \subseteq \mathbb{R}^n$ is **bounded** iff $\exists\, R \in \mathbb{R}, R\gt 0$ such that $A \subseteq B(0, R)$.
 <div class='w-full flex justify-center mt-2'>

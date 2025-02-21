@@ -20,7 +20,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
-import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
+import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
 export default function BinarySearch () {
@@ -237,7 +237,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 
 <p>The time complexity of binary search is <Latex>$O(\log n)$</Latex> , because each comparison halves the search space, so it takes a logarithmic number of operations (and <Latex>$\log_2(n) = \frac&#123;\log n&#125;&#123;\log 2&#125;$</Latex>).</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="pseudocode" className="underline underline-offset-2">Pseudocode</h2><Link href="#pseudocode" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#pseudocode", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="pseudocode" className="underline underline-offset-2">Pseudocode</h2><Link href="#pseudocode" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#pseudocode", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>I like to define the left pointer as the one you know it's definitely <em>greater than or equal to</em>, and the right pointer as the one you know it's definitely <em>less than</em>. So, <Latex>$l \leq x \lt r$</Latex>.</p>
 
@@ -246,7 +246,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 <pre><span></span><code><span className="k">function</span>&nbsp;<span className="n">search</span><span className="o">(</span><span className="n">arr</span><span className="o">,</span>&nbsp;<span className="n">length</span><span className="o">,</span>&nbsp;<span className="n">target</span><span className="o">)</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span className="n">l</span>&nbsp;<span className="o">:=</span>&nbsp;<span className="mi">0</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span className="n">r</span>&nbsp;<span className="o">:=</span>&nbsp;<span className="n">n</span><span className="o">-</span><span className="mi">1</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span className="k">while</span>&nbsp;<span className="n">l</span><span className="o">+</span><span className="mi">1</span>&nbsp;<span className="o">&lt;</span>&nbsp;<span className="n">r</span>&nbsp;<span className="k">do</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="n">m</span>&nbsp;<span className="o">:=</span>&nbsp;<span className="n">floor</span><span className="o">((</span><span className="n">l</span><span className="o">+</span><span className="n">r</span><span className="o">)</span>&nbsp;<span className="o">/</span>&nbsp;<span className="mi">2</span><span className="o">)</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="k">if</span>&nbsp;<span className="n">arr</span><span className="o">[</span><span className="n">m</span><span className="o">]</span>&nbsp;<span className="o">&gt;</span>&nbsp;<span className="n">target</span>&nbsp;<span className="k">then</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="n">r</span>&nbsp;<span className="o">:=</span>&nbsp;<span className="n">m</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="k">else</span>&nbsp;<span className="k">if</span>&nbsp;<span className="n">arr</span><span className="o">[</span><span className="n">m</span><span className="o">]</span>&nbsp;<span className="o">&lt;</span>&nbsp;<span className="n">target</span>&nbsp;<span className="k">then</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="n">l</span>&nbsp;<span className="o">:=</span>&nbsp;<span className="n">m</span><span className="o">+</span><span className="mi">1</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="k">else</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="n">return</span>&nbsp;<span className="n">m</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="k">end</span><br/>&nbsp;&nbsp;&nbsp;&nbsp;<span className="k">end</span><br/><span className="k">end</span><br/></code></pre>
 </div>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="example-problem-minimum-excludant" className="underline underline-offset-2">Example problem: Minimum excludant</h2><Link href="#example-problem-minimum-excludant" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#example-problem-minimum-excludant", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-minimum-excludant" className="underline underline-offset-2">Example problem: Minimum excludant</h2><Link href="#example-problem-minimum-excludant" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#example-problem-minimum-excludant", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <blockquote>
   <p>Given a sorted array of distinct positive integers, find the smallest positive integer that is not in the array.</p>
@@ -288,7 +288,7 @@ We keep track of a left pointer and a right poiner. Then we check the middle ind
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="harder-problem-ntarsis-set" className="underline underline-offset-2">Harder problem: Ntarsis' Set</h2><Link href="#harder-problem-ntarsis-set" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#harder-problem-ntarsis-set", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="harder-problem-ntarsis-set" className="underline underline-offset-2">Harder problem: Ntarsis' Set</h2><Link href="#harder-problem-ntarsis-set" onClick={() => copyToClipboard("https://notes.danielc.rocks/comp-sci/binary-search#harder-problem-ntarsis-set", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p><ProminentLink href="https://codeforces.com/contest/1853/problem/C">View problem on codeforces</ProminentLink></p>
 

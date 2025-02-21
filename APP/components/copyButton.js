@@ -19,7 +19,7 @@ function CopyButton({ text, size=20, children }) {
         )
     else
         return (
-            <button className='bg-layer relative top-0.5 text-highlight-subtle [@media(hover:hover)]:hover:bg-layer-hover px-0.5 py-1 rounded-md' onClick={() => copyToClipboard(text, false)}>
+            <button className='bg-layer relative top-0.5 text-highlight-orange [@media(hover:hover)]:hover:bg-layer-hover px-0.5 py-1 rounded-md' onClick={() => copyToClipboard(text, false)}>
                 <TbClipboardCopy size={size}/>
             </button>
         )

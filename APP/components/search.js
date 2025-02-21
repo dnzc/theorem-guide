@@ -93,18 +93,18 @@ export default function Search({ active, isMobile }) {
                     { searchResults && searchResults.map((result, i) => {
                         let re = substrsToRegex(inputRef.current.value)
                         if(!re) return
-                        let title = highlightMatchesInString(re, result.title, 'text-highlight-strong font-bold')
+                        let title = highlightMatchesInString(re, result.title, 'text-highlight-pink font-bold')
                         let matchedTitle = title.length>1 // split into at least two tokens means found match
 
                         let jsxDir = []
                         let matchedDir = false
                         result.dir.forEach((folder) => {
-                            let tokens = highlightMatchesInString(re, folder, 'text-highlight-subtle font-bold')
+                            let tokens = highlightMatchesInString(re, folder, 'text-highlight-orange font-bold')
                             if(tokens.length>1) matchedDir = true
                             jsxDir.push(...tokens)
                             jsxDir.push(<span className='font-bold text-text-secondary mx-0.5'>/</span>)
                         })
-                        let name = highlightMatchesInString(re, result.name, 'text-highlight-subtle font-bold')
+                        let name = highlightMatchesInString(re, result.name, 'text-highlight-orange font-bold')
                         let matchedName = name.length>1
                         jsxDir.push(...name)
 

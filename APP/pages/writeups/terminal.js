@@ -20,7 +20,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
-import { Thm, Lemma, Prop, Proof, Defn, Example } from '@/components/math'
+import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
 export default function Terminal () {
@@ -214,7 +214,7 @@ export default function Terminal () {
 
 <p>I used <ProminentLink href='https://pyodide.org/en/stable/'>Pyodide</ProminentLink> to run python in the browser (pretty cool!), which I heard about from my teacher at school, who used it to make the (well-known?) <DiscreetLink href='https://www.pythonsponge.com/'>Python Sponge</DiscreetLink>.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="hint-1" className="underline underline-offset-2">Hint 1</h2><Link href="#hint-1" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-1" className="underline underline-offset-2">Hint 1</h2><Link href="#hint-1" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <Spoiler>
 
@@ -222,7 +222,7 @@ export default function Terminal () {
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="hint-2" className="underline underline-offset-2">Hint 2</h2><Link href="#hint-2" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-2", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-2" className="underline underline-offset-2">Hint 2</h2><Link href="#hint-2" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-2", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <Spoiler>
 
@@ -233,7 +233,7 @@ So the goal is: write a python file that reads <code>/flag.txt</code>, whose alp
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="hint-3" className="underline underline-offset-2">Hint 3</h2><Link href="#hint-3" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-3", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-3" className="underline underline-offset-2">Hint 3</h2><Link href="#hint-3" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-3", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <Spoiler>
 
@@ -250,7 +250,7 @@ Also we have numbers, by doing something like:</p>
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="solution" className="underline underline-offset-2">Solution</h2><Link href="#solution" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#solution", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="solution" className="underline underline-offset-2">Solution</h2><Link href="#solution" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#solution", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <Spoiler>
 
@@ -277,7 +277,7 @@ And the reduced version:
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-2 pb-2 mt-4"><h2 id="cheese-solution" className="underline underline-offset-2">Cheese solution</h2><Link href="#cheese-solution" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#cheese-solution", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-subtle">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="cheese-solution" className="underline underline-offset-2">Cheese solution</h2><Link href="#cheese-solution" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#cheese-solution", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <Spoiler>
 
