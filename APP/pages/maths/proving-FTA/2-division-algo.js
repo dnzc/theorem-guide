@@ -184,7 +184,7 @@ export default function DivisionAlgo () {
             <h1 className="text-text-secondary text-lg">Table of contents</h1>
             <ul>
                 
-                    <li className="pt-1 font-bold"><Link href="#back-to-school" className="text-link [@media(hover:hover)]:hover:underline">Back to School</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#back-to-school" className="tocentry text-link [@media(hover:hover)]:hover:underline">Back to School</Link></li>
                 
             </ul>
         </div>
@@ -229,7 +229,7 @@ export default function DivisionAlgo () {
 
 <p>This is part 2, where we use the rigorous foundation we developed in part 1 to establish the <DiscreetLink href="https://brilliant.org/wiki/division-algorithm/">division algorithm</DiscreetLink>. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="back-to-school" className="underline underline-offset-2">Back to School</h2><Link href="#back-to-school" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/2-division-algo#back-to-school", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="back-to-school" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Back to School</h2><Link href="#back-to-school" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/2-division-algo#back-to-school", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>Children tend to get taught division as <em>repeated subtraction</em> - for example, 14 divided by 3 is 4 remainder 2, because:</p>
 

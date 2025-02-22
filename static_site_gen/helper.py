@@ -75,7 +75,7 @@ export default function {name.replace(' ', '')} () {{
 # find h2 tags with an id, add link anchor to them (each h2 in a markdown file is given a unique id by the header-ids extension)
 # this is an external function so that it can also be applied to the homepage (but the header ids must be manually put there)
 def add_link_anchors(page, cur_target_dir): 
-    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="\1" className="underline underline-offset-2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>', page, flags=re.DOTALL)
+    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="\1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
     return '' if timestamp==PLACEHOLDER_TIMESTAMP else datetime.fromtimestamp(timestamp).strftime('%d %b %Y')

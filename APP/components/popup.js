@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import Search from '@/components/search'
+import { Children, cloneElement, isValidElement } from 'react'
 
 var shortcuts = ['u', 'k']
 
 export default function Popup({ buttonStyle, buttonContents, keyboardShortcutIndex, listenWhenLarge, isMobile, children }) {
+
+    let isFiletreeTocElseSearch = children ? true : false
 
     // https://stackoverflow.com/questions/53845595/wrong-react-hooks-behaviour-with-event-listener
     function useStateRef(initialValue) {
@@ -41,7 +44,6 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
     }
 
     function handleActiveClick(e) {
-        console.log(e.target)
         if([...e.target.classList].includes('overlay')) hidePopup()
     }
 
@@ -63,12 +65,41 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeydown)
+        window.addEventListener('resize', hidePopup)
         return () => {
             document.removeEventListener('keydown', handleKeydown)
+            window.removeEventListener('resize', hidePopup)
         }
     }, [active])
 
     useEffect(hidePopup, [])
+
+
+    // make toc links hide the mobile popup when clicked
+    function adjustTocLinks(children) {
+    return Children.map(children, (child) => {
+        if (isValidElement(child)) {
+        // if the child has children, recurse
+        if (child.props.children) {
+            child = cloneElement(child, {
+            children: adjustTocLinks(child.props.children),
+            });
+        }
+
+        // check if this is a target
+        if (child.props.className?.includes("tocentry")) {
+            return cloneElement(child, { onClick: hidePopup });
+        }
+
+        return child;
+        }
+        return child;
+    });
+    }
+
+    if(isFiletreeTocElseSearch) {
+        children = adjustTocLinks(children)
+    }
 
     return (
         <>
@@ -81,7 +112,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
                     <button onClick={hidePopup} className='absolute top-3 right-3 z-10 font-bold flex text-text-secondary items-center space-x-6 pl-4 bg-layer [@media(hover:hover)]:hover:bg-layer-hover rounded-md px-3 py-1.5 ml-4'>
                         ESC
                     </button>
-                    {children ? children : <Search active={active} hidePopupFunction={hidePopup}/>}
+                    {isFiletreeTocElseSearch ? children : <Search active={active} hidePopupFunction={hidePopup}/>}
                 </div>
             </div>
         </>

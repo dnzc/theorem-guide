@@ -184,13 +184,13 @@ export default function CubeTilings () {
             <h1 className="text-text-secondary text-lg">Table of contents</h1>
             <ul>
                 
-                    <li className="pt-1 font-bold"><Link href="#getting-a-foothold" className="text-link [@media(hover:hover)]:hover:underline">Getting a foothold</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#getting-a-foothold" className="tocentry text-link [@media(hover:hover)]:hover:underline">Getting a foothold</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#construction-tools" className="text-link [@media(hover:hover)]:hover:underline">Construction Tools</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#construction-tools" className="tocentry text-link [@media(hover:hover)]:hover:underline">Construction Tools</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#finding-a-base-case" className="text-link [@media(hover:hover)]:hover:underline">Finding a base case</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#finding-a-base-case" className="tocentry text-link [@media(hover:hover)]:hover:underline">Finding a base case</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#reducing-the-bound-with-code" className="text-link [@media(hover:hover)]:hover:underline">Reducing the bound with code</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#reducing-the-bound-with-code" className="tocentry text-link [@media(hover:hover)]:hover:underline">Reducing the bound with code</Link></li>
                 
             </ul>
         </div>
@@ -253,7 +253,7 @@ export default function CubeTilings () {
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="getting-a-foothold" className="underline underline-offset-2">Getting a foothold</h2><Link href="#getting-a-foothold" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/research/cube-tilings#getting-a-foothold", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="getting-a-foothold" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Getting a foothold</h2><Link href="#getting-a-foothold" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/research/cube-tilings#getting-a-foothold", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>Before we actually find a lucky number, we can try to find some rules of inference, for example "if <Latex>$n$</Latex> is lucky then so is <Latex>$n+1000$</Latex>". If we can find lots of these, and at least one lucky number, then hopefully we can mark many integers as lucky.</p>
 
@@ -277,7 +277,7 @@ export default function CubeTilings () {
 
 <p>We can continue to try constructions like this.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="construction-tools" className="underline underline-offset-2">Construction Tools</h2><Link href="#construction-tools" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/research/cube-tilings#construction-tools", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="construction-tools" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Construction Tools</h2><Link href="#construction-tools" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/research/cube-tilings#construction-tools", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <Thm type="Claim" num="1">
 
@@ -353,7 +353,7 @@ export default function CubeTilings () {
 
 </Thm>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="finding-a-base-case" className="underline underline-offset-2">Finding a base case</h2><Link href="#finding-a-base-case" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/research/cube-tilings#finding-a-base-case", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="finding-a-base-case" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Finding a base case</h2><Link href="#finding-a-base-case" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/research/cube-tilings#finding-a-base-case", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>To actually find a lucky number, we remove cubes from our lego building blocks and only use 1:2:3 cuboids.</p>
 
@@ -547,7 +547,7 @@ export default function CubeTilings () {
 
 <p>OK - great! Now we have seven consecutive numbers (26 to 32) all being lucky. Since <Latex>$n \implies n+7$</Latex> (Claim 1), this means every integer greater than or equal to 26 is lucky. So <Latex>$C$</Latex> is at most 26.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="reducing-the-bound-with-code" className="underline underline-offset-2">Reducing the bound with code</h2><Link href="#reducing-the-bound-with-code" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/research/cube-tilings#reducing-the-bound-with-code", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="reducing-the-bound-with-code" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Reducing the bound with code</h2><Link href="#reducing-the-bound-with-code" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/research/cube-tilings#reducing-the-bound-with-code", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>Have you noticed that in the table above, 25 sticks out like a sore thumb? If we could just show that 25 is lucky, we could add the numbers from 19 to 24 to our chain of consecutive numbers... and C would be at most <Latex>$19$</Latex> - and that would be a good place to stop, because conquering 25 feels like such a bargain (we would reduce C by a lot, not just by 1). But 25 = 18 + 7, so can we show that 18 is lucky? Then we'd have <Latex>$C \leq 18$</Latex>. 18 feels too big to manually try and search for, so can we write some code to brute force it?</p>
 

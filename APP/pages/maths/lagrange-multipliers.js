@@ -184,25 +184,25 @@ export default function LagrangeMultipliers () {
             <h1 className="text-text-secondary text-lg">Table of contents</h1>
             <ul>
                 
-                    <li className="pt-1 font-bold"><Link href="#background-theory" className="text-link [@media(hover:hover)]:hover:underline">Background Theory</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#background-theory" className="tocentry text-link [@media(hover:hover)]:hover:underline">Background Theory</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#partial-derivatives" className="text-link [@media(hover:hover)]:hover:underline">Partial Derivatives</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#partial-derivatives" className="tocentry text-link [@media(hover:hover)]:hover:underline">Partial Derivatives</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#the-big-theorem" className="text-link [@media(hover:hover)]:hover:underline">The Big Theorem</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#the-big-theorem" className="tocentry text-link [@media(hover:hover)]:hover:underline">The Big Theorem</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#example-problem-1" className="text-link [@media(hover:hover)]:hover:underline">Example Problem 1</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#example-problem-1" className="tocentry text-link [@media(hover:hover)]:hover:underline">Example Problem 1</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#example-problem-2" className="text-link [@media(hover:hover)]:hover:underline">Example Problem 2</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#example-problem-2" className="tocentry text-link [@media(hover:hover)]:hover:underline">Example Problem 2</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#example-problem-3" className="text-link [@media(hover:hover)]:hover:underline">Example problem 3</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#example-problem-3" className="tocentry text-link [@media(hover:hover)]:hover:underline">Example problem 3</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#homogenous-trick" className="text-link [@media(hover:hover)]:hover:underline">Homogenous Trick</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#homogenous-trick" className="tocentry text-link [@media(hover:hover)]:hover:underline">Homogenous Trick</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#practice-problem-jbmo" className="text-link [@media(hover:hover)]:hover:underline">Practice problem (JBMO)</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#practice-problem-jbmo" className="tocentry text-link [@media(hover:hover)]:hover:underline">Practice problem (JBMO)</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#when-it-fails" className="text-link [@media(hover:hover)]:hover:underline">When It Fails</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#when-it-fails" className="tocentry text-link [@media(hover:hover)]:hover:underline">When It Fails</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#conclusion" className="text-link [@media(hover:hover)]:hover:underline">Conclusion</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#conclusion" className="tocentry text-link [@media(hover:hover)]:hover:underline">Conclusion</Link></li>
                 
             </ul>
         </div>
@@ -246,7 +246,7 @@ export default function LagrangeMultipliers () {
 
 <p>I really recommend watching <ProminentLink href='https://youtu.be/5A39Ht9Wcu0'>this video</ProminentLink> to get some intuition first.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="background-theory" className="underline underline-offset-2">Background Theory</h2><Link href="#background-theory" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#background-theory", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="background-theory" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Background Theory</h2><Link href="#background-theory" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#background-theory", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>All of this is covered in my <ProminentLink href="/maths/Analysis-Topology" internal>course notes for IB Analysis and Topology</ProminentLink>, in the relevant sections. The results and definitions in this article are correct only for <Latex>$\mathbb&#123;R&#125;^n$</Latex> (e.g. compactness is something different, but the Heine-Borel theorem says that in <Latex>$\mathbb&#123;R&#125;^n$</Latex> it's equivalent to being closed and bounded). For the more general definitions and a deeper understanding, check out the course notes.</p>
 
@@ -478,7 +478,7 @@ export default function LagrangeMultipliers () {
 
 </Thm>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="partial-derivatives" className="underline underline-offset-2">Partial Derivatives</h2><Link href="#partial-derivatives" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#partial-derivatives", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="partial-derivatives" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Partial Derivatives</h2><Link href="#partial-derivatives" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#partial-derivatives", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>I'm assuming you've already met these, so I'll recap.</p>
 
@@ -498,7 +498,7 @@ export default function LagrangeMultipliers () {
 
 </Example>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="the-big-theorem" className="underline underline-offset-2">The Big Theorem</h2><Link href="#the-big-theorem" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#the-big-theorem", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="the-big-theorem" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">The Big Theorem</h2><Link href="#the-big-theorem" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#the-big-theorem", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>Finally!</p>
 
@@ -524,7 +524,7 @@ export default function LagrangeMultipliers () {
 
 </Thm>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-1" className="underline underline-offset-2">Example Problem 1</h2><Link href="#example-problem-1" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Example Problem 1</h2><Link href="#example-problem-1" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <blockquote>
   <p>Let <Latex>$x,y,z \geq 0$</Latex> such that <Latex>$x+y+z = 1$</Latex>. Find the min and max of <Latex>$xyz$</Latex>.</p>
@@ -568,7 +568,7 @@ This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finall
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-2" className="underline underline-offset-2">Example Problem 2</h2><Link href="#example-problem-2" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-2", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-2" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Example Problem 2</h2><Link href="#example-problem-2" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-2", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <blockquote>
   <p>Let <Latex>$x,y,z \geq 0$</Latex> such that <Latex>$x+y+z = 1$</Latex>. Show that
@@ -647,7 +647,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-3" className="underline underline-offset-2">Example problem 3</h2><Link href="#example-problem-3" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-3", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-3" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Example problem 3</h2><Link href="#example-problem-3" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-3", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <blockquote>
   <p>Given that <Latex>$x,y \in \mathbb&#123;R&#125;$</Latex> with <Latex>$x^2 + y^2 = 1$</Latex>, Find the max and min values of <Latex>$8x^2 - 2y$</Latex>.</p>
@@ -708,7 +708,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="homogenous-trick" className="underline underline-offset-2">Homogenous Trick</h2><Link href="#homogenous-trick" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#homogenous-trick", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="homogenous-trick" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Homogenous Trick</h2><Link href="#homogenous-trick" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#homogenous-trick", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>Suppose we want to prove some inequality, but there are no constraints.</p>
 
@@ -738,7 +738,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="practice-problem-jbmo" className="underline underline-offset-2">Practice problem (JBMO)</h2><Link href="#practice-problem-jbmo" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#practice-problem-jbmo", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="practice-problem-jbmo" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Practice problem (JBMO)</h2><Link href="#practice-problem-jbmo" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#practice-problem-jbmo", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <blockquote>
   <p>For <Latex>$x,y \in \mathbb&#123;R&#125;, (x,y) \neq (0,0)$</Latex>, prove that:
@@ -845,7 +845,7 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="when-it-fails" className="underline underline-offset-2">When It Fails</h2><Link href="#when-it-fails" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#when-it-fails", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="when-it-fails" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">When It Fails</h2><Link href="#when-it-fails" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#when-it-fails", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <blockquote>
   <p>Let <Latex>$a,b,c \gt 0$</Latex> such that <Latex>$a+b+c=3$</Latex>. Find the minimum value of:
@@ -868,7 +868,7 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="conclusion" className="underline underline-offset-2">Conclusion</h2><Link href="#conclusion" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#conclusion", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="conclusion" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Conclusion</h2><Link href="#conclusion" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#conclusion", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <p>As you've seen, it takes careful consideration and background knowledge to use Lagrange multipliers in olympiads correctly. Best of luck!</p>
 

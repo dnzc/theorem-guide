@@ -93,7 +93,7 @@ export default function Basics () {
             <h1 className="text-text-secondary text-lg">Table of contents</h1>
             <ul>
                 
-                    <li className="pt-1 font-bold"><Link href="#11-definitions-and-examples" className="text-link [@media(hover:hover)]:hover:underline">1.1 Definitions and Examples</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#11-definitions-and-examples" className="tocentry text-link [@media(hover:hover)]:hover:underline">1.1 Definitions and Examples</Link></li>
                 
             </ul>
         </div>
@@ -133,7 +133,7 @@ export default function Basics () {
 
 <p>We want to formalise our intuition about distances in the real world, and try to generalise.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="11-definitions-and-examples" className="underline underline-offset-2">1.1 Definitions and Examples</h2><Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="11-definitions-and-examples" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">1.1 Definitions and Examples</h2><Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
 
 <Defn name="metric space">
 

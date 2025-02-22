@@ -40,7 +40,7 @@
             <h1 className="text-text-secondary text-lg">Table of contents</h1>
             <ul>
                 {% for title,href in table_of_contents %}
-                    <li className="pt-1 font-bold"><Link href="{{href}}" className="text-link [@media(hover:hover)]:hover:underline">{{title}}</Link></li>
+                    <li className="pt-1 font-bold"><Link href="{{href}}" className="tocentry text-link [@media(hover:hover)]:hover:underline">{{title}}</Link></li>
                 {% endfor %}
             </ul>
         </div>

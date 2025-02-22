@@ -276,7 +276,7 @@ export default function CourseNotes () {
     <h1>About</h1>
 
     <div className="space-y-2">
-        <div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="how-is-this-site-maintained" className="underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+        <div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="how-is-this-site-maintained" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
         <p>If you're curious, here is the summary of my workflow:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
