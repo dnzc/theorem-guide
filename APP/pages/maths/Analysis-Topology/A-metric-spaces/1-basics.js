@@ -45,7 +45,7 @@ export default function Basics () {
     <Sidebar>
 
         
-        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(40vh)] md:h-[calc(100vh-36rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[40vh] md:h-[35vh] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
                 <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
@@ -89,7 +89,7 @@ export default function Basics () {
         </div>
 
     
-        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(30vh)] md:h-[18rem] xl:hidden shrink-0 px-4 py-2 border-t-2 md:border-t-0 md:border-b-2 border-border-subtle">
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[30vh] md:h-[25vh] xl:hidden shrink-0 px-4 py-2 border-t-2 md:border-t-0 md:border-b-2 border-border-subtle">
             <h1 className="text-text-secondary text-lg">Table of contents</h1>
             <ul>
                 

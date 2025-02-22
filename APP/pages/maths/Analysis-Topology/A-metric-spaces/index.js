@@ -41,7 +41,7 @@ export default function AMetricSpaces () {
     <Sidebar>
 
         
-        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[calc(40vh)] md:h-[calc(100vh-36rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[70vh] md:h-[calc(100vh-12rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
                 <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
