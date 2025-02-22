@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import '../styles/codehilite.css'
 import { Lato, Fira_Code } from 'next/font/google'
 import Head from 'next/head'
+import { SidebarProvider } from '@/components/sidebar'
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -26,7 +27,9 @@ export default function App({ Component, pageProps }) {
           --font-code: ${fira.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <SidebarProvider>
+        <Component {...pageProps} />
+      </SidebarProvider>
     </>
   )
 }

@@ -2,8 +2,6 @@ quizzes
 desmos embed (?)
 pyodide (?)
 
-add sidebar toggle to local storage
-
 intuition-focused explanation of derivatives
 
 soroban practice page

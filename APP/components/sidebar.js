@@ -1,27 +1,12 @@
-import { useState, useEffect, useRef, cloneElement } from 'react'
+import { useState, useEffect, useRef, createContext, useContext } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { FaFolderTree } from 'react-icons/fa6'
 import Popup from '@/components/popup'
-import Link from 'next/link'
 import { BsLayoutTextSidebarReverse } from "react-icons/bs";
 
+const SidebarContext = createContext();
+
 export default function Sidebar({ children }) {
-
-    // https://stackoverflow.com/questions/53845595/wrong-react-hooks-behaviour-with-event-listener
-    function useStateRef(initialValue) {
-        const [value, setValue] = useState(initialValue)
-        const ref = useRef(value)
-        useEffect(() => {
-            ref.current = value
-        }, [value])
-        return [value, setValue, ref]
-    }
-
-    const [active, setActiveState, activeRef] = useStateRef(true)
-
-    function toggleSidebar() {
-        setActiveState(!activeRef.current)
-    }
 
     let [modifierKey, setModifierKey] = useState('')
 
@@ -29,25 +14,6 @@ export default function Sidebar({ children }) {
     function updateMobile() {
         setMobile(/iPhone|iPod|Android/i.test(navigator.userAgent))
     }
-
-    function handleKeydown(e) {
-
-        if(e.repeat) return
-
-        let isMac = navigator.userAgent.toUpperCase().includes('MAC')
-
-        if((isMac ? e.metaKey : e.ctrlKey) && e.key==='u') {
-            e.preventDefault()
-            toggleSidebar()
-        }
-    }
-
-    useEffect(() => {
-        document.addEventListener('keydown', handleKeydown)
-        return () => {
-            document.removeEventListener('keydown', handleKeydown)
-        }
-    }, [active])
 
     useEffect(() => {
         let isMac = navigator.userAgent.toUpperCase().includes('MAC')
@@ -127,7 +93,7 @@ export default function Sidebar({ children }) {
         }
     }, [isInsideToc])
 
-
+    const { active, toggleSidebar } = useContext(SidebarContext)
     return (
         <>
             {/* static space filler behind the sidebar (which is position fixed) */}
@@ -212,4 +178,35 @@ export default function Sidebar({ children }) {
         </>
     )
 
+}
+
+export function SidebarProvider({ children }) {
+
+    const [active, setActive] = useState(true);
+
+    const toggleSidebar = () => {
+        setActive((prev) => !prev);
+    };
+
+    function handleKeydown(e) {
+        if(e.repeat) return
+        let isMac = navigator.userAgent.toUpperCase().includes('MAC')
+        if((isMac ? e.metaKey : e.ctrlKey) && e.key==='u') {
+            e.preventDefault()
+            toggleSidebar()
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeydown)
+        return () => {
+            document.removeEventListener('keydown', handleKeydown)
+        }
+    }, [active])
+
+    return (
+        <SidebarContext.Provider value={{ active, toggleSidebar }}>
+            {children}
+        </SidebarContext.Provider>
+    );
 }
