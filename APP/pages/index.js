@@ -286,7 +286,7 @@ export default function CourseNotes () {
                 A private Github repository contains a master folder with all the content, written in markdown. When I want to update the website, I edit the files in the master folder, using <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> for math diagrams.
             </li>
             <li className="list-disc ml-8">
-                I wrote a static site generator in Python to generate html out of the markdown in the master folder. It injects into <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wraps it in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. I configured a VSCode shortcut to seamlessly run this and preview content.
+                I wrote a static site generator in Python to generate html out of the markdown in the master folder. It injects into custom <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wraps it in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. I configured a VSCode shortcut to seamlessly run this and preview content.
             </li>
             <li className="list-disc ml-8">
                 When I am happy with my changes, I push them to the repository. I added a hook to automatically deploy the public site whenever this happens.
