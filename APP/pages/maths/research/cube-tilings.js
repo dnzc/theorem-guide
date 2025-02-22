@@ -249,7 +249,7 @@ export default function CubeTilings () {
 
 <Spoiler>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$C \leq 18$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$C \leq 18$$</Latex></span>
 
 </Spoiler>
 

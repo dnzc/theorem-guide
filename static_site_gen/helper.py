@@ -302,7 +302,7 @@ def parse_md_file_to_react(path, target_dir, file, is_readme=False):
     page = re.sub(r'\$\$(.*?)\$\$', r'<Latex>\1</Latex>', page) # temporarily remove double dollar signs, so that can deal with single dollar signs first
     page = re.sub(r'\$(.+?)\$', r'<Latex>$\1$</Latex>', page)
     # need block span instead of div so that doesn't trigger hydration error
-    for tag in [('Thm',''), ('Lemma',''), ('Proof',''), ('Defn',''), ('Example','quoted'), ('blockquote','')]:
+    for tag in [('Thm',''), ('Lemma',''), ('Proof',''), ('Defn',''), ('Example','quoted'), ('blockquote',''), ('Spoiler', '')]:
         tag,quoted = tag
         for m in [i.span() for i in re.finditer(r'<'+tag+r'[^>]*?'+quoted+r'.*?>.*?</'+tag+r'>', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
             target = page[m[0]:m[1]]

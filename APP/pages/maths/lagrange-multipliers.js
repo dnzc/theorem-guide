@@ -753,23 +753,23 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p>The inequality is homogenous, so we can impose the condition <Latex>$x^2 + y^2 = 1$</Latex> by scaling the variables. Thus it is sufficient to show that <Latex>$\frac&#123;x+y&#125;&#123;x^2-xy+y^2&#125; \leq 2\sqrt 2$</Latex> when <Latex>$x^2 + y^2 = 1$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\text&#123;Goal: &#125; \frac&#123;x+y&#125;&#123;x^2-xy+y^2&#125; \leq 2\sqrt 2$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\text&#123;Goal: &#125; \frac&#123;x+y&#125;&#123;x^2-xy+y^2&#125; \leq 2\sqrt 2$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\iff 0 \leq 2\sqrt2(x^2-xy+y^2) -x - y$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\iff 0 \leq 2\sqrt2(x^2-xy+y^2) -x - y$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\iff 0 \leq 2\sqrt2(1-xy) -x - y$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\iff 0 \leq 2\sqrt2(1-xy) -x - y$$</Latex></span>
 
 <p>Note that we didn't have to clear the <Latex>$x^2 + y^2$</Latex> term, but it makes the computation easier - always look for tricks!</p>
 
 <p>Now as usual, define:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f,g: \mathbb&#123;R&#125;^2 \to \mathbb&#123;R&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f,g: \mathbb&#123;R&#125;^2 \to \mathbb&#123;R&#125;$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(x,y) = 2\sqrt2(1-xy)-x-y$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = 2\sqrt2(1-xy)-x-y$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$g(x,y) = x^2 + y^2$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$g(x,y) = x^2 + y^2$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$S = \&#123;x \in \mathbb&#123;R&#125;^2 \mid g(x,y) = 1\&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$S = \&#123;x \in \mathbb&#123;R&#125;^2 \mid g(x,y) = 1\&#125;$$</Latex></span>
 
 <p>Then <Latex>$S$</Latex> is closed. Since <Latex>$S$</Latex> is also bounded, we have that <Latex>$S$</Latex> is compact.</p>
 
@@ -779,27 +779,27 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p><Latex>$\nabla g = (2x,2y) \neq (0,0)$</Latex> since <Latex>$a^2 + b^2 = 1$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\therefore \nabla f = \lambda \nabla g$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore \nabla f = \lambda \nabla g$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\implies \begin&#123;bmatrix&#125; -2\sqrt2 y - 1 \\ -2\sqrt2 x - 1\end&#123;bmatrix&#125; = \lambda \begin&#123;bmatrix&#125; 2x \\ 2y\end&#123;bmatrix&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies \begin&#123;bmatrix&#125; -2\sqrt2 y - 1 \\ -2\sqrt2 x - 1\end&#123;bmatrix&#125; = \lambda \begin&#123;bmatrix&#125; 2x \\ 2y\end&#123;bmatrix&#125;$$</Latex></span>
 
 <p>Hence,</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$-2y\sqrt2 - 1 = 2x\lambda$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$-2y\sqrt2 - 1 = 2x\lambda$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$-2x\sqrt2 - 1 = 2y\lambda$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$-2x\sqrt2 - 1 = 2y\lambda$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$x^2 + y^2 = 1$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x^2 + y^2 = 1$$</Latex></span>
 
 <p>Solving these to find <Latex>$f(x,y)$</Latex>:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$y(-2y\sqrt2 - 1) = 2xy\lambda$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$y(-2y\sqrt2 - 1) = 2xy\lambda$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$x(-2x\sqrt2 - 1) = 2yx\lambda$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x(-2x\sqrt2 - 1) = 2yx\lambda$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\therefore -2y^2\sqrt2 - y = -2x^2\sqrt2 - x$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore -2y^2\sqrt2 - y = -2x^2\sqrt2 - x$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\implies 2\sqrt2(x^2 - y^2) + (x-y) = 0$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies 2\sqrt2(x^2 - y^2) + (x-y) = 0$$</Latex></span>
 
 <p>Thus either <Latex>$x=y$</Latex> or <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>.</p>
 
@@ -808,36 +808,36 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 Then, since <Latex>$x^2 + y^2 = 1$</Latex>, we have that <Latex>$x = y = \pm \frac&#123;1&#125;&#123;\sqrt2&#125;$</Latex>. In this case:</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(x,y) = f\left(\pm \frac&#123;1&#125;&#123;\sqrt2&#125;, \pm \frac&#123;1&#125;&#123;\sqrt2&#125;\right)$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = f\left(\pm \frac&#123;1&#125;&#123;\sqrt2&#125;, \pm \frac&#123;1&#125;&#123;\sqrt2&#125;\right)$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$= 2\sqrt2(1 - \frac&#123;1&#125;&#123;2&#125;) - (\pm \sqrt 2)$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 2\sqrt2(1 - \frac&#123;1&#125;&#123;2&#125;) - (\pm \sqrt 2)$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$= \sqrt2 \mp \sqrt2$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= \sqrt2 \mp \sqrt2$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$= 0, 2\sqrt2$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 0, 2\sqrt2$$</Latex></span>
 
 <ul>
 <li>If <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>: <br />
 Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\implies (x+y)^2 = \frac&#123;1&#125;&#123;8&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies (x+y)^2 = \frac&#123;1&#125;&#123;8&#125;$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\implies 2xy = \frac&#123;1&#125;&#123;8&#125; - (x^2+y^2) = \frac&#123;1&#125;&#123;8&#125; - 1$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies 2xy = \frac&#123;1&#125;&#123;8&#125; - (x^2+y^2) = \frac&#123;1&#125;&#123;8&#125; - 1$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\implies xy = -\frac&#123;7&#125;&#123;16&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies xy = -\frac&#123;7&#125;&#123;16&#125;$$</Latex></span>
 
 <p>So in this case:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(x,y) = 2\sqrt2(1-xy)-(x+y)$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = 2\sqrt2(1-xy)-(x+y)$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$= 2\sqrt2\left(1+ \frac&#123;7&#125;&#123;16&#125;\right) + \frac&#123;1&#125;&#123;2\sqrt2&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 2\sqrt2\left(1+ \frac&#123;7&#125;&#123;16&#125;\right) + \frac&#123;1&#125;&#123;2\sqrt2&#125;$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$= \frac&#123;25\sqrt2&#125;&#123;8&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= \frac&#123;25\sqrt2&#125;&#123;8&#125;$$</Latex></span>
 
 <p>Overall, the possible extremal values of <Latex>$f$</Latex> are <Latex>$0, 2\sqrt2, \frac&#123;25\sqrt2&#125;&#123;8&#125;$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\therefore 0 \leq f(x,y) \leq \frac&#123;25\sqrt2&#125;&#123;8&#125;$$</Latex></span>
+<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore 0 \leq f(x,y) \leq \frac&#123;25\sqrt2&#125;&#123;8&#125;$$</Latex></span>
 
 <p>In particular, <Latex>$f(x,y) \geq 0$</Latex> as required.</p>
 
