@@ -205,9 +205,9 @@ export default function CourseNotes () {
 
     <p className="mt-2 text-3xl font-bold break-all">
         <span className="text-highlight-pink">notes.</span>
-        <span className="text-link">daniel</span>
+        <span className="text-highlight-blue">daniel</span>
         <span className="text-highlight-orange">c.</span>
-        <span className="text-black">rocks</span>
+        <span className="text-link">rocks</span>
     </p>
 
     <p>
