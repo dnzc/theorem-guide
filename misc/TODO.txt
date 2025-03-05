@@ -1,5 +1,6 @@
 quizzes
 graph view - nodes represent pages, lines represent thm/lemma/prop references etc, or links? c.f. https://space.ong.ac/
+backlinks (figure out where to display on page? potentially: toc ALWAYS under filetree; sidebar ALWAYS visible on xl, contains graph view + backlinks)
 desmos embed (?)
 pyodide (?)
 
