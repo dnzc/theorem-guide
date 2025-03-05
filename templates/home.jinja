@@ -71,8 +71,7 @@
     <h1>About</h1>
 
     <div className="space-y-2">
-        <h2 id="how-is-this-site-maintained">How is this site maintained?</h2>
-        <p>If you're curious, here is the summary of my workflow:</p>
+        <p>If you're curious, here is the summary of how I maintain the site, and what technologies I use:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
                 I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
@@ -81,10 +80,13 @@
                 A private Github repository contains a master folder with all the content, written in markdown. When I want to update the website, I edit the files in the master folder, using <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> for math diagrams.
             </li>
             <li className="list-disc ml-8">
-                I wrote a static site generator in Python to generate html out of the markdown in the master folder. It injects into custom <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wraps it in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. I configured a VSCode shortcut to seamlessly run this and preview content.
+                I wrote a static site generator (SSG) in Python to transform the markdown in the master folder into Next.js pages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. Since I'm a maths purist:
+                <div className="flex justify-center my-4">
+                    <Image src='/images/root/workflow.svg' width='250' height='200' alt='workflow diagram'/>
+                </div>
             </li>
             <li className="list-disc ml-8">
-                When I am happy with my changes, I push them to the repository. I added a hook to automatically deploy the public site whenever this happens.
+                I configured a VSCode shortcut to seamlessly run the SSG and preview content. When I am happy with my changes, I push them to the repository, and I added a hook to automatically deploy the public site whenever this happens.
             </li>
         </ul>
     </div>

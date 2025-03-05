@@ -1,4 +1,6 @@
 quizzes
+dark mode toggle (make sure svgs work with it)
+graph view - nodes represent pages, lines represent thm/lemma/prop references etc, or links? c.f. https://space.ong.ac/
 desmos embed (?)
 pyodide (?)
 

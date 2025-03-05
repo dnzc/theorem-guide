@@ -50,7 +50,7 @@ export default function CourseNotes () {
     <Sidebar>
 
         
-        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] h-[70vh] md:h-[calc(100vh-12rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] min-h-10 h-[70vh] md:h-[calc(100vh-12rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
                 <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
@@ -276,8 +276,7 @@ export default function CourseNotes () {
     <h1>About</h1>
 
     <div className="space-y-2">
-        <div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="how-is-this-site-maintained" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">How is this site maintained?</h2><Link href="#how-is-this-site-maintained" onClick={() => copyToClipboard("https://notes.danielc.rocks/#how-is-this-site-maintained", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
-        <p>If you're curious, here is the summary of my workflow:</p>
+        <p>If you're curious, here is the summary of how I maintain the site, and what technologies I use:</p>
         <ul className="space-y-2">
             <li className="list-disc ml-8">
                 I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
@@ -286,10 +285,13 @@ export default function CourseNotes () {
                 A private Github repository contains a master folder with all the content, written in markdown. When I want to update the website, I edit the files in the master folder, using <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> for math diagrams.
             </li>
             <li className="list-disc ml-8">
-                I wrote a static site generator in Python to generate html out of the markdown in the master folder. It injects into custom <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wraps it in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. I configured a VSCode shortcut to seamlessly run this and preview content.
+                I wrote a static site generator (SSG) in Python to transform the markdown in the master folder into Next.js pages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. Since I'm a maths purist:
+                <div className="flex justify-center my-4">
+                    <Image src='/images/root/workflow.svg' width='250' height='200' alt='workflow diagram'/>
+                </div>
             </li>
             <li className="list-disc ml-8">
-                When I am happy with my changes, I push them to the repository. I added a hook to automatically deploy the public site whenever this happens.
+                I configured a VSCode shortcut to seamlessly run the SSG and preview content. When I am happy with my changes, I push them to the repository, and I added a hook to automatically deploy the public site whenever this happens.
             </li>
         </ul>
     </div>
