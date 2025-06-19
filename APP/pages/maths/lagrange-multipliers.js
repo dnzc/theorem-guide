@@ -268,9 +268,9 @@ export default function LagrangeMultipliers () {
 
 <p><Latex>$(\mathbb&#123;R&#125;^n, d)$</Latex> is a metric space, where:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\mathbb&#123;R&#125;^n = \&#123;(x_1, \cdots, x_n) \mid x_i \in \mathbb&#123;R&#125;\&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\mathbb&#123;R&#125;^n = \&#123;(x_1, \cdots, x_n) \mid x_i \in \mathbb&#123;R&#125;\&#125;$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$d(x,y) = \sqrt&#123;\sum_&#123;i=1&#125;^n (x_i-y_i)^2&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$d(x,y) = \sqrt&#123;\sum_&#123;i=1&#125;^n (x_i-y_i)^2&#125;$$</Latex></span>
 
 </Example>
 
@@ -280,11 +280,11 @@ export default function LagrangeMultipliers () {
 
 <p>The <strong>open ball</strong> in <Latex>$\mathbb&#123;R&#125;^n$</Latex> with centre <Latex>$p \in \mathbb&#123;R^n&#125;$</Latex> and radius <Latex>$r$</Latex> is</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$B(p,r) := \&#123;x \in \mathbb&#123;\mathbb&#123;R&#125;^n&#125; \mid d(p,x) \lt r \&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$B(p,r) := \&#123;x \in \mathbb&#123;\mathbb&#123;R&#125;^n&#125; \mid d(p,x) \lt r \&#125;$$</Latex></span>
 
 <p>Similarly, the <strong>closed ball</strong> <Latex>$B[p,r]$</Latex> is<sup className="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup> the set:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\&#123;x \in \mathbb&#123;R&#125;^n \mid d(p,x) \leq r\&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\&#123;x \in \mathbb&#123;R&#125;^n \mid d(p,x) \leq r\&#125;$$</Latex></span>
 
 </Defn>
 
@@ -318,7 +318,7 @@ export default function LagrangeMultipliers () {
 
 <p>The sequence <strong>converges</strong> to the point <Latex>$x_\infty$</Latex> iff <Latex>$\forall \epsilon \gt 0, \exists n_0 \in \mathbb&#123;N&#125;$</Latex> such that:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$n \geq n_0 \implies d(x_n, x_\infty) \lt \epsilon$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$n \geq n_0 \implies d(x_n, x_\infty) \lt \epsilon$$</Latex></span>
 
 <p>Then <Latex>$x_\infty$</Latex> is denoted <Latex>$\lim_&#123;n \to \infty&#125;(x_n)$</Latex>.</p>
 
@@ -424,7 +424,7 @@ export default function LagrangeMultipliers () {
 
 <p><Latex>$f$</Latex> is <strong>continuous at the point</strong> <Latex>$p \in D$</Latex> iff <Latex>$\forall \epsilon \gt 0$</Latex>, <Latex>$\exists \delta \gt 0$</Latex> such that <Latex>$\forall x \in D$</Latex> we have:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$d(p,x) \lt \delta \implies \lvert f(x) - f(p) \rvert \lt \epsilon$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$d(p,x) \lt \delta \implies \lvert f(x) - f(p) \rvert \lt \epsilon$$</Latex></span>
 
 <p><Latex>$f$</Latex> is <strong>continuous</strong> iff it is continuous at every point.</p>
 
@@ -448,9 +448,9 @@ export default function LagrangeMultipliers () {
 
 <p>Then <Latex>$f$</Latex> has both a global maximum value and a global minimum value<sup className="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup>:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\exists\, x \in K \text&#123; s.t. &#125; f(x) \geq f(y) \;\forall\, y \in K$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\exists\, x \in K \text&#123; s.t. &#125; f(x) \geq f(y) \;\forall\, y \in K$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\exists\, x' \in K \text&#123; s.t. &#125; f(x') \leq f(y) \;\forall\, y \in K$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\exists\, x' \in K \text&#123; s.t. &#125; f(x') \leq f(y) \;\forall\, y \in K$$</Latex></span>
 
 </Thm>
 
@@ -472,7 +472,7 @@ export default function LagrangeMultipliers () {
 
 <p>Let <Latex>$g : \mathbb&#123;R&#125;^n \to \mathbb&#123;R&#125;$</Latex> be continuous. Then for a fixed <Latex>$c \in \mathbb&#123;R&#125;$</Latex>, the set</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\&#123; x \in \mathbb&#123;R&#125;^n \mid g(x) = c \&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\&#123; x \in \mathbb&#123;R&#125;^n \mid g(x) = c \&#125;$$</Latex></span>
 
 <p>is closed in <Latex>$\mathbb&#123;R&#125;^n$</Latex>.</p>
 
@@ -488,13 +488,13 @@ export default function LagrangeMultipliers () {
 <li><Latex>$f : \mathbb&#123;R&#125;^3 \to \mathbb&#123;R&#125;, f(x,y,z) = x^2 + y^2 + z^2$</Latex></li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = 2x, \frac&#123;\delta f&#125;&#123;\delta y&#125; = 2y, \frac&#123;\delta f&#125;&#123;\delta z&#125; = 2z, \nabla f = (2x,2y,2z)$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = 2x, \frac&#123;\delta f&#125;&#123;\delta y&#125; = 2y, \frac&#123;\delta f&#125;&#123;\delta z&#125; = 2z, \nabla f = (2x,2y,2z)$$</Latex></span>
 
 <ul>
 <li><Latex>$f : (0, +\infty) \times (0, +\infty) \to \mathbb&#123;R&#125;, f(x,y) = \sqrt&#123;xy&#125;$</Latex>.</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\nabla f = (\frac&#123;\sqrt y&#125;&#123;2 \sqrt x&#125;, \frac&#123;\sqrt x&#125;&#123;2 \sqrt y&#125;)$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\nabla f = (\frac&#123;\sqrt y&#125;&#123;2 \sqrt x&#125;, \frac&#123;\sqrt x&#125;&#123;2 \sqrt y&#125;)$$</Latex></span>
 
 </Example>
 
@@ -510,17 +510,17 @@ export default function LagrangeMultipliers () {
 
 <p>Then, if <Latex>$x_0 \in S$</Latex> is a local max or min, then either:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\left( \frac&#123;\delta g&#125;&#123;\delta x&#125;, \frac&#123;\delta g&#125;&#123;\delta y&#125;, \frac&#123;\delta g&#125;&#123;\delta z&#125;,\cdots\right) = (0,0,0,\cdots)$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\left( \frac&#123;\delta g&#125;&#123;\delta x&#125;, \frac&#123;\delta g&#125;&#123;\delta y&#125;, \frac&#123;\delta g&#125;&#123;\delta z&#125;,\cdots\right) = (0,0,0,\cdots)$$</Latex></span>
 
 <p>Or <Latex>$\exists \lambda \in \mathbb&#123;R&#125;$</Latex> such that:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125;(x_0) = \lambda \frac&#123;\delta g&#125;&#123;\delta x&#125;(x_0),$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125;(x_0) = \lambda \frac&#123;\delta g&#125;&#123;\delta x&#125;(x_0),$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta y&#125;(x_0) = \lambda \frac&#123;\delta g&#125;&#123;\delta y&#125;(x_0),$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta y&#125;(x_0) = \lambda \frac&#123;\delta g&#125;&#123;\delta y&#125;(x_0),$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta z&#125;(x_0) = \lambda \frac&#123;\delta g&#125;&#123;\delta y&#125;(x_0),$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta z&#125;(x_0) = \lambda \frac&#123;\delta g&#125;&#123;\delta y&#125;(x_0),$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\text&#123;etc.&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\text&#123;etc.&#125;$$</Latex></span>
 
 </Thm>
 
@@ -553,18 +553,18 @@ export default function LagrangeMultipliers () {
 <li><p>If we are not on the boundary, then we are in <Latex>$S$</Latex>, so we can apply LM.</p></li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta g&#125;&#123;\delta x&#125; = 1, \frac&#123;\delta g&#125;&#123;\delta y&#125; = 1, \frac&#123;\delta g&#125;&#123;\delta z&#125; = 1$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta g&#125;&#123;\delta x&#125; = 1, \frac&#123;\delta g&#125;&#123;\delta y&#125; = 1, \frac&#123;\delta g&#125;&#123;\delta z&#125; = 1$$</Latex></span>
 
 <p>So we are in the second case of the theorem, because <Latex>$(1,1,1) \neq (0,0,0)$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = yz, \frac&#123;\delta f&#125;&#123;\delta y&#125; = xz, \frac&#123;\delta f&#125;&#123;\delta z&#125; = xy$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = yz, \frac&#123;\delta f&#125;&#123;\delta y&#125; = xz, \frac&#123;\delta f&#125;&#123;\delta z&#125; = xy$$</Latex></span>
 
 <p>So <Latex>$yz = \lambda \cdot 1$</Latex>, <Latex>$xz = \lambda \cdot 1$</Latex>, <Latex>$xy = \lambda \cdot 1$</Latex>.<br />
 This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finally <Latex>$x+y+z = 1$</Latex> <Latex>$\implies$</Latex> <Latex>$x=y=z=\frac&#123;1&#125;&#123;3&#125;$</Latex>, so an extremal value of <Latex>$f$</Latex> is <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.</p>
 
 <p>Overall, all extreme values of <Latex>$f$</Latex> on <Latex>$\bar S$</Latex> are <Latex>$0$</Latex> or <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\therefore 0 \leq xyz \leq \frac&#123;1&#125;&#123;27&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\therefore 0 \leq xyz \leq \frac&#123;1&#125;&#123;27&#125;$$</Latex></span>
 
 </Proof>
 
@@ -572,7 +572,7 @@ This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finall
 
 <blockquote>
   <p>Let <Latex>$x,y,z \geq 0$</Latex> such that <Latex>$x+y+z = 1$</Latex>. Show that
-  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$0 \leq yz+zx+xy-2xyz \leq \frac&#123;7&#125;&#123;27&#125;$$</Latex></span></p>
+  <span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$0 \leq yz+zx+xy-2xyz \leq \frac&#123;7&#125;&#123;27&#125;$$</Latex></span></p>
 </blockquote>
 
 <Proof type="Solution" unquoted>
@@ -594,27 +594,27 @@ This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finall
 Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Latex>. Then <Latex>$x+y=1$</Latex> and we wish to show that <Latex>$0 \leq xy \leq \frac&#123;7&#125;&#123;27&#125;$</Latex>.</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$x \geq 0, y \geq 0 \implies xy \geq 0$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$x \geq 0, y \geq 0 \implies xy \geq 0$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$xy \leq \left(\frac&#123;x+y&#125;&#123;2&#125;\right)^2 = \frac&#123;1&#125;&#123;4&#125; \lt \frac&#123;7&#125;&#123;27&#125; \;\;\checkmark$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$xy \leq \left(\frac&#123;x+y&#125;&#123;2&#125;\right)^2 = \frac&#123;1&#125;&#123;4&#125; \lt \frac&#123;7&#125;&#123;27&#125; \;\;\checkmark$$</Latex></span>
 
 <p>Else, <Latex>$x_0$</Latex> is not on the boundary.</p>
 
 <p>Then <Latex>$S$</Latex> has a global extremum in <Latex>$f$</Latex>, namely <Latex>$x_0$</Latex>. So I can apply LM.  </p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$g(x,y,z)=x+y+z$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$g(x,y,z)=x+y+z$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\nabla g = \left(\frac&#123;\delta g&#125;&#123;\delta x&#125;, \frac&#123;\delta g&#125;&#123;\delta y&#125;, \frac&#123;\delta g&#125;&#123;\delta z&#125;\right)=(1,1,1)$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\nabla g = \left(\frac&#123;\delta g&#125;&#123;\delta x&#125;, \frac&#123;\delta g&#125;&#123;\delta y&#125;, \frac&#123;\delta g&#125;&#123;\delta z&#125;\right)=(1,1,1)$$</Latex></span>
 
 <p>Since <Latex>$\nabla g \neq (0,0,0)$</Latex>, the only possibility is <Latex>$\nabla f = \lambda \cdot \nabla g$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(x,y,z) = yz + zx + xy - 2xyz$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(x,y,z) = yz + zx + xy - 2xyz$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = z+y-2yz$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = z+y-2yz$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta y&#125; = x+z-2xz$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta y&#125; = x+z-2xz$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta z&#125; = y+x-2yx$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta z&#125; = y+x-2yx$$</Latex></span>
 
 <p>So, <Latex>$z+y-2yz = \lambda \cdot 1$</Latex>,<br />
 <Latex>$x+z-2xz = \lambda \cdot 1$</Latex>,<br />
@@ -643,7 +643,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p>Thus overall, The extremum <Latex>$x_0$</Latex> must equal <Latex>$(\frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;3&#125;)$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f\left(\frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;3&#125;\right) = \frac&#123;1&#125;&#123;9&#125; + \frac&#123;1&#125;&#123;9&#125; + \frac&#123;1&#125;&#123;9&#125; - \frac&#123;2&#125;&#123;27&#125; = \frac&#123;7&#125;&#123;27&#125; \;\; \checkmark$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$f\left(\frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;3&#125;, \frac&#123;1&#125;&#123;3&#125;\right) = \frac&#123;1&#125;&#123;9&#125; + \frac&#123;1&#125;&#123;9&#125; + \frac&#123;1&#125;&#123;9&#125; - \frac&#123;2&#125;&#123;27&#125; = \frac&#123;7&#125;&#123;27&#125; \;\; \checkmark$$</Latex></span>
 
 </Proof>
 
@@ -659,15 +659,15 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p>Let <Latex>$f,g : \mathbb&#123;R&#125;^2 \to \mathbb&#123;R&#125;$</Latex> with:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(x,y) = 8x^2-2y$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(x,y) = 8x^2-2y$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$g(x,y) = x^2 + y^2$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$g(x,y) = x^2 + y^2$$</Latex></span>
 
 <p>Then <Latex>$f,g$</Latex> are continuous and have continuous partial derivatives.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$U := \mathbb&#123;R&#125;^2$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$U := \mathbb&#123;R&#125;^2$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$S := \&#123;x \in U \mid g(x) = 1\&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$S := \&#123;x \in U \mid g(x) = 1\&#125;$$</Latex></span>
 
 <p><Latex>$S$</Latex> is closed and bounded, hence <Latex>$S$</Latex> is compact.</p>
 
@@ -675,22 +675,22 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p>We can apply LM, because there is no boundary case to check<sup className="footnote-ref" id="fnref-5"><a href="#fn-5">5</a></sup>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\nabla g = (2x,2y)$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\nabla g = (2x,2y)$$</Latex></span>
 
 <p>So <Latex>$\nabla g \neq (0,0)$</Latex> since <Latex>$x^2 + y^2 = 1$</Latex>.</p>
 
 <p>Hence we are in the second case:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\nabla f = \lambda \nabla g$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\nabla f = \lambda \nabla g$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\implies \begin&#123;bmatrix&#125; 16x \\ -2 \end&#123;bmatrix&#125; = \lambda \begin&#123;bmatrix&#125; 2x \\ 2y \end&#123;bmatrix&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\implies \begin&#123;bmatrix&#125; 16x \\ -2 \end&#123;bmatrix&#125; = \lambda \begin&#123;bmatrix&#125; 2x \\ 2y \end&#123;bmatrix&#125;$$</Latex></span>
 
 <p>Thus we need to solve the following 3 simultaneous equations:</p>
 
 <blockquote>
-  <p><span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$16x = 2x\lambda$$</Latex></span>
-  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$-2 = 2y\lambda$$</Latex></span>
-  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x^2 + y^2 = 1$$</Latex></span></p>
+  <p><span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$16x = 2x\lambda$$</Latex></span>
+  <span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$-2 = 2y\lambda$$</Latex></span>
+  <span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x^2 + y^2 = 1$$</Latex></span></p>
 </blockquote>
 
 <ul>
@@ -700,11 +700,11 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p>Hence we need to check <Latex>$(0,1)$</Latex>,<Latex>$(0,-1)$</Latex>, <Latex>$(\frac&#123;\sqrt&#123;63&#125;&#125;&#123;8&#125;, -\frac&#123;1&#125;&#123;8&#125;)$</Latex>, <Latex>$(-\frac&#123;\sqrt&#123;63&#125;&#125;&#123;8&#125;, -\frac&#123;1&#125;&#123;8&#125;)$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(0, \pm 1) = \mp 2$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(0, \pm 1) = \mp 2$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(\pm \frac&#123;\sqrt&#123;63&#125;&#125;&#123;8&#125;, -\frac&#123;1&#125;&#123;8&#125;) = \frac&#123;65&#125;&#123;8&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$f(\pm \frac&#123;\sqrt&#123;63&#125;&#125;&#123;8&#125;, -\frac&#123;1&#125;&#123;8&#125;) = \frac&#123;65&#125;&#123;8&#125;$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\therefore -2 \leq 8x^2 - 2y \leq \frac&#123;65&#125;&#123;8&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\therefore -2 \leq 8x^2 - 2y \leq \frac&#123;65&#125;&#123;8&#125;$$</Latex></span>
 
 </Proof>
 
@@ -718,7 +718,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p>Prove that <Latex>$\forall a,b,c \in \mathbb&#123;R&#125;$</Latex>,</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$a^2 + b^2 + c^2 \geq ab + bc + ca$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$a^2 + b^2 + c^2 \geq ab + bc + ca$$</Latex></span>
 
 </Example>
 
@@ -728,7 +728,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p>Otherwise, let <Latex>$k = \sqrt&#123;a^2 + b^2 + c^2&#125; \gt 0$</Latex>. The inequality is equivalent to:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\left(\frac&#123;a&#125;&#123;k&#125;\right)^2 + \left(\frac&#123;b&#125;&#123;k&#125;\right)^2 + \left(\frac&#123;c&#125;&#123;k&#125;\right)^2 \geq \frac&#123;a&#125;&#123;k&#125; \cdot \frac&#123;b&#125;&#123;k&#125; + \frac&#123;b&#125;&#123;k&#125;\cdot \frac&#123;c&#125;&#123;k&#125; + \frac&#123;c&#125;&#123;k&#125; \cdot \frac&#123;a&#125;&#123;k&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\left(\frac&#123;a&#125;&#123;k&#125;\right)^2 + \left(\frac&#123;b&#125;&#123;k&#125;\right)^2 + \left(\frac&#123;c&#125;&#123;k&#125;\right)^2 \geq \frac&#123;a&#125;&#123;k&#125; \cdot \frac&#123;b&#125;&#123;k&#125; + \frac&#123;b&#125;&#123;k&#125;\cdot \frac&#123;c&#125;&#123;k&#125; + \frac&#123;c&#125;&#123;k&#125; \cdot \frac&#123;a&#125;&#123;k&#125;$$</Latex></span>
 
 <p>And so, letting <Latex>$x=\frac&#123;a&#125;&#123;k&#125;$</Latex>, <Latex>$y = \frac&#123;b&#125;&#123;k&#125;$</Latex>, <Latex>$z = \frac&#123;c&#125;&#123;k&#125;$</Latex>, we have that <Latex>$x^2 + y^2 + z^2 = 1$</Latex>.</p>
 
@@ -742,7 +742,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <blockquote>
   <p>For <Latex>$x,y \in \mathbb&#123;R&#125;, (x,y) \neq (0,0)$</Latex>, prove that:
-  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\frac&#123;x+y&#125;&#123;x^2-xy+y^2&#125; \leq \frac&#123;2\sqrt 2&#125;&#123;\sqrt &#123;x^2 + y^2&#125;&#125;$$</Latex></span></p>
+  <span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\frac&#123;x+y&#125;&#123;x^2-xy+y^2&#125; \leq \frac&#123;2\sqrt 2&#125;&#123;\sqrt &#123;x^2 + y^2&#125;&#125;$$</Latex></span></p>
 </blockquote>
 
 <p>(Note: much easier to fix <Latex>$y$</Latex> and use normal derivatives, but we want to solve with LM)</p>
@@ -753,23 +753,23 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p>The inequality is homogenous, so we can impose the condition <Latex>$x^2 + y^2 = 1$</Latex> by scaling the variables. Thus it is sufficient to show that <Latex>$\frac&#123;x+y&#125;&#123;x^2-xy+y^2&#125; \leq 2\sqrt 2$</Latex> when <Latex>$x^2 + y^2 = 1$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\text&#123;Goal: &#125; \frac&#123;x+y&#125;&#123;x^2-xy+y^2&#125; \leq 2\sqrt 2$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\text&#123;Goal: &#125; \frac&#123;x+y&#125;&#123;x^2-xy+y^2&#125; \leq 2\sqrt 2$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\iff 0 \leq 2\sqrt2(x^2-xy+y^2) -x - y$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\iff 0 \leq 2\sqrt2(x^2-xy+y^2) -x - y$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\iff 0 \leq 2\sqrt2(1-xy) -x - y$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\iff 0 \leq 2\sqrt2(1-xy) -x - y$$</Latex></span>
 
 <p>Note that we didn't have to clear the <Latex>$x^2 + y^2$</Latex> term, but it makes the computation easier - always look for tricks!</p>
 
 <p>Now as usual, define:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f,g: \mathbb&#123;R&#125;^2 \to \mathbb&#123;R&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f,g: \mathbb&#123;R&#125;^2 \to \mathbb&#123;R&#125;$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = 2\sqrt2(1-xy)-x-y$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = 2\sqrt2(1-xy)-x-y$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$g(x,y) = x^2 + y^2$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$g(x,y) = x^2 + y^2$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$S = \&#123;x \in \mathbb&#123;R&#125;^2 \mid g(x,y) = 1\&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$S = \&#123;x \in \mathbb&#123;R&#125;^2 \mid g(x,y) = 1\&#125;$$</Latex></span>
 
 <p>Then <Latex>$S$</Latex> is closed. Since <Latex>$S$</Latex> is also bounded, we have that <Latex>$S$</Latex> is compact.</p>
 
@@ -779,27 +779,27 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <p><Latex>$\nabla g = (2x,2y) \neq (0,0)$</Latex> since <Latex>$a^2 + b^2 = 1$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore \nabla f = \lambda \nabla g$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore \nabla f = \lambda \nabla g$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies \begin&#123;bmatrix&#125; -2\sqrt2 y - 1 \\ -2\sqrt2 x - 1\end&#123;bmatrix&#125; = \lambda \begin&#123;bmatrix&#125; 2x \\ 2y\end&#123;bmatrix&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies \begin&#123;bmatrix&#125; -2\sqrt2 y - 1 \\ -2\sqrt2 x - 1\end&#123;bmatrix&#125; = \lambda \begin&#123;bmatrix&#125; 2x \\ 2y\end&#123;bmatrix&#125;$$</Latex></span>
 
 <p>Hence,</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$-2y\sqrt2 - 1 = 2x\lambda$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$-2y\sqrt2 - 1 = 2x\lambda$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$-2x\sqrt2 - 1 = 2y\lambda$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$-2x\sqrt2 - 1 = 2y\lambda$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x^2 + y^2 = 1$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x^2 + y^2 = 1$$</Latex></span>
 
 <p>Solving these to find <Latex>$f(x,y)$</Latex>:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$y(-2y\sqrt2 - 1) = 2xy\lambda$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$y(-2y\sqrt2 - 1) = 2xy\lambda$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x(-2x\sqrt2 - 1) = 2yx\lambda$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$x(-2x\sqrt2 - 1) = 2yx\lambda$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore -2y^2\sqrt2 - y = -2x^2\sqrt2 - x$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore -2y^2\sqrt2 - y = -2x^2\sqrt2 - x$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies 2\sqrt2(x^2 - y^2) + (x-y) = 0$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies 2\sqrt2(x^2 - y^2) + (x-y) = 0$$</Latex></span>
 
 <p>Thus either <Latex>$x=y$</Latex> or <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>.</p>
 
@@ -808,36 +808,36 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 Then, since <Latex>$x^2 + y^2 = 1$</Latex>, we have that <Latex>$x = y = \pm \frac&#123;1&#125;&#123;\sqrt2&#125;$</Latex>. In this case:</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = f\left(\pm \frac&#123;1&#125;&#123;\sqrt2&#125;, \pm \frac&#123;1&#125;&#123;\sqrt2&#125;\right)$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = f\left(\pm \frac&#123;1&#125;&#123;\sqrt2&#125;, \pm \frac&#123;1&#125;&#123;\sqrt2&#125;\right)$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 2\sqrt2(1 - \frac&#123;1&#125;&#123;2&#125;) - (\pm \sqrt 2)$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 2\sqrt2(1 - \frac&#123;1&#125;&#123;2&#125;) - (\pm \sqrt 2)$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= \sqrt2 \mp \sqrt2$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= \sqrt2 \mp \sqrt2$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 0, 2\sqrt2$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 0, 2\sqrt2$$</Latex></span>
 
 <ul>
 <li>If <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>:<br />
 Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies (x+y)^2 = \frac&#123;1&#125;&#123;8&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies (x+y)^2 = \frac&#123;1&#125;&#123;8&#125;$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies 2xy = \frac&#123;1&#125;&#123;8&#125; - (x^2+y^2) = \frac&#123;1&#125;&#123;8&#125; - 1$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies 2xy = \frac&#123;1&#125;&#123;8&#125; - (x^2+y^2) = \frac&#123;1&#125;&#123;8&#125; - 1$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies xy = -\frac&#123;7&#125;&#123;16&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\implies xy = -\frac&#123;7&#125;&#123;16&#125;$$</Latex></span>
 
 <p>So in this case:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = 2\sqrt2(1-xy)-(x+y)$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(x,y) = 2\sqrt2(1-xy)-(x+y)$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 2\sqrt2\left(1+ \frac&#123;7&#125;&#123;16&#125;\right) + \frac&#123;1&#125;&#123;2\sqrt2&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 2\sqrt2\left(1+ \frac&#123;7&#125;&#123;16&#125;\right) + \frac&#123;1&#125;&#123;2\sqrt2&#125;$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= \frac&#123;25\sqrt2&#125;&#123;8&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= \frac&#123;25\sqrt2&#125;&#123;8&#125;$$</Latex></span>
 
 <p>Overall, the possible extremal values of <Latex>$f$</Latex> are <Latex>$0, 2\sqrt2, \frac&#123;25\sqrt2&#125;&#123;8&#125;$</Latex>.</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore 0 \leq f(x,y) \leq \frac&#123;25\sqrt2&#125;&#123;8&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\therefore 0 \leq f(x,y) \leq \frac&#123;25\sqrt2&#125;&#123;8&#125;$$</Latex></span>
 
 <p>In particular, <Latex>$f(x,y) \geq 0$</Latex> as required.</p>
 
@@ -849,7 +849,7 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 
 <blockquote>
   <p>Let <Latex>$a,b,c \gt 0$</Latex> such that <Latex>$a+b+c=3$</Latex>. Find the minimum value of:
-  <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(a,b,c) = \frac&#123;2-a^3&#125;&#123;a&#125; + \frac&#123;2-b^3&#125;&#123;b&#125; + \frac&#123;2-c^3&#125;&#123;c&#125;$$</Latex></span></p>
+  <span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$f(a,b,c) = \frac&#123;2-a^3&#125;&#123;a&#125; + \frac&#123;2-b^3&#125;&#123;b&#125; + \frac&#123;2-c^3&#125;&#123;c&#125;$$</Latex></span></p>
 </blockquote>
 
 <p>If we attempt to use LM:</p>

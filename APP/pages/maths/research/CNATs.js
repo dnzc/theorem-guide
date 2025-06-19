@@ -222,7 +222,7 @@ export default function CNATs () {
 
 <p>Let <Latex>$h(n,k)$</Latex> be the number of Prufer sequences ending in <Latex>$k$</Latex> that represent a tree whose adjacency matrix is a valid CNAT of size <Latex>$n$</Latex>. Then:</p>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$h(n,k) = \begin&#123;cases&#125; \frac&#123;(n-1)!&#125;&#123;k(k+1)&#125; &amp; \text&#123;if &#125; 1\leq k &lt; n-1\\0 &amp; \text&#123;if &#125; k=n-1\\(n-2)! &amp; \text&#123;if &#125; k=n \end&#123;cases&#125;$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$h(n,k) = \begin&#123;cases&#125; \frac&#123;(n-1)!&#125;&#123;k(k+1)&#125; &amp; \text&#123;if &#125; 1\leq k &lt; n-1\\0 &amp; \text&#123;if &#125; k=n-1\\(n-2)! &amp; \text&#123;if &#125; k=n \end&#123;cases&#125;$$</Latex></span>
 
 <p>We were only able to prove the last two cases.</p>
 

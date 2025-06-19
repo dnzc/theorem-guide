@@ -6,8 +6,9 @@ export default {
   ],
   theme: {
     screens: {
-      '2xs': '200px',
-      'xs': '270px',
+      '3xs': '200px',
+      '2xs': '250px',
+      'xs': '300px',
       'sm': '380px',
       'md': '768px',
       'lg': '1024px',
@@ -75,6 +76,9 @@ export default {
         'Themeselect-selected': 'var(--Themeselect-selected)',
         'Themeselect-text-selected': 'var(--Themeselect-text-selected)',
         'Themeselect-hover': 'var(--Themeselect-hover)',
+        'Scrollshadow-cover': 'var(--Scrollshadow-cover)',
+        'Scrollshadow-blockquote-cover': 'var(--Scrollshadow-blockquote-cover)',
+        'Scrollshadow-shadow': 'var(--Scrollshadow-shadow)',
       },
       fontFamily: {
         'lato' : ['var(--font-lato)', 'arial'],

@@ -100,26 +100,26 @@ Now, let's see what numbers we can conquer with what we have so far.
 
 By Claim 1, we know that 8, 15, 22, 29, 36 etc. are all lucky.
 
-|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-highlight-strong">8</p> || 9 || 10 ||
-|| 11 || 12 || 13 || 14 || <p className="font-bold text-highlight-strong">15</p> || 16 || 17 || 18 || 19 || 20 ||
-|| 21 || <p className="font-bold text-highlight-strong">22</p> || 23 || 24 || 25 || 26 || 27 || 28 || <p className="font-bold text-highlight-strong">29</p> || 30 ||
-|| 31 || 32 || 33 || 34 || 35 || <p className="font-bold text-highlight-strong">36</p> || 37 || 38 || 39 || 40 ||
+|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-text-emph">8</p> || 9 || 10 ||
+|| 11 || 12 || 13 || 14 || <p className="font-bold text-text-emph">15</p> || 16 || 17 || 18 || 19 || 20 ||
+|| 21 || <p className="font-bold text-text-emph">22</p> || 23 || 24 || 25 || 26 || 27 || 28 || <p className="font-bold text-text-emph">29</p> || 30 ||
+|| 31 || 32 || 33 || 34 || 35 || <p className="font-bold text-text-emph">36</p> || 37 || 38 || 39 || 40 ||
 || etc. ||
 
 Now we can use Claim 2 to conquer 8+8+3=19, 8+15+3=26, 15+15+3=33, 15+22+3=40, etc.
 
-|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-highlight-strong">8</p> || 9 || 10 ||
-|| 11 || 12 || 13 || 14 || <p className="font-bold text-highlight-strong">15</p> || 16 || 17 || 18 || <p className="font-bold text-highlight-strong">19</p> || 20 ||
-|| 21 || <p className="font-bold text-highlight-strong">22</p> || 23 || 24 || 25 || <p className="font-bold text-highlight-strong">26</p> || 27 || 28 || <p className="font-bold text-highlight-strong">29</p> || 30 ||
-|| 31 || 32 || <p className="font-bold text-highlight-strong">33</p> || 34 || 35 || <p className="font-bold text-highlight-strong">36</p> || 37 || 38 || 39 || <p className="font-bold text-highlight-strong">40</p> ||
+|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-text-emph">8</p> || 9 || 10 ||
+|| 11 || 12 || 13 || 14 || <p className="font-bold text-text-emph">15</p> || 16 || 17 || 18 || <p className="font-bold text-text-emph">19</p> || 20 ||
+|| 21 || <p className="font-bold text-text-emph">22</p> || 23 || 24 || 25 || <p className="font-bold text-text-emph">26</p> || 27 || 28 || <p className="font-bold text-text-emph">29</p> || 30 ||
+|| 31 || 32 || <p className="font-bold text-text-emph">33</p> || 34 || 35 || <p className="font-bold text-text-emph">36</p> || 37 || 38 || 39 || <p className="font-bold text-text-emph">40</p> ||
 || etc. ||
 
 And so on, utilising all of the Claims. In the end, we conquer the following numbers up to 40:
 
-|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-highlight-strong">8</p> || 9 || 10 ||
-|| 11 || 12 || 13 || 14 || <p className="font-bold text-highlight-strong">15</p> || 16 || 17 || 18 || <p className="font-bold text-highlight-strong">19</p> || <p className="font-bold text-highlight-strong">20</p> ||
-|| <p className="font-bold text-highlight-strong">21</p> || <p className="font-bold text-highlight-strong">22</p> || <p className="font-bold text-highlight-strong">23</p> || <p className="font-bold text-highlight-strong">24</p> || 25 || <p className="font-bold text-highlight-strong">26</p> || <p className="font-bold text-highlight-strong">27</p> || <p className="font-bold text-highlight-strong">28</p> || <p className="font-bold text-highlight-strong">29</p> || <p className="font-bold text-highlight-strong">30</p> ||
-|| <p className="font-bold text-highlight-strong">31</p> || <p className="font-bold text-highlight-strong">32</p> || <p className="font-bold text-highlight-strong">33</p> || <p className="font-bold text-highlight-strong">34</p> || <p className="font-bold text-highlight-strong">35</p> || <p className="font-bold text-highlight-strong">36</p> || <p className="font-bold text-highlight-strong">37</p> || <p className="font-bold text-highlight-strong">38</p> || <p className="font-bold text-highlight-strong">39</p> || <p className="font-bold text-highlight-strong">40</p> ||
+|| 1 || 2 || 3 || 4 || 5 || 6 || 7 || <p className="font-bold text-text-emph">8</p> || 9 || 10 ||
+|| 11 || 12 || 13 || 14 || <p className="font-bold text-text-emph">15</p> || 16 || 17 || 18 || <p className="font-bold text-text-emph">19</p> || <p className="font-bold text-text-emph">20</p> ||
+|| <p className="font-bold text-text-emph">21</p> || <p className="font-bold text-text-emph">22</p> || <p className="font-bold text-text-emph">23</p> || <p className="font-bold text-text-emph">24</p> || 25 || <p className="font-bold text-text-emph">26</p> || <p className="font-bold text-text-emph">27</p> || <p className="font-bold text-text-emph">28</p> || <p className="font-bold text-text-emph">29</p> || <p className="font-bold text-text-emph">30</p> ||
+|| <p className="font-bold text-text-emph">31</p> || <p className="font-bold text-text-emph">32</p> || <p className="font-bold text-text-emph">33</p> || <p className="font-bold text-text-emph">34</p> || <p className="font-bold text-text-emph">35</p> || <p className="font-bold text-text-emph">36</p> || <p className="font-bold text-text-emph">37</p> || <p className="font-bold text-text-emph">38</p> || <p className="font-bold text-text-emph">39</p> || <p className="font-bold text-text-emph">40</p> ||
 || etc. ||
 
 OK - great! Now we have seven consecutive numbers (26 to 32) all being lucky. Since $n \implies n+7$ (Claim 1), this means every integer greater than or equal to 26 is lucky. So $C$ is at most 26.

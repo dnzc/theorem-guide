@@ -306,10 +306,18 @@ Let's do a couple of examples. First, let's summarize how we found a solution to
 > Now we fill out each row from left to right: each number is equal to the quotient above it in the top row,  multiplied by the number to the left of it, plus the number two squares to the left of it.
 >
 > ||     ||     || $2$ || $1$ || $1$ || $1$ || $3$ ||
-> || $0$ || $1$ || *$2\cdot1 + 0 = 2$* || *$1\cdot 2 + 1 = 3$*  || etc. ||   ||   ||
-> || $1$ || $0$ ||  *$2\cdot 0 + 1 = 1$* || *$1 \cdot 1 + 0 = 1$*  || etc.  ||   ||   ||
+> || $0$ || $1$ || *$2\cdot1 + 0 = 2$* ||   ||   ||   ||   ||
+> || $1$ || $0$ ||  *$2\cdot 0 + 1 = 1$* ||   ||   ||   ||   ||
 >
-> Then, when we get the whole magic box:
+> ||     ||     || $2$ || $1$ || $1$ || $1$ || $3$ ||
+> || $0$ || $1$ || $2$ || *$1\cdot 2 + 1 = 3$*  ||   ||   ||   ||
+> || $1$ || $0$ || $1$ || *$1 \cdot 1 + 0 = 1$*  ||   ||   ||   ||
+>
+> ||     ||     || $2$ || $1$ || $1$ || $1$ || $3$ ||
+> || $0$ || $1$ || $2$ || $3$  || *$1\cdot 3 + 2 = 5$*  ||   ||   ||
+> || $1$ || $0$ || $1$ || $1$ ||  *$1 \cdot 1 + 1 = 2$* ||   ||   ||
+>
+> ... etc...
 >
 > ||     ||     || $2$ || $1$ || $1$ || $1$ || $3$ ||
 > || $0$ || $1$ || $2$ || $3$ || $5$ || $8$ || $29$ ||

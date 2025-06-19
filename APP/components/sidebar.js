@@ -119,7 +119,7 @@ export default function Sidebar({ children }) {
                 <div ref={tocRef} className={tocDivStyle}>
                     {toc}
                 </div>
-                <button onClick={toggleSidebar} className='mt-4 flex text-text-secondary items-center space-x-6 pl-4 bg-button [@media(hover:hover)]:hover:bg-button-hover rounded-md px-3 py-1.5 ml-4'>
+                <button onClick={toggleSidebar} className='mt-4 flex text-text-secondary items-center space-x-6 pl-4 h-[2.25rem] bg-button [@media(hover:hover)]:hover:bg-button-hover rounded-md px-3 py-1.5 ml-4'>
                     <span className='relative bottom-[1px]'>Toggle Sidebar</span>
                     {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative'>{modifierKey}U</span>}
                 </button>
@@ -131,23 +131,39 @@ export default function Sidebar({ children }) {
             <nav className={`md:w-0 md:h-0 fixed top-0 left-0 w-full h-[calc(2.25rem+2*1rem)] py-4 z-20`}>
                 {/* blurred background */}
                 <div className={`md:hidden fixed top-0 w-full h-[calc(2.25rem+2*1rem)] bg-Mobiletopbar backdrop-blur-md -z-10 md:w-0 md:h-0`}/>
-                {/* filetree popup */}
-                <Popup buttonStyle='flex h-[2.25rem] text-text-secondary items-center bg-button [@media(hover:hover)]:hover:bg-button-hover rounded-md md:hidden ml-4'
-                    buttonContents={
-                        <div className='w-full h-full rounded-md pl-4 px-3 flex items-center justify-between space-x-2'>
-                            <FaFolderTree/>
-                            <span className="relative bottom-[0.5px] hidden 2xs:block">Tree</span>
-                            {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey}U</span>}
+                {/* top button group */}
+                <div className='flex'> {/* DON'T ADD SPACE-X-<> HERE, IT MESSES WITH THE OVERLAY POSITION */}
+                    {/* filetree popup */}
+                    <Popup buttonStyle='flex h-[2.25rem] text-text-secondary items-center bg-button [@media(hover:hover)]:hover:bg-button-hover rounded-md md:hidden ml-2 3xs:ml-4'
+                        buttonContents={
+                            <div className='w-full h-full rounded-md pl-4 pr-3 flex items-center justify-between space-x-2'>
+                                <FaFolderTree/>
+                                <span className="relative bottom-[0.5px] hidden 2xs:block">Tree</span>
+                                {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey}U</span>}
+                            </div>
+                        }
+                        keyboardShortcutIndex={0}
+                    >
+                        <div className='w-full h-full py-4'>
+                            {children}
                         </div>
-                    }
-                    keyboardShortcutIndex={0}
-                >
-                    <div className='w-full h-full py-4'>
-                        {children}
-                    </div>
-                </Popup>
+                    </Popup>
+                    {/* theme selector popup */}
+                    <Popup buttonStyle='flex text-text-secondary ml-2 3xs:ml-4'
+                        buttonContents={
+                            /* mobile top bar or open sidebar */
+                            <div className={`md:fixed md:left-[calc(270px-3rem)] items-center h-[2.25rem] ${active ? 'md:w-[2rem] md:left-[calc(270px-2rem-1rem)]' : 'md:hidden'} bg-button px-2 rounded-md [@media(hover:hover)]:hover:bg-button-hover`}>
+                                <MdFormatPaint className='h-full shrink-0'/>
+                            </div>
+                        }
+                        listenWhenLarge={true}
+                        isMobile={mobile}
+                    >
+                        <ThemeSwitch/>
+                    </Popup>
+                </div>
                 
-                {/* button group */}
+                {/* bottom button group */}
                 <div className='flex 2xl:block justify-start fixed left-5 bottom-4'> {/* DON'T ADD SPACE-X-<> HERE, IT MESSES WITH THE OVERLAY POSITION */}
                     {/* sidebar toggle button */}
                     <button className={`hidden ${active ? '' : 'md:flex '} mr-4 2xl:mb-2 text-base text-text-secondary bg-button [@media(hover:hover)]:hover:bg-button-hover rounded-md h-[2.25rem]`} onClick={toggleSidebar}>
@@ -163,14 +179,14 @@ export default function Sidebar({ children }) {
                         buttonContents={
                             <>
                                 {/* expanded (mobile top bar or open sidebar) */}
-                                <div className={`hidden xs:flex items-center fixed right-4 top-4 ${active ? 'md:w-[calc(270px-2rem-3rem)] md:left-[1rem]' : 'md:hidden'} ring-2 ring-border-strong bg-Searchbar px-3 py-1.5 [@media(hover:hover)]:hover:ring-4 [@media(hover:hover)]:hover:ring-Searchbar-ring-hover rounded-md [@media(hover:hover)]:hover:bg-Searchbar-hover`}>
+                                <div className={`hidden xs:flex items-center fixed right-4 h-[calc(2.25rem-2px)] top-[calc(1rem+1px)] ${active ? 'md:w-[calc(270px-2rem-3rem)] md:left-[1rem]' : 'md:hidden'} ring-2 ring-border-strong bg-Searchbar px-3 [@media(hover:hover)]:hover:ring-4 [@media(hover:hover)]:hover:ring-Searchbar-ring-hover rounded-md [@media(hover:hover)]:hover:bg-Searchbar-hover`}>
                                     <FaSearch className='mr-3 h-full shrink-0'/>
                                     <span className='italic relative bottom-[0.5px] text-text-placeholder'>Search...</span>
                                     {mobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey}K</span>}
                                 </div>
-                                {/* compact (when sidebar hidden) */}
-                                <div className={`flex xs:hidden ${active ? '' : 'md:flex '} mr-4 h-[2.25rem] rounded-md fixed md:static right-0 top-0`}>
-                                    <div className='bg-button [@media(hover:hover)]:hover:bg-button-hover w-full h-full rounded-md px-3 py-1.5 flex items-center justify-between space-x-2'>
+                                {/* compact (when sidebar hidden, or, mobile top bar & screensize is xs or less) */}
+                                <div className={`flex xs:hidden ${active ? '' : 'md:flex '} h-[2.25rem] rounded-md fixed right-2 3xs:right-4 top-4 md:static`}>
+                                    <div className='bg-button [@media(hover:hover)]:hover:bg-button-hover w-full h-full rounded-md px-3 flex items-center justify-between space-x-2'>
                                         <FaSearch className='mr-0 h-full'/>
                                         {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold hidden sm:block'>{modifierKey}K</span>}
                                     </div>
@@ -182,28 +198,6 @@ export default function Sidebar({ children }) {
                         keyboardShortcutIndex={1}
                     /> {/* no children means render search component by default */}
 
-                    {/* theme selector popup */}
-                    <Popup buttonStyle='flex text-text-secondary'
-                        buttonContents={
-                            <>
-                                {/* expanded (mobile top bar or open sidebar) */}
-                                <div className={`hidden xs:flex items-center fixed left-[8rem] sm:left-[10rem] top-4 ${active ? 'md:w-[2rem] md:left-[calc(270px-2rem-1rem)]' : 'md:hidden'} bg-button px-2 py-1.5 rounded-md [@media(hover:hover)]:hover:bg-button-hover`}>
-                                    <MdFormatPaint className='mr-0 h-full shrink-0'/>
-                                    <span className='relative bottom-[0.5px] indent-[-9999px]'>|</span> {/* hack to make button height match those with text */}
-                                </div>
-                                {/* compact (when sidebar hidden) */}
-                                <div className={`flex xs:hidden ${active ? '' : 'md:flex '} mr-4 h-[2.25rem] rounded-md fixed md:static right-4 top-4`}>
-                                    <div className='bg-button [@media(hover:hover)]:hover:bg-button-hover w-full h-full rounded-md px-2 py-1.5 flex items-center justify-between space-x-2'>
-                                        <MdFormatPaint className='mr-0 h-full'/>
-                                    </div>
-                                </div>
-                            </>
-                        }
-                        listenWhenLarge={true}
-                        isMobile={mobile}
-                    >
-                        <ThemeSwitch/>
-                    </Popup>
                 </div>
 
             </nav>

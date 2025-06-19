@@ -54,6 +54,7 @@ export default function Popup({ buttonStyle, buttonContents, listenWhenLarge, is
 
         if(e.key === 'Escape' && activeRef.current) {
             e.preventDefault()
+            e.target.blur() // remove focus on esc key pressed (else button gets outline)
             hidePopup()
         } else if((isMac ? e.metaKey : e.ctrlKey) && shortcuts.includes(e.key)) {
             if(!listenWhenLarge && window.innerWidth >= 768) return // screens.md in tailwind config

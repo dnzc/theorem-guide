@@ -7,6 +7,12 @@ desmos embed (?)
 pyodide (?)
 
 - fix image fonts and colours
+top bar on mobile: wrong colour
+
+(course list table: corners shown on bounce)
+(course list table: when screen small, remove table, switch to list)
+remove course list, replace with list
+
 
 better home page (larger landing) - and graph view / ascii art / site data e.g. total number of articles, tag view (word cloud of tags)
 different image per theme: catpuccin: space galaxy cat, gruvbox: forest, etc

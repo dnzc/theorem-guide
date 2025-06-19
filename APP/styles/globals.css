@@ -103,6 +103,9 @@
         --Themeselect-selected: var(--blue);
         --Themeselect-text-selected: rgb(var(--white));
         --Themeselect-hover: rgba(var(--gray-30));
+        --Scrollshadow-cover: var(--white); /* rgb of background */
+        --Scrollshadow-blockquote-cover: var(--gray-5); /* rgb of blockquote background */
+        --Scrollshadow-shadow: var(--black);
     }
 
     .catppuccin {
@@ -202,6 +205,9 @@
         --Themeselect-selected: var(--mauve);
         --Themeselect-text-selected: var(--crust);
         --Themeselect-hover: var(--surface1);
+        --Scrollshadow-cover: 30, 30, 46; /* rgb of background */
+        --Scrollshadow-blockquote-cover: 17, 17, 27; /* rgb of blockquote background */
+        --Scrollshadow-shadow: 255, 255, 255;
     }
 
     .gruvbox {
@@ -298,6 +304,9 @@
         --Themeselect-selected: var(--light-yellow);
         --Themeselect-text-selected: var(--bg0);
         --Themeselect-hover: var(--bg1);
+        --Scrollshadow-cover: 40, 40, 40; /* rgb of background */
+        --Scrollshadow-blockquote-cover: 60, 56, 54; /* rgb of blockquote background */
+        --Scrollshadow-shadow: 255, 255, 255;
     }
 
     /* END THEME DEFINITIONS */
@@ -307,8 +316,16 @@
         @apply bg-background text-text-primary;
     }
 
+    .latex-display-wrapper {
+        @apply flex justify-center overflow-auto max-w-min mx-auto;
+    }
+
+    .latex-display-wrapper > span {
+        @apply inline-block px-4 text-center mx-auto;
+    }
+
     .latex-display-wrapper > span > * {
-        @apply !m-2; /* override the default margin, because it's too big */
+        @apply !my-2; /* override the default margin, because it's too big */
     }
 
 }
@@ -420,109 +437,109 @@
         @apply bg-gray-400/10 text-gray-400 ring-gray-400/30;
     }
 
-    /* theme-specific scrollshadows https://css-tricks.com/books/greatest-css-tricks/scroll-shadows/ */
-    .sanctum .scrollshadow-vertical {
+    /* END THEME SPECIFIC STUFF */
+
+    /* https://css-tricks.com/books/greatest-css-tricks/scroll-shadows/ */
+    .scrollshadow-vertical {
         background:
             /* Shadow Cover TOP */
             linear-gradient(
-            white 30%,
-            rgba(255, 255, 255, 0)
+            rgb(theme(colors.Scrollshadow-cover)) 30%,
+            rgba(theme(colors.Scrollshadow-cover), 0)
             ) center top,
             
             /* Shadow Cover BOTTOM */
             linear-gradient(
-            rgba(255, 255, 255, 0), 
-            white 70%
+            rgba(theme(colors.Scrollshadow-cover), 0), 
+            rgb(theme(colors.Scrollshadow-cover)) 70%
             ) center bottom,
             
             /* Shadow TOP */
             radial-gradient(
             farthest-side at 50% 0,
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0)
+            rgba(theme(colors.Scrollshadow-shadow), 0.3),
+            rgba(theme(colors.Scrollshadow-shadow), 0)
             ) center top,
             
             /* Shadow BOTTOM */
             radial-gradient(
             farthest-side at 50% 100%,
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0)
+            rgba(theme(colors.Scrollshadow-shadow), 0.3),
+            rgba(theme(colors.Scrollshadow-shadow), 0)
             ) center bottom;
         
         background-repeat: no-repeat;
         background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
         background-attachment: local, local, scroll, scroll;
     }
-    .sanctum .scrollshadow-horizontal {
+    .scrollshadow-horizontal {
         background:
             /* Shadow Cover LEFT */
             linear-gradient(
             to left,
-            rgba(255, 255, 255, 0),
-            white 10px
+            rgba(theme(colors.Scrollshadow-cover), 0),
+            rgb(theme(colors.Scrollshadow-cover)) 10px
             ) center left,
             
             /* Shadow Cover RIGHT */
             linear-gradient(
             to right,
-            rgba(255, 255, 255, 0), 
-            white 10px
+            rgba(theme(colors.Scrollshadow-cover), 0),
+            rgb(theme(colors.Scrollshadow-cover)) 10px
             ) center right,
             
             /* Shadow LEFT */
             radial-gradient(
             farthest-side at 0% 50%,
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0)
+            rgba(theme(colors.Scrollshadow-shadow), 0.5),
+            rgba(theme(colors.Scrollshadow-shadow), 0)
             ) center left,
             
             /* Shadow RIGHT */
             radial-gradient(
             farthest-side at 100% 50%,
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0)
+            rgba(theme(colors.Scrollshadow-shadow), 0.5),
+            rgba(theme(colors.Scrollshadow-shadow), 0)
             ) center right;
         
         background-repeat: no-repeat;
-        background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+        background-size: 40px 100%, 40px 100%, 20px 100%, 20px 100%;
         background-attachment: local, local, scroll, scroll;
     }
-    .sanctum .scrollshadow-horizontal-blockquote {
+    .scrollshadow-horizontal-blockquote {
         background:
             /* Shadow Cover LEFT */
             linear-gradient(
             to left,
-            rgba(255, 255, 255, 0),
-            rgb(250, 250, 245) 10px
+            rgba(theme(colors.Scrollshadow-blockquote-cover), 0),
+            rgb(theme(colors.Scrollshadow-blockquote-cover)) 10px
             ) center left,
             
             /* Shadow Cover RIGHT */
             linear-gradient(
             to right,
-            rgba(255, 255, 255, 0), 
-            rgb(250, 250, 245) 10px
+            rgba(theme(colors.Scrollshadow-blockquote-cover), 0), 
+            rgb(theme(colors.Scrollshadow-blockquote-cover)) 10px
             ) center right,
             
             /* Shadow LEFT */
             radial-gradient(
             farthest-side at 0% 50%,
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0)
+            rgba(theme(colors.Scrollshadow-shadow), 0.5),
+            rgba(theme(colors.Scrollshadow-shadow), 0)
             ) center left,
             
             /* Shadow RIGHT */
             radial-gradient(
             farthest-side at 100% 50%,
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0)
+            rgba(theme(colors.Scrollshadow-shadow), 0.5),
+            rgba(theme(colors.Scrollshadow-shadow), 0)
             ) center right;
         
         background-repeat: no-repeat;
-        background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+        background-size: 40px 100%, 40px 100%, 20px 100%, 20px 100%;
         background-attachment: local, local, scroll, scroll;
     }
-
-    /* END THEME SPECIFIC STUFF */
 
     .-z-1 {
         z-index: -1
@@ -604,9 +621,9 @@
     /* markdown tables */
 
     .article table:not(.notmdtable) {
-        @apply table-auto my-2;
+        @apply table-auto my-2 whitespace-nowrap text-sm;
     }
-    .article td:not(.notmdtable *) { /* manual tables should be marked as notmdtable */
+    .article td:not(.notmdtable *) { /* when want to add manual table, mark it as notmdtable */
         @apply border-2 border-border-strong py-1 px-3 text-center;
     }
 

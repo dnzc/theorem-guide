@@ -3,9 +3,9 @@
 ### Added
 
 - selectable color schemes:
-    - <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">sanctum</DiscreetLink> (adapted)
-    - <DiscreetLink href="https://catppuccin.com/palette/">catppuccin</DiscreetLink>
-    - <DiscreetLink href="https://github.com/morhetz/gruvbox?tab=readme-ov-file#palette">gruvbox</DiscreetLink> (my favourite :D)
+  - <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">sanctum</DiscreetLink> (adapted)
+  - <DiscreetLink href="https://catppuccin.com/palette/">catppuccin</DiscreetLink>
+  - <DiscreetLink href="https://github.com/morhetz/gruvbox?tab=readme-ov-file#palette">gruvbox</DiscreetLink> (my favourite :D)
 
 ## 19/12/24
 

@@ -13,13 +13,13 @@ function MyToast(text) {
 function CopyButton({ text, size=20, children }) {
     if(children)
         return (
-           <button className='text-text-secondary bg-button [@media(hover:hover)]:hover:bg-button-hover px-3 py-1.5 rounded-md' onClick={() => copyToClipboard(text, false)}>
+            <button className='align-middle bg-button relative bottom-0.5 text-Copybutton-icon [@media(hover:hover)]:hover:bg-button-hover px-3 py-1.5 rounded-md' onClick={() => copyToClipboard(text, false)}>
                 {children}
             </button>
         )
     else
         return (
-            <button className='bg-button relative top-0.5 text-Copybutton-icon [@media(hover:hover)]:hover:bg-button-hover px-0.5 py-1 rounded-md' onClick={() => copyToClipboard(text, false)}>
+            <button className='align-middle bg-button relative bottom-0.5 text-Copybutton-icon [@media(hover:hover)]:hover:bg-button-hover px-0.5 py-1 rounded-md' onClick={() => copyToClipboard(text, false)}>
                 <TbClipboardCopy size={size}/>
             </button>
         )

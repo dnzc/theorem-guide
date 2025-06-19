@@ -249,7 +249,7 @@ export default function CubeTilings () {
 
 <Spoiler>
 
-<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$C \leq 18$$</Latex></span>
+<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$C \leq 18$$</Latex></span>
 
 </Spoiler>
 
@@ -383,7 +383,7 @@ export default function CubeTilings () {
             <td>5</td>
             <td>6</td>
             <td>7</td>
-            <td><p className="font-bold text-highlight-strong">8</p></td>
+            <td><p className="font-bold text-text-emph">8</p></td>
             <td>9</td>
             <td>10</td>
         </tr>
@@ -392,7 +392,7 @@ export default function CubeTilings () {
             <td>12</td>
             <td>13</td>
             <td>14</td>
-            <td><p className="font-bold text-highlight-strong">15</p></td>
+            <td><p className="font-bold text-text-emph">15</p></td>
             <td>16</td>
             <td>17</td>
             <td>18</td>
@@ -401,14 +401,14 @@ export default function CubeTilings () {
         </tr>
         <tr>
             <td>21</td>
-            <td><p className="font-bold text-highlight-strong">22</p></td>
+            <td><p className="font-bold text-text-emph">22</p></td>
             <td>23</td>
             <td>24</td>
             <td>25</td>
             <td>26</td>
             <td>27</td>
             <td>28</td>
-            <td><p className="font-bold text-highlight-strong">29</p></td>
+            <td><p className="font-bold text-text-emph">29</p></td>
             <td>30</td>
         </tr>
         <tr>
@@ -417,7 +417,7 @@ export default function CubeTilings () {
             <td>33</td>
             <td>34</td>
             <td>35</td>
-            <td><p className="font-bold text-highlight-strong">36</p></td>
+            <td><p className="font-bold text-text-emph">36</p></td>
             <td>37</td>
             <td>38</td>
             <td>39</td>
@@ -441,7 +441,7 @@ export default function CubeTilings () {
             <td>5</td>
             <td>6</td>
             <td>7</td>
-            <td><p className="font-bold text-highlight-strong">8</p></td>
+            <td><p className="font-bold text-text-emph">8</p></td>
             <td>9</td>
             <td>10</td>
         </tr>
@@ -450,36 +450,36 @@ export default function CubeTilings () {
             <td>12</td>
             <td>13</td>
             <td>14</td>
-            <td><p className="font-bold text-highlight-strong">15</p></td>
+            <td><p className="font-bold text-text-emph">15</p></td>
             <td>16</td>
             <td>17</td>
             <td>18</td>
-            <td><p className="font-bold text-highlight-strong">19</p></td>
+            <td><p className="font-bold text-text-emph">19</p></td>
             <td>20</td>
         </tr>
         <tr>
             <td>21</td>
-            <td><p className="font-bold text-highlight-strong">22</p></td>
+            <td><p className="font-bold text-text-emph">22</p></td>
             <td>23</td>
             <td>24</td>
             <td>25</td>
-            <td><p className="font-bold text-highlight-strong">26</p></td>
+            <td><p className="font-bold text-text-emph">26</p></td>
             <td>27</td>
             <td>28</td>
-            <td><p className="font-bold text-highlight-strong">29</p></td>
+            <td><p className="font-bold text-text-emph">29</p></td>
             <td>30</td>
         </tr>
         <tr>
             <td>31</td>
             <td>32</td>
-            <td><p className="font-bold text-highlight-strong">33</p></td>
+            <td><p className="font-bold text-text-emph">33</p></td>
             <td>34</td>
             <td>35</td>
-            <td><p className="font-bold text-highlight-strong">36</p></td>
+            <td><p className="font-bold text-text-emph">36</p></td>
             <td>37</td>
             <td>38</td>
             <td>39</td>
-            <td><p className="font-bold text-highlight-strong">40</p></td>
+            <td><p className="font-bold text-text-emph">40</p></td>
         </tr>
         <tr>
             <td>etc.</td>
@@ -499,7 +499,7 @@ export default function CubeTilings () {
             <td>5</td>
             <td>6</td>
             <td>7</td>
-            <td><p className="font-bold text-highlight-strong">8</p></td>
+            <td><p className="font-bold text-text-emph">8</p></td>
             <td>9</td>
             <td>10</td>
         </tr>
@@ -508,36 +508,36 @@ export default function CubeTilings () {
             <td>12</td>
             <td>13</td>
             <td>14</td>
-            <td><p className="font-bold text-highlight-strong">15</p></td>
+            <td><p className="font-bold text-text-emph">15</p></td>
             <td>16</td>
             <td>17</td>
             <td>18</td>
-            <td><p className="font-bold text-highlight-strong">19</p></td>
-            <td><p className="font-bold text-highlight-strong">20</p></td>
+            <td><p className="font-bold text-text-emph">19</p></td>
+            <td><p className="font-bold text-text-emph">20</p></td>
         </tr>
         <tr>
-            <td><p className="font-bold text-highlight-strong">21</p></td>
-            <td><p className="font-bold text-highlight-strong">22</p></td>
-            <td><p className="font-bold text-highlight-strong">23</p></td>
-            <td><p className="font-bold text-highlight-strong">24</p></td>
+            <td><p className="font-bold text-text-emph">21</p></td>
+            <td><p className="font-bold text-text-emph">22</p></td>
+            <td><p className="font-bold text-text-emph">23</p></td>
+            <td><p className="font-bold text-text-emph">24</p></td>
             <td>25</td>
-            <td><p className="font-bold text-highlight-strong">26</p></td>
-            <td><p className="font-bold text-highlight-strong">27</p></td>
-            <td><p className="font-bold text-highlight-strong">28</p></td>
-            <td><p className="font-bold text-highlight-strong">29</p></td>
-            <td><p className="font-bold text-highlight-strong">30</p></td>
+            <td><p className="font-bold text-text-emph">26</p></td>
+            <td><p className="font-bold text-text-emph">27</p></td>
+            <td><p className="font-bold text-text-emph">28</p></td>
+            <td><p className="font-bold text-text-emph">29</p></td>
+            <td><p className="font-bold text-text-emph">30</p></td>
         </tr>
         <tr>
-            <td><p className="font-bold text-highlight-strong">31</p></td>
-            <td><p className="font-bold text-highlight-strong">32</p></td>
-            <td><p className="font-bold text-highlight-strong">33</p></td>
-            <td><p className="font-bold text-highlight-strong">34</p></td>
-            <td><p className="font-bold text-highlight-strong">35</p></td>
-            <td><p className="font-bold text-highlight-strong">36</p></td>
-            <td><p className="font-bold text-highlight-strong">37</p></td>
-            <td><p className="font-bold text-highlight-strong">38</p></td>
-            <td><p className="font-bold text-highlight-strong">39</p></td>
-            <td><p className="font-bold text-highlight-strong">40</p></td>
+            <td><p className="font-bold text-text-emph">31</p></td>
+            <td><p className="font-bold text-text-emph">32</p></td>
+            <td><p className="font-bold text-text-emph">33</p></td>
+            <td><p className="font-bold text-text-emph">34</p></td>
+            <td><p className="font-bold text-text-emph">35</p></td>
+            <td><p className="font-bold text-text-emph">36</p></td>
+            <td><p className="font-bold text-text-emph">37</p></td>
+            <td><p className="font-bold text-text-emph">38</p></td>
+            <td><p className="font-bold text-text-emph">39</p></td>
+            <td><p className="font-bold text-text-emph">40</p></td>
         </tr>
         <tr>
             <td>etc.</td>

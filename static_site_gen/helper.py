@@ -315,9 +315,9 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
             # unquoted blocks aren't grey, so skip
             if 'unquoted' in re.findall(r'<.*?>',target)[0]: continue
             # replace $$
-            target = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\1$$</Latex></span>', target)
+            target = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$\1$$</Latex></span>', target)
             page = page[:m[0]] + target + page[m[1]:]
-    page = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\1$$</Latex></span>', page)
+    page = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\1$$</Latex></span>', page)
 
     # <p> tags will have been placed around the following tags (on purpose), remove them
     for i in ['CopyButton', 'Spoiler', 'hr'] + math_tags:

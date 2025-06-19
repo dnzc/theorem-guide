@@ -272,21 +272,21 @@ export default function IntegerAxioms () {
 <li><strong>Commutativity</strong>: the order of multiplication and addition does not matter. In symbols:</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b \in \mathbb&#123;Z&#125;, \; a \cdot b = b \cdot a, \; a+b=b+a$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b \in \mathbb&#123;Z&#125;, \; a \cdot b = b \cdot a, \; a+b=b+a$$</Latex></span>
 
 <ul>
 <li><strong>Associativity</strong>: in repeated addition or multiplication, the brackets do not matter. In symbols:</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; (a \cdot b) \cdot c = a \cdot (b \cdot c),$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; (a \cdot b) \cdot c = a \cdot (b \cdot c),$$</Latex></span>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$(a+b)+c = a+(b+c)$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$(a+b)+c = a+(b+c)$$</Latex></span>
 
 <ul>
 <li><strong>Distributivity</strong>: multiplication is distributive over addition. In symbols:</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; a\cdot(b+c) = a\cdot b + a \cdot c$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a,b,c \in \mathbb&#123;Z&#125;, \; a\cdot(b+c) = a\cdot b + a \cdot c$$</Latex></span>
 
 <p>I hope you agree that these properties seem pretty fundamental. Let's add some more:</p>
 
@@ -294,19 +294,19 @@ export default function IntegerAxioms () {
 <li><strong>Additive Identity</strong>: there exists an integer we call <Latex>$0$</Latex>, which when added to any integer, does nothing:</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\exists \, 0 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a+0=a$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\exists \, 0 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a+0=a$$</Latex></span>
 
 <ul>
 <li><strong>Additive Inverse</strong>: for every integer <Latex>$a$</Latex>, there is another integer that when added to <Latex>$a$</Latex>, gives 0.</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a \in \mathbb&#123;Z&#125;, \exists \, a' \in \mathbb&#123;Z&#125; \; s.t.\;  a + a' = 0$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\forall a \in \mathbb&#123;Z&#125;, \exists \, a' \in \mathbb&#123;Z&#125; \; s.t.\;  a + a' = 0$$</Latex></span>
 
 <ul>
 <li><strong>Multiplicative Identity</strong>: there exists an integer we call <Latex>$1$</Latex>, which when multiplying by any integer, does nothing:</li>
 </ul>
 
-<span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\exists \, 1 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a\cdot 1=a$$</Latex></span>
+<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\exists \, 1 \in \mathbb&#123;Z&#125; \; s.t. \; \forall a \in \mathbb&#123;Z&#125;, a\cdot 1=a$$</Latex></span>
 
 <p>Note that we <em>don't</em> have multiplicative inverses, because then we would have to include reciprocals of integers.</p>
 
