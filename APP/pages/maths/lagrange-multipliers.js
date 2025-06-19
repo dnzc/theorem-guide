@@ -482,7 +482,7 @@ export default function LagrangeMultipliers () {
 
 <p>I'm assuming you've already met these, so I'll recap.</p>
 
-<Example plural>
+<Example plural outofline>
 
 <ul>
 <li><Latex>$f : \mathbb&#123;R&#125;^3 \to \mathbb&#123;R&#125;, f(x,y,z) = x^2 + y^2 + z^2$</Latex></li>

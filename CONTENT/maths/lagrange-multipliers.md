@@ -172,7 +172,7 @@ is closed in $\mathbb{R}^n$.
 
 I'm assuming you've already met these, so I'll recap.
 
-<Example plural>
+<Example plural outofline>
 
 - $f : \mathbb{R}^3 \to \mathbb{R}, f(x,y,z) = x^2 + y^2 + z^2$
 $$\frac{\delta f}{\delta x} = 2x, \frac{\delta f}{\delta y} = 2y, \frac{\delta f}{\delta z} = 2z, \nabla f = (2x,2y,2z)$$
