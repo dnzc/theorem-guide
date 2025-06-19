@@ -19,3 +19,4 @@ Markdown:
 
 Features:
 - add [COPIABLE] before a code block to make it copiable
+- footnotes

@@ -23,7 +23,7 @@
 
                     {% if start_depth > 0 and course_parent_path %}
                         <Link href="{{course_parent_path}}">
-                            <li className="w-full flex justify-start p-1 pl-2 hover:bg-background-hover">
+                            <li className="w-full flex justify-start p-1 pl-2 hover:bg-Filetree-hover">
                                 <div className="flex items-center justify-center space-x-1 text-text-secondary text-base">
                                     <CiLogout size="19"/>
                                     <p>exit course</p>
@@ -80,7 +80,7 @@
         </div>
 
         {% if parent_path or copiable_article_plaintext %}
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 {% if parent_path %}
                     <div className="flex justify-start">
                         <Link href="{{parent_path}}">

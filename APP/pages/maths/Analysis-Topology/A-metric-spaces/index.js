@@ -48,7 +48,7 @@ export default function AMetricSpaces () {
 
                     
                         <Link href="/maths">
-                            <li className="w-full flex justify-start p-1 pl-2 hover:bg-background-hover">
+                            <li className="w-full flex justify-start p-1 pl-2 hover:bg-Filetree-hover">
                                 <div className="flex items-center justify-center space-x-1 text-text-secondary text-base">
                                     <CiLogout size="19"/>
                                     <p>exit course</p>
@@ -122,7 +122,7 @@ export default function AMetricSpaces () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/Analysis-Topology/A-metric-spaces/1-basics">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -137,7 +137,7 @@ export default function AMetricSpaces () {
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/Analysis-Topology/A-metric-spaces/1-basics">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -156,7 +156,7 @@ export default function AMetricSpaces () {
         </div>
 
         
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
                         <Link href="/maths/Analysis-Topology">

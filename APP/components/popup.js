@@ -4,9 +4,9 @@ import { Children, cloneElement, isValidElement } from 'react'
 
 var shortcuts = ['u', 'k']
 
-export default function Popup({ buttonStyle, buttonContents, keyboardShortcutIndex, listenWhenLarge, isMobile, children }) {
+export default function Popup({ buttonStyle, buttonContents, listenWhenLarge, isMobile, children, keyboardShortcutIndex }) {
 
-    let isFiletreeTocElseSearch = children ? true : false
+    let isSearch = children ? false : true
 
     // https://stackoverflow.com/questions/53845595/wrong-react-hooks-behaviour-with-event-listener
     function useStateRef(initialValue) {
@@ -58,7 +58,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
         } else if((isMac ? e.metaKey : e.ctrlKey) && shortcuts.includes(e.key)) {
             if(!listenWhenLarge && window.innerWidth >= 768) return // screens.md in tailwind config
             e.preventDefault()
-            if(e.key === shortcuts[keyboardShortcutIndex]) togglePopup()
+            if((keyboardShortcutIndex===0 || keyboardShortcutIndex===1) && e.key === shortcuts[keyboardShortcutIndex]) togglePopup()
             else hidePopup()
         }
     }
@@ -97,7 +97,7 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
     });
     }
 
-    if(isFiletreeTocElseSearch) {
+    if(!isSearch) {
         children = adjustTocLinks(children)
     }
 
@@ -106,13 +106,13 @@ export default function Popup({ buttonStyle, buttonContents, keyboardShortcutInd
             <button onClick={showPopup} className={buttonStyle}>
                 {buttonContents}
             </button>
-            <div onClick={handleActiveClick} className={`overlay flex md:items-center justify-center ${active ? '' : 'hidden '}fixed w-full h-full top-0 left-0 z-30 bg-overlay backdrop-blur-md`}>
+            <div onClick={handleActiveClick} className={`overlay flex md:items-center justify-center ${active ? '' : 'hidden '}fixed w-full h-full top-0 left-0 z-30 bg-Popup-overlay backdrop-blur-md`}>
                 <div className='max-w-[700px] w-full h-[80%] mt-4 md:mt-0 mx-4 z-40 bg-background rounded-xl relative'>
                     {/* https://stackoverflow.com/questions/17233804/how-to-prevent-sticky-hover-effects-for-buttons-on-touch-devices */}
-                    <button onClick={hidePopup} className='absolute top-3 right-3 z-10 font-bold flex text-text-secondary items-center space-x-6 pl-4 bg-layer [@media(hover:hover)]:hover:bg-layer-hover rounded-md px-3 py-1.5 ml-4'>
+                    <button onClick={hidePopup} className='absolute top-3 right-3 z-10 font-bold flex text-text-secondary items-center space-x-6 pl-4 bg-button [@media(hover:hover)]:hover:bg-button-hover rounded-md px-3 py-1.5 ml-4'>
                         ESC
                     </button>
-                    {isFiletreeTocElseSearch ? children : <Search active={active} hidePopupFunction={hidePopup}/>}
+                    {isSearch ? <Search active={active} hidePopupFunction={hidePopup}/> : children}
                 </div>
             </div>
         </>

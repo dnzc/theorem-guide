@@ -237,7 +237,7 @@ export default function BezoutEgcd () {
 
 <p>This is part 3, where we discover and prove <DiscreetLink href="https://brilliant.org/wiki/bezouts-identity/">Bezout's lemma</DiscreetLink> using the division algorithm. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="puzzle-water-jug-problem" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Puzzle: water-jug problem</h2><Link href="#puzzle-water-jug-problem" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#puzzle-water-jug-problem", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="puzzle-water-jug-problem" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Puzzle: water-jug problem</h2><Link href="#puzzle-water-jug-problem" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#puzzle-water-jug-problem", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>You might have heard this one before:</p>
 
@@ -284,7 +284,7 @@ export default function BezoutEgcd () {
 
 <p>If there do not, then the puzzle can't be solved.<sup className="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup></p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="numerical-evidence" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Numerical Evidence</h2><Link href="#numerical-evidence" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#numerical-evidence", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="numerical-evidence" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Numerical Evidence</h2><Link href="#numerical-evidence" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#numerical-evidence", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>The first thing we might note is that, <Latex>$ax+by$</Latex> will always by divisible by <Latex>$gcd(a,b)$</Latex>, no matter what integers <Latex>$x$</Latex> and <Latex>$y$</Latex> we choose (see Lemma 5 in part 1). For example if <Latex>$a$</Latex> is even (divisible by 2) and <Latex>$b$</Latex> is even, then <Latex>$ax$</Latex> and <Latex>$by$</Latex> will both be even, so <Latex>$ax+by$</Latex> will be even.</p>
 
@@ -390,7 +390,7 @@ export default function BezoutEgcd () {
 
 <p>As long as the initial repeated division (Euclid's algorithm) ends with the pair (1,0), we can perform the reconstruction to find a solution to <Latex>$ax + by = 1$</Latex>. In general, Euclid's algorithm ends with the pair being <Latex>$(gcd(a,b),0)$</Latex>, so if we do the reconstruction process, we will be able to find a solution to <Latex>$ax + by = gcd(a,b)$</Latex>.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="bezouts-lemma-proof" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Bezout's Lemma: Proof</h2><Link href="#bezouts-lemma-proof" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#bezouts-lemma-proof", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="bezouts-lemma-proof" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Bezout's Lemma: Proof</h2><Link href="#bezouts-lemma-proof" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#bezouts-lemma-proof", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>Let's switch to our axiom world for a second, to formalize the lemma and prove it.</p>
 
@@ -434,7 +434,7 @@ export default function BezoutEgcd () {
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="magic-box" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Magic box</h2><Link href="#magic-box" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#magic-box", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="magic-box" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Magic box</h2><Link href="#magic-box" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#magic-box", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>Let's try another concrete example: finding a solution to <Latex>$29x + 11y = 1$</Latex>.</p>
 
@@ -803,7 +803,7 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
   <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$ = -det(M_i)$$</Latex></span></p>
 </blockquote>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="remarks-first-unobvious-result" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Remarks: first unobvious result?</h2><Link href="#remarks-first-unobvious-result" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#remarks-first-unobvious-result", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="remarks-first-unobvious-result" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Remarks: first unobvious result?</h2><Link href="#remarks-first-unobvious-result" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/3-bezout-egcd#remarks-first-unobvious-result", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>Bezout's lemma is interesting because it is the first thing we've come across that wouldn't be obvious to an average high-school student. Indeed, most people would say, "why so much rigor?" when we're proving things like the division algorithm that just already <em>feel</em> obvious to everyone.</p>
 
@@ -849,7 +849,7 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
         </div>
 
         
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
                         <Link href="/maths/proving-FTA">

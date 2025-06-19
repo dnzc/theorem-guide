@@ -1,6 +1,7 @@
 from jinja2 import Environment, FileSystemLoader
 
-ROOT_DIR = '/home/dnzc/Github/Notes/'
+# ROOT_DIR = '/home/dnzc/Github/Notes/'
+ROOT_DIR = '/Users/daniel/Github/Notes/'
 SOURCE_DIR = ROOT_DIR + 'CONTENT'
 TARGET_DIR = ROOT_DIR + 'APP/pages'
 TEMPLATES_DIR = ROOT_DIR + 'templates'

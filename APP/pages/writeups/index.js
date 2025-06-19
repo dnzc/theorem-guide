@@ -207,7 +207,7 @@ export default function Writeups () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/writeups/terminal">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -222,7 +222,7 @@ export default function Writeups () {
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/writeups/terminal">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -241,7 +241,7 @@ export default function Writeups () {
         </div>
 
         
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
                         <Link href="/">

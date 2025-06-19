@@ -6,7 +6,7 @@
 
     {% macro dump_contents(contents) %}
         {% for item in contents %}
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle {{'border-b-2' if not loop.last else ''}} py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="{{item['path']}}">
                     <div className="flex items-center space-x-1 text-lg underline">
                         {% if item['type']=='folder' %}

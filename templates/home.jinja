@@ -1,21 +1,18 @@
 <div className="space-y-6">
 
-    <p className="mt-2 text-3xl font-bold break-all">
-        <span className="text-highlight-pink">notes.</span>
-        <span className="text-highlight-blue">daniel</span>
-        <span className="text-highlight-orange">c.</span>
-        <span className="text-link">rocks</span>
+    <p className="mt-2 text-3xl font-bold break-all text-articleh1">
+        notes.danielc.rocks
     </p>
 
     <p>
         This site is a collection of notes I've written for various courses, as well as some original notes explaining topics I find interesting. The primary goal is to be able to provide intuition for topics that were presented to me very abstractly.
         <br/>
         Most of the courses are from Part IB of the Mathematical Tripos. Each course is denoted as
-            <span className="text-course-icon inline-flex mx-1"><FaBook/></span>
-        in the sidebar, containing articles
-            <span className="text-text-secondary inline-flex mx-1 relative top-[0.1rem]"><GrArticle/></span>
-        and folders
-            <span className="text-folder-icon inline-flex mx-1 relative top-[0.2rem]"><AiFillFolder size={20}/></span>
+            <span className="text-course-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><FaBook size={18}/></span>
+        in the sidebar, containing articles 
+            <span className="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><GrArticle size={20}/></span>
+        and folders 
+            <span className="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><AiFillFolder size={20}/></span>
         which can be viewed once inside the course.
     </p>
 
@@ -30,23 +27,23 @@
         <h1>Course List</h1>
 
         <div className="overflow-x-auto shadow-lg rounded-t-lg">
-            <table className="notmdtable w-full text-left text-text-secondary whitespace-nowrap">
-                <thead className="bg-layer">
+            <table className="notmdtable w-full text-left whitespace-nowrap">
+                <thead className="bg-Table-bar text-Table-bartext">
                     <tr>
-                        <th className="px-3 py-2">
+                        <th className="p-3">
                             Name
                         </th>
-                        <th className="px-3 py-2">
+                        <th className="p-3">
                             Updated
                         </th>
-                        <th className="px-3 py-2">
+                        <th className="p-3">
                             Tags
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="bg-Table-rows">
                     {% for course in course_list %}
-                    <tr className="border-t-2">
+                    <tr className="border-border-strong border-t-2">
                         <td className="px-3 py-2">
                             <ProminentLink href="{{course['path']}}" internal>
                             {{ course['name'] }}

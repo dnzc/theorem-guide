@@ -210,7 +210,7 @@ export default function Research () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/research/cube-tilings">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -222,7 +222,7 @@ export default function Research () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/research/CNATs">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -237,7 +237,7 @@ export default function Research () {
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/research/CNATs">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -249,7 +249,7 @@ export default function Research () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">14 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/research/cube-tilings">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -268,7 +268,7 @@ export default function Research () {
         </div>
 
         
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
                         <Link href="/maths">

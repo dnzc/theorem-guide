@@ -11,7 +11,7 @@ export default function Spoiler({ children }) {
     return (
         <blockquote>
             <div className="absolute">
-                <button onClick={show} className={`relative top-2 p-1 text-highlight-orange border-2 border-highlight-orange rounded-lg flex items-center space-x-0.5${visible ? ' hidden' : ''}`}>
+                <button onClick={show} className={`relative top-2 p-1 text-Spoiler-accent border-2 border-Spoiler-accent rounded-lg flex items-center space-x-0.5${visible ? ' hidden' : ''}`}>
                     <span className="text-sm">Reveal spoiler</span> <span className="text-xl"><PiWarningCircleBold/></span>
                 </button>
             </div>

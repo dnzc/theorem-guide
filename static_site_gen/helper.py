@@ -75,7 +75,7 @@ export default function {name.replace(' ', '')} () {{
 # find h2 tags with an id, add link anchor to them (each h2 in a markdown file is given a unique id by the header-ids extension)
 # this is an external function so that it can also be applied to the homepage (but the header ids must be manually put there)
 def add_link_anchors(page, cur_target_dir): 
-    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="\1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>', page, flags=re.DOTALL)
+    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="\1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
     return '' if timestamp==PLACEHOLDER_TIMESTAMP else datetime.fromtimestamp(timestamp).strftime('%d %b %Y')
@@ -189,8 +189,14 @@ def construct_tree(cur_dir, depth):
     d['name'] = sanitize(name)
     return d
 
-def parse_md_file_to_react(path, target_dir, file, is_readme=False):
+def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_course_readme=False):
     article_data = {}
+    is_readme = is_folder_readme or is_course_readme
+
+    # set article type (article, folder readme, course readme)
+    article_data['type'] = 'article'
+    if is_folder_readme: article_data['type'] = 'folder'
+    if is_course_readme: article_data['type'] = 'course'
 
     # extract article date from first line
     article_data['coming_soon'] = False
@@ -281,7 +287,7 @@ def parse_md_file_to_react(path, target_dir, file, is_readme=False):
             modified = re.sub(r'(<Proof[^>]*?)(>.*?)(</Proof>)', r'\1 unquoted unbolded\2\3', m[2], flags=re.DOTALL)
             file = file[:m.span()[0]] + m[1] + modified + m[3] + file[m.span()[1]:]
 
-    page = markdown(file, extras=['fenced-code-blocks', 'code-friendly', 'header-ids', 'footnotes', 'wiki-tables'])
+    page = markdown(file, extras=['fenced-code-blocks', 'codehilite', 'code-friendly', 'header-ids', 'footnotes', 'wiki-tables'])
 
     # replace curly braces with html character codes, so that react ignores them
     page = re.sub('{', '&#123;', page)
@@ -444,14 +450,15 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         folder_mainpage = ''
         separator = '<br/><div className="border-t-[1px] border-border-strong pb-2"></div>'
         readme_exists = os.path.exists(cur_path+'/README.md')
+        is_course = COURSE_INDICATOR in cur_dir.split('/')[-1]
         tags_to_render = []
         table_of_contents = None
-        if readme_exists: # render folder readme
+        if readme_exists: # render folder/course readme
             with open(cur_path+'/README.md', 'r') as f:
                 readme_file = f.read()
-            page, article_data, page_title, _, table_of_contents = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_readme=True)
+            page, article_data, page_title, _, table_of_contents = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_folder_readme=not is_course, is_course_readme=is_course)
             article_list.append(article_data)
-            if COURSE_INDICATOR in cur_dir.split('/')[-1]:
+            if is_course:
                 course_data = {}
                 course_data['name'] = article_data['title']
                 course_data['path'] = '/' + '/'.join(article_data['dir']) + '/' + article_data['name']

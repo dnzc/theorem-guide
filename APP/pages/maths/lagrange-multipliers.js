@@ -246,7 +246,7 @@ export default function LagrangeMultipliers () {
 
 <p>I really recommend watching <ProminentLink href='https://youtu.be/5A39Ht9Wcu0'>this video</ProminentLink> to get some intuition first.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="background-theory" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Background Theory</h2><Link href="#background-theory" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#background-theory", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="background-theory" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Background Theory</h2><Link href="#background-theory" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#background-theory", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>All of this is covered in my <ProminentLink href="/maths/Analysis-Topology" internal>course notes for IB Analysis and Topology</ProminentLink>, in the relevant sections. The results and definitions in this article are correct only for <Latex>$\mathbb&#123;R&#125;^n$</Latex> (e.g. compactness is something different, but the Heine-Borel theorem says that in <Latex>$\mathbb&#123;R&#125;^n$</Latex> it's equivalent to being closed and bounded). For the more general definitions and a deeper understanding, check out the course notes.</p>
 
@@ -478,7 +478,7 @@ export default function LagrangeMultipliers () {
 
 </Thm>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="partial-derivatives" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Partial Derivatives</h2><Link href="#partial-derivatives" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#partial-derivatives", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="partial-derivatives" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Partial Derivatives</h2><Link href="#partial-derivatives" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#partial-derivatives", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>I'm assuming you've already met these, so I'll recap.</p>
 
@@ -498,7 +498,7 @@ export default function LagrangeMultipliers () {
 
 </Example>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="the-big-theorem" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">The Big Theorem</h2><Link href="#the-big-theorem" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#the-big-theorem", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="the-big-theorem" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">The Big Theorem</h2><Link href="#the-big-theorem" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#the-big-theorem", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>Finally!</p>
 
@@ -524,7 +524,7 @@ export default function LagrangeMultipliers () {
 
 </Thm>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Example Problem 1</h2><Link href="#example-problem-1" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Example Problem 1</h2><Link href="#example-problem-1" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-1", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <blockquote>
   <p>Let <Latex>$x,y,z \geq 0$</Latex> such that <Latex>$x+y+z = 1$</Latex>. Find the min and max of <Latex>$xyz$</Latex>.</p>
@@ -559,7 +559,7 @@ export default function LagrangeMultipliers () {
 
 <span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = yz, \frac&#123;\delta f&#125;&#123;\delta y&#125; = xz, \frac&#123;\delta f&#125;&#123;\delta z&#125; = xy$$</Latex></span>
 
-<p>So <Latex>$yz = \lambda \cdot 1$</Latex>, <Latex>$xz = \lambda \cdot 1$</Latex>, <Latex>$xy = \lambda \cdot 1$</Latex>. <br />
+<p>So <Latex>$yz = \lambda \cdot 1$</Latex>, <Latex>$xz = \lambda \cdot 1$</Latex>, <Latex>$xy = \lambda \cdot 1$</Latex>.<br />
 This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finally <Latex>$x+y+z = 1$</Latex> <Latex>$\implies$</Latex> <Latex>$x=y=z=\frac&#123;1&#125;&#123;3&#125;$</Latex>, so an extremal value of <Latex>$f$</Latex> is <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.</p>
 
 <p>Overall, all extreme values of <Latex>$f$</Latex> on <Latex>$\bar S$</Latex> are <Latex>$0$</Latex> or <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.</p>
@@ -568,7 +568,7 @@ This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finall
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-2" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Example Problem 2</h2><Link href="#example-problem-2" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-2", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-2" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Example Problem 2</h2><Link href="#example-problem-2" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-2", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <blockquote>
   <p>Let <Latex>$x,y,z \geq 0$</Latex> such that <Latex>$x+y+z = 1$</Latex>. Show that
@@ -590,7 +590,7 @@ This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finall
 <p>Let <Latex>$x_0 = (x,y,z)$</Latex> be a global extremum.</p>
 
 <ul>
-<li>If <Latex>$x_0$</Latex> is on the boundary: <br />
+<li>If <Latex>$x_0$</Latex> is on the boundary:<br />
 Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Latex>. Then <Latex>$x+y=1$</Latex> and we wish to show that <Latex>$0 \leq xy \leq \frac&#123;7&#125;&#123;27&#125;$</Latex>.</li>
 </ul>
 
@@ -616,8 +616,8 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <span className="block overflow-auto scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta z&#125; = y+x-2yx$$</Latex></span>
 
-<p>So, <Latex>$z+y-2yz = \lambda \cdot 1$</Latex>, <br />
-<Latex>$x+z-2xz = \lambda \cdot 1$</Latex>, <br />
+<p>So, <Latex>$z+y-2yz = \lambda \cdot 1$</Latex>,<br />
+<Latex>$x+z-2xz = \lambda \cdot 1$</Latex>,<br />
 <Latex>$y+x-2yx = \lambda \cdot 1$</Latex></p>
 
 <p>Solving for <Latex>$x,y,z$</Latex>:</p>
@@ -647,7 +647,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-3" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Example problem 3</h2><Link href="#example-problem-3" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-3", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="example-problem-3" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Example problem 3</h2><Link href="#example-problem-3" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#example-problem-3", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <blockquote>
   <p>Given that <Latex>$x,y \in \mathbb&#123;R&#125;$</Latex> with <Latex>$x^2 + y^2 = 1$</Latex>, Find the max and min values of <Latex>$8x^2 - 2y$</Latex>.</p>
@@ -708,7 +708,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="homogenous-trick" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Homogenous Trick</h2><Link href="#homogenous-trick" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#homogenous-trick", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="homogenous-trick" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Homogenous Trick</h2><Link href="#homogenous-trick" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#homogenous-trick", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>Suppose we want to prove some inequality, but there are no constraints.</p>
 
@@ -738,7 +738,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 </Proof>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="practice-problem-jbmo" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Practice problem (JBMO)</h2><Link href="#practice-problem-jbmo" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#practice-problem-jbmo", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="practice-problem-jbmo" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Practice problem (JBMO)</h2><Link href="#practice-problem-jbmo" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#practice-problem-jbmo", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <blockquote>
   <p>For <Latex>$x,y \in \mathbb&#123;R&#125;, (x,y) \neq (0,0)$</Latex>, prove that:
@@ -804,7 +804,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 <p>Thus either <Latex>$x=y$</Latex> or <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>.</p>
 
 <ul>
-<li>If <Latex>$x = y$</Latex>: <br />
+<li>If <Latex>$x = y$</Latex>:<br />
 Then, since <Latex>$x^2 + y^2 = 1$</Latex>, we have that <Latex>$x = y = \pm \frac&#123;1&#125;&#123;\sqrt2&#125;$</Latex>. In this case:</li>
 </ul>
 
@@ -817,7 +817,7 @@ Then, since <Latex>$x^2 + y^2 = 1$</Latex>, we have that <Latex>$x = y = \pm \fr
 <span className="block overflow-auto scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 0, 2\sqrt2$$</Latex></span>
 
 <ul>
-<li>If <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>: <br />
+<li>If <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>:<br />
 Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 </ul>
 
@@ -845,7 +845,7 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="when-it-fails" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">When It Fails</h2><Link href="#when-it-fails" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#when-it-fails", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="when-it-fails" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">When It Fails</h2><Link href="#when-it-fails" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#when-it-fails", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <blockquote>
   <p>Let <Latex>$a,b,c \gt 0$</Latex> such that <Latex>$a+b+c=3$</Latex>. Find the minimum value of:
@@ -868,7 +868,7 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="conclusion" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Conclusion</h2><Link href="#conclusion" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#conclusion", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="conclusion" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Conclusion</h2><Link href="#conclusion" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/lagrange-multipliers#conclusion", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <p>As you've seen, it takes careful consideration and background knowledge to use Lagrange multipliers in olympiads correctly. Best of luck!</p>
 
@@ -900,7 +900,7 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
         </div>
 
         
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
                         <Link href="/maths">

@@ -207,7 +207,7 @@ export default function Maths () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/lagrange-multipliers">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -219,7 +219,7 @@ export default function Maths () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/proving-FTA">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -231,7 +231,7 @@ export default function Maths () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/Analysis-Topology">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -243,7 +243,7 @@ export default function Maths () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/research">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -258,7 +258,7 @@ export default function Maths () {
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/Analysis-Topology">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -270,7 +270,7 @@ export default function Maths () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/lagrange-multipliers">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -282,7 +282,7 @@ export default function Maths () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/proving-FTA">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -294,7 +294,7 @@ export default function Maths () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths/research">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -313,7 +313,7 @@ export default function Maths () {
         </div>
 
         
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
                         <Link href="/">

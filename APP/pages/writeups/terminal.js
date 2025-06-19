@@ -232,7 +232,7 @@ export default function Terminal () {
 
 <p>I used <ProminentLink href='https://pyodide.org/en/stable/'>Pyodide</ProminentLink> to run python in the browser (pretty cool!), which I heard about from my teacher at school, who used it to make the (well-known?) <DiscreetLink href='https://www.pythonsponge.com/'>Python Sponge</DiscreetLink>.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Hint 1</h2><Link href="#hint-1" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-1", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Hint 1</h2><Link href="#hint-1" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-1", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <Spoiler>
 
@@ -240,7 +240,7 @@ export default function Terminal () {
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-2" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Hint 2</h2><Link href="#hint-2" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-2", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-2" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Hint 2</h2><Link href="#hint-2" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-2", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <Spoiler>
 
@@ -251,7 +251,7 @@ So the goal is: write a python file that reads <code>/flag.txt</code>, whose alp
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-3" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Hint 3</h2><Link href="#hint-3" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-3", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="hint-3" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Hint 3</h2><Link href="#hint-3" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#hint-3", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <Spoiler>
 
@@ -268,7 +268,7 @@ Also we have numbers, by doing something like:</p>
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="solution" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Solution</h2><Link href="#solution" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#solution", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="solution" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Solution</h2><Link href="#solution" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#solution", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <Spoiler>
 
@@ -295,7 +295,7 @@ And the reduced version:
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="cheese-solution" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">Cheese solution</h2><Link href="#cheese-solution" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#cheese-solution", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="cheese-solution" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Cheese solution</h2><Link href="#cheese-solution" onClick={() => copyToClipboard("https://notes.danielc.rocks/writeups/terminal#cheese-solution", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <Spoiler>
 
@@ -315,7 +315,7 @@ The python runs client-side i.e. this is all really a fake prison-break environm
         </div>
 
         
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
                         <Link href="/writeups">

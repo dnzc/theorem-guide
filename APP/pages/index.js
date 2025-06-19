@@ -203,22 +203,19 @@ export default function CourseNotes () {
         <div className="article mb-4">
             <div className="space-y-6">
 
-    <p className="mt-2 text-3xl font-bold break-all">
-        <span className="text-highlight-pink">notes.</span>
-        <span className="text-highlight-blue">daniel</span>
-        <span className="text-highlight-orange">c.</span>
-        <span className="text-link">rocks</span>
+    <p className="mt-2 text-3xl font-bold break-all text-articleh1">
+        notes.danielc.rocks
     </p>
 
     <p>
         This site is a collection of notes I've written for various courses, as well as some original notes explaining topics I find interesting. The primary goal is to be able to provide intuition for topics that were presented to me very abstractly.
         <br/>
         Most of the courses are from Part IB of the Mathematical Tripos. Each course is denoted as
-            <span className="text-course-icon inline-flex mx-1"><FaBook/></span>
-        in the sidebar, containing articles
-            <span className="text-text-secondary inline-flex mx-1 relative top-[0.1rem]"><GrArticle/></span>
-        and folders
-            <span className="text-folder-icon inline-flex mx-1 relative top-[0.2rem]"><AiFillFolder size={20}/></span>
+            <span className="text-course-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><FaBook size={18}/></span>
+        in the sidebar, containing articles 
+            <span className="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><GrArticle size={20}/></span>
+        and folders 
+            <span className="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><AiFillFolder size={20}/></span>
         which can be viewed once inside the course.
     </p>
 
@@ -233,23 +230,23 @@ export default function CourseNotes () {
         <h1>Course List</h1>
 
         <div className="overflow-x-auto shadow-lg rounded-t-lg">
-            <table className="notmdtable w-full text-left text-text-secondary whitespace-nowrap">
-                <thead className="bg-layer">
+            <table className="notmdtable w-full text-left whitespace-nowrap">
+                <thead className="bg-Table-bar text-Table-bartext">
                     <tr>
-                        <th className="px-3 py-2">
+                        <th className="p-3">
                             Name
                         </th>
-                        <th className="px-3 py-2">
+                        <th className="p-3">
                             Updated
                         </th>
-                        <th className="px-3 py-2">
+                        <th className="p-3">
                             Tags
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="bg-Table-rows">
                     
-                    <tr className="border-t-2">
+                    <tr className="border-border-strong border-t-2">
                         <td className="px-3 py-2">
                             <ProminentLink href="/maths/Analysis-Topology" internal>
                             IB Analysis and Topology
@@ -301,14 +298,27 @@ export default function CourseNotes () {
     <h1>Changelog</h1>
     <div>
         <div className="changelog">
-            <h2>19/12/24</h2>
+            <h2>19/06/25</h2>
+
+<h3>Added</h3>
+
+<ul>
+<li>selectable color schemes:
+<ul>
+<li><DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">sanctum</DiscreetLink> (adapted)</li>
+<li><DiscreetLink href="https://catppuccin.com/palette/">catppuccin</DiscreetLink></li>
+<li><DiscreetLink href="https://github.com/morhetz/gruvbox?tab=readme-ov-file#palette">gruvbox</DiscreetLink> (my favourite :D)</li>
+</ul></li>
+</ul>
+
+<h2>19/12/24</h2>
 
 <h3>Changed</h3>
 
 <ul>
 <li>primary purpose of the site is now storage of course notes; blog moved elsewhere</li>
 <li>consistent styling of theorems, defns, examples etc</li>
-<li>revamp to light theme for easier readability: inspiration taken from <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">Sanctum theme for Obsidian</DiscreetLink></li>
+<li>replace dark theme with light theme for easier readability</li>
 </ul>
 
 <h2>08/07/24</h2>
@@ -358,7 +368,7 @@ export default function CourseNotes () {
     <Folder
         contents_by_date={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -370,7 +380,7 @@ export default function CourseNotes () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -382,7 +392,7 @@ export default function CourseNotes () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -397,7 +407,7 @@ export default function CourseNotes () {
      </>}
         contents_by_name={<> 
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/comp-sci">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -409,7 +419,7 @@ export default function CourseNotes () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle border-b-2 py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -421,7 +431,7 @@ export default function CourseNotes () {
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
             </li>
         
-            <li className="folder-li w-full flex justify-between items-center border-border-subtle  py-2 px-3">
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/writeups">
                     <div className="flex items-center space-x-1 text-lg underline">
                         

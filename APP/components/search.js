@@ -1,12 +1,13 @@
 import { useMiniSearch } from 'react-minisearch'
 import documents from '@/article_data.json'
 import { useEffect, useRef, useState } from 'react'
-import { FaArrowRight, FaChevronRight } from 'react-icons/fa'
+import { FaArrowRight, FaBook } from 'react-icons/fa'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-
+import { GrArticle } from 'react-icons/gr'
+import { AiFillFolder } from 'react-icons/ai'
 const miniSearchOptions = {
-    fields: ['title', 'name', 'dir', 'content'],
+    fields: ['title', 'name', 'dir', 'content', 'type'],
 }
 
 export default function Search({ active, hidePopupFunction }) {
@@ -18,6 +19,8 @@ export default function Search({ active, hidePopupFunction }) {
     const router = useRouter()
 
     let inputRef = useRef('')
+
+    const [ mouseLocked, setMouseLocked ] = useState(false)
 
     useEffect(() => {
         if(!active && inputRef.current) {
@@ -39,10 +42,22 @@ export default function Search({ active, hidePopupFunction }) {
         return path
     }
 
+    // prevent bug where if mouse is hovering over result and arrow keys pressed,
+    // the change of scroll is registered as a mouse move and so the selected result is
+    // unwantingly changed again, even though mouse was not actually moved
+    function lockMouse() {
+        setMouseLocked(true)
+    }
+
+    function unlockMouse() {
+        setMouseLocked(false)
+    }
+
     function handleKeyDown(e) {
         if(e.key === 'ArrowUp' || e.key === 'ArrowDown') {
             if(searchResults.length == 0) return
             e.preventDefault()
+            lockMouse()
             let newSelectedResult = (selectedResult + (e.key === 'ArrowUp' ? searchResults.length-1 : 1) ) % searchResults.length
             const result = document.getElementById(`result-${newSelectedResult}`)
             const resultDiv = document.getElementById('results-div')
@@ -83,28 +98,28 @@ export default function Search({ active, hidePopupFunction }) {
     }
 
     return (
-        <div className='w-full h-full'>
+        <div className='w-full h-full' onMouseMove={unlockMouse}>
 
             {/* https://stackoverflow.com/questions/38619762/how-to-prevent-ios-keyboard-from-pushing-the-view-off-screen-with-css-or-js */}
-            <input ref={inputRef} type='text' name='search' onChange={searchChange} onKeyDown={handleKeyDown} onFocus={() => { window.scrollTo(0,0); document.body.scrollTop = 0 }} placeholder='Search…' className='bg-body rounded-t-lg rounded-b-none px-4 py-4 w-full border-b-2 border-elevated text-lg outline-none'/>
+            <input ref={inputRef} type='text' name='search' onChange={searchChange} onKeyDown={handleKeyDown} onFocus={() => { window.scrollTo(0,0); document.body.scrollTop = 0 }} placeholder='Search…' className='bg-background rounded-t-lg placeholder:text-text-placeholder placeholder:italic rounded-b-none px-4 py-4 w-full border-b-2 border-border-strong text-lg outline-none'/>
 
             <div id='results-div' className='relative w-full h-[calc(100%-4rem)] overflow-y-scroll' onTouchMove={ /* hide onscreen keyboard */ () => document.activeElement.blur()}>
                 <ol>
                     { searchResults && searchResults.map((result, i) => {
                         let re = substrsToRegex(inputRef.current.value)
                         if(!re) return
-                        let title = highlightMatchesInString(re, result.title, 'text-highlight-pink font-bold')
+                        let title = highlightMatchesInString(re, result.title, 'text-Searchpopup-highlight-title font-bold')
                         let matchedTitle = title.length>1 // split into at least two tokens means found match
 
                         let jsxDir = []
                         let matchedDir = false
                         result.dir.forEach((folder) => {
-                            let tokens = highlightMatchesInString(re, folder, 'text-highlight-orange font-bold')
+                            let tokens = highlightMatchesInString(re, folder, 'text-Searchpopup-highlight-dir font-bold')
                             if(tokens.length>1) matchedDir = true
                             jsxDir.push(...tokens)
                             jsxDir.push(<span className='font-bold text-text-secondary mx-0.5'>/</span>)
                         })
-                        let name = highlightMatchesInString(re, result.name, 'text-highlight-orange font-bold')
+                        let name = highlightMatchesInString(re, result.name, 'text-Searchpopup-highlight-dir font-bold')
                         let matchedName = name.length>1
                         jsxDir.push(...name)
 
@@ -115,17 +130,24 @@ export default function Search({ active, hidePopupFunction }) {
                         content = content.slice(0, 90) + '...'
                         */
 
+                        let icon = <span className='text-article-icon'><GrArticle size={20}/></span>;
+                        if (result.type === 'course') icon = <span className='text-course-icon'><FaBook size={20}/></span>;
+                        if (result.type === 'folder') icon = <span className='text-folder-icon'><AiFillFolder size={20}/></span>;
+
                         return (
-                            <li key={i} id={`result-${i}`} className='m-4 text-text-primary' onMouseMove={() => {setSelectedResult(i)}} onTouchStart={() => {setSelectedResult(i)}}>
+                            <li key={i} id={`result-${i}`} className='m-4 text-text-primary' onMouseMove={() => {if(!mouseLocked) setSelectedResult(i)}} onTouchStart={() => {setSelectedResult(i)}}>
                                 <Link href={getPath(result.dir, result.name)}>
-                                    <div className={`${i==selectedResult ? 'bg-layer-hover' : 'bg-layer'} rounded-lg flex justify-between`} onClick={hidePopupFunction}>
-                                        <div className='p-4 pt-2'>
-                                            <p className='text-text-secondary flex flex-wrap items-center align-middle mb-1'>{jsxDir}</p>
-                                            <p className='text-xl'>{title}</p>
-                                            <p className={`${matchedTitle||matchedDir||matchedName ? 'hidden ' : 'mt-1'} italic text-link`}>Content matches</p>
-                                        </div>
+                                    <div className={`${i==selectedResult ? 'bg-Searchpopup-result-selected' : 'bg-Searchpopup-result'} rounded-lg flex justify-between`} onClick={hidePopupFunction}>
+                                            <div className='flex align-middle'>
+                                                <span className='shrink-0 my-auto mx-4'>{icon}</span>
+                                                <div className='pt-3 pb-4 pl-4 h-full border-l-2 border-border-strong'>
+                                                    <p className='text-text-secondary flex flex-wrap items-center align-middle mb-1'>{jsxDir}</p>
+                                                    <p className='text-xl'>{title}</p>
+                                                    <p className={`${matchedTitle||matchedDir||matchedName ? 'hidden ' : 'mt-1'} italic text-Searchpopup-highlight-content`}>Content matches</p>
+                                                </div>
+                                            </div>
                                         <div className='flex justify-center items-center px-2 rounded-r-lg'>
-                                            <p className={`text-lg${i==selectedResult ? ' text-text-inverse' : ''}`}><FaArrowRight/></p>
+                                            <p className={`text-lg${i==selectedResult ? ' text-Searchpopup-arrow-selected' : ''}`}><FaArrowRight/></p>
                                         </div>
                                     </div>
                                 </Link>

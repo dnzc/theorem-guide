@@ -52,7 +52,7 @@ export default function Basics () {
 
                     
                         <Link href="/maths">
-                            <li className="w-full flex justify-start p-1 pl-2 hover:bg-background-hover">
+                            <li className="w-full flex justify-start p-1 pl-2 hover:bg-Filetree-hover">
                                 <div className="flex items-center justify-center space-x-1 text-text-secondary text-base">
                                     <CiLogout size="19"/>
                                     <p>exit course</p>
@@ -133,7 +133,7 @@ export default function Basics () {
 
 <p>We want to formalise our intuition about distances in the real world, and try to generalise.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="11-definitions-and-examples" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] underline underline-offset-2">1.1 Definitions and Examples</h2><Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden relative bottom-0.5 group-hover:block text-highlight-orange">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="11-definitions-and-examples" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">1.1 Definitions and Examples</h2><Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
 
 <Defn name="metric space">
 
@@ -156,7 +156,7 @@ export default function Basics () {
         </div>
 
         
-            <div className="border-t-2 border-border-strong pt-4 flex items-top justify-between">
+            <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
                         <Link href="/maths/Analysis-Topology/A-metric-spaces">
