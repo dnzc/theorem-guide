@@ -229,44 +229,34 @@ export default function CourseNotes () {
 
         <h1>Course List</h1>
 
-        <div className="overflow-x-auto shadow-lg rounded-t-lg">
-            <table className="notmdtable w-full text-left whitespace-nowrap">
-                <thead className="bg-Table-bar text-Table-bartext">
-                    <tr>
-                        <th className="p-3">
-                            Name
-                        </th>
-                        <th className="p-3">
-                            Updated
-                        </th>
-                        <th className="p-3">
-                            Tags
-                        </th>
-                    </tr>
-                </thead>
-                <tbody className="bg-Table-rows">
-                    
-                    <tr className="border-border-strong border-t-2">
-                        <td className="px-3 py-2">
+        <ul className="space-y-6">
+            
+                <li>
+                    <div className="flex items-center">
+                        <h2 className="text-xl">
                             <ProminentLink href="/maths/Analysis-Topology" internal>
                             IB Analysis and Topology
                             </ProminentLink>
-                        </td>
-                        <td className="px-3 space-x-2 py-2 text-sm">
-                            16 Dec 2024
-                        </td>
-                        <td className="px-3 space-x-2 py-2">
+                        </h2>
+                        <p className="hidden xs:flex flex-wrap gap-x-2 gap-y-1 pl-2 align-middle h-fit">
                             
+                                <span className="h-min">
                                 <Badge color="indigo">pure-maths</Badge>
+                                </span>
                             
+                                <span className="h-min">
                                 <Badge color="red">TODO</Badge>
+                                </span>
                             
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-        </div>
+                        </p>
+                    </div>
+                    <p className="text-sm text-text-secondary pt-2">
+                        Last updated
+                        16 Dec 2024
+                    </p>
+                </li>
+            
+        </ul>
 
     </div>
 
