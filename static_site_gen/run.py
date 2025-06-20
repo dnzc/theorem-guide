@@ -39,8 +39,9 @@ with open(ARTICLE_DATA_FILE, 'w') as f:
     json.dump(articles, f)
 
 
-# add _app.js and custom 404
+# add _app.js, _document.js and custom 404
 shutil.copyfile(TEMPLATES_DIR+'/_app.js', TARGET_DIR+'/_app.js')
+shutil.copyfile(TEMPLATES_DIR+'/_document.js', TARGET_DIR+'/_document.js')
 shutil.copyfile(TEMPLATES_DIR+'/404.js', TARGET_DIR+'/404.js')
 
 
