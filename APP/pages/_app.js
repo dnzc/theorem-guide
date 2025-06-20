@@ -1,7 +1,6 @@
 import '../styles/globals.css'
 import '../styles/codehilite.css'
 import { Lato, Fira_Code, IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
-import Head from 'next/head'
 import { SidebarProvider } from '@/components/sidebar'
 import { MyThemeProvider } from '@/components/myThemeProvider'
 
@@ -31,9 +30,6 @@ const fira = Fira_Code({
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <meta name="theme-color" content="#ffffff"/>
-      </Head>
       <style jsx global>{`
         :root {
           --font-lato: ${lato.style.fontFamily};
