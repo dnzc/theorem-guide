@@ -28,7 +28,11 @@ const { theme, resolvedTheme, setTheme } = useTheme();
       break
   }
 
-  if (!mounted) return null;
+  if (!mounted) return
+      <Head>
+        <meta name="theme-color" content={themeColour}/>
+      </Head>
+
   let systemTheme = <>
     <span className='inline-block dark:hidden'>(sanctum)</span>
     <span className='hidden dark:inline-block'>(catppuccin)</span>
