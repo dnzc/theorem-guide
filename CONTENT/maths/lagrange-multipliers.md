@@ -211,7 +211,7 @@ Let $f(x,y,z) = xyz$ and $g(x,y,z)=x+y+z$; these are polynomial functions and so
 $0 \leq x,y,z \leq 1$ so we're only interested in the cube $[0,1] \times [0,1] \times [0,1]$.
 
 <div class='flex flex-wrap justify-center items-center space-x-4'>
-    <Image src='/__IMAGES__/lagrange-mult/12-cube.svg' width='250' height='200' alt='diagram'/><p>$x+y+z=1$ is a plane (coloured green)</p>
+    <Image src='/__IMAGES__/lagrange-mult/12-cube.svg' width='250' height='200' alt='diagram'/><p>$x+y+z=1$ is a plane</p>
 </div>
 
 Let $U = (0,1)^3$, then $\bar U = [0,1]^3$.

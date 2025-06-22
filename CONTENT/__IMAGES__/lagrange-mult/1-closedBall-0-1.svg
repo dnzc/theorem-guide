@@ -7,8 +7,8 @@
    viewBox="50 87.5 105.83333 105.83334"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="closedBall-0-1.svg"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   sodipodi:docname="1-closedBall-0-1.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -29,38 +29,58 @@
      viewbox-x="50"
      viewbox-y="87.5"
      inkscape:zoom="2.114039"
-     inkscape:cx="267.73395"
-     inkscape:cy="228.70912"
-     inkscape:window-width="1920"
-     inkscape:window-height="1048"
+     inkscape:cx="246.21116"
+     inkscape:cy="164.37729"
+     inkscape:window-width="1472"
+     inkscape:window-height="920"
      inkscape:window-x="0"
-     inkscape:window-y="32"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:window-y="36"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs2">
     <pattern
        inkscape:collect="always"
-       xlink:href="#Strips1_1"
-       id="pattern3873"
-       patternTransform="matrix(-2.1166026,1.7107003,-13.925901,-17.230142,59.258721,88.98169)" />
+       xlink:href="#Strips1_1.5"
+       preserveAspectRatio="xMidYMid"
+       id="pattern5"
+       patternTransform="matrix(1.5320886,1.285575,-1.285575,1.5320886,0,0)"
+       x="0"
+       y="0" />
     <pattern
        inkscape:collect="always"
        patternUnits="userSpaceOnUse"
-       width="2"
+       width="2.5"
        height="1"
-       patternTransform="translate(0,0) scale(10,10)"
-       id="Strips1_1"
-       inkscape:stockid="Stripes 1:1"
-       inkscape:isstock="true">
+       patternTransform="translate(0,0) scale(2,2)"
+       preserveAspectRatio="xMidYMid"
+       id="Strips1_1.5"
+       style="fill:#000000"
+       inkscape:stockid="Stripes 02 (2:3)"
+       inkscape:isstock="true"
+       inkscape:label="Stripes 02 (2:3)">
       <rect
-         style="fill:black;stroke:none"
-         x="0"
-         y="-0.5"
-         width="1"
-         height="2"
-         id="rect2828" />
+   style="stroke:none"
+   x="0"
+   y="-0.5"
+   width="1"
+   height="2"
+   id="rect140" />
+
     </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath15">
+      <rect
+         style="fill:none;stroke:#000000;stroke-linecap:butt;stroke-linejoin:bevel;paint-order:stroke markers fill;stop-color:#000000"
+         id="rect15-7"
+         width="45.034248"
+         height="38.955639"
+         x="262.48285"
+         y="121.00073" />
+    </clipPath>
     <marker
        style="overflow:visible"
        id="Arrow2Lend"
@@ -179,7 +199,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <ellipse
-       style="fill:url(#pattern3873);fill-opacity:1;stroke:#030000;stroke-width:0.973;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:url(#pattern5);fill-opacity:1;stroke:#030000;stroke-width:0.973;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
        id="path846"
        cx="103.09839"
        cy="142.496"
@@ -187,7 +207,7 @@
        ry="24.521122" />
     <path
        style="fill:none;fill-opacity:1;stroke:#030000;stroke-width:0.5;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-start:url(#Arrow2Lstart_Fnone_S-030000)"
-       d="m 102.7576,100.93831 v 79.04885"
+       d="m 102.7576,101.06347 v 79.04885"
        id="path1065"
        sodipodi:nodetypes="cc" />
     <path

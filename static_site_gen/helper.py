@@ -269,8 +269,6 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
     for tag in math_tags:
         file = re.sub(r'<(/?)' + tag + r'([^>]*?)>\n?([^\n])', r'<\1' + tag + r'\2>\n\n\3', file)
         file = re.sub(r'([^\n])\n?<(/?)' + tag + r'([^>]*?)>', r'\1\n\n<\2' + tag + r'\3>', file)
-    # replace images directory inside image tags, to be the public one
-    file = re.sub('/__IMAGES__', '/images', file)
     # find literal braces, for latex (so that the backslash doesn't die when being parsed)
     file = re.sub('\\\\{', '\\&#123;', file)
     file = re.sub('\\\\}', '\\&#125;', file)
@@ -333,6 +331,9 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
     # move copy buttons generated above (i.e. in code blocks marked __COPIABLE__) into their containers
     page = re.sub(r'<p>__COPIABLE__</p>\n\n<CopyButton(.*?)/>\n\n<div className="codehilite">\n<pre>(.*?)</pre>\n</div>', r'<div className="codehilite relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n<pre>\2</pre>\n</div>', page)
     page = re.sub(r'<p>__COPIABLE__</p>\n\n<CopyButton(.*?)/>\n\n<pre>(.*?)</pre>', r'<pre className="relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n\2</pre>', page)
+
+    # replace images directory inside image tags, to be the public one
+    page = re.sub('/__IMAGES__', '/images', page)
 
     article_data['content'] = flatten_content(page, article_data['title'])
     article_data['id'] = hash(path)

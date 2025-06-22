@@ -2,11 +2,25 @@ quizzes
 
 map.danielc.rocks: graph view - nodes represent pages, lines represent thm/lemma/prop references etc, or links? c.f. https://space.ong.ac/
 
+revision.danielc.rocks - same content but compactified thms/lemmas/defns etc
+update notes.danielc.rocks description to be "full length in-depth course notes with inuition, motivation
+"the most aesthetic and in-depth cambridge maths tripos notes on the internet"
+
+"after my fair share of browsing tripos notes online, i realized: - everything's in latex (booo, boring! I like colours and diagrams!) - people's explanations are so *brief*, almost like they don't care about the content and can't motivate it!"
+
+add relevant tripos questions
+
 backlinks (figure out where to display on page? potentially: underneath toc in right sidebar, so only visible on xl
 desmos embed (?)
 pyodide (?)
 
-- fix image fonts and colours
+FAQ instead of About on home page ("how do you render maths? svgs? ") - add snippet of ssg code
+coded everything myself, including quality-of-life (scrollshadow (link), copy buttons (link toastify))
+
+- redo all images
+- in helper.py, convert <Image> to inline svg
+
+"lightbulb" component - key idea
 
 better home page (larger landing) - and graph view / ascii art / site data e.g. total number of articles, tag view (word cloud of tags)
 different image per theme: catpuccin: space galaxy cat, gruvbox: forest, etc

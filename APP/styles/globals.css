@@ -387,6 +387,11 @@
         @apply font-ibm;
     }
 
+    /* invert dark theme images */
+    .catppuccin img, .gruvbox img {
+        filter: invert(1) brightness(3);
+    }
+
     /* theme-specific badges https://tailwindcss.com/plus/ui-blocks/application-ui/elements/badges */
     .sanctum .badge-red {
         @apply bg-red-50 text-red-700 ring-red-600/10;
