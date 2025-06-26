@@ -1,0 +1,19 @@
+@tailwind base;
+
+@layer base {
+
+    .light {
+        @apply sanctum;
+        /* for some reason need to put this here for system theme */
+        --toastify-color-light: white !important;
+        --toastify-color-progress-light: var(--pink) !important;
+    }
+
+    .dark {
+        @apply catppuccin;
+        /* for some reason need to put this here for system theme */
+        --toastify-color-light: var(--surface1) !important;
+        --toastify-color-progress-light: var(--mauve) !important;
+    }
+
+}

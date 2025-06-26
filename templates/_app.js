@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import '../styles/codehilite.css'
-import { Lato, Fira_Code, IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
+import { Lato, Fira_Code, Space_Grotesk } from 'next/font/google'
+import { localFont } from 'next/font/local'
 import { SidebarProvider } from '@/components/sidebar'
 import { MyThemeProvider } from '@/components/myThemeProvider'
 
@@ -10,10 +11,14 @@ const lato = Lato({
   display: 'swap',
 })
 
-const ibmPlexMono = IBM_Plex_Mono({
-  weight: ['300', '700'],
-  subsets: ['latin'],
-  display: 'swap',
+const iosevka = localFont({
+  src: [
+    { path: '../public/fonts/Iosevka/Iosevka-Regular.ttf', weight: '400', style: 'normal' },
+    { path: '../public/fonts/Iosevka/Iosevka-Italic.ttf', weight: '400', style: 'italic' },
+    { path: '../public/fonts/Iosevka/Iosevka-ExtendedHeavy.ttf', weight: '700', style: 'normal' },
+  ],
+    display: 'swap',
+    subsets: ['latin'],
 });
 
 const space = Space_Grotesk({
@@ -33,7 +38,7 @@ export default function App({ Component, pageProps }) {
       <style jsx global>{`
         :root {
           --font-lato: ${lato.style.fontFamily};
-          --font-ibm: ${ibmPlexMono.style.fontFamily};
+          --font-iosevka: ${iosevka.style.fontFamily};
           --font-space: ${space.style.fontFamily};
           --font-fira: ${fira.style.fontFamily};
         }

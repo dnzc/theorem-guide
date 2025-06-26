@@ -18,5 +18,18 @@ Markdown:
     - optional: one of the first three lines specifies article tags, line starts with "[TAGS]" e.g.: [TAGS] example-tag colour, exampletag2 colour2
 
 Features:
-- add [COPIABLE] before a code block to make it copiable
-- footnotes
+    - add [COPIABLE] before a code block to make it copiable
+    - footnotes
+    - AUTOSVG tag
+        - put instead of Image to be converted to inline svg with theme colours using svgr
+        - all fonts in the svg should be Fira Code (automatically converts to match page font) (Fira Code chosen as default since it's the widest)
+        - tag attributes: src, width, height
+        - The following colours are replaced:
+            - black   #000000 -> Svg-text
+            - 50%gray #808080 -> Svg-gray
+            - blue    #0000ff -> Svg-text-highlight
+            - green   #00ff00 -> Svg-line-highlight-1
+            - cyan    #00ffff -> Svg-line-highlight-2
+            - red     #ff0000 -> Svg-fill-highlight-1
+            - pink    #ff00ff -> Svg-fill-highlight-2
+            - yellow  #ffff00 -> Svg-fill-highlight-3

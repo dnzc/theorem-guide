@@ -1,0 +1,112 @@
+@tailwind base;
+
+@layer base {
+
+    .gruvbox {
+        /* https://github.com/morhetz/gruvbox */
+        /* helper colours (taken from website) - marked with comment means used */
+        --blackrgb: 0, 0, 0; /**/
+        --bg0: #282828; /**/
+        --bg1: #3c3836; /**/
+        --bg2: #504945; /**/
+        --bg2rgb: 80, 73, 69; /**/
+        --bg3: #665c54; /**/
+        --bg4: #7c6f64; /**/
+        --bg4rgb: 124, 111, 100; /**/
+        --gray: #928374; /**/
+        --fg4: #a89984; /**/
+        --fg3: #bdae93;
+        --fg2: #d5c4a1; /**/
+        --fg1: #ebdbb2;
+        --fg0: #fbf1c7; /**/
+        --red: #cc241d; /**/
+        --green: #98971a;
+        --yellow: #d79921; /**/
+        --blue: #458588; /**/
+        --purple: #b16286; /**/
+        --aqua: #689d6a; /**/
+        --orange: #d65d0e; /**/
+        --light-red: #fb4934; /**/
+        --light-green: #b8bb26; /**/
+        --light-yellow: #fabd2f; /**/
+        --light-blue: #83a598; /**/
+        --light-purple: #d3869b; /**/
+        --light-aqua: #8ec07c; /**/
+        --light-orange: #fe8019; /**/
+
+        /* begin definitions */
+        @apply font-iosevka;
+        --toastify-color-light: var(--bg3) !important;
+        --toastify-color-progress-light: var(--yellow) !important;
+        color-scheme: dark;
+        --background: var(--bg0);
+        --text-primary: var(--fg0);
+        --text-secondary: var(--fg4);
+        --text-placeholder: var(--gray);
+        --articleh1: var(--light-purple);
+        --articleh2: var(--purple);
+        --link: var(--blue);
+        --folder-icon: var(--yellow);
+        --course-icon: var(--light-red);
+        --article-icon: var(--aqua);
+        --blockquote: var(--bg1);
+        --unhighlighted-code: rgba(var(--bg2rgb), 0.3);
+        --border-subtle: var(--bg2);
+        --border-strong: var(--fg3);
+        --text-emph: var(--light-aqua);
+        --button: var(--bg3);
+        --button-hover: var(--gray);
+        --linkanchor: var(--orange);
+
+        --Filetree-text-current: var(--bg0);
+        --Filetree-current: var(--fg0);
+        --Filetree-hover: rgba(var(--bg2rgb), .7);
+        --Filetree-chevron: var(--bg4);
+        --Filetree-chevron-hover: rgba(var(--bg4rgb), .5);
+        --Filetree-chevron-current: var(--bg0);
+        --Filetree-chevron-current-hover: rgba(var(--bg4rgb), .3);
+        --Filetree-pipe: var(--bg1);
+        --Filetree-pipe-current: var(--fg2);
+        --Mobiletopbar: rgba(var(--bg2rgb), .2);
+        --Searchbar: var(--bg0);
+        --Searchbar-hover: var(--bg3);
+        --Searchbar-ring-hover: var(--light-red);
+        --Searchpopup-result: rgba(var(--bg2rgb), .2);
+        --Searchpopup-result-selected: rgba(var(--bg4rgb), .5);
+        --Searchpopup-arrow-selected: var(--light-orange);
+        --Searchpopup-highlight-dir: var(--light-aqua);
+        --Searchpopup-highlight-title: var(--light-red);
+        --Searchpopup-highlight-content: var(--light-blue);
+        --Table-bar: var(--bg2);
+        --Table-bartext: var(--fg2);
+        --Table-rows: rgba(var(--bg2rgb), .2);
+        --Popup-overlay: rgba(var(--blackrgb), .4);
+        --Copybutton-icon: var(--light-yellow);
+        --Spoiler-accent: var(--light-red);
+        --Changelog-dates: var(--orange);
+        --Changelog-titles: var(--light-green);
+        --Incompletemsg: var(--red);
+        --Math-accent-thm: var(--light-yellow);
+        --Math-accent-proof: var(--orange);
+        --Math-accent-defn: var(--light-blue);
+        --Math-accent-example: var(--orange);
+        --Math-accent-lemma: var(--light-purple);
+        --Codeblock-bg: #1d2021; /* for codehilite.css */
+        --Themeselect-topbar: var(--bg2);
+        --Themeselect-selected: var(--light-yellow);
+        --Themeselect-text-selected: var(--bg0);
+        --Themeselect-hover: var(--bg1);
+        --Scrollshadow-cover: 40, 40, 40; /* rgb of background */
+        --Scrollshadow-blockquote-cover: 60, 56, 54; /* rgb of blockquote background */
+        --Scrollshadow-shadow: 255, 255, 255;
+        --Svg-text: var(--text-primary);
+        --Svg-gray: var(--bg4);
+        --Svg-text-highlight: var(--articleh1);
+        --Svg-line-highlight-1: var(--light-red);
+        --Svg-line-highlight-2: var(--light-yellow);
+        --Svg-fill-highlight-1: var(--green);
+        --Svg-fill-highlight-2: var(--blue); /* junk */
+        --Svg-fill-highlight-3: var(--purple); /* junk */
+    }
+
+}

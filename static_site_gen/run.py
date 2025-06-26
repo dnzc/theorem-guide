@@ -25,6 +25,11 @@ if not COMPILE_EVERYTHING:
     with open(ARTICLE_DATA_FILE, 'r') as f:
         stored_articles = json.loads(f.read())
 
+# move image contents into public images dir
+if os.path.exists(IMAGES_DIR):
+    shutil.rmtree(IMAGES_DIR)
+shutil.copytree(SOURCE_DIR + '/__IMAGES__', IMAGES_DIR)
+
 # parse the source files into jsx and populate article info
 articles = []
 course_list = []

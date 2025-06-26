@@ -4,6 +4,7 @@ import hashlib
 import os
 import shutil
 import html
+import subprocess
 from markdown2 import markdown
 from constants import *
 
@@ -365,6 +366,51 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
 def get_path(article_data):
     return '/'+'/'.join(article_data['dir'])+'/'+article_data['name']
 
+# replace AUTOSVG tags with inline svgs
+def convert_svgs(page, path):
+    for m in [i.span() for i in re.finditer(r'<AUTOSVG[^>]*?(>.*?</AUTOSVG>|/>)', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
+        target = page[m[0]:m[1]]
+        try:
+            src = re.search(r'src=((\'|").*?(\'|"))', target, re.DOTALL)[0][5:-1] # will start with /images/ (__IMAGES__ was replaced in parse_md_file_to_react)
+            src = IMAGES_DIR + src[7:] # remove starting /images prefix
+            width = re.search(r'width=((\'|").*?(\'|"))', target, re.DOTALL)[0][7:-1]
+            height = re.search(r'height=((\'|").*?(\'|"))', target, re.DOTALL)[0][8:-1]
+
+            print(' -', src)
+            result = subprocess.run(['npx', '@svgr/cli', src], capture_output=True, text=True)
+            if result.returncode != 0:
+                print('Error:', result.stderr)
+                raise Exception
+            # extract svg tag only
+            generated_svg = re.search(r'<svg[^>]*?>.*?</svg>', result.stdout, re.DOTALL)[0]
+            # replace width and height
+            generated_svg = re.sub(r'(<svg[^>]*?width={)([^>]*?)(}[^>]*?>)', r'\g<1>'+width+r'\g<3>', generated_svg, re.DOTALL)
+            generated_svg = re.sub(r'(<svg[^>]*?height={)([^>]*?)(}[^>]*?>)', r'\g<1>'+height+r'\g<3>', generated_svg, re.DOTALL)
+            # for some reason svgr turns fontFamily:'Fira Code' into fontFamily:"&quot", so remove instances of this (recall, fira)
+            generated_svg = re.sub(r'^.*?fontFamily:.*$', '', generated_svg, flags=re.MULTILINE)
+            # replace placeholder colours (see conventions.txt)
+            generated_svg = generated_svg.replace('#000', 'var(--Svg-text)')
+            generated_svg = generated_svg.replace('#808080', 'var(--Svg-gray)')
+            generated_svg = generated_svg.replace('gray', 'var(--Svg-gray)')
+            generated_svg = generated_svg.replace('#00f', 'var(--Svg-text-highlight)')
+            generated_svg = generated_svg.replace('#0f0', 'var(--Svg-line-highlight-1)')
+            generated_svg = generated_svg.replace('#0ff', 'var(--Svg-line-highlight-2)')
+            generated_svg = generated_svg.replace('#f00', 'var(--Svg-fill-highlight-1)')
+            generated_svg = generated_svg.replace('red', 'var(--Svg-fill-highlight-1)')
+            generated_svg = generated_svg.replace('#f0f', 'var(--Svg-fill-highlight-2)')
+            generated_svg = generated_svg.replace('#ff0', 'var(--Svg-fill-highlight-3)')
+
+            # remove {...props} line
+            generated_svg = generated_svg.replace('{...props}', '')
+            target = generated_svg
+                
+        except Exception as e:
+            warn(f'error converting svg to themeable inline svg in rel path \'{path}\', using static image instead')
+            print(e)
+            target = re.sub('AUTOSVG', 'Image', target)
+        page = page[:m[0]] + target + page[m[1]:]
+    return page
+
 # parse the source files into jsx
 # returns a list of all the markdown files and their info (for "recent articles" and search functionality)
 # the root of dir_tree is the current node
@@ -377,12 +423,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
     if cur_dir.endswith('README.md'): return
 
     # the images directory
-    if cur_dir.endswith('__IMAGES__'): 
-        # move contents into public images dir
-        if os.path.exists(IMAGES_DIR):
-            shutil.rmtree(IMAGES_DIR)
-        shutil.copytree(SOURCE_DIR+cur_dir, IMAGES_DIR)
-        return
+    if cur_dir.endswith('__IMAGES__'): return
 
     # skip if nothing changed since last compile
     if not COMPILE_EVERYTHING and cur_dir.endswith('.md') and bool(checksum_tree) and checksum(cur_path) == checksum_tree['checksum']:
@@ -406,6 +447,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
                 TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
                 page_title, False, False
             )
+            react = convert_svgs(react, cur_dir)
             output_file.write(react)
             #add article data to article list
             article_list.append(article_data)
@@ -475,18 +517,18 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
                 changelog = markdown(f.read())
             folder_mainpage = add_link_anchors(HOME_TEMPLATE.render(course_list=course_list, changelog=changelog), '/') + separator
 
-        output_file.write(
-            wrap_in_js(
-                TEMPLATE.render(
-                    content=folder_mainpage+FOLDER_TEMPLATE.render(
-                        contents_by_time=sorted(folder_contents,key=lambda x:x['mod_timestamp'], reverse=True),
-                        contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
-                        file_count=sum(item['filecount'] for item in folder_contents),
-                    ),
-                    path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
-                page_title, True, cur_dir=='' or readme_exists
-            )
+        react = wrap_in_js(
+            TEMPLATE.render(
+                content=folder_mainpage+FOLDER_TEMPLATE.render(
+                    contents_by_time=sorted(folder_contents,key=lambda x:x['mod_timestamp'], reverse=True),
+                    contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
+                    file_count=sum(item['filecount'] for item in folder_contents),
+                ),
+                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
+            page_title, True, cur_dir=='' or readme_exists
         )
+        react = convert_svgs(react, cur_dir)
+        output_file.write(react)
 
 # generate checksums of all the files, so that unchanged content doesn't have to be regenerated
 def gen_checksum_tree(path):

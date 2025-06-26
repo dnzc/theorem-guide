@@ -292,7 +292,127 @@ export default function LagrangeMultipliers () {
 
 <ul>
 <li>Any finite open interval in <Latex>$\mathbb&#123;R&#125;$</Latex> is an open ball (<Latex>$n=1$</Latex>), because for any open interval <Latex>$(a,b) \subset \mathbb&#123;R&#125;$</Latex>, it is equal to <Latex>$B(\frac&#123;a+b&#125;&#123;2&#125;, \frac&#123;b-a&#125;&#123;2&#125;)$</Latex>.</li>
-<li><div className='flex flex-wrap items-center space-x-4'><p><Latex>$B[0,1]$</Latex> in <Latex>$\mathbb&#123;R&#125;^2$</Latex> is</p> <Image src='/images/lagrange-mult/1-closedBall-0-1.svg' width='100' height='100' alt='diagram' /></div></li>
+<li><div className='flex flex-wrap items-center space-x-4'><p><Latex>$B[0,1]$</Latex> in <Latex>$\mathbb&#123;R&#125;^2$</Latex> is</p> <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    width={100}
+    height={100}
+    viewBox="50 87.5 105.833 105.833"
+    
+  >
+    <defs>
+      <pattern
+        xlinkHref="#1-closedBall-0-1_svg__a"
+        id="1-closedBall-0-1_svg__b"
+        x={0}
+        y={0}
+        patternTransform="rotate(40)scale(2)"
+        preserveAspectRatio="xMidYMid"
+      />
+      <pattern
+        id="1-closedBall-0-1_svg__a"
+        width={2.5}
+        height={1}
+        patternTransform="scale(2)"
+        patternUnits="userSpaceOnUse"
+        preserveAspectRatio="xMidYMid"
+        style={{
+          fill: "var(--Svg-text)",
+        }}
+      >
+        <path
+          d="M0-.5h1v2H0z"
+          style={{
+            stroke: "none",
+          }}
+        />
+      </pattern>
+      <marker
+        id="1-closedBall-0-1_svg__d"
+        orient="auto"
+        refX={0}
+        refY={0}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        <path
+          d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
+          style={{
+            stroke: "var(--Svg-gray)",
+            fillRule: "evenodd",
+            fill: "var(--Svg-gray)",
+            strokeWidth: 0.625,
+            strokeLinejoin: "round",
+          }}
+          transform="rotate(180 -.55 0)scale(1.1)"
+        />
+      </marker>
+      <marker
+        id="1-closedBall-0-1_svg__c"
+        orient="auto"
+        refX={0}
+        refY={0}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        <path
+          d="M8.719 4.034-2.207.016 8.719-4.002c-1.746 2.372-1.736 5.618 0 8.036z"
+          style={{
+            stroke: "var(--Svg-gray)",
+            fillRule: "evenodd",
+            fill: "var(--Svg-gray)",
+            strokeWidth: 0.625,
+            strokeLinejoin: "round",
+          }}
+          transform="rotate(180 -.55 0)scale(1.1)"
+        />
+      </marker>
+    </defs>
+    <ellipse
+      cx={103.098}
+      cy={142.496}
+      rx={24.52}
+      ry={24.521}
+      style={{
+        fill: "url(#1-closedBall-0-1_svg__b)",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 3,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+      }}
+    />
+    <path
+      d="M57.457 142.39h92.224"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 0.997511,
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 0.529167,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        markerEnd: "url(#1-closedBall-0-1_svg__c)",
+      }}
+    />
+    <path
+      d="M102.758 186.613v-92.57"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 0.997511,
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 0.529,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        markerEnd: "url(#1-closedBall-0-1_svg__d)",
+      }}
+    />
+  </svg></div></li>
 </ul>
 
 </Example>
@@ -302,8 +422,250 @@ export default function LagrangeMultipliers () {
 <p><Latex>$U \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>open</strong> iff for every <Latex>$p \in U$</Latex>, <Latex>$\exists r\gt 0$</Latex> s.t. <Latex>$B(p,r) \subset U$</Latex>.</p>
 
 <div className='flex flex-wrap justify-center space-x-8'>
-    <Image src='/images/lagrange-mult/2-openSet.svg' width='150' height='160' alt='diagram' />
-    <Image src='/images/lagrange-mult/3-notOpenSet.svg' width='150' height='160' alt='diagram' />
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={150}
+    height={160}
+    viewBox="0 0 79.375 84.667"
+    
+  >
+    <path
+      d="M26.343 20.534c-6.137 1.242-11.392 3.795-14.908 9.068-8.394 12.591 8.143 30.197 18.716 34.604 6.79 2.83 22.757-1.793 26-8.955 2.14-4.722-4.237-10.509-1.73-14.686 3.618-6.032 9.33-5.113 13.646-9.37 5.543-5.465 4.044-15.917-2.369-19.355-1.856-.996-5.094-3.962-7.363-3.962-12.376 0-21.048 10.158-31.992 12.656z"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.5,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "2,2",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <circle
+      cx={57.012}
+      cy={14.307}
+      r={4.582}
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.499999,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "2,2",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="m58.551 16.753-2.144 2.143M56.418 16.76l2.144 2.145"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.2,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+      transform="translate(-.483 -3.435)"
+    />
+    <text
+      xmlSpace="preserve"
+      x={23.348}
+      y={76.701}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 700,
+        fontStretch: "normal",
+        fontSize: "7.05556px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-gray)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={23.348}
+        y={76.701}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 700,
+          fontStretch: "normal",
+          fontSize: "7.05556px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          fill: "var(--Svg-text)",
+          strokeWidth: 0.397,
+        }}
+      >
+        {"Open set"}
+      </tspan>
+    </text>
+  </svg>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={150}
+    height={160}
+    viewBox="0 0 79.375 84.667"
+    
+  >
+    <circle
+      cx={30.186}
+      cy={6.807}
+      r={4.582}
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.499999,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "2,2",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="m58.551 16.753-2.144 2.143M56.418 16.76l2.144 2.145"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.2,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+      transform="translate(-27.31 -10.934)"
+    />
+    <path
+      d="M24.718 7.601C16.53 9.54 13.326 15.05 9.465 21.623-4.311 45.08 34.242 58.493 52.047 52.098c8.084-2.903 23.394-26.461 17.752-34.89-3.472-5.19-14.489 1.35-19.565-3.727-1.185-1.185-2.544-6.667-3.809-6.928-9.088-1.876-14.05.403-21.707 1.048Z"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.499999,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={22.639}
+      y={64.638}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 700,
+        fontStretch: "normal",
+        fontSize: "7.05556px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={22.639}
+        y={64.638}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 700,
+          fontStretch: "normal",
+          fontSize: "7.05556px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          strokeWidth: 0.397,
+        }}
+      >
+        {"NOT open"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={11.74}
+      y={73.121}
+      style={{
+        fontWeight: 700,
+        fontSize: "5.64444px",
+
+        InkscapeFontSpecification: "&quot",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={11.74}
+        y={73.121}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 400,
+          fontStretch: "normal",
+          fontSize: "5.64444px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          strokeWidth: 0.397,
+        }}
+      >
+        {"(consider a point"}
+      </tspan>
+      <tspan
+        x={11.74}
+        y={80.177}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 400,
+          fontStretch: "normal",
+          fontSize: "5.64444px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          strokeWidth: 0.397,
+        }}
+      >
+        {"on the boundary)"}
+      </tspan>
+    </text>
+  </svg>
 </div>
 
 </Defn>
@@ -357,7 +719,225 @@ export default function LagrangeMultipliers () {
 <p>Let <Latex>$A \in \mathbb&#123;R&#125;^n$</Latex>. The <strong>closure</strong> of <Latex>$A$</Latex>, denoted <Latex>$\bar A$</Latex>, is the smallest closed set containing <Latex>$A$</Latex>.</p>
 
 <div className='w-full flex justify-center'>
-    <Image src='/images/lagrange-mult/4-closure.svg' width='250' height='125' alt='diagram'/>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    width={250}
+    height={125}
+    viewBox="0 0 105.833 52.917"
+    
+  >
+    <defs>
+      <pattern
+        xlinkHref="#4-closure_svg__a"
+        id="4-closure_svg__c"
+        patternTransform="matrix(-.37677 -.52082 11.5363 -8.34557 -25.923 -14.347)"
+      />
+      <pattern
+        id="4-closure_svg__a"
+        width={3}
+        height={1}
+        patternTransform="scale(10)"
+        patternUnits="userSpaceOnUse"
+      >
+        <path
+          d="M0-.5h1v2H0z"
+          style={{
+            fill: "var(--Svg-text)",
+            stroke: "none",
+          }}
+        />
+      </pattern>
+      <pattern
+        xlinkHref="#4-closure_svg__b"
+        id="4-closure_svg__d"
+        patternTransform="matrix(-.37677 -.52082 11.5363 -8.34557 24.713 -14.347)"
+      />
+      <pattern
+        id="4-closure_svg__b"
+        width={3}
+        height={1}
+        patternTransform="scale(10)"
+        patternUnits="userSpaceOnUse"
+      >
+        <path
+          d="M0-.5h1v2H0z"
+          style={{
+            fill: "var(--Svg-text)",
+            stroke: "none",
+          }}
+        />
+      </pattern>
+      <marker
+        id="4-closure_svg__e"
+        orient="auto"
+        refX={0}
+        refY={0}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        <path
+          d="m5.77 0-8.65 5V-5Z"
+          style={{
+            fill: "var(--Svg-gray)",
+            fillRule: "evenodd",
+            stroke: "var(--Svg-gray)",
+            strokeWidth: "1pt",
+          }}
+          transform="scale(.4)"
+        />
+      </marker>
+    </defs>
+    <circle
+      cx={27.364}
+      cy={30.854}
+      r={13.886}
+      style={{
+        fill: "url(#4-closure_svg__c)",
+        fillOpacity: 1,
+        stroke: "none",
+        strokeWidth: 0.499999,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M36.843 41.187a13.886 13.886 0 0 1-17.251.956 13.886 13.886 0 0 1-4.83-16.59 13.886 13.886 0 0 1 15.07-8.45"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1.5875,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M29.483 17.05a13.89 13.89 0 0 1 11.426 9.746 13.89 13.89 0 0 1-4.123 14.44"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1.58750002,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "1.58750002,3.17500005",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <circle
+      cx={78}
+      cy={30.854}
+      r={13.886}
+      style={{
+        fill: "url(#4-closure_svg__d)",
+        fillOpacity: 1,
+        stroke: "none",
+        strokeWidth: 0.499999,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeOpacity: 1,
+      }}
+    />
+    <circle
+      cx={78.251}
+      cy={30.81}
+      r={13.886}
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1.5875,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M60.53 9.83h5.382"
+      style={{
+        fill: "var(--Svg-text-highlight)",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text-highlight)",
+        strokeWidth: 0.9,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={9.888}
+      y={18.433}
+      style={{
+        fontSize: "10.5833px",
+
+        InkscapeFontSpecification: "&quot",
+        fill: "var(--Svg-text-highlight)",
+        fillOpacity: 0.997511,
+        strokeWidth: 0.529167,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={9.888}
+        y={18.433}
+        style={{
+          strokeWidth: 0.529167,
+        }}
+      >
+        {"A"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={59.956}
+      y={19.164}
+      style={{
+        fontSize: "10.5833px",
+
+        InkscapeFontSpecification: "&quot",
+        fill: "var(--Svg-text-highlight)",
+        fillOpacity: 0.997511,
+        strokeWidth: 0.529167,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={59.956}
+        y={19.164}
+        style={{
+          strokeWidth: 0.529167,
+        }}
+      >
+        {"A"}
+      </tspan>
+    </text>
+    <path
+      d="M45.547 31.088h13.318"
+      style={{
+        fill: "var(--Svg-text-highlight)",
+        fillOpacity: 0.997511,
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 0.529167,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        markerEnd: "url(#4-closure_svg__e)",
+      }}
+    />
+  </svg>
 </div>
 
 </Defn>
@@ -371,7 +951,291 @@ export default function LagrangeMultipliers () {
 <p><Latex>$A \subseteq \mathbb&#123;R&#125;^n$</Latex> is closed if and only if <Latex>$\mathbb&#123;R&#125;^n \setminus A$</Latex> is open.</p>
 
 <div className='w-full flex justify-center'>
-    <Image src='/images/lagrange-mult/5-closedOpenComplement.svg' width='300' height='150' alt='diagram'/>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    width={300}
+    height={150}
+    viewBox="0 0 185.208 92.604"
+    
+  >
+    <defs>
+      <pattern
+        xlinkHref="#5-closedOpenComplement_svg__a"
+        id="5-closedOpenComplement_svg__c"
+        patternTransform="matrix(1.30591 1.50244 -3.31277 2.87944 -57.932 -75.743)"
+      />
+      <pattern
+        xlinkHref="#5-closedOpenComplement_svg__a"
+        id="5-closedOpenComplement_svg__b"
+        patternTransform="matrix(-.37677 -.52082 11.5363 -8.34557 0 0)"
+      />
+      <pattern
+        id="5-closedOpenComplement_svg__a"
+        width={3}
+        height={1}
+        patternTransform="scale(10)"
+        patternUnits="userSpaceOnUse"
+      >
+        <path
+          d="M0-.5h1v2H0z"
+          style={{
+            fill: "var(--Svg-text)",
+            stroke: "none",
+          }}
+        />
+      </pattern>
+      <marker
+        id="5-closedOpenComplement_svg__d"
+        orient="auto"
+        refX={0}
+        refY={0}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        <path
+          d="m0 0 5-5-17.5 5L5 5z"
+          style={{
+            fillRule: "evenodd",
+            fill: "var(--Svg-gray)",
+            stroke: "var(--Svg-gray)",
+            strokeWidth: "1pt",
+          }}
+          transform="matrix(-.4 0 0 -.4 -4 0)"
+        />
+      </marker>
+    </defs>
+    <g transform="translate(12.02 -.98)">
+      <g
+        style={{
+          strokeWidth: 1.58750004,
+          strokeMiterlimit: 4,
+          strokeDasharray: "none",
+        }}
+        transform="translate(-37.135 9.09)"
+      >
+        <circle
+          cx={53.287}
+          cy={45.201}
+          r={13.886}
+          style={{
+            opacity: 1,
+            fill: "url(#5-closedOpenComplement_svg__b)",
+            fillOpacity: 1,
+            stroke: "none",
+            strokeWidth: 1.58750004,
+            strokeLinejoin: "bevel",
+            strokeMiterlimit: 4,
+            strokeDasharray: "none",
+            strokeOpacity: 1,
+          }}
+        />
+        <circle
+          cx={53.538}
+          cy={45.157}
+          r={13.886}
+          style={{
+            fill: "none",
+            fillOpacity: 1,
+            stroke: "var(--Svg-text)",
+            strokeWidth: 1.58750004,
+            strokeLinejoin: "bevel",
+            strokeMiterlimit: 4,
+            strokeDasharray: "none",
+            strokeOpacity: 1,
+          }}
+        />
+      </g>
+      <path
+        d="M84.943 22.153v63.5h79.375v-63.5Zm39.687 17.864a13.886 13.886 0 0 1 13.886 13.886 13.886 13.886 0 0 1-13.886 13.886 13.886 13.886 0 0 1-13.886-13.886 13.886 13.886 0 0 1 13.886-13.886"
+        style={{
+          fill: "url(#5-closedOpenComplement_svg__c)",
+          fillOpacity: 1,
+          stroke: "none",
+          strokeWidth: 1.58750004,
+          strokeLinejoin: "bevel",
+          strokeMiterlimit: 4,
+          strokeDasharray: "3.17500008,3.17500008",
+          strokeDashoffset: 0,
+        }}
+      />
+      <circle
+        cx={124.677}
+        cy={53.942}
+        r={13.522}
+        style={{
+          fill: "none",
+          fillOpacity: 1,
+          stroke: "var(--Svg-text)",
+          strokeWidth: 1.54591,
+          strokeLinejoin: "bevel",
+          strokeMiterlimit: 4,
+          strokeDasharray: "3.09181,3.09181",
+          strokeDashoffset: 0,
+          strokeOpacity: 1,
+        }}
+      />
+      <path
+        d="M42.607 54.973H71.33"
+        style={{
+          fill: "var(--Svg-gray)",
+          fillOpacity: 0.997511,
+          stroke: "var(--Svg-gray)",
+          strokeWidth: 0.52916668,
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeMiterlimit: 4,
+          strokeDasharray: "none",
+          markerEnd: "url(#5-closedOpenComplement_svg__d)",
+        }}
+      />
+      <text
+        xmlSpace="preserve"
+        x={84.28}
+        y={17.646}
+        style={{
+          fontSize: "10.5833px",
+
+          InkscapeFontSpecification: "&quot",
+          fill: "var(--Svg-text-highlight)",
+          fillOpacity: 0.997511,
+          stroke: "none",
+          strokeWidth: 0.529167,
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeMiterlimit: 4,
+          strokeDasharray: "none",
+        }}
+      >
+        <tspan
+          x={84.28}
+          y={17.646}
+          style={{
+            fill: "var(--Svg-text-highlight)",
+            stroke: "none",
+            strokeWidth: 0.529167,
+          }}
+        >
+          {"\u211D"}
+        </tspan>
+      </text>
+      <text
+        xmlSpace="preserve"
+        x={-0.95}
+        y={40.158}
+        style={{
+          fontSize: "10.5833px",
+
+          InkscapeFontSpecification: "&quot",
+          fill: "var(--Svg-text-highlight)",
+          fillOpacity: 0.997511,
+          stroke: "none",
+          strokeWidth: 0.529167,
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeMiterlimit: 4,
+          strokeDasharray: "none",
+        }}
+      >
+        <tspan
+          x={-0.95}
+          y={40.158}
+          style={{
+            strokeWidth: 0.529167,
+            fill: "var(--Svg-text-highlight)",
+          }}
+        >
+          {"A"}
+        </tspan>
+      </text>
+      <text
+        xmlSpace="preserve"
+        x={92.049}
+        y={11.807}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 400,
+          fontStretch: "normal",
+          fontSize: "7.05556px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          fill: "var(--Svg-text-highlight)",
+          fillOpacity: 0.997511,
+          stroke: "none",
+          strokeWidth: 0.529167,
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+        }}
+      >
+        <tspan
+          x={92.049}
+          y={11.807}
+          style={{
+            fontStyle: "normal",
+            fontVariant: "normal",
+            fontWeight: 400,
+            fontStretch: "normal",
+            fontSize: "7.05556px",
+
+            InkscapeFontSpecification: "&quot",
+            fontVariantLigatures: "normal",
+            fontVariantCaps: "normal",
+            fontVariantNumeric: "normal",
+            fontVariantEastAsian: "normal",
+            stroke: "none",
+            strokeWidth: 0.529167,
+          }}
+        >
+          {"n"}
+        </tspan>
+      </text>
+      <text
+        xmlSpace="preserve"
+        x={99.279}
+        y={17.456}
+        style={{
+          fontSize: "7.05556px",
+
+          InkscapeFontSpecification: "&quot",
+          fill: "var(--Svg-gray)",
+          fillOpacity: 0.997511,
+          stroke: "var(--Svg-text)",
+          strokeWidth: 3,
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+        }}
+      >
+        <tspan
+          x={99.279}
+          y={17.456}
+          style={{
+            fontStyle: "normal",
+            fontVariant: "normal",
+            fontWeight: 400,
+            fontStretch: "normal",
+            fontSize: "10.5833px",
+
+            InkscapeFontSpecification: "&quot",
+            fontVariantLigatures: "normal",
+            fontVariantCaps: "normal",
+            fontVariantNumeric: "normal",
+            fontVariantEastAsian: "normal",
+            fill: "var(--Svg-text-highlight)",
+            stroke: "none",
+            strokeWidth: 3,
+          }}
+        >
+          {"\\A"}
+        </tspan>
+      </text>
+    </g>
+  </svg>
 </div>
 
 </Thm>
@@ -381,7 +1245,61 @@ export default function LagrangeMultipliers () {
 <p>Let <Latex>$U,V$</Latex> be open sets. Then <Latex>$U \cap V$</Latex> and <Latex>$U \cup V$</Latex> are also open sets. This extends to finite intersections<sup className="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup> and infinite unions.</p>
 
 <div className='w-full flex justify-center'>
-    <Image src='/images/lagrange-mult/6-openIntAndUnion.svg' width='150' height='150' alt='diagram'/>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={150}
+    height={150}
+    viewBox="0 0 92.604 92.604"
+    
+  >
+    <path
+      d="M63.592 26.422c-7.919 1.6-15.273 5.119-22.334 8.889-3.973 2.122-8.122 3.078-11.657 6.1C8.575 59.384 47.455 77.12 65.093 70.293c5.815-2.251 17.244-7.91 20.23-13.847 1.29-2.566.287-7.628-.172-10.365-2.236-13.334-10.118-18.986-21.56-19.66Z"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1.00013,
+        strokeLinejoin: "bevel",
+        strokeDasharray: "2.00025,2.00025",
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M61.955 9.25c-11.119-.47-19.882 8.175-22.068 18.856-2.36 11.537 3.887 19.809 8.646 29.393 1.662 3.347 10.92 26.02 11.687 26.001 18.858-.452 8.265-32.424 8.265-43.2 0-3.23-.298-6.657 0-9.874.493-5.308 7.97-16.413 4.599-21.47-3.338-5.007-8.337-.092-11.129.295z"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1.00013,
+        strokeLinejoin: "bevel",
+        strokeDasharray: "2.00025,2.00025",
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M20.324 62.688c9.88-.505 18.802.155 27.497-5.661 22.548-15.085 6.58-46.845-8.205-41.948-14.08 4.664-36.349 14.134-33.738 32.18.845 5.838 7.098 17.112 14.446 15.43z"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "2,2",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M57.575 28.04c-5.659 1.84-11.048 4.492-16.276 7.283-.561.3-1.126.575-1.693.837.935 7.42 5.095 13.714 8.606 20.64 11.17-7.697 12.592-19.564 9.363-28.76"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 1,
+        stroke: "none",
+        strokeWidth: 1.00013,
+        strokeLinejoin: "bevel",
+        strokeDasharray: "2.00025,2.00025",
+        strokeOpacity: 1,
+      }}
+    />
+  </svg>
 </div>
 
 </Thm>
@@ -391,7 +1309,54 @@ export default function LagrangeMultipliers () {
 <p>Let <Latex>$S,T$</Latex> be closed sets. Then <Latex>$S \cap T$</Latex> and <Latex>$S \cup T$</Latex> are also closed sets. This extends to infinite intersections and finite unions.</p>
 
 <div className='w-full flex justify-center'>
-    <Image src='/images/lagrange-mult/7-closedIntAndUnion.svg' width='150' height='150' alt='diagram'/>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={150}
+    height={150}
+    viewBox="0 0 79.375 79.375"
+    
+  >
+    <path
+      d="M14.6 14.088C5.865 21.18 3.967 38.198 9.274 48.185c4.018 7.563 13.394 8.807 21.08 8.949 7.24.133 15.973.928 23.26 0 4.892-.623 3.21-14.588 3.384-17.603.482-8.405 1.488-17.57-4.823-24.254-4.05-4.29-33.267-10.654-37.573-1.19Z"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M31.135 30.307c-9.9 6.069-9.481 26.933.54 33.238 4.646 2.922 11.986 3.869 17.177 4.786 2.96.524 8.699 2.067 11.82.959 3.318-1.178 6.367-4.368 8.85-6.728 8.396-7.983 4.15-13.366-3.54-19.209-3.746-2.846-4.978-7.152-9.666-9.393-9-4.303-16.444-3.692-25.181-3.653Z"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M37.49 30.256c-2.068-.004-4.17.041-6.355.05-7.532 4.619-9.09 17.8-4.99 26.618 1.43.124 2.845.185 4.208.21 7.24.133 15.973.928 23.26 0 4.892-.623 3.21-14.588 3.384-17.603.095-1.662.209-3.354.285-5.05a12 12 0 0 0-.966-.521c-6.75-3.228-12.625-3.69-18.826-3.704"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 1,
+        stroke: "none",
+        strokeWidth: 1,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+  </svg>
 </div>
 
 </Thm>
@@ -405,7 +1370,204 @@ export default function LagrangeMultipliers () {
 <p><Latex>$A \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>bounded</strong> iff <Latex>$\exists\, R \in \mathbb&#123;R&#125;, R\gt 0$</Latex> such that <Latex>$A \subseteq B(0, R)$</Latex>.</p>
 
 <div className='w-full flex justify-center mt-2'>
-    <Image src='/images/lagrange-mult/8-bounded.svg' width='150' height='150' alt='diagram'/>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={150}
+    height={150}
+    viewBox="0 0 132.292 132.292"
+    
+  >
+    <defs>
+      <marker
+        id="8-bounded_svg__b"
+        orient="auto"
+        refX={0}
+        refY={0}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        <path
+          d="m5.77 0-8.65 5V-5z"
+          style={{
+            fillRule: "evenodd",
+            fill: "var(--Svg-text)",
+            stroke: "var(--Svg-text)",
+            strokeWidth: "1pt",
+          }}
+          transform="scale(.8)"
+        />
+      </marker>
+      <marker
+        id="8-bounded_svg__a"
+        orient="auto"
+        refX={0}
+        refY={0}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        <path
+          d="m5.77 0-8.65 5V-5Z"
+          style={{
+            fill: "var(--Svg-text)",
+            fillRule: "evenodd",
+            stroke: "var(--Svg-text)",
+            strokeWidth: "1pt",
+          }}
+          transform="scale(-.8)"
+        />
+      </marker>
+    </defs>
+    <path
+      d="M85.065 69.234C65.505 63.16 74.96 79.392 71.37 84.946c-4.05 6.268-13.482 7.995-15.23 15.997-1.4 6.415 5.49 19.404 15.286 17.23 8.975-1.991 17.698-18.592 20.578-18.515 7.484.2 19.687 9.91 25.586 3.267 15.947-17.954-14.094-37.208-32.526-33.69"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 1,
+        stroke: "none",
+        strokeWidth: 0.425374,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <circle
+      cx={66.146}
+      cy={66.146}
+      r={65.837}
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.618059,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <g
+      style={{
+        strokeWidth: 0.5,
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+      }}
+    >
+      <path
+        d="m46.166 54.432 6.228 6.229M52.377 54.421 46.17 60.67"
+        style={{
+          fill: "none",
+          fillOpacity: 1,
+          stroke: "var(--Svg-text)",
+          strokeWidth: 0.5,
+          strokeLinejoin: "bevel",
+          strokeMiterlimit: 4,
+          strokeDasharray: "none",
+          strokeDashoffset: 0,
+          strokeOpacity: 1,
+        }}
+        transform="matrix(.80394 0 0 .80164 26.528 20.015)"
+      />
+    </g>
+    <path
+      d="M66.146 60.27V4.88"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.486298,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+        markerStart: "url(#8-bounded_svg__a)",
+        markerEnd: "url(#8-bounded_svg__b)",
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={69.025}
+      y={36.679}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 700,
+        fontStretch: "normal",
+        fontSize: "10.5833px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text-highlight)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={69.025}
+        y={36.679}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 700,
+          fontStretch: "normal",
+          fontSize: "10.5833px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          fill: "var(--Svg-text-highlight)",
+          strokeWidth: 0.397,
+        }}
+      >
+        {"R"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={87.393}
+      y={88.689}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 700,
+        fontStretch: "normal",
+        fontSize: "10.5833px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text-highlight)",
+        stroke: "none",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={87.393}
+        y={88.689}
+        style={{
+          fill: "var(--Svg-text-highlight)",
+          stroke: "none",
+          strokeWidth: 0.397,
+        }}
+      >
+        {"A"}
+      </tspan>
+    </text>
+  </svg>
 </div>
 
 </Defn>
@@ -414,7 +1576,196 @@ export default function LagrangeMultipliers () {
 
 <p>A subset <Latex>$K \subseteq \mathbb&#123;R&#125;^n$</Latex> is <strong>compact</strong> if it is closed and bounded.</p>
 
-<div className='flex flex-wrap justify-around'><Image src='/images/lagrange-mult/9-notCompact.svg' width='200' height='200' alt='diagram' /> <Image src='/images/lagrange-mult/10-compact.svg' width='200' height='200' alt='diagram' /></div>
+<div className='flex flex-wrap justify-around'><svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={200}
+    height={200}
+    viewBox="0 0 132.292 132.292"
+    
+  >
+    <defs>
+      <marker
+        id="9-notCompact_svg__b"
+        orient="auto"
+        refX={0}
+        refY={0}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        <path
+          d="m0 0 5-5-17.5 5L5 5z"
+          style={{
+            fillRule: "evenodd",
+            fill: "var(--Svg-gray)",
+            stroke: "var(--Svg-gray)",
+            strokeWidth: "1pt",
+          }}
+          transform="rotate(180 -5 0)scale(.8)"
+        />
+      </marker>
+    </defs>
+    <path
+      d="M44.164 13.204c2.939 38.446 22.173 58.986 61.884 61.11"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 4.23333328,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M44.164 13.205c2.938 38.445 22.173 58.985 61.884 61.11v-61.11Z"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 0.99871445,
+        stroke: "none",
+        strokeWidth: 0.499999,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M25.519 79.375h80.268"
+      style={{
+        fill: "var(--Svg-gray)",
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        markerEnd: "url(#9-notCompact_svg__b)",
+      }}
+    />
+    <path
+      d="M39.687 93.544V13.275"
+      style={{
+        fill: "var(--Svg-gray)",
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        markerEnd: "url(#9-notCompact_svg__b)",
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={31.239}
+      y={112.153}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "10.5833px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        fillOpacity: 0.998714,
+        stroke: "none",
+        strokeWidth: 1.32292,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+      }}
+    >
+      <tspan
+        x={31.239}
+        y={112.153}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 400,
+          fontStretch: "normal",
+          fontSize: "10.5833px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          fill: "var(--Svg-text)",
+          stroke: "none",
+          strokeWidth: 1.32292,
+        }}
+      >
+        {"Non-example"}
+      </tspan>
+    </text>
+  </svg> <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={200}
+    height={200}
+    viewBox="0 0 132.292 132.292"
+    
+  >
+    <g
+      style={{
+        fontSize: "11.9944px",
+
+        InkscapeFontSpecification: "&quot",
+        fill: "#e06c75",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 0.499999,
+        strokeLinejoin: "bevel",
+      }}
+    >
+      <text
+        xmlSpace="preserve"
+        x={43.571}
+        y={116.252}
+        aria-label="Example"
+        style={{
+          fontSize: "10.5833px",
+
+          InkscapeFontSpecification: "&quot",
+          fill: "var(--Svg-text)",
+          fillOpacity: 0.998714,
+          stroke: "none",
+          strokeWidth: 1.32292,
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+        }}
+      >
+        <tspan
+          x={43.571}
+          y={116.252}
+          style={{
+            stroke: "none",
+            strokeWidth: 1.32292,
+          }}
+        >
+          {"Example"}
+        </tspan>
+      </text>
+    </g>
+    <path
+      d="M59.302 19.267C44.068 20.973 30.038 41.143 36.726 56.4c2.117 4.828 8.257 6.71 9.944 11.82 5.133 15.547-16.94 38.954 24.674 22.288 9.736-3.899 10.24-22.081 11.636-30.06 1.816-10.372 12.69-10.63 14.067-18.95 2.29-13.826-12.94-30.157-26.206-26.84-6.067 1.516-4.08 5.021-11.54 4.61z"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 2.6458333,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+  </svg></div>
 
 </Defn>
 
@@ -461,7 +1812,106 @@ export default function LagrangeMultipliers () {
         <p>Let <Latex>$K$</Latex> be a closed ball in <Latex>$\mathbb&#123;R&#125;^2$</Latex>, then <Latex>$K$</Latex> is compact. Let <Latex>$f : K \to \mathbb&#123;R&#125;, f(x) = d(x,(0,0))$</Latex> which is continuous.</p>
         <p>Then the theorem says that there is a point(s) on <Latex>$K$</Latex> which is closest to <Latex>$(0,0)$</Latex>, and a point(s) which is furthest.</p>
     </div>
-    <Image src='/images/lagrange-mult/11-closedBall.svg' width='200' height='200' alt='diagram'/>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={200}
+    height={200}
+    viewBox="0 0 91.837 91.837"
+    
+  >
+    <defs>
+      <marker
+        id="11-closedBall_svg__b"
+        orient="auto"
+        refX={0}
+        refY={0}
+        style={{
+          overflow: "visible",
+        }}
+      >
+        <path
+          d="m0 0 5-5-17.5 5L5 5Z"
+          style={{
+            fill: "var(--Svg-gray)",
+            fillRule: "evenodd",
+            stroke: "var(--Svg-gray)",
+            strokeWidth: "1pt",
+          }}
+          transform="matrix(-.4 0 0 -.4 -4 0)"
+        />
+      </marker>
+    </defs>
+    <circle
+      cx={53.318}
+      cy={46.836}
+      r={16.712}
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 0.99751139,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1.58749997,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={66.329}
+      y={31.157}
+      style={{
+        fontSize: "10.5833px",
+
+        InkscapeFontSpecification: "&quot",
+        fill: "var(--Svg-text)",
+        fillOpacity: 0.997511,
+        stroke: "none",
+        strokeWidth: 1.32292,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={66.329}
+        y={31.157}
+        style={{
+          fill: "var(--Svg-text)",
+          stroke: "none",
+          strokeWidth: 1.32292,
+        }}
+      >
+        {"K"}
+      </tspan>
+    </text>
+    <path
+      d="M19.46 86.546V6.277"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 0.997511,
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 0.52916666,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        markerEnd: "url(#11-closedBall_svg__b)",
+      }}
+    />
+    <path
+      d="M5.292 72.377H85.56"
+      style={{
+        fill: "var(--Svg-gray)",
+        fillOpacity: 0.997511,
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 0.52916666,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        markerEnd: "url(#11-closedBall_svg__b)",
+      }}
+    />
+  </svg>
 </div>
 
 </Example>
@@ -537,7 +1987,239 @@ export default function LagrangeMultipliers () {
 <p><Latex>$0 \leq x,y,z \leq 1$</Latex> so we're only interested in the cube <Latex>$[0,1] \times [0,1] \times [0,1]$</Latex>.</p>
 
 <div className='flex flex-wrap justify-center items-center space-x-4'>
-    <Image src='/images/lagrange-mult/12-cube.svg' width='250' height='200' alt='diagram'/><p><Latex>$x+y+z=1$</Latex> is a plane</p>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={250}
+    height={200}
+    viewBox="0 0 105.833 84.667"
+    
+  >
+    <path
+      d="M28.673 29.612h39.688V69.3H28.673z"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1,
+        strokeLinejoin: "bevel",
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M28.673 29.612 55.65 7.383h39.687L68.36 29.613V69.3l26.977-22.23V7.383"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1.00012,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M28.673 69.3 55.65 47.07V7.383M55.65 47.07h39.687"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 1.00012,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "3.00037,3.00037",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M28.673 29.612 68.36 69.3 55.65 47.07Z"
+      style={{
+        fill: "var(--Svg-fill-highlight-1)",
+        fillOpacity: 1,
+        stroke: "none",
+        strokeWidth: 1.00012,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={46.093}
+      y={53.978}
+      style={{
+        fontSize: "4.23333px",
+
+        InkscapeFontSpecification: "&quot",
+        fill: "#abb2bf",
+        fillOpacity: 1,
+        stroke: "#abb2bf",
+        strokeWidth: 1.00012,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "3.00038,3.00038",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={4.286}
+      y={23.196}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "7.05556px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={4.286}
+        y={23.196}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 400,
+          fontStretch: "normal",
+          fontSize: "7.05556px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          strokeWidth: 0.397,
+          fill: "var(--Svg-text)",
+        }}
+      >
+        {"(0,0,3)"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={8.043}
+      y={78.366}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "7.05556px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={8.043}
+        y={78.366}
+        style={{
+          strokeWidth: 0.397,
+          fill: "var(--Svg-text)",
+        }}
+      >
+        {"(0,0,0)"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={58.092}
+      y={77.804}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "7.05556px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={58.092}
+        y={77.804}
+        style={{
+          strokeWidth: 0.397,
+          fill: "var(--Svg-text)",
+        }}
+      >
+        {"(3,0,0)"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={48.736}
+      y={43.145}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "4.23333px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={48.736}
+        y={43.145}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 400,
+          fontStretch: "normal",
+          fontSize: "4.23333px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          fill: "var(--Svg-text)",
+          strokeWidth: 0.397,
+        }}
+      >
+        {"(0,3,0)"}
+      </tspan>
+    </text>
+  </svg><p><Latex>$x+y+z=1$</Latex> is a plane</p>
 </div>
 
 <p>Let <Latex>$U = (0,1)^3$</Latex>, then <Latex>$\bar U = [0,1]^3$</Latex>.</p>
@@ -559,7 +2241,7 @@ export default function LagrangeMultipliers () {
 
 <span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = yz, \frac&#123;\delta f&#125;&#123;\delta y&#125; = xz, \frac&#123;\delta f&#125;&#123;\delta z&#125; = xy$$</Latex></span>
 
-<p>So <Latex>$yz = \lambda \cdot 1$</Latex>, <Latex>$xz = \lambda \cdot 1$</Latex>, <Latex>$xy = \lambda \cdot 1$</Latex>.<br />
+<p>So <Latex>$yz = \lambda \cdot 1$</Latex>, <Latex>$xz = \lambda \cdot 1$</Latex>, <Latex>$xy = \lambda \cdot 1$</Latex>. <br />
 This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finally <Latex>$x+y+z = 1$</Latex> <Latex>$\implies$</Latex> <Latex>$x=y=z=\frac&#123;1&#125;&#123;3&#125;$</Latex>, so an extremal value of <Latex>$f$</Latex> is <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.</p>
 
 <p>Overall, all extreme values of <Latex>$f$</Latex> on <Latex>$\bar S$</Latex> are <Latex>$0$</Latex> or <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.</p>
@@ -590,7 +2272,7 @@ This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finall
 <p>Let <Latex>$x_0 = (x,y,z)$</Latex> be a global extremum.</p>
 
 <ul>
-<li>If <Latex>$x_0$</Latex> is on the boundary:<br />
+<li>If <Latex>$x_0$</Latex> is on the boundary: <br />
 Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Latex>. Then <Latex>$x+y=1$</Latex> and we wish to show that <Latex>$0 \leq xy \leq \frac&#123;7&#125;&#123;27&#125;$</Latex>.</li>
 </ul>
 
@@ -616,8 +2298,8 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta z&#125; = y+x-2yx$$</Latex></span>
 
-<p>So, <Latex>$z+y-2yz = \lambda \cdot 1$</Latex>,<br />
-<Latex>$x+z-2xz = \lambda \cdot 1$</Latex>,<br />
+<p>So, <Latex>$z+y-2yz = \lambda \cdot 1$</Latex>, <br />
+<Latex>$x+z-2xz = \lambda \cdot 1$</Latex>, <br />
 <Latex>$y+x-2yx = \lambda \cdot 1$</Latex></p>
 
 <p>Solving for <Latex>$x,y,z$</Latex>:</p>
@@ -804,7 +2486,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 <p>Thus either <Latex>$x=y$</Latex> or <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>.</p>
 
 <ul>
-<li>If <Latex>$x = y$</Latex>:<br />
+<li>If <Latex>$x = y$</Latex>: <br />
 Then, since <Latex>$x^2 + y^2 = 1$</Latex>, we have that <Latex>$x = y = \pm \frac&#123;1&#125;&#123;\sqrt2&#125;$</Latex>. In this case:</li>
 </ul>
 
@@ -817,7 +2499,7 @@ Then, since <Latex>$x^2 + y^2 = 1$</Latex>, we have that <Latex>$x = y = \pm \fr
 <span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 0, 2\sqrt2$$</Latex></span>
 
 <ul>
-<li>If <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>:<br />
+<li>If <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>: <br />
 Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 </ul>
 
@@ -855,7 +2537,253 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 <p>If we attempt to use LM:</p>
 
 <div className='flex justify-center'>
-    <Image src='/images/lagrange-mult/13-notBoundary.svg' width='250' height='200' alt='diagram'/>
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={250}
+    height={200}
+    viewBox="0 0 105.833 84.667"
+    
+  >
+    <path
+      d="M28.673 29.612h39.688V69.3H28.673z"
+      style={{
+        fill: "none",
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1,
+        strokeLinejoin: "bevel",
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M28.673 29.612 55.65 7.383h39.687L68.36 29.613V69.3l26.977-22.23V7.383"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-text)",
+        strokeWidth: 1.00012,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M28.673 69.3 55.65 47.07V7.383M55.65 47.07h39.687"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-gray)",
+        strokeWidth: 1.00012,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "3.00037,3.00037",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M28.673 29.612 68.36 69.3 55.65 47.07Z"
+      style={{
+        fill: "var(--Svg-fill-highlight-1)",
+        fillOpacity: 1,
+        stroke: "none",
+        strokeWidth: 1.00012,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "none",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={46.093}
+      y={53.978}
+      style={{
+        fontSize: "4.23333px",
+
+        InkscapeFontSpecification: "&quot",
+        fill: "#abb2bf",
+        fillOpacity: 1,
+        stroke: "#abb2bf",
+        strokeWidth: 1.00012,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "3.00038,3.00038",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <path
+      d="M28.673 29.612 68.36 69.3 55.65 47.07Z"
+      style={{
+        fill: "none",
+        fillOpacity: 1,
+        stroke: "var(--Svg-line-highlight-2)",
+        strokeWidth: 1.58750002,
+        strokeLinejoin: "bevel",
+        strokeMiterlimit: 4,
+        strokeDasharray: "3.17500005,3.17500005",
+        strokeDashoffset: 0,
+        strokeOpacity: 1,
+      }}
+    />
+    <text
+      xmlSpace="preserve"
+      x={4.286}
+      y={23.196}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "7.05556px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={4.286}
+        y={23.196}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 400,
+          fontStretch: "normal",
+          fontSize: "7.05556px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          strokeWidth: 0.397,
+          fill: "var(--Svg-text)",
+        }}
+      >
+        {"(0,0,3)"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={8.043}
+      y={78.366}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "7.05556px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={8.043}
+        y={78.366}
+        style={{
+          strokeWidth: 0.397,
+          fill: "var(--Svg-text)",
+        }}
+      >
+        {"(0,0,0)"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={58.092}
+      y={77.804}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "7.05556px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "var(--Svg-text)",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={58.092}
+        y={77.804}
+        style={{
+          strokeWidth: 0.397,
+          fill: "var(--Svg-text)",
+        }}
+      >
+        {"(3,0,0)"}
+      </tspan>
+    </text>
+    <text
+      xmlSpace="preserve"
+      x={48.736}
+      y={43.145}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 400,
+        fontStretch: "normal",
+        fontSize: "4.23333px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        fill: "#1a1a1a",
+        strokeWidth: 0.396999,
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+      }}
+    >
+      <tspan
+        x={48.736}
+        y={43.145}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 400,
+          fontStretch: "normal",
+          fontSize: "4.23333px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          fill: "#1a1a1a",
+          strokeWidth: 0.397,
+        }}
+      >
+        {"(0,3,0)"}
+      </tspan>
+    </text>
+  </svg>
 </div>
 
 <p>The problem is that <Latex>$f$</Latex> is not defined on the boundary, so we cannot say <Latex>$f$</Latex> has a global max and min in the area we're looking at (indeed <Latex>$f$</Latex> can be arbitrarily large if we let <Latex>$a$</Latex> approach zero for example). Boo, we can't use LM.</p>

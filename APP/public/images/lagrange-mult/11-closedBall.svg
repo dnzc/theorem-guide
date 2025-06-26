@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="lm11.svg"
+   sodipodi:docname="11-closedBall.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -16,7 +16,7 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview7"
-     pagecolor="#000000"
+     pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:pageshadow="2"
@@ -27,14 +27,14 @@
      units="px"
      width="400px"
      showguides="false"
-     inkscape:zoom="1.0570195"
-     inkscape:cx="118.25704"
-     inkscape:cy="176.43951"
-     inkscape:window-width="1920"
-     inkscape:window-height="1048"
-     inkscape:window-x="0"
-     inkscape:window-y="32"
-     inkscape:window-maximized="1"
+     inkscape:zoom="2.114039"
+     inkscape:cx="149.00387"
+     inkscape:cy="165.32335"
+     inkscape:window-width="1896"
+     inkscape:window-height="1024"
+     inkscape:window-x="12"
+     inkscape:window-y="44"
+     inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      inkscape:snap-bbox="true" />
   <defs
@@ -102,6 +102,20 @@
          style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path7356" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mend_F-808080_S-808080"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#808080;fill-rule:evenodd;stroke:#808080;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path158923" />
     </marker>
     <marker
        style="overflow:visible"
@@ -192,31 +206,30 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <g
-       id="g68708"
-       transform="translate(-20.227263,-6.9980967)">
-      <path
-         style="fill:none;fill-opacity:1;stroke:#abb2bf;stroke-width:0.5;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Mend_Fnone_S-abb2bf)"
-         d="m 25.51893,79.375089 h 80.26854"
-         id="path29829" />
-      <path
-         style="fill:none;fill-opacity:1;stroke:#abb2bf;stroke-width:0.5;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Mend_Fnone_S-abb2bf)"
-         d="M 39.687325,93.543643 V 13.275104"
-         id="path29829-6" />
-    </g>
     <circle
-       style="fill:#000000;fill-opacity:0.3;stroke:#000000;stroke-width:1;stroke-linejoin:bevel"
+       style="fill:#808080;fill-opacity:0.99751139;stroke:#000000;stroke-width:1.58749997;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none"
        id="path60275"
        cx="53.317875"
        cy="46.836182"
        r="16.711859" />
-    <g
-       aria-label="K"
-       id="text63860"
-       style="font-size:11.9944px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';fill:#000000;stroke-linejoin:bevel">
-      <path
-         d="m 68.923031,34.256317 h -1.064119 v -8.469892 h 1.064119 z m 0.06151,-4.520966 3.333828,-3.948926 h 1.230195 l -3.309224,3.881265 3.542961,4.588627 h -1.32861 z"
-         id="path902" />
-    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';fill:#000000;fill-opacity:0.997511;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round"
+       x="66.32901"
+       y="31.15687"
+       id="text153422"><tspan
+         sodipodi:role="line"
+         id="tspan153420"
+         style="fill:#000000;stroke:none;stroke-width:1.32292"
+         x="66.32901"
+         y="31.15687">K</tspan></text>
+    <path
+       style="fill:#808080;fill-opacity:0.997511;stroke:#808080;stroke-width:0.52916666;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#Arrow1Mend_F-808080_S-808080)"
+       d="M 19.460062,86.545546 V 6.2770072"
+       id="path158663" />
+    <path
+       style="fill:#808080;fill-opacity:0.997511;stroke:#808080;stroke-width:0.52916666;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#Arrow1Mend_F-808080_S-808080)"
+       d="M 5.2916671,72.376992 H 85.560208"
+       id="path158731" />
   </g>
 </svg>

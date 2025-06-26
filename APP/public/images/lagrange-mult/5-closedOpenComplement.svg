@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="lm5.svg"
+   sodipodi:docname="5-closedOpenComplement.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -16,7 +16,7 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview7"
-     pagecolor="#000000"
+     pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:pageshadow="2"
@@ -26,9 +26,9 @@
      showgrid="false"
      units="px"
      width="400px"
-     inkscape:zoom="2"
-     inkscape:cx="152"
-     inkscape:cy="163.75"
+     inkscape:zoom="1"
+     inkscape:cx="284"
+     inkscape:cy="260.5"
      inkscape:window-width="1920"
      inkscape:window-height="1048"
      inkscape:window-x="0"
@@ -39,11 +39,39 @@
      inkscape:snap-bbox="true" />
   <defs
      id="defs2">
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Mend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4) rotate(180) translate(10,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1441" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Mend_F-808080_S-808080"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4) rotate(180) translate(10,0)"
+         style="fill-rule:evenodd;fill:#808080;stroke:#808080;stroke-width:1pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path201578" />
+    </marker>
     <pattern
        inkscape:collect="always"
        xlink:href="#Strips1_2"
        id="pattern71054"
-       patternTransform="matrix(4.9357263,5.6785173,-12.520712,10.882916,0,0)" />
+       patternTransform="matrix(1.3059109,1.5024411,-3.3127718,2.8794383,-57.93248,-75.743172)" />
     <marker
        style="overflow:visible"
        id="TriangleOutM"
@@ -154,7 +182,6 @@
          offset="0"
          id="stop4314" />
     </linearGradient>
-    
     <marker
        style="overflow:visible"
        id="Arrow2Mend"
@@ -255,68 +282,85 @@
            transform="translate(-43.711789,-4.4489741)">
           <g
              id="g7292"
-             transform="translate(-37.134611,9.0897921)">
+             transform="translate(-37.134611,9.0897921)"
+             style="stroke-width:1.58750004;stroke-miterlimit:4;stroke-dasharray:none">
             <circle
-               style="opacity:1;fill:url(#pattern7207);fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               style="opacity:1;fill:url(#pattern7207);fill-opacity:1;stroke:none;stroke-width:1.58750004;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
                id="path4915"
                r="13.885966"
                cy="45.200966"
                cx="53.286964" />
             <circle
-               style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.58750004;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
                id="path4915-5"
                cx="53.538208"
                cy="45.156822"
                r="13.885966" />
           </g>
-          <g
-             aria-label="A"
-             id="text10370"
-             style="font-size:11.9944px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code';opacity:1;fill:#e5c07b;stroke-linejoin:bevel;stroke-dasharray:1, 2">
-            <path
-               d="m 2.665917,38.19331 h -3.35229352 l -0.67660968,2.159 H -2.4148068 L 0.34084004,31.882387 H 1.7063615 L 4.4620083,40.35231 H 3.3425267 Z M -0.40958164,37.307566 H 2.3891222 L 0.99899675,32.780432 Z"
-               id="path944" />
-          </g>
           <path
-             style="opacity:1;fill:none;fill-opacity:1;stroke:#abb2bf;stroke-width:0.929928;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutM_Fnone_S-abb2bf)"
-             d="M 50.411842,54.972578 H 61.184323"
-             id="path69253" />
-          <g
-             id="g71309"
-             transform="translate(-2.2004552,-72.273327)">
-            <path
-               id="path4915-5-7"
-               style="fill:url(#pattern71054);fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-linejoin:bevel"
-               d="M 540,370 V 610 H 840 V 370 Z m 150,67.51758 A 52.48239,52.48239 0 0 1 742.48242,490 52.48239,52.48239 0 0 1 690,542.48242 52.48239,52.48239 0 0 1 637.51758,490 52.48239,52.48239 0 0 1 690,437.51758 Z"
-               transform="matrix(0.26458334,0,0,0.26458334,-55.732025,-3.469845)" />
-            <circle
-               style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00013;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:2.00025, 2.00025;stroke-dashoffset:0;stroke-opacity:1"
-               id="path4915-5-9"
-               cx="127.00061"
-               cy="126.23911"
-               r="13.885966" />
-          </g>
-          <g
-             aria-label="ℝn\A"
-             id="text129513"
-             style="font-family:'Fira Code';-inkscape-font-specification:'Fira Code';baseline-shift:baseline;opacity:1;fill:#e5c07b;stroke-width:1.00013;stroke-linejoin:bevel;stroke-dasharray:2.00025, 2.00025">
-            <path
-               d="m 91.108592,13.321665 q 0,1.064615 -0.504616,1.68 -0.498461,0.60923 -1.316923,0.855384 l 2.221539,3.323077 h -1.28 l -2.006154,-3.150769 q -0.141539,0.0062 -0.289231,0.0062 h -0.393846 l 0.0062,3.144615 H 84.942438 V 10.70628 h 2.892308 q 1.495384,0 2.381538,0.658462 0.892308,0.652307 0.892308,1.956923 z m -3.593846,1.852307 h 0.60923 q 0.264616,0 0.486154,-0.03077 v -3.563077 q -0.203077,-0.02462 -0.424615,-0.02462 h -0.670769 z m -1.643077,-3.606154 v 6.75077 h 0.744615 v -6.75077 z m 4.301538,1.766154 q 0,-0.52923 -0.178461,-0.886154 -0.178462,-0.356923 -0.498462,-0.566153 v 2.972307 q 0.32,-0.20923 0.498462,-0.578461 0.178461,-0.369231 0.178461,-0.941539 z"
-               style="baseline-shift:baseline"
-               id="path965" />
-            <path
-               d="m 92.38642,14.380126 0.844,-4.212 h 0.572 l -0.068,0.584 q 0.324,-0.324 0.74,-0.496 0.42,-0.176 0.788,-0.176 0.62,0 0.836,0.328 0.216,0.328 0.1,0.912 l -0.612,3.06 h -0.672 l 0.512,-2.564 q 0.088,-0.432 0.092,-0.696 0.004,-0.264 -0.124,-0.388 -0.128,-0.124 -0.444,-0.124 -0.248,0 -0.488,0.108 -0.24,0.108 -0.444,0.272 -0.2,0.16 -0.348,0.324 l -0.612,3.068 z"
-               style="font-style:italic;font-size:65%;baseline-shift:super"
-               id="path967" />
-            <path
-               d="m 97.028562,9.6232031 0.824615,-0.4061538 5.267693,10.8615387 -0.83692,0.36923 z"
-               style="baseline-shift:baseline"
-               id="path969" />
-            <path
-               d="m 109.10239,17.020126 h -3.35385 l -0.67692,2.16 h -1.05231 l 2.75693,-8.473846 h 1.36615 l 2.75692,8.473846 h -1.12 z m -3.07692,-0.886154 h 2.8 l -1.39077,-4.52923 z"
-               style="baseline-shift:baseline"
-               id="path971" />
-          </g>
+             id="path4915-5-7"
+             style="fill:url(#pattern71054);fill-opacity:1;stroke:none;stroke-width:1.58750004;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:3.17500008,3.17500008;stroke-dashoffset:0"
+             d="M 84.942524,22.152664 V 85.652665 H 164.31753 V 22.152664 Z M 124.63002,40.016691 A 13.885966,13.885966 0 0 1 138.516,53.902665 13.885966,13.885966 0 0 1 124.63002,67.788639 13.885966,13.885966 0 0 1 110.74405,53.902665 13.885966,13.885966 0 0 1 124.63002,40.016691 Z" />
+          <circle
+             style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.54591;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:3.09181, 3.09181;stroke-dashoffset:0;stroke-opacity:1"
+             id="path4915-5-9"
+             cx="124.6775"
+             cy="53.942192"
+             r="13.522138" />
+          <path
+             style="fill:#808080;fill-opacity:0.997511;stroke:#808080;stroke-width:0.52916668;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#Arrow1Mend_F-808080_S-808080)"
+             d="m 42.607359,54.972577 28.721403,0"
+             id="path159865"
+             sodipodi:nodetypes="cc" />
+          <text
+             xml:space="preserve"
+             style="font-size:10.5833px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';fill:#0000ff;fill-opacity:0.997511;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+             x="84.279533"
+             y="17.645695"
+             id="text162770"><tspan
+               sodipodi:role="line"
+               id="tspan162768"
+               style="fill:#0000ff;stroke:none;stroke-width:0.529167"
+               x="84.279533"
+               y="17.645695">ℝ</tspan><tspan
+               sodipodi:role="line"
+               style="fill:#0000ff;stroke:none;stroke-width:0.529167"
+               x="84.279533"
+               y="30.874819"
+               id="tspan23798" /></text>
+          <text
+             xml:space="preserve"
+             style="font-size:10.5833px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';fill:#0000ff;fill-opacity:0.997511;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+             x="-0.94968611"
+             y="40.157597"
+             id="text198531"><tspan
+               sodipodi:role="line"
+               id="tspan198529"
+               style="stroke-width:0.529167;fill:#0000ff"
+               x="-0.94968611"
+               y="40.157597">A</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#0000ff;fill-opacity:0.997511;stroke:none;stroke-width:0.529167;stroke-linecap:round;stroke-linejoin:round"
+             x="92.048637"
+             y="11.806949"
+             id="text7728"><tspan
+               sodipodi:role="line"
+               id="tspan7726"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:none;stroke-width:0.529167"
+               x="92.048637"
+               y="11.806949">n</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-size:7.05556px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';fill:#808080;fill-opacity:0.997511;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"
+             x="99.279175"
+             y="17.456362"
+             id="text25548"><tspan
+               sodipodi:role="line"
+               id="tspan25546"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#0000ff;stroke:none;stroke-width:3"
+               x="99.279175"
+               y="17.456362">\A</tspan></text>
         </g>
       </g>
     </g>

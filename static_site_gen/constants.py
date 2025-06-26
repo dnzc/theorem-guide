@@ -1,7 +1,7 @@
 from jinja2 import Environment, FileSystemLoader
 
 # ROOT_DIR = '/home/dnzc/Github/Notes/'
-ROOT_DIR = '/Users/daniel/Github/Notes/'
+ROOT_DIR = '/home/dnzc/Github/Notes/'
 SOURCE_DIR = ROOT_DIR + 'CONTENT'
 TARGET_DIR = ROOT_DIR + 'APP/pages'
 TEMPLATES_DIR = ROOT_DIR + 'templates'
@@ -19,4 +19,4 @@ FOLDER_TEMPLATE = TEMPLATE_ENV.get_template('folder_overview.jinja')
 PLACEHOLDER_TIMESTAMP = -1 # for files without a timestamp
 COURSE_INDICATOR = '[COURSE] '
 
-COMPILE_EVERYTHING = 1
+COMPILE_EVERYTHING = 0

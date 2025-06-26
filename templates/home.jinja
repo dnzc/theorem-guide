@@ -1,7 +1,7 @@
 <div className="space-y-6">
 
     <p className="mt-2 text-3xl font-bold break-all text-articleh1">
-        notes.danielc.rocks
+        tripos.rocks
     </p>
 
     <p>
@@ -67,8 +67,7 @@
             <li className="list-disc ml-8">
                 I wrote a static site generator (SSG) in Python to transform the markdown in the master folder into Next.js pages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. Since I'm a maths purist:
                 <div className="flex justify-center my-4">
-                    <Image src='/images/root/workflow.svg' width='250' height='200' alt='workflow diagram' class="inverted"/>
-
+                    <AUTOSVG src='/images/root/workflow.svg' width='250' height='100'/>
                 </div>
             </li>
             <li className="list-disc ml-8">
