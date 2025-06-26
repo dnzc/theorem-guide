@@ -31,6 +31,8 @@ add tag preset colors, view/group by tags
 
 intuition-focused explanation of derivatives
 
+arrangement of sources / sinks in a uniform stream to generate any flow
+
 soroban practice page
 
 Kakuro app (with zoom)
