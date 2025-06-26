@@ -326,7 +326,7 @@ export default function CourseNotes () {
     </defs>
     <text
       xmlSpace="preserve"
-      x={14.512}
+      x={15.57}
       y={11.731}
       style={{
         fontStyle: "normal",
@@ -348,7 +348,7 @@ export default function CourseNotes () {
       transform="translate(-7.462 -5.837)"
     >
       <tspan
-        x={14.512}
+        x={15.57}
         y={11.731}
         style={{
           fontStyle: "normal",
@@ -459,7 +459,7 @@ export default function CourseNotes () {
     </text>
     <text
       xmlSpace="preserve"
-      x={15.3}
+      x={16.358}
       y={24.707}
       style={{
         fontStyle: "normal",
@@ -481,7 +481,7 @@ export default function CourseNotes () {
       transform="translate(-7.462 -5.837)"
     >
       <tspan
-        x={15.3}
+        x={16.358}
         y={24.707}
         style={{
           fontStyle: "normal",

@@ -82,7 +82,7 @@
         @apply font-space;
     }
     .gruvbox .myToast {
-        @apply font-iosevka;
+        @apply font-pangolin;
     }
 
     /* invert dark theme images */

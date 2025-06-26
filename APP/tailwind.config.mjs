@@ -91,7 +91,7 @@ export default {
       fontFamily: {
         'lato' : ['var(--font-lato)', 'arial'],
         'space' : ['var(--font-space)', 'arial'],
-        'iosevka' : ['var(--font-iosevka)', 'arial'],
+        'pangolin' : ['var(--font-pangolin)', 'arial'],
         'fira' : ['var(--font-fira)', 'monospace'],
       },
     },

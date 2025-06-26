@@ -35,7 +35,7 @@
         --light-orange: #fe8019; /**/
 
         /* begin definitions */
-        @apply font-iosevka;
+        @apply font-pangolin;
         --toastify-color-light: var(--bg3) !important;
         --toastify-color-progress-light: var(--yellow) !important;
         color-scheme: dark;
