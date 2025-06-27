@@ -18,7 +18,7 @@ def wrap_in_js(jinja, name, isFolder, isReadmeOrHome):
     imports = ''
     if isFolder: imports += f'''
 import {{ FaBook }} from 'react-icons/fa'
-import {{ GrArticle }} from "react-icons/gr";
+import {{ GrArticle }} from 'react-icons/gr'
 import {{ AiFillFolder }} from 'react-icons/ai'
 import Folder from '@/components/folder'
 '''
@@ -30,6 +30,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import {{ copyToClipboard, CopyButton }} from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
+import {{ ImPilcrow }} from 'react-icons/im'
 import {{ {', '.join(math_tags)} }} from '@/components/math'
 '''
     return f'''
@@ -76,7 +77,7 @@ export default function {name.replace(' ', '')} () {{
 # find h2 tags with an id, add link anchor to them (each h2 in a markdown file is given a unique id by the header-ids extension)
 # this is an external function so that it can also be applied to the homepage (but the header ids must be manually put there)
 def add_link_anchors(page, cur_target_dir): 
-    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="\1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>', page, flags=re.DOTALL)
+    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="\1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
     return '' if timestamp==PLACEHOLDER_TIMESTAMP else datetime.fromtimestamp(timestamp).strftime('%d %b %Y')
@@ -91,14 +92,13 @@ def sanitize(path):
 
 def checksum(path):
     hash = lambda plaintext: hashlib.md5(bytes(plaintext,'u8')).hexdigest()
-    if path.endswith('__IMAGES__'): return hash('')
     if not os.path.isdir(path):
         with open(path, 'r') as f:
             return hash(f.read())
     concat = []
     for child in os.listdir(path):
         concat.append(checksum(path+'/'+child)) # detect changes in children
-    concat.append(hash(path)) # detect new folders
+    concat.append(hash(path.removeprefix(ROOT_DIR))) # detect new folders
     return hash(''.join(concat))
     
 # turn html article content into plaintext
@@ -136,7 +136,6 @@ def get_updation_timestamp_and_filecount(cur_dir):
         return timestamp, 1
     filecount = 0
     for child in os.listdir(SOURCE_DIR+cur_dir):
-        if child.endswith('__IMAGES__'): continue # exclude the special images directory
         child_timestamp, child_filecount = get_updation_timestamp_and_filecount(cur_dir+'/'+child)
         timestamp = max(timestamp, child_timestamp)
         filecount += child_filecount
@@ -145,7 +144,6 @@ def get_updation_timestamp_and_filecount(cur_dir):
 def get_folder_contents(cur_dir):
     folder_contents = []
     for child in os.listdir(SOURCE_DIR+cur_dir):
-        if child.endswith('__IMAGES__'): continue # exclude the special images directory
         if child.endswith('README.md'): continue # exclude readmes
         item = {}
         type = 'folder'
@@ -175,7 +173,6 @@ def construct_tree(cur_dir, depth):
     if d['is_dir']:
         children = []
         for child in sorted(os.listdir(cur_path)): # sort alphabetically
-            if child.endswith('__IMAGES__'): continue # exclude the special images directory
             if child.endswith('README.md'): continue # exclude readmes
             children.append(construct_tree(cur_dir+'/'+child, depth+1))
         d['children'] = children
@@ -333,11 +330,8 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
     page = re.sub(r'<p>__COPIABLE__</p>\n\n<CopyButton(.*?)/>\n\n<div className="codehilite">\n<pre>(.*?)</pre>\n</div>', r'<div className="codehilite relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n<pre>\2</pre>\n</div>', page)
     page = re.sub(r'<p>__COPIABLE__</p>\n\n<CopyButton(.*?)/>\n\n<pre>(.*?)</pre>', r'<pre className="relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n\2</pre>', page)
 
-    # replace images directory inside image tags, to be the public one
-    page = re.sub('/__IMAGES__', '/images', page)
-
     article_data['content'] = flatten_content(page, article_data['title'])
-    article_data['id'] = hash(path)
+    article_data['id'] = hash(path.removeprefix(ROOT_DIR))
 
     path_list = sanitize(beautify(path)).split('/')[1:-1] # path to parent folder
     article_data['dir'] = path_list if not is_readme else path_list[:-1] # readmes should be elevated
@@ -366,52 +360,7 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
 def get_path(article_data):
     return '/'+'/'.join(article_data['dir'])+'/'+article_data['name']
 
-# replace AUTOSVG tags with inline svgs
-def convert_svgs(page, path):
-    for m in [i.span() for i in re.finditer(r'<AUTOSVG[^>]*?(>.*?</AUTOSVG>|/>)', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
-        target = page[m[0]:m[1]]
-        try:
-            src = re.search(r'src=((\'|").*?(\'|"))', target, re.DOTALL)[0][5:-1] # will start with /images/ (__IMAGES__ was replaced in parse_md_file_to_react)
-            src = IMAGES_DIR + src[7:] # remove starting /images prefix
-            width = re.search(r'width=((\'|").*?(\'|"))', target, re.DOTALL)[0][7:-1]
-            height = re.search(r'height=((\'|").*?(\'|"))', target, re.DOTALL)[0][8:-1]
-
-            print(' -', src)
-            result = subprocess.run(['npx', '@svgr/cli', src], capture_output=True, text=True)
-            if result.returncode != 0:
-                print('Error:', result.stderr)
-                raise Exception
-            # extract svg tag only
-            generated_svg = re.search(r'<svg[^>]*?>.*?</svg>', result.stdout, re.DOTALL)[0]
-            # replace width and height
-            generated_svg = re.sub(r'(<svg[^>]*?width={)([^>]*?)(}[^>]*?>)', r'\g<1>'+width+r'\g<3>', generated_svg, re.DOTALL)
-            generated_svg = re.sub(r'(<svg[^>]*?height={)([^>]*?)(}[^>]*?>)', r'\g<1>'+height+r'\g<3>', generated_svg, re.DOTALL)
-            # for some reason svgr turns fontFamily:'Fira Code' into fontFamily:"&quot", so remove instances of this (recall, fira)
-            generated_svg = re.sub(r'^.*?fontFamily:.*$', '', generated_svg, flags=re.MULTILINE)
-            # replace placeholder colours (see conventions.txt)
-            generated_svg = generated_svg.replace('#000', 'var(--Svg-text)')
-            generated_svg = generated_svg.replace('#808080', 'var(--Svg-gray)')
-            generated_svg = generated_svg.replace('gray', 'var(--Svg-gray)')
-            generated_svg = generated_svg.replace('#00f', 'var(--Svg-text-highlight)')
-            generated_svg = generated_svg.replace('#0f0', 'var(--Svg-line-highlight-1)')
-            generated_svg = generated_svg.replace('#0ff', 'var(--Svg-line-highlight-2)')
-            generated_svg = generated_svg.replace('#f00', 'var(--Svg-fill-highlight-1)')
-            generated_svg = generated_svg.replace('red', 'var(--Svg-fill-highlight-1)')
-            generated_svg = generated_svg.replace('#f0f', 'var(--Svg-fill-highlight-2)')
-            generated_svg = generated_svg.replace('#ff0', 'var(--Svg-fill-highlight-3)')
-
-            # remove {...props} line
-            generated_svg = generated_svg.replace('{...props}', '')
-            target = generated_svg
-                
-        except Exception as e:
-            warn(f'error converting svg to themeable inline svg in rel path \'{path}\', using static image instead')
-            print(e)
-            target = re.sub('AUTOSVG', 'Image', target)
-        page = page[:m[0]] + target + page[m[1]:]
-    return page
-
-# parse the source files into jsx
+# parse the source files into jsx (depth first search)
 # returns a list of all the markdown files and their info (for "recent articles" and search functionality)
 # the root of dir_tree is the current node
 # the root of displayed_dir_tree is the closest parent folder marked as a course
@@ -422,11 +371,8 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
     # exclude readmes
     if cur_dir.endswith('README.md'): return
 
-    # the images directory
-    if cur_dir.endswith('__IMAGES__'): return
-
     # skip if nothing changed since last compile
-    if not COMPILE_EVERYTHING and cur_dir.endswith('.md') and bool(checksum_tree) and checksum(cur_path) == checksum_tree['checksum']:
+    if not COMPILE_ALL_MD and cur_dir.endswith('.md') and bool(checksum_tree) and checksum(cur_path) == checksum_tree['checksum']:
         # load old article data
         old_article = [i for i in stored_articles if get_path(i) == cur_target_dir]
         assert len(old_article) == 1
@@ -447,7 +393,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
                 TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
                 page_title, False, False
             )
-            react = convert_svgs(react, cur_dir)
+            react = inject_autosvg_tags(react)
             output_file.write(react)
             #add article data to article list
             article_list.append(article_data)
@@ -527,17 +473,90 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
                 path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
             page_title, True, cur_dir=='' or readme_exists
         )
-        react = convert_svgs(react, cur_dir)
+        react = inject_autosvg_tags(react)
         output_file.write(react)
+
+# parse auto svg files into react components
+def gen_react_svgs(cur_dir, depth, checksum_tree):
+    cur_path = AUTOSVG_SOURCE_DIR+cur_dir
+
+    # skip if nothing changed since last compile
+    if not COMPILE_ALL_SVGS and cur_dir.endswith('.svg') and bool(checksum_tree) and checksum(cur_path) == checksum_tree['checksum']:
+        print('\033[2m'+'skipped '+ cur_dir.rjust(1,'/') +'\033[0m')
+        return
+
+    # svg
+    if cur_dir.endswith('.svg'):
+        print(cur_dir)
+        result = subprocess.run(['npx', '@svgr/cli', cur_path], capture_output=True, text=True)
+        if result.returncode != 0:
+            print('Error:', result.stderr)
+            raise Exception
+
+        component = result.stdout
+        # remove width and height (will be passed by user as attribute of AUTOSVG tag)
+        component = re.sub(r'(<svg[^>]*?)width={[^>]*?}([^>]*?>)', r'\1 \2', component, re.DOTALL)
+        component = re.sub(r'(<svg[^>]*?)height={[^>]*?}([^>]*?>)', r'\1 \2', component, re.DOTALL)
+        # remove fontFamily (so that matched to theme)
+        generated_svg = re.sub(r'^.*?fontFamily:.*$', '', component, flags=re.MULTILINE)
+        # replace placeholder colours (see conventions.txt)
+        component = component.replace('#000', 'var(--Svg-text)')
+        component = component.replace('#808080', 'var(--Svg-gray)')
+        component = component.replace('gray', 'var(--Svg-gray)')
+        component = component.replace('#00f', 'var(--Svg-text-highlight)')
+        component = component.replace('#0f0', 'var(--Svg-line-highlight-1)')
+        component = component.replace('#0ff', 'var(--Svg-line-highlight-2)')
+        component = component.replace('#f00', 'var(--Svg-fill-highlight-1)')
+        component = component.replace('red', 'var(--Svg-fill-highlight-1)')
+        component = component.replace('#f0f', 'var(--Svg-fill-highlight-2)')
+        component = component.replace('#ff0', 'var(--Svg-fill-highlight-3)')
+
+        filename = cur_dir.split('/')[-1]
+        targetname = 'svg' + filename.removesuffix('.svg').title().replace('-','') + '.js'
+        targetpath = AUTOSVG_TARGET_DIR + cur_dir.removesuffix(filename) + targetname
+        with open(targetpath, 'w') as f:
+            f.write(component)
+        return
+
+    # directory
+    if not os.path.exists(AUTOSVG_TARGET_DIR+cur_dir):
+        os.makedirs(AUTOSVG_TARGET_DIR+cur_dir)
+    for child in sorted(os.listdir(cur_path)):
+        child_dir = cur_dir+'/'+child
+
+        child_checksum_tree = {}
+        if bool(checksum_tree): # an old tree entry exists
+            child_checksum_tree = [i for i in checksum_tree['children'] if i['path'].endswith(child_dir)]
+            assert len(child_checksum_tree) <= 1
+            if len(child_checksum_tree): child_checksum_tree = child_checksum_tree[0]
+
+        gen_react_svgs(child_dir, depth+1, child_checksum_tree)
+
+# replace AUTOSVG tags with react components, and add imports
+def inject_autosvg_tags(page):
+    imports = ''
+    for m in [i.span() for i in re.finditer(r'<AUTOSVG[^>]*?(>.*?</AUTOSVG>|/>)', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
+        target = page[m[0]:m[1]]
+        src = re.search(r'src=((\'|").*?(\'|"))', target, re.DOTALL)[0].removeprefix('src=')[1:-1] # [1:-1] to remove surrounding quotes
+        width = re.search(r'width=((\'|").*?(\'|"))', target, re.DOTALL)[0].removeprefix('width=')[1:-1] # [1:-1] to remove surrounding quotes
+        height = re.search(r'height=((\'|").*?(\'|"))', target, re.DOTALL)[0].removeprefix('height=')[1:-1] # [1:-1] to remove surrounding quotes
+        filename = src.split('/')[-1]
+        location = src.removesuffix(filename)
+        titlecase = filename.removesuffix('.svg').title().replace('-','')
+        reactComponentName = 'Svg' + titlecase
+        target = '<'+reactComponentName+f' width={{ {width} }} height={{ {height} }}/>'
+        page = page[:m[0]] + target + page[m[1]:]
+        imports += f"import {reactComponentName} from '{AUTOSVG_IMPORT_STRING}/{location}{'svg'+titlecase}'\n"
+    return imports + page
 
 # generate checksums of all the files, so that unchanged content doesn't have to be regenerated
 def gen_checksum_tree(path):
     d = {}
     d['is_dir'] = os.path.isdir(path)
-    d['path'] = path
+    d['path'] = path.removeprefix(ROOT_DIR)
     d['checksum'] = checksum(path)
     if os.path.isdir(path):
-        d['children'] = [gen_checksum_tree(path+'/'+child) for child in os.listdir(path) if not child.endswith('__IMAGES__')]
+        d['children'] = [gen_checksum_tree(path+'/'+child) for child in os.listdir(path)]
     return d
 
 def handle_warnings():
@@ -545,7 +564,7 @@ def handle_warnings():
         print('\033[1;33mWarning: ' + i + '\033[0m')
 
     old_warnings = set()
-    if not COMPILE_EVERYTHING and os.path.exists(WARNINGS_FILE):
+    if not COMPILE_ALL_MD and os.path.exists(WARNINGS_FILE):
         with open(WARNINGS_FILE, 'r') as f:
             for line in f.readlines():
                 if line.strip() == '': continue

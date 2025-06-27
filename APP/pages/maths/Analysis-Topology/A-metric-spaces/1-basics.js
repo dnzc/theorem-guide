@@ -20,6 +20,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
+import { ImPilcrow } from 'react-icons/im'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
@@ -133,7 +134,7 @@ export default function Basics () {
 
 <p>We want to formalise our intuition about distances in the real world, and try to generalise.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="11-definitions-and-examples" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">1.1 Definitions and Examples</h2><Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="11-definitions-and-examples" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">1.1 Definitions and Examples</h2><Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <Defn name="metric space">
 

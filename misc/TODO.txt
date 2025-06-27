@@ -1,9 +1,9 @@
 quizzes
 flashcards
 
-map.danielc.rocks: graph view - nodes represent pages, lines represent thm/lemma/prop references etc, or links? c.f. https://space.ong.ac/
+map.tripos.rocks: graph view - nodes represent pages, lines represent thm/lemma/prop references etc, or links? c.f. https://space.ong.ac/
 
-revision.danielc.rocks - same content but compactified thms/lemmas/defns etc
+revision.tripos.rocks - same content but compactified thms/lemmas/defns etc
 update home description to be "full length in-depth course notes with inuition, motivation"
 "the most aesthetic and in-depth cambridge maths tripos notes on the internet"
 
@@ -15,10 +15,10 @@ backlinks (figure out where to display on page? potentially: underneath toc in r
 desmos embed (?)
 pyodide (?)
 
-FAQ instead of About on home page ("how do you render maths? svgs? ") - add snippet of ssg code
+FAQ instead of About on home page ("how do you render maths? svgs? ") - add minimap of ssg code (split into columns)
 coded everything myself, including quality-of-life (scrollshadow (link), copy buttons (link toastify))
 
-COMPILE_EVERYTHING: deal with svgs (also why is home page always generated? and why is svgr so slow? (~1sec per svg))
+redo danielc.rocks, add portfolio page
 
 "lightbulb" component - key idea
 
@@ -27,6 +27,8 @@ different image per theme: catpuccin: space galaxy cat, gruvbox: forest, etc
 
 add tag preset colors, view/group by tags
 tags page
+
+
 
 
 

@@ -20,6 +20,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
+import { ImPilcrow } from 'react-icons/im'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
@@ -229,7 +230,7 @@ export default function Euclid () {
 
 <p>This is part 4, where we use what we have so far to finally prove <DiscreetLink href="https://brilliant.org/wiki/bezouts-identity/">Euclid's Lemma</DiscreetLink> (technically, the generalized version). In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="what-its-argh" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">What? It's... argh!</h2><Link href="#what-its-argh" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/4-euclid#what-its-argh", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="what-its-argh" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">What? It's... argh!</h2><Link href="#what-its-argh" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/4-euclid#what-its-argh", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>Ask anyone to prove this:</p>
 
@@ -333,7 +334,7 @@ export default function Euclid () {
 
 <p>Nice - surprisingly simple proof, right?</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="the-actual-euclids-lemma" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">The actual Euclid's Lemma</h2><Link href="#the-actual-euclids-lemma" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/4-euclid#the-actual-euclids-lemma", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="the-actual-euclids-lemma" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">The actual Euclid's Lemma</h2><Link href="#the-actual-euclids-lemma" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/4-euclid#the-actual-euclids-lemma", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>Actually, Euclid's Lemma states that if <Latex>$p$</Latex> is a prime and <Latex>$p \mid ab$</Latex> (where <Latex>$a,b$</Latex> are two integers), then <Latex>$p \mid a$</Latex> or <Latex>$p \mid b$</Latex>. But what we've already proved is pretty much a generalized version of this: the only extra thing we need to prove is that if <Latex>$p$</Latex> doesn't divide <Latex>$a$</Latex>, then <Latex>$gcd(p, a) = 1$</Latex>. But this is true by definition of prime - if <Latex>$gcd(p,a) &gt; 1$</Latex> then <Latex>$p$</Latex> has a factor that isn't <Latex>$1$</Latex> or <Latex>$p$</Latex> (namely, this factor is <Latex>$gcd(p,a)$</Latex>); contradiction.</p>
 

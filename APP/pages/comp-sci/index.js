@@ -14,7 +14,7 @@ import { RiArrowGoBackFill } from 'react-icons/ri'
 import { CiLogout } from 'react-icons/ci'
 
 import { FaBook } from 'react-icons/fa'
-import { GrArticle } from "react-icons/gr";
+import { GrArticle } from 'react-icons/gr'
 import { AiFillFolder } from 'react-icons/ai'
 import Folder from '@/components/folder'
 

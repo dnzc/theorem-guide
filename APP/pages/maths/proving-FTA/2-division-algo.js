@@ -20,6 +20,7 @@ import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import { copyToClipboard, CopyButton } from '@/components/copyButton'
 import 'react-toastify/dist/ReactToastify.css'
+import { ImPilcrow } from 'react-icons/im'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
@@ -229,7 +230,7 @@ export default function DivisionAlgo () {
 
 <p>This is part 2, where we use the rigorous foundation we developed in part 1 to establish the <DiscreetLink href="https://brilliant.org/wiki/division-algorithm/">division algorithm</DiscreetLink>. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2"><h2 id="back-to-school" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Back to School</h2><Link href="#back-to-school" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/2-division-algo#back-to-school", true)} className="hidden relative bottom-0.5 group-hover:block text-linkanchor">¶</Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="back-to-school" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Back to School</h2><Link href="#back-to-school" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/2-division-algo#back-to-school", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>Children tend to get taught division as <em>repeated subtraction</em> - for example, 14 divided by 3 is 4 remainder 2, because:</p>
 

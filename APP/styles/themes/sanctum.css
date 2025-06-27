@@ -66,14 +66,7 @@
         --Searchpopup-highlight-dir: var(--orange);
         --Searchpopup-highlight-title: var(--pink);
         --Searchpopup-highlight-content: var(--blue);
-        --Table-bar: rgb(var(--gray-20))    --Svg-text: var(--text-primary);
-        --Svg-text-highlight-1: var(--light-red);
-        --Svg-text-highlight-2: var(--light-blue);
-        --Svg-text-highlight-3: var(--orange);
-        --Svg-fill: var(--gray);
-        --Svg-fill-highlight-1: var(--light-yellow);
-        --Svg-fill-highlight-2: var(--aqua);
-        --Svg-fill-highlight-3: var(--purple);;
+        --Table-bar: rgb(var(--gray-20));
         --Table-bartext: rgb(var(--gray-70));
         --Table-rows: rgb(var(--white));
         --Popup-overlay: rgba(var(--gray-100), .5);
