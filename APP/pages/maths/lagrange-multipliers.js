@@ -1,16 +1,16 @@
-import Svg4Closure from '@/components/AUTOSVG/lagrange-mult/svg4Closure'
-import Svg6Openintandunion from '@/components/AUTOSVG/lagrange-mult/svg6Openintandunion'
+import Svg5Closedopencomplement from '@/components/AUTOSVG/lagrange-mult/svg5Closedopencomplement'
+import Svg10Compact from '@/components/AUTOSVG/lagrange-mult/svg10Compact'
+import Svg8Bounded from '@/components/AUTOSVG/lagrange-mult/svg8Bounded'
+import Svg13Notboundary from '@/components/AUTOSVG/lagrange-mult/svg13Notboundary'
+import Svg3Notopenset from '@/components/AUTOSVG/lagrange-mult/svg3Notopenset'
+import Svg2Openset from '@/components/AUTOSVG/lagrange-mult/svg2Openset'
+import Svg9Notcompact from '@/components/AUTOSVG/lagrange-mult/svg9Notcompact'
+import Svg12Cube from '@/components/AUTOSVG/lagrange-mult/svg12Cube'
 import Svg1Closedball01 from '@/components/AUTOSVG/lagrange-mult/svg1Closedball01'
 import Svg11Closedball from '@/components/AUTOSVG/lagrange-mult/svg11Closedball'
-import Svg12Cube from '@/components/AUTOSVG/lagrange-mult/svg12Cube'
-import Svg2Openset from '@/components/AUTOSVG/lagrange-mult/svg2Openset'
-import Svg13Notboundary from '@/components/AUTOSVG/lagrange-mult/svg13Notboundary'
-import Svg8Bounded from '@/components/AUTOSVG/lagrange-mult/svg8Bounded'
+import Svg4Closure from '@/components/AUTOSVG/lagrange-mult/svg4Closure'
 import Svg7Closedintandunion from '@/components/AUTOSVG/lagrange-mult/svg7Closedintandunion'
-import Svg9Notcompact from '@/components/AUTOSVG/lagrange-mult/svg9Notcompact'
-import Svg10Compact from '@/components/AUTOSVG/lagrange-mult/svg10Compact'
-import Svg5Closedopencomplement from '@/components/AUTOSVG/lagrange-mult/svg5Closedopencomplement'
-import Svg3Notopenset from '@/components/AUTOSVG/lagrange-mult/svg3Notopenset'
+import Svg6Openintandunion from '@/components/AUTOSVG/lagrange-mult/svg6Openintandunion'
 
 import Layout from '@/components/layout'
 import Head from 'next/head'
@@ -262,7 +262,7 @@ export default function LagrangeMultipliers () {
 
 <div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="background-theory" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Background Theory</h2><Link href="#background-theory" onClick={() => copyToClipboard("https://tripos.guru/maths/lagrange-multipliers#background-theory", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
-<p>All of this is covered in my <ProminentLink href="/maths/Analysis-Topology" internal>course notes for IB Analysis and Topology</ProminentLink>, in the relevant sections. The results and definitions in this article are correct only for <Latex>$\mathbb&#123;R&#125;^n$</Latex> (e.g. compactness is something different, but the Heine-Borel theorem says that in <Latex>$\mathbb&#123;R&#125;^n$</Latex> it's equivalent to being closed and bounded). For the more general definitions and a deeper understanding, check out the course notes.</p>
+<p>All of this is covered in my <ProminentLink href="/maths/Analysis-and-Topology" internal>course notes for IB Analysis and Topology</ProminentLink>, in the relevant sections. The results and definitions in this article are correct only for <Latex>$\mathbb&#123;R&#125;^n$</Latex> (e.g. compactness is something different, but the Heine-Borel theorem says that in <Latex>$\mathbb&#123;R&#125;^n$</Latex> it's equivalent to being closed and bounded). For the more general definitions and a deeper understanding, check out the course notes.</p>
 
 <Defn>
 
