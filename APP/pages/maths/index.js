@@ -23,7 +23,7 @@ export default function Maths () {
     return (
         <Layout>
             <Head>
-                <title>Maths | Daniel C</title>
+                <title>Maths | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -75,7 +75,7 @@ export default function Maths () {
                                     
                                         
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -232,12 +232,12 @@ export default function Maths () {
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-Topology">
+                <Link href="/maths/Analysis-and-Topology">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <FaBook className="shrink-0 text-course-icon"/>
                         
-                        <p className="relative bottom-[1px]">Analysis-Topology</p>
+                        <p className="relative bottom-[1px]">Analysis-and-Topology</p>
                     </div>
                 </Link>
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
@@ -259,12 +259,12 @@ export default function Maths () {
         contents_by_name={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-Topology">
+                <Link href="/maths/Analysis-and-Topology">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <FaBook className="shrink-0 text-course-icon"/>
                         
-                        <p className="relative bottom-[1px]">Analysis-Topology</p>
+                        <p className="relative bottom-[1px]">Analysis-and-Topology</p>
                     </div>
                 </Link>
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>

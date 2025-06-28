@@ -23,7 +23,7 @@ export default function CompSci () {
     return (
         <Layout>
             <Head>
-                <title>Comp Sci | Daniel C</title>
+                <title>Comp Sci | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -75,7 +75,7 @@ export default function CompSci () {
                                     
                                         
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     

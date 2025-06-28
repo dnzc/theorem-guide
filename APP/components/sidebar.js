@@ -157,7 +157,6 @@ export default function Sidebar({ children }) {
                             </div>
                         }
                         listenWhenLarge={true}
-                        isMobile={mobile}
                     >
                         <ThemeSwitch/>
                     </Popup>
@@ -194,7 +193,6 @@ export default function Sidebar({ children }) {
                             </>
                         }
                         listenWhenLarge={true}
-                        isMobile={mobile}
                         keyboardShortcutIndex={1}
                     /> {/* no children means render search component by default */}
 

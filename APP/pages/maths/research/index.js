@@ -23,7 +23,7 @@ export default function Research () {
     return (
         <Layout>
             <Head>
-                <title>Research | Daniel C</title>
+                <title>Research | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -75,7 +75,7 @@ export default function Research () {
                                     
                                         
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     

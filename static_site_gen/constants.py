@@ -23,5 +23,5 @@ FOLDER_TEMPLATE = TEMPLATE_ENV.get_template('folder_overview.jinja')
 PLACEHOLDER_TIMESTAMP = -1 # for files without a timestamp
 COURSE_INDICATOR = '[COURSE] '
 
-COMPILE_ALL_MD = 0
+COMPILE_ALL_MD = 1
 COMPILE_ALL_SVGS = 0

@@ -101,6 +101,7 @@
         --Scrollshadow-cover: 30, 30, 46; /* rgb of background */
         --Scrollshadow-blockquote-cover: 17, 17, 27; /* rgb of blockquote background */
         --Scrollshadow-shadow: 255, 255, 255;
+        --Hero-text: var(--mauve);
         --Svg-text: var(--text-primary);
         --Svg-gray: var(--overlay0);
         --Svg-text-highlight: var(--articleh1);

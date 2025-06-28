@@ -13,22 +13,17 @@ import { FaChevronRight, FaSearch } from 'react-icons/fa'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 import { CiLogout } from 'react-icons/ci'
 
-import 'katex/dist/katex.min.css'
-import Latex from 'react-latex-next'
-import Spoiler from '@/components/spoiler'
-import IncompleteMessage from '@/components/incompleteMessage'
-import Image from 'next/image'
-import { copyToClipboard, CopyButton } from '@/components/copyButton'
-import 'react-toastify/dist/ReactToastify.css'
-import { ImPilcrow } from 'react-icons/im'
-import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
+import { FaBook } from 'react-icons/fa'
+import { GrArticle } from 'react-icons/gr'
+import { AiFillFolder } from 'react-icons/ai'
+import Folder from '@/components/folder'
 
 
-export default function Basics () {
+export default function AMetricSpaces () {
     return (
         <Layout>
             <Head>
-                <title>Basics | Daniel C</title>
+                <title>A Metric Spaces | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -46,7 +41,7 @@ export default function Basics () {
     <Sidebar>
 
         
-        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] min-h-10 h-[40vh] md:h-[40vh] xl:h-[calc(100vh-8.5rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
+        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] min-h-10 h-[70vh] md:h-[calc(100vh-12rem)] break-all bg-background pt-3 md:pt-0 md:border-y-2 border-border-subtle">
                 <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     
                     
@@ -63,17 +58,17 @@ export default function Basics () {
                     
                     
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="A-metric-spaces" href="/maths/Analysis-Topology/A-metric-spaces" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="A-metric-spaces" href="/maths/Analysis-and-Topology/A-metric-spaces" type="folder" relDepth={ 1 } isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-basics" href="/maths/Analysis-Topology/A-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ true } />
+                            <Accordion title="1-basics" href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -89,15 +84,6 @@ export default function Basics () {
                 </ul>
         </div>
 
-    
-        <div className="scrollshadow-vertical overflow-y-auto w-full md:w-[calc(270px-2px)] min-h-10 h-[30vh] md:h-[calc(60vh-8.5rem)] xl:hidden shrink-0 px-4 py-2 border-t-2 md:border-t-0 md:border-b-2 border-border-subtle">
-            <h1 className="text-text-secondary text-lg">Table of contents</h1>
-            <ul>
-                
-                    <li className="pt-1 font-bold"><Link href="#11-definitions-and-examples" className="tocentry text-link [@media(hover:hover)]:hover:underline">1.1 Definitions and Examples</Link></li>
-                
-            </ul>
-        </div>
     
 
     </Sidebar>
@@ -114,10 +100,10 @@ export default function Basics () {
                         <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                     
                         <span className="font-bold text-text-secondary">/</span>
-                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology">Analysis-Topology</Link></p>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-and-Topology">Analysis-and-Topology</Link></p>
                     
                         <span className="font-bold text-text-secondary">/</span>
-                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology/A-metric-spaces">A-metric-spaces</Link></p>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-and-Topology/A-metric-spaces">A-metric-spaces</Link></p>
                     
                 </div>
             
@@ -126,41 +112,54 @@ export default function Basics () {
         </div>
 
         
-            <p className="text-text-secondary mb-2">Created 16 Dec 2024</p>
-        
 
         <div className="article mb-4">
-            <h1 id="1-basics">§1 Basics</h1>
+            <div>
 
-<p>We want to formalise our intuition about distances in the real world, and try to generalise.</p>
+    <p className="italic pb-4">Contains 1 article</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="11-definitions-and-examples" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">1.1 Definitions and Examples</h2><Link href="#11-definitions-and-examples" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology/A-metric-spaces/1-basics#11-definitions-and-examples", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+    
+    <Folder
+        contents_by_date={<> 
+        
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
+                <Link href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0 text-text-secondary"/>
+                        
+                        <p className="relative bottom-[1px]">1-basics</p>
+                    </div>
+                </Link>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
+            </li>
+        
+     </>}
+        contents_by_name={<> 
+        
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
+                <Link href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <GrArticle className="shrink-0 text-text-secondary"/>
+                        
+                        <p className="relative bottom-[1px]">1-basics</p>
+                    </div>
+                </Link>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
+            </li>
+        
+     </>}
+    />
 
-<Defn name="metric space">
-
-<p>Let <Latex>$X$</Latex> be any set.</p>
-
-<p>A <strong>metric</strong> on <Latex>$X$</Latex> is a function <Latex>$d:X \times X \rightarrow \mathbb&#123;R&#125;$</Latex> such that:</p>
-
-<ul>
-<li><Latex>$d(x,y) \geq 0$</Latex>, equality iff <Latex>$x=y$</Latex> ("positive semi-definite")</li>
-<li><Latex>$d(x,y) = d(y,x)$</Latex> ("symmetric")</li>
-<li><Latex>$d(x,y) + d(y,z) \geq d(x,z)$</Latex> ("triangle inequality")</li>
-</ul>
-
-<p>We say <Latex>$(X,d)$</Latex> is a <strong>metric space</strong>.</p>
-
-</Defn>
-
-<p><IncompleteMessage/></p>
-
+</div>
         </div>
 
         
             <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
-                        <Link href="/maths/Analysis-Topology/A-metric-spaces">
+                        <Link href="/maths/Analysis-and-Topology">
                             <div className="flex items-center justify-center space-x-1 text-text-secondary underline">
                                 <RiArrowGoBackFill/>
                                 <p>up a level</p>
@@ -175,17 +174,6 @@ export default function Basics () {
 
     </article>
 
-    
-        <nav className="hidden xl:flex w-[270px] xl:shrink-0 xl:justify-start h-100% min-h-screen border-l-2 border-border-subtle px-6 py-4">
-            <div className="fixed text-text-secondary">
-                <h1 className="text-lg">Table of contents</h1>
-                <ul>
-                    
-                        <li className="pt-1 font-bold"><Link href="#11-definitions-and-examples" className="text-link [@media(hover:hover)]:hover:underline">1.1 Definitions and Examples</Link></li>
-                    
-                </ul>
-            </div>
-        </nav>
     
 </div>
                 </>

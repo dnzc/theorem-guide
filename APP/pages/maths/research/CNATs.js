@@ -24,11 +24,11 @@ import { ImPilcrow } from 'react-icons/im'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export default function CNATs () {
+export default function Cnats () {
     return (
         <Layout>
             <Head>
-                <title>CNATs | Daniel C</title>
+                <title>Cnats | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -80,7 +80,7 @@ export default function CNATs () {
                                     
                                         
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     

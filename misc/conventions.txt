@@ -3,6 +3,7 @@ Content naming conventions:
     - add "[COURSE] " prefix to folder to mark it as a course (must be a folder)
     - capitalized course names
     - lowercase file names
+    - " and " automatically converted to " & " in page title
 
 
 Markdown (excluding readmes):

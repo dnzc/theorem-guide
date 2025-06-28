@@ -23,7 +23,7 @@ export default function Writeups () {
     return (
         <Layout>
             <Head>
-                <title>Writeups | Daniel C</title>
+                <title>Writeups | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -75,7 +75,7 @@ export default function Writeups () {
                                     
                                         
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     

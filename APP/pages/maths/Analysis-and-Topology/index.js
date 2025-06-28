@@ -29,11 +29,11 @@ import { ImPilcrow } from 'react-icons/im'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export default function AnalysisTopology () {
+export default function AnalysisAndTopology () {
     return (
         <Layout>
             <Head>
-                <title>Analysis Topology | Daniel C</title>
+                <title>Analysis & Topology | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -68,17 +68,17 @@ export default function AnalysisTopology () {
                     
                     
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 0 } isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 0 } isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="A-metric-spaces" href="/maths/Analysis-Topology/A-metric-spaces" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="A-metric-spaces" href="/maths/Analysis-and-Topology/A-metric-spaces" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-basics" href="/maths/Analysis-Topology/A-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="1-basics" href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -123,7 +123,7 @@ export default function AnalysisTopology () {
                         <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                     
                         <span className="font-bold text-text-secondary">/</span>
-                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-Topology">Analysis-Topology</Link></p>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-and-Topology">Analysis-and-Topology</Link></p>
                     
                 </div>
             
@@ -144,17 +144,17 @@ export default function AnalysisTopology () {
 
 <p>Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. Aimed at second-year undergraduates. Hopefully I can provide some inutition that might not be present elsewhere.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="course-prerequisites" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Course Prerequisites</h2><Link href="#course-prerequisites" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#course-prerequisites", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="course-prerequisites" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Course Prerequisites</h2><Link href="#course-prerequisites" onClick={() => copyToClipboard("https://tripos.guru/maths/Analysis-and-Topology#course-prerequisites", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">here</DiscreetLink>). Basic set theory, for example definition and results regarding function preimage (e.g. preimage of union is union of preimages). Proofs of theorems from <ProminentLink href="https://gowers.wordpress.com/2014/01/11/introduction-to-cambridge-ia-analysis-i-2014/">IA Analysis I</ProminentLink> are good to know but not needed; the theorem statements themselves are useful but easily googleable.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="resources" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Resources</h2><Link href="#resources" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#resources", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="resources" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Resources</h2><Link href="#resources" onClick={() => copyToClipboard("https://tripos.guru/maths/Analysis-and-Topology#resources", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <ul>
 <li><DiscreetLink href="https://www.dpmms.cam.ac.uk/study/IB/AnalysisandTopology/">Example sheet questions</DiscreetLink></li>
 </ul>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="glossary-and-style" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Glossary and Style</h2><Link href="#glossary-and-style" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/Analysis-Topology#glossary-and-style", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="glossary-and-style" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Glossary and Style</h2><Link href="#glossary-and-style" onClick={() => copyToClipboard("https://tripos.guru/maths/Analysis-and-Topology#glossary-and-style", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>In definitions, the phrase that we define is highlighted like <span className="font-bold text-Math-accent-defn">this</span>.</p>
 
@@ -176,7 +176,7 @@ export default function AnalysisTopology () {
         contents_by_date={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-Topology/A-metric-spaces">
+                <Link href="/maths/Analysis-and-Topology/A-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <AiFillFolder className="shrink-0 text-folder-icon"/>
@@ -191,7 +191,7 @@ export default function AnalysisTopology () {
         contents_by_name={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-Topology/A-metric-spaces">
+                <Link href="/maths/Analysis-and-Topology/A-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <AiFillFolder className="shrink-0 text-folder-icon"/>

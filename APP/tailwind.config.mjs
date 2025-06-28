@@ -79,6 +79,7 @@ export default {
         'Scrollshadow-cover': 'var(--Scrollshadow-cover)',
         'Scrollshadow-blockquote-cover': 'var(--Scrollshadow-blockquote-cover)',
         'Scrollshadow-shadow': 'var(--Scrollshadow-shadow)',
+        'Hero-text': 'var(--Hero-text)',
         'Svg-text' : 'var(--Svg-text)',
         'Svg-gray' : 'var(--Svg-gray)',
         'Svg-text-highlight' : 'var(--Svg-text-highlight)',

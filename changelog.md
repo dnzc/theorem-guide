@@ -1,17 +1,24 @@
-## 19/06/25
+## 28/06/25
 
 ### Added
 
-- selectable color schemes:
+- selectable colour schemes:
   - <DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">sanctum</DiscreetLink> (adapted)
   - <DiscreetLink href="https://catppuccin.com/palette/">catppuccin</DiscreetLink>
   - <DiscreetLink href="https://github.com/morhetz/gruvbox?tab=readme-ov-file#palette">gruvbox</DiscreetLink> (my favourite :D)
+
+### Changed
+
+- Homepage revamp:
+  - added hero section (different for different themes)
+  - About section -&gt; FAQ section
+- changed domain to tripos.guru
 
 ## 19/12/24
 
 ### Changed
 
-- primary purpose of the site is now storage of course notes; blog moved elsewhere
+- changed domain blog.danielc.rocks -&gt; notes.danielc.rocks; primary purpose of the site is now storage of course notes
 - consistent styling of theorems, defns, examples etc
 - replace dark theme with light theme for easier readability
 
@@ -41,4 +48,4 @@
 
 ### Added
 
-- this website
+- this website (domain blog.danielc.rocks)

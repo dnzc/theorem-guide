@@ -30,11 +30,11 @@ import { ImPilcrow } from 'react-icons/im'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export default function CourseNotes () {
+export default function TriposGuru () {
     return (
         <Layout>
             <Head>
-                <title>Course Notes | Daniel C</title>
+                <title>Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -86,7 +86,7 @@ export default function CourseNotes () {
                                     
                                         
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -203,21 +203,32 @@ export default function CourseNotes () {
         
 
         <div className="article mb-4">
-            <div className="space-y-6">
+            <section class="hero">
+    <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div class="hero-text mr-auto place-self-center lg:col-span-7 md:ml-4">
+            <p class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-Hero-text">The prettiest maths notes on the internet</p>
+            <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl">Read colourful, interactive lecture notes I wrote for courses from the Cambridge Mathematical Tripos, full of extra intuition and explanation.</p>
+            <Link href="/maths/Analysis-and-Topology" class="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
+                Go to my favourite course
+            </Link> 
+        </div>
+        <div class="hero-image hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <div class="w-[300px] h-[300px] bg-cover"/>
+        </div>                
+    </div>
+</section>
 
-    <p className="mt-2 text-3xl font-bold break-all text-articleh1">
-        tripos.rocks
-    </p>
+<div class="pt-6 space-y-6">
 
     <p>
         This site is a collection of notes I've written for various courses, as well as some original notes explaining topics I find interesting. The primary goal is to be able to provide intuition for topics that were presented to me very abstractly.
         <br/>
         Most of the courses are from Part IB of the Mathematical Tripos. Each course is denoted as
-            <span className="text-course-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><FaBook size={18}/></span>
+            <span class="text-course-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><FaBook size={18}/></span>
         in the sidebar, containing articles 
-            <span className="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><GrArticle size={20}/></span>
+            <span class="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><GrArticle size={20}/></span>
         and folders 
-            <span className="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><AiFillFolder size={20}/></span>
+            <span class="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><AiFillFolder size={20}/></span>
         which can be viewed once inside the course.
     </p>
 
@@ -227,32 +238,32 @@ export default function CourseNotes () {
         I also have a <ProminentLink href="https://danielc.rocks">homepage</ProminentLink> with links to my other projects.
     </p>
 
-    <div className="pt-2 pb-4">
+    <div class="pt-2 pb-4">
 
         <h1>Course List</h1>
 
-        <ul className="space-y-6">
+        <ul class="space-y-6">
             
                 <li>
-                    <div className="flex items-center">
-                        <h2 className="text-xl">
-                            <ProminentLink href="/maths/Analysis-Topology" internal>
+                    <div class="flex items-center">
+                        <h2 class="text-xl">
+                            <ProminentLink href="/maths/Analysis-and-Topology" internal>
                             IB Analysis and Topology
                             </ProminentLink>
                         </h2>
-                        <p className="hidden xs:flex flex-wrap gap-x-2 gap-y-1 pl-2 align-middle h-fit">
+                        <p class="hidden xs:flex flex-wrap gap-x-2 gap-y-1 pl-2 align-middle h-fit">
                             
-                                <span className="h-min">
+                                <span class="h-min">
                                 <Badge color="indigo">pure-maths</Badge>
                                 </span>
                             
-                                <span className="h-min">
+                                <span class="h-min">
                                 <Badge color="red">TODO</Badge>
                                 </span>
                             
                         </p>
                     </div>
-                    <p className="text-sm text-text-secondary pt-2">
+                    <p class="text-sm text-text-secondary pt-2">
                         Last updated
                         16 Dec 2024
                     </p>
@@ -262,40 +273,118 @@ export default function CourseNotes () {
 
     </div>
 
-    <h1>About</h1>
+    <h1>Frequently Asked Questions</h1>
 
-    <div className="space-y-2">
-        <p>If you're curious, here is the summary of how I maintain the site, and what technologies I use:</p>
-        <ul className="space-y-2">
-            <li className="list-disc ml-8">
-                I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
-            </li>
-            <li className="list-disc ml-8">
-                A private Github repository contains a master folder with all the content, written in markdown. When I want to update the website, I edit the files in the master folder, using <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> for math diagrams.
-            </li>
-            <li className="list-disc ml-8">
-                I wrote a static site generator (SSG) in Python to transform the markdown in the master folder into Next.js pages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. Since I'm a maths purist:
-                <div className="flex justify-center my-4">
-                    <SvgWorkflow width={ 250 } height={ 100 }/>
-                </div>
-            </li>
-            <li className="list-disc ml-8">
-                I configured a VSCode shortcut to seamlessly run the SSG and preview content. When I am happy with my changes, I push them to the repository, and I added a hook to automatically deploy the public site whenever this happens.
-            </li>
-        </ul>
+    <div class="flex flex-col divide-y divide-border-strong">
+        <details class="faq-question">
+            <summary>How does the sidebar work?</summary>
+            <div>
+                It's just like a filetree! Each folder is expandable and denoted with the icon
+                <span class="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                    <AiFillFolder size={20} />
+                </span>
+                , containing courses
+                <span class="text-course-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                    <FaBook size={18} />
+                </span>
+                and articles
+                <span class="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                    <GrArticle size={20} />
+                </span>
+                . Courses themselves contain more folders and articles, which can be viewed once inside the course. You can also use keyboard shortcuts to toggle the sidebar / to search.
+            </div>
+        </details>
+        <details class="faq-question">
+            <summary>
+                Why are there some articles that <em>aren't</em> part of a course?
+            </summary>
+            <div>
+                They're basically blog entries - I wanted a place to put explanations of topics I find interesting.
+            </div>
+        </details>
+        <details class="faq-question">
+            <summary>
+                What makes these notes better than <DiscreetLink href="https://dec41.user.srcf.net/notes/">Dexter</DiscreetLink>, <DiscreetLink href="https://zeramorphic.uk/maths.html">zeramorphic</DiscreetLink> or <DiscreetLink href="https://danielnaylor.uk/notes/">Daniel Naylor</DiscreetLink>?
+            </summary>
+            <div>
+                After my fair share of browsing tripos notes online, I realized that everything's written in LaTeX. Booo, boring! I like <em>colours</em> and <em>diagrams!</em> If you want bog-standard soulless LaTeX notes though, this is not the website for you :)
+            </div>
+        </details>
+        <details class="faq-question">
+            <summary>How do you write these lecture notes?</summary>
+            <div>
+                <ul class="space-y-2">
+                    <li>
+                        A private Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
+                    </li>
+                    <li>
+                        I configured a VSCode shortcut to compile the markdown files into webpages and preview the result.
+                    </li>
+                    <li>
+                        When I am happy with my changes, I push them to the repository, and the public site automatically redeploys (I added a hook).
+                    </li>
+                </ul>
+            </div>
+        </details>
+        <details class="faq-question">
+            <summary>How did you make this website?</summary>
+            <div>
+                <ul class="space-y-2">
+                    <li>
+                        I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
+                    </li>
+                    <li>
+                        I wrote a static site generator (SSG) in Python to transform my lecture note files (.md) into Next.js pages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. This is a great opportunity to shove a diagram in your face:
+                        <div class="flex justify-center mt-2">
+                            <SvgWorkflow width={ 250 } height={ 100 }/>
+                        </div>
+                        The SSG is about 400 lines of spaghetti code - <ProminentLink href="https://teal-yeot-92b7a7.netlify.app/">here's</ProminentLink> a "little" sample.
+                    </li>
+                </ul>
+
+
+            </div>
+        </details>
+        <details class="faq-question">
+            <summary>What are some cool features this site has?</summary>
+            <div>
+                <ul>
+                    <li>
+                        Colour schemes (select in sidebar) - persistent via local storage
+                    </li>
+                    <li>
+                        Keyboard shortcuts to toggle filetree and to search
+                    </li>
+                    <li>
+                        Spoilers like this one
+                        <Spoiler>
+                            Hello there
+                        </Spoiler>
+                    </li>
+                    <li>
+                        Copy buttons like this one <CopyButton text="Hello there"/>
+                    </li>
+                </ul>
+            </div>
+        </details>
     </div>
 
-    <p>Feel free to <MailLink>email me</MailLink>. Enjoy exploring!</p>
+    <p>
+        Have a new topic idea? Want me to add a new feature / colour scheme? Feel free to <MailLink>email me</MailLink> or visit my <DiscreetLink href="https://danielc.rocks">homepage</DiscreetLink>.
+        <br/>
+        Enjoy exploring!
+    </p>
 
+    <p class="text-sm text-text-secondary">Hero image on sanctum theme <DiscreetLink href="https://inkscape.org/~Inkonic/%E2%98%85inkscapes-path-artists-blossom">"Artist's blossom"</DiscreetLink> by <DiscreetLink href="https://inkscape.org/~Inkonic/">Inkonic</DiscreetLink> (modified here) is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</DiscreetLink>.</p>
     <h1>Changelog</h1>
     <div>
-        <div className="changelog">
-            <h2>19/06/25</h2>
+        <div class="changelog">
+            <h2>28/06/25</h2>
 
 <h3>Added</h3>
 
 <ul>
-<li>selectable color schemes:
+<li>selectable colour schemes:
 <ul>
 <li><DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">sanctum</DiscreetLink> (adapted)</li>
 <li><DiscreetLink href="https://catppuccin.com/palette/">catppuccin</DiscreetLink></li>
@@ -303,12 +392,23 @@ export default function CourseNotes () {
 </ul></li>
 </ul>
 
+<h3>Changed</h3>
+
+<ul>
+<li>Homepage revamp:
+<ul>
+<li>added hero section (different for different themes)</li>
+<li>About section -&gt; FAQ section</li>
+</ul></li>
+<li>changed domain to tripos.guru</li>
+</ul>
+
 <h2>19/12/24</h2>
 
 <h3>Changed</h3>
 
 <ul>
-<li>primary purpose of the site is now storage of course notes; blog moved elsewhere</li>
+<li>changed domain blog.danielc.rocks -&gt; notes.danielc.rocks; primary purpose of the site is now storage of course notes</li>
 <li>consistent styling of theorems, defns, examples etc</li>
 <li>replace dark theme with light theme for easier readability</li>
 </ul>
@@ -346,7 +446,7 @@ export default function CourseNotes () {
 <h3>Added</h3>
 
 <ul>
-<li>this website</li>
+<li>this website (domain blog.danielc.rocks)</li>
 </ul>
 
         </div>

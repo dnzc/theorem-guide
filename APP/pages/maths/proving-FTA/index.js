@@ -23,7 +23,7 @@ export default function ProvingFTA () {
     return (
         <Layout>
             <Head>
-                <title>Proving FTA | Daniel C</title>
+                <title>Proving FTA | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -75,7 +75,7 @@ export default function ProvingFTA () {
                                     
                                         
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     

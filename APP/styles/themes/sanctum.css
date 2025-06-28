@@ -88,6 +88,7 @@
         --Scrollshadow-cover: var(--white); /* rgb of background */
         --Scrollshadow-blockquote-cover: var(--gray-5); /* rgb of blockquote background */
         --Scrollshadow-shadow: var(--black);
+        --Hero-text: var(--pink);
         --Svg-text: var(--text-primary);
         --Svg-gray: rgb(var(--gray-30));
         --Svg-text-highlight: var(--pink);

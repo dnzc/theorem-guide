@@ -2,87 +2,111 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="39.687496mm"
-   height="39.6875mm"
-   viewBox="0 0 39.687496 39.6875"
+   width="40mm"
+   height="40mm"
+   viewBox="0 0 39.999996 40"
    version="1.1"
-   id="svg5"
+   id="svg831"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    sodipodi:docname="favicon.svg"
+   inkscape:export-filename="/home/dnzc/Github/Notes/misc/favicon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#ffffff"
+     id="namedview833"
+     pagecolor="#000000"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
-     inkscape:document-units="px"
+     inkscape:document-units="mm"
      showgrid="false"
      units="mm"
-     height="200px"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="2.9897026"
-     inkscape:cx="93.989282"
-     inkscape:cy="92.149634"
-     inkscape:window-width="1896"
+     inkscape:lockguides="true"
+     inkscape:zoom="0.7705878"
+     inkscape:cx="70.076375"
+     inkscape:cy="-191.41232"
+     inkscape:window-width="1058"
      inkscape:window-height="1024"
-     inkscape:window-x="12"
+     inkscape:window-x="966"
      inkscape:window-y="44"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer2"
-     inkscape:snap-bbox="false"
-     inkscape:snap-global="true" />
+     inkscape:current-layer="layer2" />
   <defs
-     id="defs2" />
+     id="defs828" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-6.7749555,-7.088043)">
-    <path
-       style="fill:#e26a36;fill-opacity:1;stroke:#d02f5c;stroke-width:3.96875;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 14.830193,44.791168 H 38.407199"
-       id="path62869"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:#3e738e;fill-opacity:1;stroke:none;stroke-width:0.79375;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 13.344446,12.35269 -0.617613,25.872273 13.65503,-0.3424 7.476871,-8.923876 L 31.86207,16.752873 21.838578,12.223681 Z"
-       id="path138077" />
+     transform="translate(-10.625865,-14.563612)">
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';fill:#0000ff;fill-opacity:0.997511;stroke:none;stroke-width:1.5875;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3.175, 3.175"
+       x="72.74601"
+       y="98.299973"
+       id="text11378"><tspan
+         sodipodi:role="line"
+         id="tspan11376"
+         style="stroke-width:1.5875"
+         x="72.74601"
+         y="98.299973" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Layer 2">
+     inkscape:label="Layer 2"
+     transform="translate(-10.625865,-14.563612)">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.3333px;font-family:Lato;-inkscape-font-specification:Lato;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00322;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="6.7801657"
-       y="40.865917"
-       id="text3523"
-       transform="matrix(1.0032154,0,0,0.9967949,-6.7749555,-7.088043)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.4848px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.92706;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:5.85413, 5.85413;stroke-dashoffset:0"
+       x="11.916772"
+       y="-4.0274158"
+       id="text2382"
+       inkscape:export-filename="/home/dnzc/Github/Notes/misc/path131212.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
          sodipodi:role="line"
-         id="tspan3521"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.3333px;font-family:Lato;-inkscape-font-specification:Lato;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00322;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         x="6.7801657"
-         y="40.865917">D</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.4848px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.92706;stroke-miterlimit:4;stroke-dasharray:5.85413, 5.85413;stroke-dashoffset:0"
+         x="11.916772"
+         y="-4.0274158"
+         id="tspan106174" /><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.4848px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.92706;stroke-miterlimit:4;stroke-dasharray:5.85413, 5.85413;stroke-dashoffset:0"
+         x="11.916772"
+         y="42.828583"
+         id="tspan108503">τ</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28.2222px;font-family:Lato;-inkscape-font-specification:Lato;fill:#e26a36;fill-opacity:1;stroke:#e26b36;stroke-width:0.79375;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="19.595673"
-       y="28.818531"
-       id="text11754"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:101.732px;font-family:'AR PL UMing CN';-inkscape-font-specification:'AR PL UMing CN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:7.94388;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:15.8878, 15.8878;stroke-dashoffset:0"
+       x="18.130077"
+       y="-14.716089"
+       id="text2382-0"
+       inkscape:export-filename="/home/dnzc/Github/Notes/misc/path131212.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
          sodipodi:role="line"
-         id="tspan11752"
-         style="font-weight:bold;font-size:28.2222px;fill:#e26a36;fill-opacity:1;stroke:#e26b36;stroke-width:0.79375;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         x="19.595673"
-         y="28.818531">C</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:101.732px;font-family:'AR PL UMing CN';-inkscape-font-specification:'AR PL UMing CN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:7.94388;stroke-miterlimit:4;stroke-dasharray:15.8878, 15.8878;stroke-dashoffset:0"
+         x="18.130077"
+         y="-14.716089"
+         id="tspan106174-9" /><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:101.732px;font-family:'AR PL UMing CN';-inkscape-font-specification:'AR PL UMing CN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:7.94388;stroke-miterlimit:4;stroke-dasharray:15.8878, 15.8878;stroke-dashoffset:0"
+         x="18.130077"
+         y="112.44891"
+         id="tspan108503-6">’</tspan></text>
   </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 3"
+     transform="translate(-10.625865,-14.563612)" />
 </svg>

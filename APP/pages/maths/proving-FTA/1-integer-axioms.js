@@ -28,7 +28,7 @@ export default function IntegerAxioms () {
     return (
         <Layout>
             <Head>
-                <title>Integer Axioms | Daniel C</title>
+                <title>1 Integer Axioms | Tripos Guru</title>
             </Head>
                 <>
                     <ToastContainer
@@ -80,7 +80,7 @@ export default function IntegerAxioms () {
                                     
                                         
                         
-                            <Accordion title="Analysis-Topology" href="/maths/Analysis-Topology" type="course" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -244,7 +244,7 @@ export default function IntegerAxioms () {
 
 <p>This is part 1, where we develop the basic axioms of the integers and some definitions. In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">Here</DiscreetLink> is a glossary of math symbols.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="axioms-as-properties" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Axioms as Properties</h2><Link href="#axioms-as-properties" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/1-integer-axioms#axioms-as-properties", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="axioms-as-properties" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Axioms as Properties</h2><Link href="#axioms-as-properties" onClick={() => copyToClipboard("https://tripos.guru/maths/proving-FTA/1-integer-axioms#axioms-as-properties", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>Over the integers, we need a set of reduced axioms from which all the known theorems can be derived using the rules of logical inference. <em>Reduced</em> meaning that if an axiom can be proven using other axioms, then it should not be an axiom. And philosophically, our axioms should be as simple as possible. The modern approach to axiomatic proof is for our list of axioms to be the <em>properties</em> that we want our system to have; but, it's not clear what these fundamental properties of the integers should be.</p>
 
@@ -252,7 +252,7 @@ export default function IntegerAxioms () {
 
 <p>We <em>could</em> have FTA as an axiom. But if we can prove it from simpler axioms, then why bother?</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="how-deep-do-we-go" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">How deep do we go?</h2><Link href="#how-deep-do-we-go" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/1-integer-axioms#how-deep-do-we-go", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="how-deep-do-we-go" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">How deep do we go?</h2><Link href="#how-deep-do-we-go" onClick={() => copyToClipboard("https://tripos.guru/maths/proving-FTA/1-integer-axioms#how-deep-do-we-go", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>At some point, we need to stop our search for rigor - otherwise we will get too far out of the math world and into philosophy. For example, what does it mean for two things to be equal? And so, we will <em>assume</em> some basic notions:</p>
 
@@ -263,7 +263,7 @@ export default function IntegerAxioms () {
 <li>Order of operations</li>
 </ul>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="basic-properties" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Basic properties</h2><Link href="#basic-properties" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/1-integer-axioms#basic-properties", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="basic-properties" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Basic properties</h2><Link href="#basic-properties" onClick={() => copyToClipboard("https://tripos.guru/maths/proving-FTA/1-integer-axioms#basic-properties", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>We are working with the integers (whole numbers, <Latex>$\mathbb&#123;Z&#125;$</Latex>) and naturals (positive whole numbers, <Latex>$\mathbb&#123;N&#125;$</Latex>), under two basic operations: addition and multiplication (<Latex>$+, \cdot$</Latex>). More technically, it is an underlying assumption that <Latex>$\mathbb&#123;Z&#125;$</Latex> is <em>closed</em> under two well-defined binary operations <Latex>$+, \cdot$</Latex>, i.e. that adding or multiplying two integers always gives an integer. (This is not the case for division!)</p>
 
@@ -322,7 +322,7 @@ export default function IntegerAxioms () {
 
 <p>If we don't do this then whenever we cite these axioms, we would have to remember the way round we wrote it, which is utter hell.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="uniqueness" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Uniqueness</h2><Link href="#uniqueness" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/1-integer-axioms#uniqueness", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="uniqueness" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Uniqueness</h2><Link href="#uniqueness" onClick={() => copyToClipboard("https://tripos.guru/maths/proving-FTA/1-integer-axioms#uniqueness", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>We haven't explicitly stated that 0 (the additive identity), 1 (the multiplicative identity) and additive inverses are unique.
 Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em> additive inverse of 1, right? Maybe we should add uniqueness as an axiom. </p>
@@ -385,7 +385,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 
 <p>Now we can introduce <em>negative signs</em> as the way to refer an integer's unique additive inverse: for each integer <Latex>$n$</Latex>, we denote its unique additive inverse as <Latex>$-n$</Latex>. Then, we can define <Latex>$a-b$</Latex> to be shorthand for <Latex>$a+(-b)$</Latex>, which is a nice way to avoid having to define subtraction as another operation.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="ordering-of-z" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Ordering of Z</h2><Link href="#ordering-of-z" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/1-integer-axioms#ordering-of-z", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="ordering-of-z" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Ordering of Z</h2><Link href="#ordering-of-z" onClick={() => copyToClipboard("https://tripos.guru/maths/proving-FTA/1-integer-axioms#ordering-of-z", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>What we have so far is good, but we need more. For example we haven't axiomatized the naturals yet, and what about proof techniques?</p>
 
@@ -396,7 +396,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 
 <p>The importance of the well-ordering principle<sup className="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup> cannot be understated, because it will let us finish off proofs by assuming minimality and showing a contradiction (i.e. infinite descent).</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="definitions" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Definitions</h2><Link href="#definitions" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/1-integer-axioms#definitions", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="definitions" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Definitions</h2><Link href="#definitions" onClick={() => copyToClipboard("https://tripos.guru/maths/proving-FTA/1-integer-axioms#definitions", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>Let's make a list of things we'll probably need to explicitly define if we want to have hope of proving FTA:</p>
 
@@ -432,7 +432,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 
 <p>Also, for the sake of brevity, we will skip the proofs that gcds and lcms <em>exist and are unique</em>, and that <em>all common divisors divide the greatest common divisor</em> (left as an exercise). Thus we can refer to the unique gcd of <Latex>$a,b$</Latex> as <Latex>$gcd(a,b)$</Latex> or <Latex>$(a,b)$</Latex>, and the unique lcm of <Latex>$a,b$</Latex> as <Latex>$lcm(a,b)$</Latex> or <Latex>$[a,b]$</Latex>.</p>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="structuring-logic-building-lemmas" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Structuring logic, building lemmas</h2><Link href="#structuring-logic-building-lemmas" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/1-integer-axioms#structuring-logic-building-lemmas", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="structuring-logic-building-lemmas" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Structuring logic, building lemmas</h2><Link href="#structuring-logic-building-lemmas" onClick={() => copyToClipboard("https://tripos.guru/maths/proving-FTA/1-integer-axioms#structuring-logic-building-lemmas", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>So, what's the point of all these axioms and definitions? It means we can start to inch towards our goal by building lemmas. For example:</p>
 
@@ -498,7 +498,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 
 </Lemma>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="lemma-list" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Lemma List</h2><Link href="#lemma-list" onClick={() => copyToClipboard("https://notes.danielc.rocks/maths/proving-FTA/1-integer-axioms#lemma-list", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="lemma-list" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Lemma List</h2><Link href="#lemma-list" onClick={() => copyToClipboard("https://tripos.guru/maths/proving-FTA/1-integer-axioms#lemma-list", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>
 
 <p>Now for the list of lemmas that can be built up. To prevent circular reasoning, if lemma A is used to prove lemma B, then A will have a lower lemma number than B. Feel free to fill out the details of each proof (it's a good exercise!).</p>
 

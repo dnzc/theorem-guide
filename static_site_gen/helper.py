@@ -2,7 +2,6 @@ import re
 from datetime import datetime
 import hashlib
 import os
-import shutil
 import html
 import subprocess
 from markdown2 import markdown
@@ -14,7 +13,11 @@ math_tags = ['Thm', 'Lemma', 'Proof', 'Defn', 'Example']
 def warn(message):
     warnings.add(message)
 
-def wrap_in_js(jinja, name, isFolder, isReadmeOrHome):
+def wrap_in_js(jinja, name, isFolder, isReadmeOrHome, isHome):
+    title = name + ' | Tripos Guru' if not isHome else 'Tripos Guru'
+    # replace and with &
+    title = ' '.join('&' if i.lower()=='and' else i for i in title.split())
+    componentName = re.sub(r'(\d+| )', '', name)
     imports = ''
     if isFolder: imports += f'''
 import {{ FaBook }} from 'react-icons/fa'
@@ -49,11 +52,11 @@ import {{ RiArrowGoBackFill }} from 'react-icons/ri'
 import {{ CiLogout }} from 'react-icons/ci'
 {imports}
 
-export default function {name.replace(' ', '')} () {{
+export default function {componentName} () {{
     return (
         <Layout>
             <Head>
-                <title>{name} | Daniel C</title>
+                <title>{title}</title>
             </Head>
                 <>
                     <ToastContainer
@@ -77,7 +80,7 @@ export default function {name.replace(' ', '')} () {{
 # find h2 tags with an id, add link anchor to them (each h2 in a markdown file is given a unique id by the header-ids extension)
 # this is an external function so that it can also be applied to the homepage (but the header ids must be manually put there)
 def add_link_anchors(page, cur_target_dir): 
-    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="\1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://notes.danielc.rocks'+cur_target_dir+r'#\1", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>', page, flags=re.DOTALL)
+    return re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="\1" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">\2</h2><Link href="#\1" onClick={() => copyToClipboard("https://tripos.guru'+cur_target_dir+r'#\1", true)} className="hidden group-hover:block text-linkanchor"><ImPilcrow size={20}/></Link></div>', page, flags=re.DOTALL)
 
 def timestamp_to_str(timestamp):
     return '' if timestamp==PLACEHOLDER_TIMESTAMP else datetime.fromtimestamp(timestamp).strftime('%d %b %Y')
@@ -339,10 +342,7 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
     article_name = target_dir.split('/')[-1]
     article_data['name'] = article_name
 
-    page_title = []
-    for word in article_name.split('-'):
-        if not word.isdigit(): page_title.append(word[0].upper() + word[1:])
-    page_title = ' '.join(page_title)
+    page_title = article_name.title().replace('-',' ')
 
     copiable_article_plaintext = None
     if COURSE_INDICATOR not in path: # don't add "copy article plaintext" button to course content
@@ -391,7 +391,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         with open(TARGET_DIR+cur_target_dir+'.js', 'w') as output_file:
             react = wrap_in_js(
                 TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
-                page_title, False, False
+                page_title, False, False, False
             )
             react = inject_autosvg_tags(react)
             output_file.write(react)
@@ -427,7 +427,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         if cur_dir == '':
             path_list = None
             parent_path = None
-            page_title = 'Course Notes'
+            page_title = 'Tripos Guru'
         else:
             path_list = cur_target_dir.split('/')[1:]
             parent_path = '/'+'/'.join(path_list[:-1])
@@ -471,7 +471,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
                     file_count=sum(item['filecount'] for item in folder_contents),
                 ),
                 path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
-            page_title, True, cur_dir=='' or readme_exists
+            page_title, True, cur_dir=='' or readme_exists, cur_dir==''
         )
         react = inject_autosvg_tags(react)
         output_file.write(react)
@@ -534,7 +534,7 @@ def gen_react_svgs(cur_dir, depth, checksum_tree):
 
 # replace AUTOSVG tags with react components, and add imports
 def inject_autosvg_tags(page):
-    imports = ''
+    imports = []
     for m in [i.span() for i in re.finditer(r'<AUTOSVG[^>]*?(>.*?</AUTOSVG>|/>)', page, re.DOTALL)][::-1]: # reverse so can edit the string without indices changing
         target = page[m[0]:m[1]]
         src = re.search(r'src=((\'|").*?(\'|"))', target, re.DOTALL)[0].removeprefix('src=')[1:-1] # [1:-1] to remove surrounding quotes
@@ -546,8 +546,8 @@ def inject_autosvg_tags(page):
         reactComponentName = 'Svg' + titlecase
         target = '<'+reactComponentName+f' width={{ {width} }} height={{ {height} }}/>'
         page = page[:m[0]] + target + page[m[1]:]
-        imports += f"import {reactComponentName} from '{AUTOSVG_IMPORT_STRING}/{location}{'svg'+titlecase}'\n"
-    return imports + page
+        imports.append(f"import {reactComponentName} from '{AUTOSVG_IMPORT_STRING}/{location}{'svg'+titlecase}'\n")
+    return ''.join(list(set(imports))) + page
 
 # generate checksums of all the files, so that unchanged content doesn't have to be regenerated
 def gen_checksum_tree(path):

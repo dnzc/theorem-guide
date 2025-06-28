@@ -4,7 +4,7 @@ import { Children, cloneElement, isValidElement } from 'react'
 
 var shortcuts = ['u', 'k']
 
-export default function Popup({ buttonStyle, buttonContents, listenWhenLarge, isMobile, children, keyboardShortcutIndex }) {
+export default function Popup({ buttonStyle, buttonContents, listenWhenLarge, children, keyboardShortcutIndex }) {
 
     let isSearch = children ? false : true
 
@@ -22,18 +22,14 @@ export default function Popup({ buttonStyle, buttonContents, listenWhenLarge, is
 
     function showPopup() {
         // disable scrolling
-        document.body.style.height = '100%'
-        document.body.style.overflow = 'hidden'
-        document.body.style.position = 'fixed'
+        document.body.classList.add("overflow-y-hidden")
 
         setActiveState(true)
     }
 
     function hidePopup() {
         // enable scrolling
-        document.body.style.height = ''
-        document.body.style.overflow = ''
-        document.body.style.position = ''
+        document.body.classList.remove("overflow-y-hidden")
 
         setActiveState(false)
     }

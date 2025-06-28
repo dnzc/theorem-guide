@@ -60,6 +60,17 @@
         @apply !ml-10;
     }
 
+    .faq-question > summary {
+        @apply py-2 outline-none cursor-pointer font-bold text-lg;
+    }
+
+    .faq-question[open=''] > summary {
+        @apply text-articleh2;
+    }
+
+    .faq-question > div {
+        @apply px-4 pb-4;
+    }
 }
 
 @layer utilities {
@@ -83,11 +94,6 @@
     }
     .gruvbox .myToast {
         @apply font-pangolin;
-    }
-
-    /* invert dark theme images */
-    .catppuccin img, .gruvbox img {
-        filter: invert(1) brightness(3);
     }
 
     /* theme-specific badges https://tailwindcss.com/plus/ui-blocks/application-ui/elements/badges */
@@ -138,6 +144,31 @@
     }
     .catppuccin .badge-gray, .gruvbox .badge-gray {
         @apply bg-gray-400/10 text-gray-400 ring-gray-400/30;
+    }
+
+    /* hero */
+    .catppuccin .hero {
+        background-image: url('../public/hero/catppuccin.png');
+    }
+    .catppuccin .hero-text {
+        @apply lg:!col-span-12 lg:ml-16;
+    }
+    .catppuccin .hero-image {
+        @apply !hidden;
+    }
+    .gruvbox .hero {
+        background-color: #222526;
+        @apply rounded-2xl border-2 border-border-strong;
+    }
+    .gruvbox .hero-image > div {
+        background-image: url('../public/hero/gruvbox1.png');
+    }
+    .sanctum .hero {
+        background-color: #ffeeff;
+        @apply rounded-2xl;
+    }
+    .sanctum .hero-image > div {
+        background-image: url('../public/hero/sanctum.svg');
     }
 
     /* END THEME SPECIFIC STUFF */
