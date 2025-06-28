@@ -207,7 +207,8 @@ export default function TriposGuru () {
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="hero-text mr-auto place-self-center lg:col-span-7 md:ml-4">
             <p class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-Hero-text">The prettiest maths notes on the internet</p>
-            <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl">Read colourful, interactive lecture notes I wrote for courses from the Cambridge Mathematical Tripos, full of extra intuition and explanation.</p>
+            <p class="max-w-2xl mb-4 md:text-lg lg:text-xl">Read colourful, interactive lecture notes I wrote for courses from the Cambridge Mathematical Tripos, full of extra intuition and explanation.</p>
+            <p class="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> 11 articles, 14892 words</p>
             <Link href="/maths/Analysis-and-Topology" class="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
                 Go to my favourite course
             </Link> 
@@ -219,24 +220,6 @@ export default function TriposGuru () {
 </section>
 
 <div class="pt-6 space-y-6">
-
-    <p>
-        This site is a collection of notes I've written for various courses, as well as some original notes explaining topics I find interesting. The primary goal is to be able to provide intuition for topics that were presented to me very abstractly.
-        <br/>
-        Most of the courses are from Part IB of the Mathematical Tripos. Each course is denoted as
-            <span class="text-course-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><FaBook size={18}/></span>
-        in the sidebar, containing articles 
-            <span class="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><GrArticle size={20}/></span>
-        and folders 
-            <span class="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]"><AiFillFolder size={20}/></span>
-        which can be viewed once inside the course.
-    </p>
-
-    <p>
-        For some of my favourite articles, check out the <DiscreetLink internal href="/maths/proving-FTA/3-bezout-egcd">magic box</DiscreetLink> or explore how to <DiscreetLink internal href="/maths/research/cube-tilings">tile a cube</DiscreetLink>.
-        <br/>
-        I also have a <ProminentLink href="https://danielc.rocks">homepage</ProminentLink> with links to my other projects.
-    </p>
 
     <div class="pt-2 pb-4">
 
@@ -351,6 +334,9 @@ export default function TriposGuru () {
                 <ul>
                     <li>
                         Colour schemes (select in sidebar) - persistent via local storage
+                    </li>
+                    <li>
+                        Math diagrams that match the colour scheme
                     </li>
                     <li>
                         Keyboard shortcuts to toggle filetree and to search

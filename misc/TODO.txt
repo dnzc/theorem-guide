@@ -5,23 +5,11 @@ map.danielc.rocks: graph view - map of my knowledge (from tripos guru and blog),
 
 revision.tripos.guru - same content but compactified thms/lemmas/defns etc (or flashcards.tripos.guru)
 
-"after my fair share of browsing tripos notes online, i realized: - everything's in latex (booo, boring! I like colours and diagrams!) - people's explanations are so *brief*, almost like they don't care about the content and can't motivate it!"
-
 add relevant tripos questions
 
 backlinks (figure out where to display on page? potentially: underneath toc in right sidebar, so only visible on xl
 desmos embed (?)
 pyodide (?)
-
-FAQ instead of About on home page ("how do you render maths? svgs? ") - add minimap of ssg code (split into columns)
-coded everything myself, including quality-of-life (scrollshadow (link), copy buttons (link toastify))
-
-FAQ:
-how does the sidebar work? ans: (copy paste from existing) - also list features
-what makes these notes the best? ans: colour, interactivity, in-depth
-the notes are *too* in-depth! can i see a condensed version? ans: yes, revision.tripos.guru
-how do you write these lecture notes? ans: ...
-who runs this website? ans: just <me>(link), myself and I.
 
 redo danielc.rocks, add portfolio page
 
@@ -29,11 +17,8 @@ delete writeups/, move to personal blog
 
 "lightbulb" component - key idea
 
-better home page (larger landing) - and graph view / ascii art / site data e.g. total number of articles, tag view (word cloud of tags)
-different image per theme: catpuccin: space galaxy cat, gruvbox: forest, etc
-
 add tag preset colors, view/group by tags
-tags page
+tags page - word cloud of tags?
 
 
 

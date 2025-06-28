@@ -461,7 +461,9 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
             # article_list and course_list will have been populated, since root page is rendered last
             with open(CHANGELOG_FILE, 'r') as f:
                 changelog = markdown(f.read())
-            folder_mainpage = add_link_anchors(HOME_TEMPLATE.render(course_list=course_list, changelog=changelog), '/') + separator
+            article_count = sum(1 for i in article_list if i['type'] == 'article')
+            word_count = sum(len(i['content'].split()) for i in article_list)
+            folder_mainpage = add_link_anchors(HOME_TEMPLATE.render(course_list=course_list, changelog=changelog, article_count=article_count, word_count=word_count), '/') + separator
 
         react = wrap_in_js(
             TEMPLATE.render(
