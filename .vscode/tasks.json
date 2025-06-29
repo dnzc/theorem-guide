@@ -4,7 +4,7 @@
 		{
 			"label": "run static site generator",
 			"type": "shell",
-			"command": "python3 static_site_gen/run.py",
+			"command": "python3 ssg/run.py",
 			"group": {
 				"kind": "build",
 				"isDefault": true
