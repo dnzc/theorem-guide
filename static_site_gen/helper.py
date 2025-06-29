@@ -549,7 +549,7 @@ def inject_autosvg_tags(page):
         target = '<'+reactComponentName+f' width={{ {width} }} height={{ {height} }}/>'
         page = page[:m[0]] + target + page[m[1]:]
         imports.append(f"import {reactComponentName} from '{AUTOSVG_IMPORT_STRING}/{location}{'svg'+titlecase}'\n")
-    return ''.join(list(set(imports))) + page
+    return ''.join(sorted(list(set(imports)))) + page
 
 # generate checksums of all the files, so that unchanged content doesn't have to be regenerated
 def gen_checksum_tree(path):

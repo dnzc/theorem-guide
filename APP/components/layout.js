@@ -8,7 +8,7 @@ export default function Layout({ children }) {
                 <meta property="og:site_name" content="Tripos Guru" />
                 <meta property="og:title" content="Tripos Guru" />
                 <meta property="og:description" content="Maths Tripos lecture notes" />
-                <meta property="og:image" itemprop="image" content="<generated>" />
+                <meta property="og:image" itemprop="image" content="https://tripos.guru/og-image.png" />
                 <meta property="og:type" content="website" />
                 <meta name="twitter:card" content="summary_large_image" />
 
