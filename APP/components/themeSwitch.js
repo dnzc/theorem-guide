@@ -20,11 +20,11 @@ const { theme, resolvedTheme, setTheme } = useTheme();
     meta.name = 'theme-color'
     switch(t) {
       case 'system':
-        if(systemDark) meta.content = '#00ff00' // catppuccin
-        else meta.content = '#eeeeee' // sanctum
+        if(systemDark) meta.content = '#1e1e2e' // catppuccin
+        else meta.content = '#dddddd' // sanctum
         break
       case 'sanctum':
-        meta.content = '#eeeeee' // can't be too bright (https://stackoverflow.com/questions/69496801/why-doesnt-safari-15-on-desktop-respect-my-theme-color-setting)
+        meta.content = '#dddddd' // can't be too bright (https://stackoverflow.com/questions/69496801/why-doesnt-safari-15-on-desktop-respect-my-theme-color-setting)
         break
       case 'catppuccin':
         meta.content = '#1e1e2e'
