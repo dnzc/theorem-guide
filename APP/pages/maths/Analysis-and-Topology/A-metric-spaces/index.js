@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -21,7 +20,7 @@ import Folder from '@/components/folder'
 
 export default function AMetricSpaces () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>A Metric Spaces | Tripos Guru</title>
             </Head>
@@ -177,7 +176,7 @@ export default function AMetricSpaces () {
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

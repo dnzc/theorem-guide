@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -21,7 +20,7 @@ import Folder from '@/components/folder'
 
 export default function ProvingFTA () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>Proving FTA | Tripos Guru</title>
             </Head>
@@ -361,7 +360,7 @@ export default function ProvingFTA () {
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

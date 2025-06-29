@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -21,7 +20,7 @@ import Folder from '@/components/folder'
 
 export default function CompSci () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>Comp Sci | Tripos Guru</title>
             </Head>
@@ -262,7 +261,7 @@ export default function CompSci () {
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

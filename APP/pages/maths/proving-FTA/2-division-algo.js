@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -26,7 +25,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function DivisionAlgo () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>2 Division Algo | Tripos Guru</title>
             </Head>
@@ -350,7 +349,7 @@ In particular, 2&lt;3, and in general the remainder is always less than the divi
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

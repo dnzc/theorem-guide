@@ -6,7 +6,6 @@ import SvgCubetilings5 from '@/components/AUTOSVG/cubetilings/svgCubetilings5'
 import SvgCubetilings6 from '@/components/AUTOSVG/cubetilings/svgCubetilings6'
 import SvgCubetilings7 from '@/components/AUTOSVG/cubetilings/svgCubetilings7'
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -33,7 +32,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function CubeTilings () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>Cube Tilings | Tripos Guru</title>
             </Head>
@@ -622,7 +621,7 @@ export default function CubeTilings () {
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -26,7 +25,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function BezoutEgcd () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>3 Bezout Egcd | Tripos Guru</title>
             </Head>
@@ -958,7 +957,7 @@ For example, if <Latex>$m=3$</Latex>, <Latex>$a=8$</Latex>, <Latex>$b=3$</Latex>
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

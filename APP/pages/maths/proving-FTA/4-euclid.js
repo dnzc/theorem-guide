@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -26,7 +25,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function Euclid () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>4 Euclid | Tripos Guru</title>
             </Head>
@@ -379,7 +378,7 @@ export default function Euclid () {
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

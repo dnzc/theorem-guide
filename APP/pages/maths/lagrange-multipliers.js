@@ -12,7 +12,6 @@ import Svg7Closedintandunion from '@/components/AUTOSVG/lagrange-mult/svg7Closed
 import Svg8Bounded from '@/components/AUTOSVG/lagrange-mult/svg8Bounded'
 import Svg9Notcompact from '@/components/AUTOSVG/lagrange-mult/svg9Notcompact'
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -39,7 +38,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function LagrangeMultipliers () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>Lagrange Multipliers | Tripos Guru</title>
             </Head>
@@ -968,7 +967,7 @@ Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

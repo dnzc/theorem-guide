@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -26,7 +25,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function Terminal () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>Terminal | Tripos Guru</title>
             </Head>
@@ -360,7 +359,7 @@ The python runs client-side i.e. this is all really a fake prison-break environm
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

@@ -5,6 +5,20 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <meta property="og:site_name" content="Tripos Guru" />
+        <meta property="og:title" content="Tripos Guru" />
+        <meta property="og:description" content="Maths Tripos lecture notes" />
+        <meta property="og:image" itemprop="image" content="https://tripos.guru/og-image.png" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Tripos Guru" />
+        <link rel="manifest" href="/site.webmanifest" />
+
         <Script src="/theme.js" strategy="beforeInteractive"/>
       </Head>
       <body>

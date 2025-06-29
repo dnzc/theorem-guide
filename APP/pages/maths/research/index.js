@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -21,7 +20,7 @@ import Folder from '@/components/folder'
 
 export default function Research () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>Research | Tripos Guru</title>
             </Head>
@@ -289,7 +288,7 @@ export default function Research () {
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

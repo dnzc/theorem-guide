@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -31,7 +30,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function AnalysisAndTopology () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>Analysis & Topology | Tripos Guru</title>
             </Head>
@@ -245,7 +244,7 @@ export default function AnalysisAndTopology () {
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

@@ -37,7 +37,6 @@ import {{ ImPilcrow }} from 'react-icons/im'
 import {{ {', '.join(math_tags)} }} from '@/components/math'
 '''
     return f'''
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -54,7 +53,7 @@ import {{ CiLogout }} from 'react-icons/ci'
 
 export default function {componentName} () {{
     return (
-        <Layout>
+        <>
             <Head>
                 <title>{title}</title>
             </Head>
@@ -72,7 +71,7 @@ export default function {componentName} () {{
                     />
                     {jinja}
                 </>
-        </Layout>
+        </>
     )
 }}
     '''

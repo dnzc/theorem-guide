@@ -1,6 +1,5 @@
 import SvgWorkflow from '@/components/AUTOSVG/root/svgWorkflow'
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -32,7 +31,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function TriposGuru () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>Tripos Guru</title>
             </Head>
@@ -534,7 +533,7 @@ export default function TriposGuru () {
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     

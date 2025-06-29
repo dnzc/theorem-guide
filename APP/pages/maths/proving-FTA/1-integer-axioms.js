@@ -1,5 +1,4 @@
 
-import Layout from '@/components/layout'
 import Head from 'next/head'
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -26,7 +25,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export default function IntegerAxioms () {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>1 Integer Axioms | Tripos Guru</title>
             </Head>
@@ -855,7 +854,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
     
 </div>
                 </>
-        </Layout>
+        </>
     )
 }
     
