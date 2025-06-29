@@ -14,18 +14,17 @@ const { theme, resolvedTheme, setTheme } = useTheme();
     setTheme(t)
 
     var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    console.log(systemDark)
     var existing = document.querySelectorAll('meta[name="theme-color"]')
     existing.forEach(function (m) { m.remove(); })
     var meta = document.createElement('meta')
     meta.name = 'theme-color'
     switch(t) {
       case 'system':
-        if(systemDark) meta.content = '#1e1e2e' // catppuccin
-        else meta.content = '#ffffff' // sanctum
+        if(systemDark) meta.content = '#00ff00' // catppuccin
+        else meta.content = '#eeeeee' // sanctum
         break
       case 'sanctum':
-        meta.content = '#ffffff'
+        meta.content = '#eeeeee' // can't be too bright (https://stackoverflow.com/questions/69496801/why-doesnt-safari-15-on-desktop-respect-my-theme-color-setting)
         break
       case 'catppuccin':
         meta.content = '#1e1e2e'
