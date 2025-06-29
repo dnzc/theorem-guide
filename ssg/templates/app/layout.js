@@ -46,13 +46,12 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="apple-mobile-web-app-title" content="Tripos Guru" />
-
-        <Script src="/theme.js" strategy="beforeInteractive" />
       </Head>
       <body
         className={`${lato.variable} ${pangolin.variable} ${space.variable} ${fira.variable} antialiased`}
       >
         <MyThemeProvider>{children}</MyThemeProvider>
+        <Script src="/theme.js" strategy="beforeInteractive" />
       </body>
     </html>
   );

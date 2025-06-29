@@ -1,3 +1,4 @@
+console.log('aslfdkjsalg')
 try {
     var theme = localStorage.getItem('theme')
     var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches

@@ -1,6 +1,6 @@
 from jinja2 import Environment, FileSystemLoader
 
-ROOT_DIR = '/home/dnzc/Github/TODO/'
+ROOT_DIR = '/home/dnzc/Github/tripos-guru/'
 
 SOURCE_DIR = ROOT_DIR + 'STATIC/content'
 TARGET_DIR = ROOT_DIR + 'next-app/app'
