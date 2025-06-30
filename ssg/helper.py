@@ -14,10 +14,10 @@ def warn(message):
     warnings.add(message)
 
 def wrap_in_js(jinja, isFolder, isReadmeOrHome, isHome, title=''):
+    componentName = re.sub(r'(\d+| )', '', title)
     # replace and with &
     title = ' '.join('&' if i.lower()=='and' else i for i in title.split())
     titleMetadata = 'export const metadata = {title:"'+title+'"}' if title else ''
-    componentName = re.sub(r'(\d+| )', '', title)
     imports = ''
     if isFolder: imports += f'''
 import {{ FaBook }} from 'react-icons/fa'

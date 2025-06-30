@@ -29,7 +29,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export const metadata = {title:"Analysis & Topology"}
 
-export default function Analysis&Topology () {
+export default function AnalysisAndTopology () {
     return (
         <>
             <ToastContainer
