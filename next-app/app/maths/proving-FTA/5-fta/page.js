@@ -22,9 +22,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: '5 Fta | Tripos Guru',
-}
+export const metadata = {title:"5 Fta"}
 
 export default function Fta () {
     return (

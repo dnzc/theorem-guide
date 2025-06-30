@@ -27,11 +27,9 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: 'Analysis & Topology | Tripos Guru',
-}
+export const metadata = {title:"Analysis & Topology"}
 
-export default function AnalysisAndTopology () {
+export default function Analysis&Topology () {
     return (
         <>
             <ToastContainer

@@ -35,9 +35,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: 'Lagrange Multipliers | Tripos Guru',
-}
+export const metadata = {title:"Lagrange Multipliers"}
 
 export default function LagrangeMultipliers () {
     return (

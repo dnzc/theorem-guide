@@ -17,9 +17,7 @@ import { AiFillFolder } from 'react-icons/ai'
 import Folder from '@/components/folder'
 
 
-export const metadata = {
-    title: 'Maths | Tripos Guru',
-}
+export const metadata = {title:"Maths"}
 
 export default function Maths () {
     return (

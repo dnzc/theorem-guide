@@ -84,16 +84,24 @@ __COPIABLE__
 </Spoiler>
 
 
-## Cheese solution
-<Spoiler>
-The way I got python to run in the browser was with <DiscreetLink href='https://pyodide.org/en/stable/'>Pyodide</DiscreetLink> and a <DiscreetLink href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers'>web worker</DiscreetLink>.
-The python runs client-side i.e. this is all really a fake prison-break environment. In particular the flag file has to be generated somehow, so the flag is somewhere in the source.
+## FAQs
 
-<br/>
-
-So I had to find somewhere to hide the loading of the flag so that it wasn't completely obvious. It's in the main thread so at least there are no revealing network requests (initially it was in `init.py`).
-
-<br/>
-
-It's base-64 encoded; look for it in F12 -&gt; Sources.
-</Spoiler>
+<div className="flex flex-col divide-y divide-border-strong">
+    <details className="faq-question">
+        <summary>How did you get Python to run in the browser???</summary>
+        <div>
+            I talked to my comp-sci teacher who helps run this <DiscreetLink href='https://www.pythonsponge.com/'>educational tool</DiscreetLink> - and he told me about how they use <DiscreetLink href='https://pyodide.org/en/stable/'>Pyodide</DiscreetLink> and a <DiscreetLink href='https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers'>web worker</DiscreetLink>. So I implemented that.
+        </div>
+    </details>
+    <details className="faq-question">
+        <summary>This is all client-side, so shouldn't I be able to cheese the flag by just looking in F12?</summary>
+        <div className="space-y-2">
+            <p>
+                Indeed there used to be a cheese solution by just going into F12 and realising that <code>init.py</code> contained the flag (thanks @xp3dx) - but I moved it &gt;:)
+            </p>
+            <p>
+                I have no idea if the flag is still accessible like this because I don't know enough about Next.js, but I will tell you that in my Next.js app it's in <code>components/challenge.js</code> - feel free to try and hunt for it in whatever obsfucated garbage Next.js gives you...
+            </p>
+        </div>
+    </details>
+</div>

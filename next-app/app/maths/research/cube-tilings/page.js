@@ -29,9 +29,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: 'Cube Tilings | Tripos Guru',
-}
+export const metadata = {title:"Cube Tilings"}
 
 export default function CubeTilings () {
     return (

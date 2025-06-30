@@ -22,9 +22,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: '4 Euclid | Tripos Guru',
-}
+export const metadata = {title:"4 Euclid"}
 
 export default function Euclid () {
     return (

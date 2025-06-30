@@ -32,7 +32,10 @@ const fira = Fira_Code({
 })
 
 export const metadata = {
-  title: 'Tripos Guru',
+  title: {
+    template: '%s | Tripos Guru', // applies to child routes only
+    default: 'Tripos Guru',
+  },
 }
 
 export default function RootLayout({ children }) {

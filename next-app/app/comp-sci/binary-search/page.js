@@ -22,9 +22,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: 'Binary Search | Tripos Guru',
-}
+export const metadata = {title:"Binary Search"}
 
 export default function BinarySearch () {
     return (

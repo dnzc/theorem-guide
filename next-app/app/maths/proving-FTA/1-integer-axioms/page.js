@@ -22,9 +22,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: '1 Integer Axioms | Tripos Guru',
-}
+export const metadata = {title:"1 Integer Axioms"}
 
 export default function IntegerAxioms () {
     return (

@@ -13,11 +13,11 @@ math_tags = ['Thm', 'Lemma', 'Proof', 'Defn', 'Example']
 def warn(message):
     warnings.add(message)
 
-def wrap_in_js(jinja, name, isFolder, isReadmeOrHome, isHome):
-    title = name + ' | Tripos Guru' if not isHome else 'Tripos Guru'
+def wrap_in_js(jinja, isFolder, isReadmeOrHome, isHome, title=''):
     # replace and with &
     title = ' '.join('&' if i.lower()=='and' else i for i in title.split())
-    componentName = re.sub(r'(\d+| )', '', name)
+    titleMetadata = 'export const metadata = {title:"'+title+'"}' if title else ''
+    componentName = re.sub(r'(\d+| )', '', title)
     imports = ''
     if isFolder: imports += f'''
 import {{ FaBook }} from 'react-icons/fa'
@@ -50,9 +50,7 @@ import {{ RiArrowGoBackFill }} from 'react-icons/ri'
 import {{ CiLogout }} from 'react-icons/ci'
 {imports}
 
-export const metadata = {{
-    title: '{title}',
-}}
+{titleMetadata}
 
 export default function {componentName} () {{
     return (
@@ -390,7 +388,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         with open(TARGET_DIR+cur_target_dir+'/page.js', 'w') as output_file:
             react = wrap_in_js(
                 TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
-                page_title, False, False, False
+                False, False, False, title=page_title
             )
             react = inject_autosvg_tags(react)
             output_file.write(react)
@@ -426,7 +424,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         if cur_dir == '':
             path_list = None
             parent_path = None
-            page_title = 'Tripos Guru'
+            page_title = ''
         else:
             path_list = cur_target_dir.split('/')[1:]
             parent_path = '/'+'/'.join(path_list[:-1])
@@ -472,7 +470,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
                     file_count=sum(item['filecount'] for item in folder_contents),
                 ),
                 path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
-            page_title, True, cur_dir=='' or readme_exists, cur_dir==''
+            True, cur_dir=='' or readme_exists, cur_dir=='', title=page_title
         )
         react = inject_autosvg_tags(react)
         output_file.write(react)

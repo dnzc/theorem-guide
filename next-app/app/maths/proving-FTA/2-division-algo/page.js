@@ -22,9 +22,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: '2 Division Algo | Tripos Guru',
-}
+export const metadata = {title:"2 Division Algo"}
 
 export default function DivisionAlgo () {
     return (

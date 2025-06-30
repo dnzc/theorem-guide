@@ -28,11 +28,9 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: 'Tripos Guru',
-}
 
-export default function TriposGuru () {
+
+export default function  () {
     return (
         <>
             <ToastContainer
@@ -206,7 +204,7 @@ export default function TriposGuru () {
         <div className="hero-text mr-auto place-self-center lg:col-span-7 md:ml-4">
             <p className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-Hero-text">The prettiest maths notes on the internet</p>
             <p className="max-w-2xl mb-4 md:text-lg lg:text-xl">Read colourful, interactive lecture notes I wrote for courses from the Cambridge Mathematical Tripos, full of extra intuition and explanation.</p>
-            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> 11 articles, 14892 words</p>
+            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> 11 articles, 14929 words</p>
             <Link href="/maths/Analysis-and-Topology" className="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
                 Go to my favourite course
             </Link> 

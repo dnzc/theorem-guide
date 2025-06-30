@@ -22,9 +22,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: '1 Basics | Tripos Guru',
-}
+export const metadata = {title:"1 Basics"}
 
 export default function Basics () {
     return (

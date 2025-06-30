@@ -22,9 +22,7 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {
-    title: '3 Bezout Egcd | Tripos Guru',
-}
+export const metadata = {title:"3 Bezout Egcd"}
 
 export default function BezoutEgcd () {
     return (
