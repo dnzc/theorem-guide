@@ -344,7 +344,7 @@ export default function  () {
                         </Spoiler>
                     </li>
                     <li>
-                        Copy buttons like this one <CopyButton text="Hello there"/>
+                        Copy buttons like this one <CopyButton text="You just lost the game."/>
                     </li>
                 </ul>
             </div>

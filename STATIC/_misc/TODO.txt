@@ -1,29 +1,35 @@
+TRIPOS-GURU
+
 quizzes
 theorem flashcards
-
-map.danielc.rocks: graph view - map of my knowledge (from tripos guru and blog), nodes represent pages, lines represent thm/lemma/prop references etc, or links? c.f. https://space.ong.ac/
-
-revision.tripos.guru - same content but compactified thms/lemmas/defns etc (or flashcards.tripos.guru)
-
+"lightbulb" component in components/math.js - key idea
+delete writeups/, move to personal blog (create blog.danielc.rocks)
 add relevant tripos questions
+
+add tag preset colors, view/group by tags
+tags page - word cloud of tags? tags.tripos.guru
 
 backlinks (figure out where to display on page? potentially: underneath toc in right sidebar, so only visible on xl
 desmos embed (?)
 pyodide (?)
 
-redo danielc.rocks, add portfolio page
-
-delete writeups/, move to personal blog
-
-"lightbulb" component - key idea
-
-add tag preset colors, view/group by tags
-tags page - word cloud of tags?
-
-list of bugs page
-- favicon on safari is not showing, default page is instead: also true literally after running create-next-app @latest so might be react issue
 
 
+HOMEPAGE
+
+redo from scratch (for some reason font is slightly smaller on public site than on preview), add portfolio. dont forget metadata (inc. og-image - copy all from tripos-guru)
+maybe move danielc.rocks from squarespace to cloudflare?
+
+
+
+NEW DOMAINS
+
+map.danielc.rocks: graph view - map of my knowledge (from tripos guru and blog), nodes represent pages, lines represent thm/lemma/prop references etc, or links? c.f. https://space.ong.ac/
+revision.tripos.guru - same content but compactified thms/lemmas/defns etc (or flashcards.tripos.guru)
+
+
+
+CONTENT IDEAS
 
 intuition-focused explanation of derivatives
 
