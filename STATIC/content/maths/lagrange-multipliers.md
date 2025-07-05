@@ -46,7 +46,7 @@ $$\{x \in \mathbb{R}^n \mid d(p,x) \leq r\}$$
 - <div class='flex flex-wrap items-center space-x-4'><p>$B[0,1]$ in $\mathbb{R}^2$ is</p> <AUTOSVG src='lagrange-mult/1-closedBall-0-1.svg' width='100' height='100'/></div>
 </Example>
 
-<Defn>$U \subseteq \mathbb{R}^n$ is **open** iff for every $p \in U$, $\exists r\gt 0$ s.t. $B(p,r) \subset U$.
+<Defn>$U \subseteq \mathbb{R}^n$ is **open** if for every $p \in U$, $\exists r\gt 0$ s.t. $B(p,r) \subset U$.
 
 <div class='flex flex-wrap justify-center space-x-8'>
     <AUTOSVG src='lagrange-mult/2-openSet.svg' width='150' height='160'/>
@@ -60,7 +60,7 @@ Informally: an 'open set' is a set such that for any point $x$ in the set, we ca
 
 <Defn name="limits">Let $(x_k)_{k=1}^\infty$ be a sequence in $\mathbb{R}^n$.
 
-The sequence **converges** to the point $x_\infty$ iff $\forall \epsilon \gt 0, \exists n_0 \in \mathbb{N}$ such that:
+The sequence **converges** to the point $x_\infty$ if $\forall \epsilon \gt 0, \exists n_0 \in \mathbb{N}$ such that:
 
 $$n \geq n_0 \implies d(x_n, x_\infty) \lt \epsilon$$
 Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
@@ -73,7 +73,7 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
 
 <br/>
 
-<Defn> Let $S \subseteq \mathbb{R}^n$. $S$ is **closed** iff for every sequence of points $(x_k)_{k=1}^\infty$ that satisfies $x_k \in S \;\forall\; k$, we have $\left( \lim_{k \to \infty} x_k \right) \in S$.</Defn>
+<Defn> Let $S \subseteq \mathbb{R}^n$. $S$ is **closed** if for every sequence of points $(x_k)_{k=1}^\infty$ that satisfies $x_k \in S \;\forall\; k$, we have $\left( \lim_{k \to \infty} x_k \right) \in S$.</Defn>
 
 <Example plural>
 - $B(0,1)$ is not closed because we can take $x_k = (1 - \frac{1}{k}, 0, \cdots, 0).$
@@ -113,7 +113,7 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
 
 <br/><hr/>
 
-<Defn>$A \subseteq \mathbb{R}^n$ is **bounded** iff $\exists\, R \in \mathbb{R}, R\gt 0$ such that $A \subseteq B(0, R)$.
+<Defn>$A \subseteq \mathbb{R}^n$ is **bounded** if $\exists\, R \in \mathbb{R}, R\gt 0$ such that $A \subseteq B(0, R)$.
 <div class='w-full flex justify-center mt-2'>
     <AUTOSVG src='lagrange-mult/8-bounded.svg' width='150' height='150'/>
 </div>
@@ -126,11 +126,11 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
 <Defn>
 Let $D \subseteq \mathbb{R}^n$ and let $f : D \to \mathbb{R}$.
 
-$f$ is **continuous at the point** $p \in D$ iff $\forall \epsilon \gt 0$, $\exists \delta \gt 0$ such that $\forall x \in D$ we have:
+$f$ is **continuous at the point** $p \in D$ if $\forall \epsilon \gt 0$, $\exists \delta \gt 0$ such that $\forall x \in D$ we have:
 
 $$d(p,x) \lt \delta \implies \lvert f(x) - f(p) \rvert \lt \epsilon$$
 
-$f$ is **continuous** iff it is continuous at every point.
+$f$ is **continuous** if it is continuous at every point.
 </Defn>
 
 Informally, no matter how small $\epsilon$ you pick, I can always find a region around $p$ where the change in $f$ is smaller than $\epsilon$. So, a small change in input causes a small change in ouput.

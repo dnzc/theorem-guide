@@ -2,6 +2,8 @@ TRIPOS-GURU
 
 quizzes
 theorem flashcards
+
+"hide all flashcards" - make theme selector a settings button
 "lightbulb" component in components/math.js - key idea
 delete writeups/, move to personal blog (create blog.danielc.rocks)
 add relevant tripos questions
