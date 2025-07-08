@@ -10,10 +10,10 @@ try {
     switch (theme) {
         case 'system':
             if (systemDark) meta.content = '#1e1e2e' // catppuccin
-            else meta.content = '#ffffff' // sanctum
+            else meta.content = '#dddddd' // sanctum
             break
         case 'sanctum':
-            meta.content = '#ffffff'
+            meta.content = '#dddddd'
             break
         case 'catppuccin':
             meta.content = '#1e1e2e'
@@ -21,6 +21,11 @@ try {
         case 'gruvbox':
             meta.content = '#282828'
             break
+        default:
+            // If no theme is set, use system preference
+            if (systemDark) meta.content = '#1e1e2e'
+            else meta.content = '#dddddd'
+            break
     }
     document.head.appendChild(meta)
-} catch (_) { console.log('alsdkgjalsdkgj error') }
+} catch (_) { }

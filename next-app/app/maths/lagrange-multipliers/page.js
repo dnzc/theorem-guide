@@ -569,7 +569,7 @@ export default function LagrangeMultipliers () {
 
 <span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta x&#125; = yz, \frac&#123;\delta f&#125;&#123;\delta y&#125; = xz, \frac&#123;\delta f&#125;&#123;\delta z&#125; = xy$$</Latex></span>
 
-<p>So <Latex>$yz = \lambda \cdot 1$</Latex>, <Latex>$xz = \lambda \cdot 1$</Latex>, <Latex>$xy = \lambda \cdot 1$</Latex>. <br />
+<p>So <Latex>$yz = \lambda \cdot 1$</Latex>, <Latex>$xz = \lambda \cdot 1$</Latex>, <Latex>$xy = \lambda \cdot 1$</Latex>.<br />
 This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finally <Latex>$x+y+z = 1$</Latex> <Latex>$\implies$</Latex> <Latex>$x=y=z=\frac&#123;1&#125;&#123;3&#125;$</Latex>, so an extremal value of <Latex>$f$</Latex> is <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.</p>
 
 <p>Overall, all extreme values of <Latex>$f$</Latex> on <Latex>$\bar S$</Latex> are <Latex>$0$</Latex> or <Latex>$\frac&#123;1&#125;&#123;27&#125;$</Latex>.</p>
@@ -600,7 +600,7 @@ This implies <Latex>$xy = yz = zx$</Latex> so <Latex>$x=y=z$</Latex>, and finall
 <p>Let <Latex>$x_0 = (x,y,z)$</Latex> be a global extremum.</p>
 
 <ul>
-<li>If <Latex>$x_0$</Latex> is on the boundary: <br />
+<li>If <Latex>$x_0$</Latex> is on the boundary:<br />
 Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Latex>. Then <Latex>$x+y=1$</Latex> and we wish to show that <Latex>$0 \leq xy \leq \frac&#123;7&#125;&#123;27&#125;$</Latex>.</li>
 </ul>
 
@@ -626,8 +626,8 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 
 <span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\frac&#123;\delta f&#125;&#123;\delta z&#125; = y+x-2yx$$</Latex></span>
 
-<p>So, <Latex>$z+y-2yz = \lambda \cdot 1$</Latex>, <br />
-<Latex>$x+z-2xz = \lambda \cdot 1$</Latex>, <br />
+<p>So, <Latex>$z+y-2yz = \lambda \cdot 1$</Latex>,<br />
+<Latex>$x+z-2xz = \lambda \cdot 1$</Latex>,<br />
 <Latex>$y+x-2yx = \lambda \cdot 1$</Latex></p>
 
 <p>Solving for <Latex>$x,y,z$</Latex>:</p>
@@ -814,7 +814,7 @@ Then one of <Latex>$x,y,z$</Latex> is <Latex>$0$</Latex>, WLOG <Latex>$z=0$</Lat
 <p>Thus either <Latex>$x=y$</Latex> or <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>.</p>
 
 <ul>
-<li>If <Latex>$x = y$</Latex>: <br />
+<li>If <Latex>$x = y$</Latex>:<br />
 Then, since <Latex>$x^2 + y^2 = 1$</Latex>, we have that <Latex>$x = y = \pm \frac&#123;1&#125;&#123;\sqrt2&#125;$</Latex>. In this case:</li>
 </ul>
 
@@ -827,7 +827,7 @@ Then, since <Latex>$x^2 + y^2 = 1$</Latex>, we have that <Latex>$x = y = \pm \fr
 <span className="scrollshadow-horizontal-blockquote latex-display-wrapper"><Latex>$$= 0, 2\sqrt2$$</Latex></span>
 
 <ul>
-<li>If <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>: <br />
+<li>If <Latex>$2\sqrt2(x+y) + 1 = 0$</Latex>:<br />
 Then <Latex>$x + y = -\frac&#123;1&#125;&#123;2\sqrt2&#125;$</Latex>.  </li>
 </ul>
 
