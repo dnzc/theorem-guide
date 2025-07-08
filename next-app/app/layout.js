@@ -53,35 +53,6 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="apple-mobile-web-app-title" content="Tripos Guru" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                var theme = localStorage.getItem('theme');
-                var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                var color;
-                switch (theme) {
-                  case 'system':
-                    color = systemDark ? '#1e1e2e' : '#dddddd';
-                    break;
-                  case 'sanctum':
-                    color = '#dddddd';
-                    break;
-                  case 'catppuccin':
-                    color = '#1e1e2e';
-                    break;
-                  case 'gruvbox':
-                    color = '#282828';
-                    break;
-                  default:
-                    color = systemDark ? '#1e1e2e' : '#dddddd';
-                    break;
-                }
-                document.write('<meta name="theme-color" content="' + color + '">');
-              } catch (_) {}
-            `,
-          }}
-        />
       </Head>
       <body
         className={`${lato.variable} ${pangolin.variable} ${space.variable} ${fira.variable} antialiased`}
