@@ -19,6 +19,7 @@ pyodide (?)
 POTENTIAL OPEN-SOURCE SSG:
 compare quartz, obsidian publish, and this
 write obsidian plugins to deal with markdown etc
+potential trick: ignore dotfiles during content creation dfs (in particular .obsidian which is created for any folder opened as a vault)
 
 
 HOMEPAGE

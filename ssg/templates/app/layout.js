@@ -36,6 +36,10 @@ export const metadata = {
     template: '%s | Tripos Guru', // applies to child routes only
     default: 'Tripos Guru',
   },
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#dddddd' },
+    { media: '(prefers-color-scheme: dark)', color: '#1e1e2e' }
+  ],
 }
 
 export default function RootLayout({ children }) {
