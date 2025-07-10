@@ -2,6 +2,7 @@ TRIPOS-GURU
 
 quizzes
 theorem flashcards
+make "copy article plaintext" button always visible, even for courses
 
 "hide all flashcards" - make theme selector a settings button
 "lightbulb" component in components/math.js - key idea
@@ -15,6 +16,9 @@ backlinks (figure out where to display on page? potentially: underneath toc in r
 desmos embed (?)
 pyodide (?)
 
+POTENTIAL OPEN-SOURCE SSG:
+compare quartz, obsidian publish, and this
+write obsidian plugins to deal with markdown etc
 
 
 HOMEPAGE
