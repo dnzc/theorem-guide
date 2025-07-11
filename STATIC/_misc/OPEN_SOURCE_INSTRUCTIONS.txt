@@ -1,0 +1,220 @@
+# Open Source Analysis for Tripos Guru SSG
+
+## Initial Question
+This github repository is what I use for writing math notes. I write the notes in markdown format in STATIC/content, with certain extra syntax specified in STATIC/_misc/conventions.txt. Then I run run.py in ssg/ to convert the markdown content into a next-app, stored in next-app. I realised that this SSG is essentially a converter of md files to a webpage view, in particular Obsidian Vaults. So I have essentially made a free version of Obsidian Publish. Is it worth making this ssg open-source, in the hopes that it will become a popular way to convert obsidian vaults to a web view? Compare this against quartz, which is an existing free alternative, and suggest how I could differentiate my ssg from it.
+
+## SSG Project Analysis: Tripos Guru
+
+### **Project Overview**
+This is a custom Python-based Static Site Generator (SSG) that converts markdown files into a Next.js application specifically designed for mathematical lecture notes. The project is structured as a two-stage build process: Python SSG → Next.js React components.
+
+### **1. Custom Markdown Syntax & Conventions**
+
+**File Structure Conventions:**
+- Only alphanumeric characters and dashes allowed in folder names
+- Course folders marked with `[COURSE] ` prefix
+- Files must have lowercase names
+- First line contains modification date: `dd/mm/yyyy hh:mm`
+- Optional second line for creation date: `created dd/mm/yyyy hh:mm`
+- First `#` heading becomes the article title
+- Tags specified as `[TAGS] tag1 color1, tag2 color2`
+
+**Custom Markdown Extensions:**
+- **AUTOSVG tags**: `<AUTOSVG src='path' width='100' height='100'/>` - Converts SVGs to React components with theme-aware colors
+- **Copiable code blocks**: `[COPIABLE]` before code blocks adds copy buttons
+- **Mathematical components**: `<Thm>`, `<Lemma>`, `<Proof>`, `<Defn>`, `<Example>` for structured mathematical content
+- **Interactive elements**: `<Spoiler>`, `<CopyButton>`, `<ProminentLink>`, `<DiscreetLink>`
+- **Footnotes and LaTeX**: Full KaTeX support with automatic `$$` wrapping for display math
+
+### **2. SSG Technical Implementation**
+
+**Core Architecture (`/Users/daniel/Github/tripos-guru/ssg/run.py`):**
+```python
+# Main workflow:
+1. Construct directory tree from STATIC/content
+2. Load checksums for incremental builds
+3. Parse markdown files → JSX components
+4. Generate themed SVG React components
+5. Store article metadata for search functionality
+```
+
+**Key Technical Features:**
+- **Incremental builds**: MD5 checksums track file changes, only recompiles modified content
+- **Jinja2 templating**: Custom templates for different page types (article, folder, home)
+- **Automatic JSX generation**: Wraps processed content in React components with proper imports
+- **SVG theme integration**: Uses `@svgr/cli` to convert SVGs to React components with CSS variable color replacements
+
+**Color System for SVGs:**
+```
+#000000 (black)   → var(--color-Svg-text)
+#808080 (gray)    → var(--color-Svg-gray)  
+#0000ff (blue)    → var(--color-Svg-text-highlight)
+#00ff00 (green)   → var(--color-Svg-line-highlight-1)
+#00ffff (cyan)    → var(--color-Svg-line-highlight-2)
+#ff0000 (red)     → var(--color-Svg-fill-highlight-1)
+#ff00ff (magenta) → var(--color-Svg-fill-highlight-2)
+#ffff00 (yellow)  → var(--color-Svg-fill-highlight-3)
+```
+
+### **3. Next.js Integration**
+
+**Generated Structure:**
+- Each markdown file → `page.js` in corresponding directory
+- Folder structures preserved in Next.js app directory
+- Components automatically imported based on content needs
+- Article metadata stored in `article_data.json` for search
+
+**Key Components:**
+- **Sidebar**: Collapsible file tree with keyboard shortcuts (`Cmd/Ctrl+U`)
+- **Search**: Full-text search with `Cmd/Ctrl+K` shortcut
+- **Theme System**: Multiple color schemes (Catppuccin, Gruvbox, Sanctum)
+- **Math Rendering**: KaTeX integration with scroll shadows for overflow
+- **Responsive Design**: Mobile-first with adaptive layouts
+
+### **4. Unique Features & Differentiators**
+
+**Mathematical Content Focus:**
+- Structured mathematical components (`<Thm>`, `<Proof>`, etc.)
+- Automatic LaTeX formatting with proper spacing
+- Theme-aware mathematical diagrams
+- Copy buttons for code and plaintext content
+
+**Interactive Elements:**
+- Spoiler tags for hidden content
+- Copy buttons throughout
+- Keyboard shortcuts for navigation
+- Smooth scrolling with anchor links
+
+**Advanced SVG Integration:**
+- SVGs automatically converted to React components
+- Color theming applied dynamically
+- Optimized for mathematical diagrams
+- Inkscape workflow support
+
+**Performance & UX:**
+- Incremental builds for fast development
+- Responsive design with mobile optimizations
+- Local storage for theme persistence
+- Table of contents generation
+- Breadcrumb navigation
+
+### **5. Key Differentiators from Quartz**
+
+**Technical Advantages:**
+1. **Custom Python SSG**: Full control over markdown processing vs. Quartz's TypeScript-based system
+2. **Theme-aware SVGs**: Automatic color replacement in diagrams based on selected theme
+3. **Mathematical Components**: Built-in structured math content vs. generic markdown
+4. **Incremental Builds**: Checksum-based rebuilds vs. full rebuilds
+5. **Next.js Integration**: Modern React framework vs. Quartz's vanilla JS approach
+
+**Content-Specific Features:**
+- Course-specific navigation and organization
+- Cambridge Tripos-specific mathematical notation
+- Interactive mathematical proofs and examples
+- Specialized components for academic content
+
+**User Experience:**
+- Mobile-optimized mathematical content
+- Keyboard shortcuts for power users
+- Advanced search with metadata
+- Professional mathematical typography
+
+### **6. Build Process**
+
+```bash
+# Development workflow:
+1. Edit markdown files in STATIC/content/
+2. Run Python SSG: python ssg/run.py
+3. Next.js dev server: npm run dev
+4. Deploy: npm run build
+```
+
+The system generates approximately 400 lines of content processing logic, handling everything from file parsing to React component generation, making it a sophisticated academic content management system rather than a general-purpose SSG.
+
+This SSG is specifically optimized for mathematical and academic content, with features that would be difficult to replicate in general-purpose tools like Quartz, making it highly specialized for its intended use case.
+
+## Quartz Comparison Analysis
+
+### **Quartz Overview (2024)**
+Quartz is a fast, batteries-included static-site generator that transforms Markdown content into fully functional websites and helps you publish your digital garden and notes as a website for free. Quartz is a static site generator FOSS alternative to Obsidian Publish.
+
+### **Key Features of Quartz (2024)**
+
+**Core Capabilities:**
+- Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use
+- Quartz is a stand alone project reportedly written to work with Obsidian Markdown files
+- Generation of index pages for tags, including nested ones like #this/nested/tag
+
+**Obsidian Integration:**
+- Supports wiki-links e.g. [[shortest-url]] or [[shortest-url|text]], which are preferred over traditional markdown links
+- The level of configuration that Quartz brings to the table truly makes it stand out thanks to Quartz's Obsidian support
+
+### **Comparison with Obsidian Publish**
+
+**Advantages of Quartz:**
+- Compared to Obsidian Publish, it's free and you get to customize many more things
+- The level of configuration that Quartz brings to the table truly makes it stand out
+
+**Publishing Options:**
+- By default Quartz comes with Plugin.RemoveDrafts() which is essentially an "opt-out" of being published, but Quartz has a second plugin Plugin.ExplicitPublish() which is perfect for selective publishing needs
+
+### **Technical Considerations (2024)**
+
+**Challenges:**
+- The lack of navigation on Mobile is a real deal breaker for some users
+- Quartz generates HTML files for each piece of content but when it renders links, it doesn't put the .html file extension on it, which breaks static site hosting using Amazon S3
+
+**Setup Requirements:**
+- It does require minor some setup
+- There is a little overhead required and learning for sure to make it work
+
+### **User Experience in 2024**
+Quartz does a pretty good job overall with a nice basic website with sane defaults. However, if you want a middle ground with more flexibility, Quartz might offer more customization capabilities if you are willing to dive into the weeds of learning them.
+
+## Analysis & Recommendation
+
+### **Worth Open-Sourcing? Yes, with caveats**
+
+Your SSG has strong potential as an open-source project. Here's my assessment:
+
+Your SSG targets a specific, underserved niche that Quartz doesn't address well: **mathematical and academic content**.
+
+### **Key Differentiators from Quartz**
+
+**Your Advantages:**
+1. **Mathematics-First Design**: Built-in `<Thm>`, `<Proof>`, `<Defn>` components vs Quartz's generic markdown
+2. **Theme-Aware SVGs**: Automatic color replacement in diagrams - Quartz lacks this
+3. **Academic Structure**: Course-based organization with Cambridge Tripos conventions
+4. **Performance**: Incremental builds with checksums vs Quartz's full rebuilds
+5. **Next.js Integration**: Modern React framework vs Quartz's vanilla approach
+
+**Quartz's Advantages:**
+- Larger community and ecosystem
+- More general-purpose features
+- Better mobile navigation
+- Established plugin system
+
+### **Differentiation Strategy**
+
+**1. Position as "Academic Obsidian Publisher"**
+- Market specifically to academics, mathematicians, researchers
+- Highlight mathematical notation and theorem environments
+- Target STEM note-takers who need structured academic content
+
+**2. Unique Value Propositions**
+- **Mathematical diagrams that adapt to themes** (SVG color replacement)
+- **Structured academic writing** with theorem/proof environments
+- **Course-based organization** for educational content
+- **Performance optimization** for large academic vaults
+
+**3. Technical Improvements for Open Source**
+- Add plugin system for custom markdown components
+- Improve mobile navigation (current Quartz weakness)
+- Add more academic templates (physics, chemistry, etc.)
+- Integration with reference managers (Zotero, Mendeley)
+
+### **Final Recommendation**
+
+**Yes, open-source it** - but position it as a specialized tool for academic content rather than competing directly with Quartz. The mathematical focus and theme-aware diagrams are genuinely unique features that would appeal to STEM academics who find Quartz too generic.
+
+Focus on the academic niche first, then expand if successful.
