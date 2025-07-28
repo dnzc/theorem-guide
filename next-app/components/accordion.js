@@ -11,7 +11,26 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
 
     if(href==="") href = "/"
 
-    const [active, setActiveState] = useState(isOpenByDefault)
+    // Create a unique key for this accordion based on its path
+    const storageKey = `accordion-state-${href}`
+
+    // Initialize state from localStorage or default
+    const [active, setActiveState] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem(storageKey)
+            if (saved !== null) {
+                return saved === 'true'
+            }
+        }
+        return isOpenByDefault
+    })
+
+    // Save state to localStorage whenever it changes
+    useEffect(() => {
+        if (typeof window !== 'undefined' && active !== undefined) {
+            localStorage.setItem(storageKey, active.toString())
+        }
+    }, [active, storageKey])
 
     function toggleAccordion() {
         setActiveState(!active)
@@ -28,7 +47,7 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
 
     var icon
     if(type === 'folder' || type === 'course' && relDepth==0) {
-        icon = ( type === 'folder' ? (
+        icon = (
             <div className='flex self-stretch'>
                 <button className={`${isSelected ? 'hover:bg-Filetree-chevron-current-hover text-Filetree-chevron-current' : 'hover:bg-Filetree-chevron-hover text-Filetree-chevron'} flex items-center px-[2px] mr-[2px] cursor-crosshair`} onClick={handleClick}>
                     <div className='relative right-[2px] flex self-stretch'>
@@ -36,15 +55,17 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
                     </div>
                 {active ? <FaChevronDown size={16}/> : <FaChevronRight size={16}/>}
                 </button>
-                <div className={`flex items-center ml-[2px]${isSelected ? '' : ' text-folder-icon'}`}>
-                    {active ? <AiFillFolderOpen size={20}/> : <AiFillFolder size={20}/>}
-                </div>
+                {type === 'folder' ? (
+                    <div className={`flex items-center ml-[2px]${isSelected ? '' : ' text-folder-icon'}`}>
+                        {active ? <AiFillFolderOpen size={20}/> : <AiFillFolder size={20}/>}
+                    </div>
+                ) : (
+                    <div className={`flex items-center ml-[2px]${isSelected ? '' : ' text-course-icon'}`}>
+                        <FaBook size={18}/>
+                    </div>
+                )}
             </div>
-        ) : (
-            <div className={isSelected ? '' : 'text-course-icon'}>
-                <FaBook size={18}/>
-            </div>
-        ))
+        )
     } else if(type === 'course' && !relDepth==0) {
         icon = (
             <span className='pl-[22px] text-course-icon mr-[3px]'><FaBook size={18}/></span> /* if selected course, then was dealth with above */

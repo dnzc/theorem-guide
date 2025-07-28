@@ -263,7 +263,7 @@ export default function IntegerAxioms () {
 
 <p>We are working with the integers (whole numbers, <Latex>$\mathbb&#123;Z&#125;$</Latex>) and naturals (positive whole numbers, <Latex>$\mathbb&#123;N&#125;$</Latex>), under two basic operations: addition and multiplication (<Latex>$+, \cdot$</Latex>). More technically, it is an underlying assumption that <Latex>$\mathbb&#123;Z&#125;$</Latex> is <em>closed</em> under two well-defined binary operations <Latex>$+, \cdot$</Latex>, i.e. that adding or multiplying two integers always gives an integer. (This is not the case for division!)</p>
 
-<p>Let's add the first items to our "inventory" of fundamental properties<sup className="footnote-ref" id="fnref-1"><a href="#fn-1">2</a></sup>.</p>
+<p>Let's add the first items to our "inventory" of fundamental properties<sup className="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup>.</p>
 
 <ul>
 <li><strong>Commutativity</strong>: the order of multiplication and addition does not matter. In symbols:</li>
@@ -386,7 +386,7 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
 <p>What we have so far is good, but we need more. For example we haven't axiomatized the naturals yet, and what about proof techniques?</p>
 
 <ul>
-<li><strong>Z is ordered</strong>: There exists a <em>non-empty</em> subset <Latex>$\mathbb&#123;N&#125;$</Latex> of <Latex>$\mathbb&#123;Z&#125;$</Latex> that is <em>closed</em> under <Latex>$+,\cdot$</Latex> and satisfies <em>Trichotomy</em>: for all <Latex>$a \in \mathbb&#123;Z&#125;$</Latex>, exactly one of <Latex>$a \in \mathbb&#123;N&#125;, a=0, -a \in \mathbb&#123;N&#125;$</Latex> is true<sup className="footnote-ref" id="fnref-2"><a href="#fn-2">1</a></sup>.</li>
+<li><strong>Z is ordered</strong>: There exists a <em>non-empty</em> subset <Latex>$\mathbb&#123;N&#125;$</Latex> of <Latex>$\mathbb&#123;Z&#125;$</Latex> that is <em>closed</em> under <Latex>$+,\cdot$</Latex> and satisfies <em>Trichotomy</em>: for all <Latex>$a \in \mathbb&#123;Z&#125;$</Latex>, exactly one of <Latex>$a \in \mathbb&#123;N&#125;, a=0, -a \in \mathbb&#123;N&#125;$</Latex> is true<sup className="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup>.</li>
 <li><strong>Well-ordering principle</strong>: Every non-empty subset of the integers has a <em>least element</em>, defined as an element <Latex>$e$</Latex> of the subset such that for all elements <Latex>$x$</Latex> of the subset, <Latex>$e\leq x$</Latex>.</li>
 </ul>
 
@@ -820,6 +820,10 @@ Again, this feels intuitive - if a+b = a, then b=0, right? And -1 is <em>the</em
                 
             </div>
         
+
+        <div className="border-t-2 border-border-subtle pt-4 mt-8 text-sm text-text-secondary">
+            <p>This educational content is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</DiscreetLink>. You may share and adapt with attribution.</p>
+        </div>
 
     </article>
 

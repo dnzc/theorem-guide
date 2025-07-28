@@ -204,7 +204,7 @@ export default function  () {
         <div className="hero-text mr-auto place-self-center lg:col-span-7 md:ml-4">
             <p className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-Hero-text">The prettiest maths notes on the internet</p>
             <p className="max-w-2xl mb-4 md:text-lg lg:text-xl">Read colourful, interactive lecture notes I wrote for courses from the Cambridge Mathematical Tripos, full of extra intuition and explanation.</p>
-            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> 11 articles, 14929 words</p>
+            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> 11 articles, 14895 words</p>
             <Link href="/maths/Analysis-and-Topology" className="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
                 Go to my favourite course
             </Link> 
@@ -306,7 +306,7 @@ export default function  () {
             </div>
         </details>
         <details className="faq-question">
-            <summary>How did you make this website?</summary>
+            <summary>How did you make this website? <ProminentLink href="https://github.com/dnzc/tripos-guru">[github]</ProminentLink></summary>
             <div>
                 <ul className="space-y-2">
                     <li>
@@ -317,7 +317,7 @@ export default function  () {
                         <div className="flex justify-center">
                             <SvgWorkflow width={ 250 } height={ 100 }/>
                         </div>
-                        The SSG is about 400 lines of spaghetti code - <ProminentLink href="https://teal-yeot-92b7a7.netlify.app/">here's</ProminentLink> a "little" sample.
+                        The SSG is about <ProminentLink href="https://github.com/dnzc/tripos-guru/blob/main/ssg/helper.py">400 lines of spaghetti code</ProminentLink>.
                     </li>
                 </ul>
 
@@ -332,7 +332,7 @@ export default function  () {
                         Colour schemes (select in sidebar) - persistent via local storage
                     </li>
                     <li>
-                        Math diagrams that match the colour scheme
+                        Maths diagrams that match the colour scheme
                     </li>
                     <li>
                         Keyboard shortcuts to toggle filetree and to search
@@ -524,6 +524,10 @@ export default function  () {
         </div>
 
         
+
+        <div className="border-t-2 border-border-subtle pt-4 mt-8 text-sm text-text-secondary">
+            <p>This educational content is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</DiscreetLink>. You may share and adapt with attribution.</p>
+        </div>
 
     </article>
 

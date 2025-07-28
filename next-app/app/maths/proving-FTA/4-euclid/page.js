@@ -357,6 +357,10 @@ export default function Euclid () {
             </div>
         
 
+        <div className="border-t-2 border-border-subtle pt-4 mt-8 text-sm text-text-secondary">
+            <p>This educational content is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</DiscreetLink>. You may share and adapt with attribution.</p>
+        </div>
+
     </article>
 
     
