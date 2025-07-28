@@ -339,16 +339,16 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
 
     page_title = article_name.title().replace('-',' ')
 
+    # add "copy article plaintext" button
     copiable_article_plaintext = None
-    if COURSE_INDICATOR not in path: # don't add "copy article plaintext" button to course content
-        plaintext = article_data['content']
-        plaintext = eval('"'+ plaintext.replace('"','\\"')+'"')
-        plaintext = html.escape(plaintext)
-        plaintext = plaintext.replace('"', '&quot;')
-        # replace braces for nextjs
-        plaintext = plaintext.replace('{', '&#123;').replace('}', '&#125;')
-        plaintext = plaintext.replace('\\n', '\\\\n').replace('\n', '\\n') # copy button component takes newlines as literals
-        copiable_article_plaintext = plaintext
+    plaintext = article_data['content']
+    plaintext = eval('"'+ plaintext.replace('"','\\"')+'"')
+    plaintext = html.escape(plaintext)
+    plaintext = plaintext.replace('"', '&quot;')
+    # replace braces for nextjs
+    plaintext = plaintext.replace('{', '&#123;').replace('}', '&#125;')
+    plaintext = plaintext.replace('\\n', '\\\\n').replace('\n', '\\n') # copy button component takes newlines as literals
+    copiable_article_plaintext = plaintext
     
     return page, article_data, page_title, copiable_article_plaintext, table_of_contents
 

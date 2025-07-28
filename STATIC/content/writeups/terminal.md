@@ -4,8 +4,6 @@
 
 A writeup for the <DiscreetLink href='https://terminal.danielc.rocks'>hangman</DiscreetLink> challenge on my homepage. As far as I know it's a completely original challenge; if anything I'm proud of the implementation and how real the terminal feels. The core idea came from talking with a friend about writing a python file that sanitizes to a fixed string, reminiscent of <DiscreetLink href='https://en.wikipedia.org/wiki/Quine_(computing)'>quines</DiscreetLink>.
 
-I used <ProminentLink href='https://pyodide.org/en/stable/'>Pyodide</ProminentLink> to run python in the browser (pretty cool!), which I heard about from my teacher at school, who used it to make the (well-known?) <DiscreetLink href='https://www.pythonsponge.com/'>Python Sponge</DiscreetLink>.
-
 ## Hint 1
 <Spoiler>
 The hangman game really is <ProminentLink href='https://youtu.be/le5uGqHKll8?t=550'>unbeatable</ProminentLink>. The goal of the challenge is to take advantage of the name loading and use that to read the flag.
@@ -43,6 +41,7 @@ What follows is one possible solution, that allows arbitrary code execution with
 
 For readability, I've named all variables something representative, but they can all be replaced with underscores (see the minified version). The solution uses a <ProminentLink href='https://github.com/clemg/pythongolfer?tab=readme-ov-file#3---qa'>trick</ProminentLink> of encoding a utf-8 string in utf-16 to garble it.
 
+__COPIABLE__
 ```py
 'Erroryo'
 U,R,N = 'urn'
@@ -74,7 +73,7 @@ EVAL(EXEC+'('+SHELLCODE+')')
 <br/>
 
 <div className='inline'>
-And the reduced version:
+And the minified version:
 </div>
 
 __COPIABLE__

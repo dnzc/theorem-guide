@@ -166,8 +166,16 @@ export default function Basics () {
                 
 
                 
+                    <div className="">
+                        <CopyButton text="We want to formalise our intuition about distances in the real world, and try to generalise. 1.1 Definitions and Examples Let $X$ be any set. A metric on $X$ is a function $d:X \times X \rightarrow \mathbb&#123;R&#125;$ such that: $d(x,y) \geq 0$, equality iff $x=y$ (&quot;positive semi-definite&quot;) $d(x,y) = d(y,x)$ (&quot;symmetric&quot;) $d(x,y) + d(y,z) \geq d(x,z)$ (&quot;triangle inequality&quot;) We say $(X,d)$ is a metric space.">Copy article plaintext</CopyButton>
+                    </div>
+                
             </div>
         
+
+        <div className="border-t-2 border-border-subtle pt-4 mt-8 text-sm text-text-secondary">
+            <p>This educational content is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</DiscreetLink>. You may share and adapt with attribution.</p>
+        </div>
 
     </article>
 

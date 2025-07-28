@@ -73,6 +73,11 @@
         @apply py-2 outline-none hover:underline cursor-crosshair font-bold text-lg;
     }
 
+    /* make links work in faq section titles */
+    summary a * {
+        pointer-events: none;
+    }
+
     .faq-question[open=''] > summary {
         @apply text-articleh2;
     }
@@ -160,7 +165,7 @@
 
     /* hero */
     .catppuccin .hero, .dark .hero {
-        background-image: url('../public/hero/catppuccin.png');
+        background-image: url('/hero/catppuccin.png');
     }
     .catppuccin .hero-text, .dark .hero-text {
         @apply lg:!col-span-12 lg:ml-16;
@@ -173,14 +178,14 @@
         @apply rounded-2xl border-2 border-border-strong;
     }
     .gruvbox .hero-image > div {
-        background-image: url('../public/hero/gruvbox1.png');
+        background-image: url('/hero/gruvbox1.png');
     }
     .sanctum .hero {
         background-color: #ffeeff;
         @apply rounded-2xl;
     }
     .sanctum .hero-image > div {
-        background-image: url('../public/hero/sanctum.svg');
+        background-image: url('/hero/sanctum.svg');
     }
 
     /* END THEME SPECIFIC STUFF */
