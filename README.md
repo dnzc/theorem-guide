@@ -2,6 +2,10 @@
 
 Interactive lecture notes for Cambridge Mathematical Tripos courses.
 
+Static markdown content is in `STATIC/content`. The static-site generator is in `ssg/`.
+
+Like how the website looks? Maybe if I get enough stars, I can consider refactoring the horrible mess of an SSG into a pip package :P
+
 ## License
 
 This project uses dual licensing:
