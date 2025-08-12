@@ -16,6 +16,8 @@ The site uses a Python-based static site generator that converts Markdown conten
 
 ### Running locally
 
+First change the value of `ROOT_DIR` in `ssg/constants.py` to match the project location, then run:
+
 ```bash
 cd ssg
 pip install -r requirements.txt
