@@ -10,7 +10,7 @@ The site uses a Python-based static site generator that converts Markdown conten
 
 ### How it works
 
-1. Reads Markdown files from `STATIC/content/`
+1. Reads Markdown files from `SOURCE_DIR` defined in `ssg/constants.py`
 2. Processes them with [mistune](https://github.com/lepture/mistune) with custom handling of certain specially defined math tags, and custom templates
 3. Generates Next.js pages in `next-app/app/`
 
@@ -77,4 +77,4 @@ The SSG runs automatically during Vercel deployment via the build script. The `n
 This project uses dual licensing:
 
 - **Code**: All source code (Next.js app, Python SSG, components, etc.) is licensed under the [MIT License](LICENSE)
-- **Content**: The folder `/STATIC/` contains educational content, and everything in it, as well as the generated derived content displayed on the website, is licensed under [CC BY 4.0](STATIC/LICENSE)
+- **Content**: The educational content in `/source/` and all generated derived content displayed on the website is licensed under [CC BY 4.0](LICENSE-CONTENT)
