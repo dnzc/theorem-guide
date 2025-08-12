@@ -16,11 +16,11 @@
 
 <div className="pt-6 space-y-6">
 
-    <div className="pt-2 pb-4">
+    <section className="pt-2 pb-4">
 
         <h1 id="course-list">Course List</h1>
 
-        <ul className="space-y-6 list-disc">
+        <ul className="space-y-4 list-disc">
             {% for course in course_list %}
                 <li>
                     <div className="flex items-center">
@@ -45,114 +45,118 @@
             {% endfor %}
         </ul>
 
-    </div>
+    </section>
 
-    <h1 id="faq">Frequently Asked Questions</h1>
+    <section>
+        <h1 id="faq">Frequently Asked Questions</h1>
 
-    <div className="flex flex-col divide-y divide-border-strong">
-        <details className="faq-question">
-            <summary>How does the sidebar work?</summary>
-            <div>
-                It's just like a filetree! Each folder is expandable and denoted with the icon
-                <span className="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
-                    <AiFillFolder size={20} />
-                </span>
-                , containing courses
-                <span className="text-course-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
-                    <FaBook size={18} />
-                </span>
-                and articles
-                <span className="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
-                    <GrArticle size={20} />
-                </span>
-                . Courses themselves contain more folders and articles, which can be viewed once inside the course. You can also use keyboard shortcuts to toggle the sidebar / to search.
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>
-                What makes these notes better than <DiscreetLink href="https://dec41.user.srcf.net/notes/">Dexter</DiscreetLink>, <DiscreetLink href="https://zeramorphic.uk/maths.html">zeramorphic</DiscreetLink> or <DiscreetLink href="https://danielnaylor.uk/notes/">Daniel Naylor</DiscreetLink>?
-            </summary>
-            <div>
-                After my fair share of browsing tripos notes online, I realized that everything's written in LaTeX. Booo, boring! I like <em>colours</em> and <em>diagrams!</em> If you want bog-standard soulless LaTeX notes though, this is not the website for you :)
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>How do you write these lecture notes? <ProminentLink href="https://github.com/dnzc/tripos-guru">[github]</ProminentLink></summary>
-            <div>
-                <ul className="space-y-2">
-                    <li>
-                        The Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
-                    </li>
-                    <li>
-                        I configured a VSCode shortcut to compile the markdown files into webpages. When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys.
-                        
-                    </li>
-                </ul>
-                <p className="my-2">For a more technical overview:</p>
-                <ul className="space-y-2">
-                    <li>
-                        I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
-                    </li>
-                    <li>
-                        I wrote a static site generator (SSG) in Python to transform my lecture note files (.md) into Next.js webpages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. This is a great opportunity to shove a diagram in your face:
-                        <div className="flex justify-center">
-                            <AUTOSVG src='root/workflow' width='250' height='100'/>
-                        </div>
-                    </li>
-                </ul>
-                If you're interested, all the code can be found in the Github repository.
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>
-                What is "Daniel's Notes"?
-            </summary>
-            <div>
-                That's my personal collection of explanations and blog posts, separate from actual Tripos course content. All the other courses contain Tripos notes, but this one is a place for my own content.
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>What are some cool features this site has?</summary>
-            <div>
-                <ul>
-                    <li>
-                        Colour schemes (select in sidebar) - persistent via local storage
-                    </li>
-                    <li>
-                        Maths diagrams that match the colour scheme
-                    </li>
-                    <li>
-                        Keyboard shortcuts to toggle filetree and to search
-                    </li>
-                    <li>
-                        Spoilers like this one
-                        <Spoiler>
-                            Hello there
-                        </Spoiler>
-                    </li>
-                    <li>
-                        Copy buttons like this one <CopyButton text="You just lost the game."/>
-                    </li>
-                </ul>
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>
-                How can I contact you?
-            </summary>
-            <div>
-                Have a new topic idea? Want me to add a new feature / colour scheme? Feel free to <MailLink>email me</MailLink> or visit my <DiscreetLink href="https://danielc.rocks">homepage</DiscreetLink>.
-            </div>
-        </details>
+        <div className="flex flex-col divide-y divide-border-strong">
+            <details className="faq-question">
+                <summary>How does the sidebar work?</summary>
+                <div>
+                    It's just like a filetree! Each folder is expandable and denoted with the icon
+                    <span className="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                        <AiFillFolder size={20} />
+                    </span>
+                    , containing courses
+                    <span className="text-course-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                        <FaBook size={18} />
+                    </span>
+                    and articles
+                    <span className="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                        <GrArticle size={20} />
+                    </span>
+                    . Courses themselves contain more folders and articles, which can be viewed once inside the course. You can also use keyboard shortcuts to toggle the sidebar / to search.
+                </div>
+            </details>
+            <details className="faq-question">
+                <summary>
+                    What makes these notes better than <DiscreetLink href="https://dec41.user.srcf.net/notes/">Dexter</DiscreetLink>, <DiscreetLink href="https://zeramorphic.uk/maths.html">zeramorphic</DiscreetLink> or <DiscreetLink href="https://danielnaylor.uk/notes/">Daniel Naylor</DiscreetLink>?
+                </summary>
+                <div>
+                    After my fair share of browsing tripos notes online, I realized that everything's written in LaTeX. Booo, boring! I like <em>colours</em> and <em>diagrams!</em> If you want bog-standard soulless LaTeX notes though, this is not the website for you :)
+                </div>
+            </details>
+            <details className="faq-question">
+                <summary>How do you write these lecture notes? <ProminentLink href="https://github.com/dnzc/tripos-guru">[github]</ProminentLink></summary>
+                <div>
+                    <ul className="space-y-2">
+                        <li>
+                            The Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
+                        </li>
+                        <li>
+                            I configured a VSCode shortcut to compile the markdown files into webpages. When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys.
+                            
+                        </li>
+                    </ul>
+                    <p className="my-2">For a more technical overview:</p>
+                    <ul className="space-y-2">
+                        <li>
+                            I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
+                        </li>
+                        <li>
+                            I wrote a static site generator (SSG) in Python to transform my lecture note files (.md) into Next.js webpages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. This is a great opportunity to shove a diagram in your face:
+                            <div className="flex justify-center">
+                                <AUTOSVG src='root/workflow' width='250' height='100'/>
+                            </div>
+                        </li>
+                    </ul>
+                    If you're interested, all the code can be found in the Github repository.
+                </div>
+            </details>
+            <details className="faq-question">
+                <summary>
+                    What is "Daniel's Notes"?
+                </summary>
+                <div>
+                    That's my personal collection of explanations and blog posts, separate from actual Tripos course content. All the other courses contain Tripos notes, but this one is a place for my own content.
+                </div>
+            </details>
+            <details className="faq-question">
+                <summary>What are some cool features this site has?</summary>
+                <div>
+                    <ul>
+                        <li>
+                            Colour schemes (select in sidebar) - persistent via local storage
+                        </li>
+                        <li>
+                            Maths diagrams that match the colour scheme
+                        </li>
+                        <li>
+                            Keyboard shortcuts to toggle filetree and to search
+                        </li>
+                        <li>
+                            Spoilers like this one
+                            <Spoiler>
+                                Hello there
+                            </Spoiler>
+                        </li>
+                        <li>
+                            Copy buttons like this one <CopyButton text="You just lost the game."/>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+            <details className="faq-question">
+                <summary>
+                    How can I contact you?
+                </summary>
+                <div>
+                    Have a new topic idea? Want me to add a new feature / colour scheme? Feel free to <MailLink>email me</MailLink> or visit my <DiscreetLink href="https://danielc.rocks">homepage</DiscreetLink>.
+                </div>
+            </details>
 
-    </div>
-
-    <h1 id="changelog">Changelog</h1>
-    <div>
-        <div className="changelog">
-            {{ changelog }}
         </div>
-    </div>
+    </section>
+
+    <section>
+        <h1 id="changelog">Changelog</h1>
+        <div>
+            <div className="changelog">
+                {{ changelog }}
+            </div>
+        </div>
+    </section>
 
     <p className="text-sm text-text-secondary">Hero image on sanctum theme <DiscreetLink href="https://inkscape.org/~Inkonic/%E2%98%85inkscapes-path-artists-blossom">"Artist's blossom"</DiscreetLink> by Inkonic (modified here) is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</DiscreetLink>.</p>
 
