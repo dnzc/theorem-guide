@@ -1,0 +1,3 @@
+{
+  "buildCommand": "cd ../ssg && pip install -r requirements.txt && python3 run.py && cd ../next-app && npm run build"
+}
