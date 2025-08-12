@@ -1,6 +1,14 @@
 from jinja2 import Environment, FileSystemLoader
+import os
 
-ROOT_DIR = '/Users/daniel/Github/tripos-guru/'
+# detect if running on Vercel by checking for VERCEL environment variable
+if os.environ.get('VERCEL'):
+    # on Vercel, the build runs from the next-app directory
+    # so we need to go up one level to reach the project root
+    ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/'
+else:
+    # local development path
+    ROOT_DIR = '/Users/daniel/Github/tripos-guru/'
 
 SOURCE_DIR = ROOT_DIR + 'STATIC/content'
 TARGET_DIR = ROOT_DIR + 'next-app/app'
