@@ -4,11 +4,33 @@ Interactive maths notes, including for Cambridge Mathematical Tripos courses.
 
 [FAQ](https://tripos.guru/#faq)
 
+## Static Site Generator (SSG)
+
+The site uses a Python-based static site generator that converts Markdown content into Next.js pages.
+
+### How it works
+
+1. Reads Markdown files from `STATIC/content/`
+2. Processes them with [mistune](https://github.com/lepture/mistune) with custom handling of certain specially defined math tags, and custom templates
+3. Generates Next.js pages in `next-app/app/`
+
+### Running locally
+
+```bash
+cd ssg
+pip install -r requirements.txt
+python3 run.py
+```
+
+### Deployment
+
+The SSG runs automatically during Vercel deployment via the build script. The `next-app/app/` directory is not tracked in git and is generated fresh on each deployment.
+
 ## Website Information
 
 ### Accessibility Features
-- scrollshadow indicators for overflowing maths equations
-- visual indicators for external links
+- Scrollshadow indicators for overflowing maths equations
+- Visual indicators for external links
 
 ## Content Authoring Information
 
@@ -16,12 +38,12 @@ Interactive maths notes, including for Cambridge Mathematical Tripos courses.
 
 - Custom tags e.g. `<CopyButton>`
 - Math tags: Defn, Thm, Lemma, Proof, Example, Spoiler
-    - each of these comes with defaults, can specify e.g. "unbolded", "unquoted"
-    - write text on same line as opening tag to make that sentence inline with the declaration text
+    - Each of these comes with defaults, can specify e.g. "unbolded", "unquoted"
+    - Write text on same line as opening tag to make that sentence inline with the declaration text
 - Ease-of-use tags: ProminentLink, DiscreetLink, MailLink, Badge, CopyButton, IncompleteMessage
 - AUTOSVG tag: put instead of img/Image tag to be converted to inline svg with dynamic theme colours using svgr
-    - all fonts in the svg should be Fira Code (automatically converts to match page font) (Fira Code chosen as default since it's the widest)
-    - the following colours are replaced:
+    - All fonts in the svg should be Fira Code (automatically converts to match page font) (Fira Code chosen as default since it's the widest)
+    - The following colours are replaced:
         - black   #000000 -> Svg-text
         - 50%gray #808080 -> Svg-gray
         - blue    #0000ff -> Svg-text-highlight
@@ -30,10 +52,10 @@ Interactive maths notes, including for Cambridge Mathematical Tripos courses.
         - red     #ff0000 -> Svg-fill-highlight-1
         - pink    #ff00ff -> Svg-fill-highlight-2
         - yellow  #ffff00 -> Svg-fill-highlight-3
-- frontmatter for metadata
-- mark a code block with ":::COPIABLE" on the previous line, to add a copy button to the block
+- Frontmatter for metadata
+- Mark a code block with ":::COPIABLE" on the previous line, to add a copy button to the block
 
-### Naming
+### Content Naming
 
 - Any folders starting with `[COURSE]` are marked as a course
 
@@ -42,15 +64,11 @@ Interactive maths notes, including for Cambridge Mathematical Tripos courses.
     - replace dashes with spaces
     - case of filename/foldername is kept
 
-- slugs are lowercase version of the .md filename
+- Slugs are lowercase version of the .md filename
 
-- optionally, add a README.md file inside of a folder (that isn't root) to give it a description
+- Optionally, add a README.md file inside of a folder (that isn't root) to give it a description
 
-- filenames should contain only alphanumeric or dashes, words separated by dashes. for more granular control, specify the `pagename` frontmatter attribute
-
-Static markdown content is in `STATIC/content`. The static-site generator is in `ssg/`.
-
-Like how the website looks? Maybe if I get enough stars, I can consider refactoring the horrible mess of an SSG into a pip package :P
+- Filenames should contain only alphanumeric or dashes, words separated by dashes. for more granular control, specify the `pagename` frontmatter attribute
 
 ## License
 
