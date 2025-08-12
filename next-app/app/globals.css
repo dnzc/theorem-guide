@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@source '../app/**/*.{js,ts,jsx,tsx,mdx}';
+@source '../components/**/*.{js,ts,jsx,tsx,mdx}';
 @import './styles/themes/sanctum.css';
 @import './styles/themes/catppuccin.css';
 @import './styles/themes/gruvbox.css';
@@ -15,6 +17,7 @@
     --breakpoint-2xl: 1536px;
 }
 
+/* lowest specificity */
 @layer base {
 
     body {
@@ -34,63 +37,6 @@
     .latex-display-wrapper > span > * {
         @apply !my-2; /* override the default margin, because it's too big */
     }
-
-}
-
-@layer components {
-
-    .dirtree {
-        @apply text-lg bg-background pb-4;
-    }
-
-    /* first tree item is special (root) */
-
-    .dirtree > li:before, .dirtree > li:after {
-        @apply hidden;
-    }
-
-    .changelog {
-        @apply text-sm;
-    }
-
-    .changelog h2 {
-        @apply text-Changelog-dates italic mt-3 text-base;
-    }
-
-    .changelog h2:first-of-type {
-        @apply mt-0;
-    }
-
-    .changelog h3 {
-        @apply text-lg text-Changelog-titles font-bold ml-4;
-    }
-
-    .changelog li {
-        @apply !ml-10;
-    }
-
-    .faq-question > summary {
-        @apply py-2 outline-none hover:underline cursor-crosshair font-bold text-lg;
-    }
-
-    /* make links work in faq section titles */
-    summary a * {
-        pointer-events: none;
-    }
-
-    .faq-question[open=''] > summary {
-        @apply text-articleh2;
-    }
-
-    .faq-question > div {
-        @apply px-4 pb-4;
-    }
-
-}
-
-
-
-@layer utilities {
 
     /* BEGIN THEME-SPECIFIC STUFF */
 
@@ -164,8 +110,12 @@
     }
 
     /* hero */
+    .hero {
+        @apply rounded-2xl;
+    }
     .catppuccin .hero, .dark .hero {
         background-image: url('/hero/catppuccin.png');
+        background-size: cover;
     }
     .catppuccin .hero-text, .dark .hero-text {
         @apply lg:!col-span-12 lg:ml-16;
@@ -175,20 +125,57 @@
     }
     .gruvbox .hero {
         background-color: #222526;
-        @apply rounded-2xl border-2 border-border-strong;
+        @apply border-2 border-border-strong;
     }
     .gruvbox .hero-image > div {
-        background-image: url('/hero/gruvbox1.png');
+        background-image: url('/hero/gruvbox.png');
     }
     .sanctum .hero {
-        background-color: #ffeeff;
-        @apply rounded-2xl;
+        background-color: rgba(255, 255, 255, 0.6);
+        background-image: url('/hero/sanctum-bg.png');
+        background-blend-mode: lighten;
+        background-size: cover;
     }
     .sanctum .hero-image > div {
         background-image: url('/hero/sanctum.svg');
     }
+    .sanctum .hero-text > a {
+        @apply border-2 border-Hero-text;
+    }
 
     /* END THEME SPECIFIC STUFF */
+
+}
+
+/* middle specificity */
+@layer components {
+
+    .dirtree {
+        @apply text-lg bg-background pb-4;
+    }
+
+    /* first tree item is special (root) */
+
+    .dirtree > li:before, .dirtree > li:after {
+        @apply hidden;
+    }
+
+    .faq-question > summary {
+        @apply py-2 outline-none hover:underline cursor-crosshair font-bold text-lg;
+    }
+
+    /* make links work in faq section titles */
+    summary a * {
+        pointer-events: none;
+    }
+
+    .faq-question[open=''] > summary {
+        @apply text-articleh2;
+    }
+
+    .faq-question > div {
+        @apply px-4 pb-4;
+    }
 
     /* https://css-tricks.com/books/greatest-css-tricks/scroll-shadows/ */
     .scrollshadow-vertical {
@@ -292,12 +279,20 @@
         background-attachment: local, local, scroll, scroll;
     }
 
+    .folder-li {
+        @apply !ml-0;
+    }
+
     .article {
         @apply space-y-2;
     }
 
     .article h1 {
-        @apply text-3xl font-bold relative mb-6 text-articleh1;
+        @apply text-3xl font-bold relative mb-4 text-articleh1;
+    }
+
+    .article h2 {
+        @apply text-2xl font-bold pt-6 pb-2 text-articleh2;
     }
 
     .article em {
@@ -314,10 +309,6 @@
 
     .article ol li {
         @apply list-decimal ml-6;
-    }
-
-    .folder-li {
-        @apply !ml-0;
     }
 
     .article blockquote {
@@ -374,6 +365,31 @@
     /* bold inside definitions */
     .defn strong {
         @apply text-Math-accent-defn;
+    }
+
+}
+
+/* highest specificity */
+@layer utilities {
+
+    .changelog {
+        @apply text-sm;
+    }
+
+    .changelog h2 {
+        @apply text-Changelog-dates italic text-base no-underline p-0 mb-0 mt-3;
+    }
+
+    .changelog h2:first-of-type {
+        @apply mt-0;
+    }
+
+    .changelog h3 {
+        @apply text-lg text-Changelog-titles font-bold ml-4;
+    }
+
+    .changelog li {
+        @apply !ml-10;
     }
 
 }

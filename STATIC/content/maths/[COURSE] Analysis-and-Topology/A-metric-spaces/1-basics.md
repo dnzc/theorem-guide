@@ -1,4 +1,7 @@
-16/12/2024 23:00
+---
+created: 16/12/2024 23:00
+pagename: 1. Basics
+---
 # §1 Basics
 
 We want to formalise our intuition about distances in the real world, and try to generalise.

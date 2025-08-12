@@ -29,7 +29,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 export const metadata = {title:"Analysis & Topology"}
 
-export default function AnalysisAndTopology () {
+export default function Page () {
     return (
         <>
             <ToastContainer
@@ -64,17 +64,17 @@ export default function AnalysisAndTopology () {
                     
                     
                         
-                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 0 } isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="Analysis & Topology" href="/maths/analysis-and-topology" type="course" relDepth={ 0 } isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="A-metric-spaces" href="/maths/Analysis-and-Topology/A-metric-spaces" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="A. Metric Spaces" href="/maths/analysis-and-topology/a-metric-spaces" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-basics" href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="1. Basics" href="/maths/analysis-and-topology/a-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -119,7 +119,7 @@ export default function AnalysisAndTopology () {
                         <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                     
                         <span className="font-bold text-text-secondary">/</span>
-                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-and-Topology">Analysis-and-Topology</Link></p>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/analysis-and-topology">analysis-and-topology</Link></p>
                     
                 </div>
             
@@ -137,47 +137,37 @@ export default function AnalysisAndTopology () {
 
         <div className="article mb-4">
             <h1 id="ib-analysis-and-topology">IB Analysis and Topology</h1>
-
 <p>Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. Aimed at second-year undergraduates. Hopefully I can provide some inutition that might not be present elsewhere.</p>
-
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="course-prerequisites" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Course Prerequisites</h2><Pilcrow href="#course-prerequisites" text="https://tripos.guru/maths/Analysis-and-Topology#course-prerequisites"/></div>
-
+<h2 className="group flex space-x-1 items-baseline"><span id="course-prerequisites">Course Prerequisites</span><Pilcrow href="#course-prerequisites" text="https://tripos.guru/maths/analysis-and-topology#course-prerequisites"/></h2>
 <p>Surprisingly not much! Familiarity with mathematical symbols (e.g. <DiscreetLink href="https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols">here</DiscreetLink>). Basic set theory, for example definition and results regarding function preimage (e.g. preimage of union is union of preimages). Proofs of theorems from <ProminentLink href="https://gowers.wordpress.com/2014/01/11/introduction-to-cambridge-ia-analysis-i-2014/">IA Analysis I</ProminentLink> are good to know but not needed; the theorem statements themselves are useful but easily googleable.</p>
-
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="resources" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Resources</h2><Pilcrow href="#resources" text="https://tripos.guru/maths/Analysis-and-Topology#resources"/></div>
-
+<h2 className="group flex space-x-1 items-baseline"><span id="resources">Resources</span><Pilcrow href="#resources" text="https://tripos.guru/maths/analysis-and-topology#resources"/></h2>
 <ul>
 <li><DiscreetLink href="https://www.dpmms.cam.ac.uk/study/IB/AnalysisandTopology/">Example sheet questions</DiscreetLink></li>
 </ul>
-
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="glossary-and-style" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">Glossary and Style</h2><Pilcrow href="#glossary-and-style" text="https://tripos.guru/maths/Analysis-and-Topology#glossary-and-style"/></div>
-
+<h2 className="group flex space-x-1 items-baseline"><span id="glossary-and-style">Glossary and Style</span><Pilcrow href="#glossary-and-style" text="https://tripos.guru/maths/analysis-and-topology#glossary-and-style"/></h2>
 <p>In definitions, the phrase that we define is highlighted like <span className="font-bold text-Math-accent-defn">this</span>.</p>
-
 <p>Abbreviations:</p>
-
 <ul>
 <li>defn = definition</li>
 <li>iff = if and only if</li>
-<li><Latex>$\subset$</Latex> means the same thing as <Latex>$\subseteq$</Latex> (i.e. "is a subset of, could be equal to")</li>
+<li><Latex>$\subset$</Latex> means the same thing as <Latex>$\subseteq$</Latex> (i.e. &quot;is a subset of, could be equal to&quot;)</li>
 </ul>
-
 <p><IncompleteMessage/></p>
 <br/><div className="border-t-[1px] border-border-strong pb-2"></div><div>
 
-    <p className="italic pb-4">Contains 1 article</p>
+    <p className="italic pb-4">Contains 2 articles</p>
 
     
     <Folder
         contents_by_date={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-and-Topology/A-metric-spaces">
+                <Link href="/maths/analysis-and-topology/a-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
-                        <p className="relative bottom-[1px]">A-metric-spaces</p>
+                        <p className="relative bottom-[1px]">A. Metric Spaces</p>
                     </div>
                 </Link>
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
@@ -187,12 +177,12 @@ export default function AnalysisAndTopology () {
         contents_by_name={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-and-Topology/A-metric-spaces">
+                <Link href="/maths/analysis-and-topology/a-metric-spaces">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <AiFillFolder className="shrink-0 text-folder-icon"/>
                         
-                        <p className="relative bottom-[1px]">A-metric-spaces</p>
+                        <p className="relative bottom-[1px]">A. Metric Spaces</p>
                     </div>
                 </Link>
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>

@@ -30,7 +30,7 @@ import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
 
-export default function  () {
+export default function Page () {
     return (
         <>
             <ToastContainer
@@ -61,17 +61,7 @@ export default function  () {
                                     
                                         
                         
-                            <Accordion title="comp-sci" href="/comp-sci" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" relDepth={ 2 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
+                            <Accordion title="Daniel's Notes" href="/dnzc" type="course" relDepth={ 1 } isSelected={ false } />
                         
                     
                                     
@@ -82,91 +72,7 @@ export default function  () {
                                     
                                         
                         
-                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="lagrange-multipliers" href="/maths/lagrange-multipliers" type="file" relDepth={ 2 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="research" href="/maths/research" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="writeups" href="/writeups" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="terminal" href="/writeups/terminal" type="file" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis & Topology" href="/maths/analysis-and-topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -204,8 +110,8 @@ export default function  () {
         <div className="hero-text mr-auto place-self-center lg:col-span-7 md:ml-4">
             <p className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-Hero-text">The prettiest maths notes on the internet</p>
             <p className="max-w-2xl mb-4 md:text-lg lg:text-xl">Read colourful, interactive lecture notes I wrote for courses from the Cambridge Mathematical Tripos, full of extra intuition and explanation.</p>
-            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> 11 articles, 14895 words</p>
-            <Link href="/maths/Analysis-and-Topology" className="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
+            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> 11 articles, 14977 words</p>
+            <Link href="/maths/analysis-and-topology" className="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
                 Go to my favourite course
             </Link> 
         </div>
@@ -219,17 +125,17 @@ export default function  () {
 
     <div className="pt-2 pb-4">
 
-        <h1>Course List</h1>
+        <h1 className="group flex space-x-1 items-baseline"><span id="course-list">Course List</span><Pilcrow href="#course-list" text="https://tripos.guru/#course-list"/></h1>
 
-        <ul className="space-y-6">
+        <ul className="space-y-6 list-disc">
             
                 <li>
                     <div className="flex items-center">
-                        <h2 className="text-xl">
-                            <ProminentLink href="/maths/Analysis-and-Topology" internal>
+                        <p className="text-xl">
+                            <ProminentLink href="/maths/analysis-and-topology" internal>
                             IB Analysis and Topology
                             </ProminentLink>
-                        </h2>
+                        </p>
                         <p className="hidden xs:flex flex-wrap gap-x-2 gap-y-1 pl-2 align-middle h-fit">
                             
                                 <span className="h-min">
@@ -248,11 +154,32 @@ export default function  () {
                     </p>
                 </li>
             
+                <li>
+                    <div className="flex items-center">
+                        <p className="text-xl">
+                            <ProminentLink href="//dnzc" internal>
+                            Daniel's Notes
+                            </ProminentLink>
+                        </p>
+                        <p className="hidden xs:flex flex-wrap gap-x-2 gap-y-1 pl-2 align-middle h-fit">
+                            
+                                <span className="h-min">
+                                <Badge color="indigo">blog</Badge>
+                                </span>
+                            
+                        </p>
+                    </div>
+                    <p className="text-sm text-text-secondary pt-2">
+                        Last updated
+                        12 Aug 2025
+                    </p>
+                </li>
+            
         </ul>
 
     </div>
 
-    <h1>Frequently Asked Questions</h1>
+    <h1 className="group flex space-x-1 items-baseline"><span id="faq">Frequently Asked Questions</span><Pilcrow href="#faq" text="https://tripos.guru/#faq"/></h1>
 
     <div className="flex flex-col divide-y divide-border-strong">
         <details className="faq-question">
@@ -275,14 +202,6 @@ export default function  () {
         </details>
         <details className="faq-question">
             <summary>
-                Why are there some articles that <em>aren't</em> part of a course?
-            </summary>
-            <div>
-                They're basically blog entries - I wanted a place to put explanations of topics I find interesting.
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>
                 What makes these notes better than <DiscreetLink href="https://dec41.user.srcf.net/notes/">Dexter</DiscreetLink>, <DiscreetLink href="https://zeramorphic.uk/maths.html">zeramorphic</DiscreetLink> or <DiscreetLink href="https://danielnaylor.uk/notes/">Daniel Naylor</DiscreetLink>?
             </summary>
             <div>
@@ -290,24 +209,18 @@ export default function  () {
             </div>
         </details>
         <details className="faq-question">
-            <summary>How do you write these lecture notes?</summary>
+            <summary>How do you write these lecture notes? <ProminentLink href="https://github.com/dnzc/tripos-guru">[github]</ProminentLink></summary>
             <div>
                 <ul className="space-y-2">
                     <li>
-                        A private Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
+                        The Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
                     </li>
                     <li>
-                        I configured a VSCode shortcut to compile the markdown files into webpages and preview the result.
-                    </li>
-                    <li>
-                        When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys (I added a hook). When developing, I push to a separate branch, and when ready I merge to the main branch.
+                        I configured a VSCode shortcut to compile the markdown files into webpages. When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys.
+                        
                     </li>
                 </ul>
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>How did you make this website? <ProminentLink href="https://github.com/dnzc/tripos-guru">[github]</ProminentLink></summary>
-            <div>
+                <p className="my-2">For a more technical overview:</p>
                 <ul className="space-y-2">
                     <li>
                         I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
@@ -317,11 +230,17 @@ export default function  () {
                         <div className="flex justify-center">
                             <SvgWorkflow width={ 250 } height={ 100 }/>
                         </div>
-                        The SSG is about <ProminentLink href="https://github.com/dnzc/tripos-guru/blob/main/ssg/helper.py">400 lines of spaghetti code</ProminentLink>.
                     </li>
                 </ul>
-
-
+                If you're interested, all the code can be found in the Github repository.
+            </div>
+        </details>
+        <details className="faq-question">
+            <summary>
+                What is "Daniel's Notes"?
+            </summary>
+            <div>
+                That's my personal collection of explanations and blog posts, separate from actual Tripos course content. All the other courses contain Tripos notes, but this one is a place for my own content.
             </div>
         </details>
         <details className="faq-question">
@@ -349,100 +268,103 @@ export default function  () {
                 </ul>
             </div>
         </details>
+        <details className="faq-question">
+            <summary>
+                How can I contact you?
+            </summary>
+            <div>
+                Have a new topic idea? Want me to add a new feature / colour scheme? Feel free to <MailLink>email me</MailLink> or visit my <DiscreetLink href="https://danielc.rocks">homepage</DiscreetLink>.
+            </div>
+        </details>
+
     </div>
 
-    <p>
-        Have a new topic idea? Want me to add a new feature / colour scheme? Feel free to <MailLink>email me</MailLink> or visit my <DiscreetLink href="https://danielc.rocks">homepage</DiscreetLink>.
-        <br/>
-        Enjoy exploring!
-    </p>
-
-    <p className="text-sm text-text-secondary">Hero image on sanctum theme <DiscreetLink href="https://inkscape.org/~Inkonic/%E2%98%85inkscapes-path-artists-blossom">"Artist's blossom"</DiscreetLink> by <DiscreetLink href="https://inkscape.org/~Inkonic/">Inkonic</DiscreetLink> (modified here) is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</DiscreetLink>.</p>
-    <h1>Changelog</h1>
+    <h1 className="group flex space-x-1 items-baseline"><span id="changelog">Changelog</span><Pilcrow href="#changelog" text="https://tripos.guru/#changelog"/></h1>
     <div>
         <div className="changelog">
-            <h2>28/06/25</h2>
-
+            <h2>11/08/25</h2>
+<h3>Changed</h3>
+<ul>
+<li>Project now <DiscreetLink href="https://github.com/dnzc/tripos-guru">open source</DiscreetLink></li>
+</ul>
+<h2>28/06/25</h2>
 <h3>Added</h3>
-
 <ul>
-<li>selectable colour schemes:
-<ul>
+<li>Selectable colour schemes:<ul>
 <li><DiscreetLink href="https://github.com/jdanielmourao/obsidian-sanctum/tree/main">sanctum</DiscreetLink> (adapted)</li>
 <li><DiscreetLink href="https://catppuccin.com/palette/">catppuccin</DiscreetLink></li>
 <li><DiscreetLink href="https://github.com/morhetz/gruvbox?tab=readme-ov-file#palette">gruvbox</DiscreetLink> (my favourite :D)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3>Changed</h3>
-
 <ul>
-<li>Homepage revamp:
-<ul>
-<li>added hero section (different for different themes)</li>
-<li>About section -&gt; FAQ section</li>
-</ul></li>
-<li>changed domain to tripos.guru</li>
+<li>Homepage revamp:<ul>
+<li>New &quot;hero&quot; section (different for different themes)</li>
+<li>&quot;About&quot; section -&gt; FAQ section</li>
 </ul>
-
+</li>
+<li>New domain, tripos.guru</li>
+</ul>
 <h2>19/12/24</h2>
-
 <h3>Changed</h3>
-
 <ul>
-<li>changed domain blog.danielc.rocks -&gt; notes.danielc.rocks; primary purpose of the site is now storage of course notes</li>
-<li>consistent styling of theorems, defns, examples etc</li>
-<li>replace dark theme with light theme for easier readability</li>
+<li>New domain notes.danielc.rocks; primary purpose of the site is now storage of course notes</li>
+<li>Consistent styling of theorems, defns, examples etc</li>
+<li>Replace dark theme with light theme for easier readability</li>
 </ul>
-
 <h2>08/07/24</h2>
-
 <h3>Added</h3>
-
 <ul>
-<li>highlighting in search results</li>
-<li>copy buttons for code</li>
-<li>"copy article plaintext" option</li>
+<li>Highlighting in search results</li>
+<li>Copy buttons for code</li>
+<li>Button to copy article plaintext</li>
 </ul>
-
 <h2>12/06/24</h2>
-
 <h3>Added</h3>
-
 <ul>
-<li>this changelog</li>
-<li>list of recent articles</li>
-<li>search and filetree modals</li>
-<li>keyboard shortcuts</li>
+<li>This changelog</li>
+<li>List of recent articles</li>
+<li>Search and filetree modals</li>
+<li>Keyboard shortcuts</li>
 </ul>
-
 <h3>Changed</h3>
-
 <ul>
-<li>sidebar now toggleable</li>
-<li>site more responsively designed and mobile-friendly</li>
+<li>Sidebar now toggleable</li>
+<li>Site more responsively designed and mobile-friendly</li>
 </ul>
-
 <h2>11/07/23</h2>
-
 <h3>Added</h3>
-
 <ul>
-<li>this website (domain blog.danielc.rocks)</li>
+<li>This website</li>
 </ul>
 
         </div>
     </div>
 
+    <p className="text-sm text-text-secondary">Hero image on sanctum theme <DiscreetLink href="https://inkscape.org/~Inkonic/%E2%98%85inkscapes-path-artists-blossom">"Artist's blossom"</DiscreetLink> by Inkonic (modified here) is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</DiscreetLink>.</p>
+
 </div><br/><div className="border-t-[1px] border-border-strong pb-2"></div><div>
 
-    <p className="italic pb-4">Contains 12 articles</p>
+    <p className="italic pb-4">Contains 14 articles</p>
 
     
     <Folder
         contents_by_date={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
+                <Link href="/dnzc">
+                    <div className="flex items-center space-x-1 text-lg underline">
+                        
+                            <FaBook className="shrink-0 text-course-icon"/>
+                        
+                        <p className="relative bottom-[1px]">Daniel's Notes</p>
+                    </div>
+                </Link>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">12 Aug 2025</p>
+            </li>
+        
+            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
                 <Link href="/maths">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
@@ -451,46 +373,22 @@ export default function  () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/writeups">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">writeups</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/comp-sci">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">comp-sci</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
      </>}
         contents_by_name={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/comp-sci">
+                <Link href="/dnzc">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
+                            <FaBook className="shrink-0 text-course-icon"/>
                         
-                        <p className="relative bottom-[1px]">comp-sci</p>
+                        <p className="relative bottom-[1px]">Daniel's Notes</p>
                     </div>
                 </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">27 Jul 2023</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">12 Aug 2025</p>
             </li>
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
@@ -502,19 +400,7 @@ export default function  () {
                         <p className="relative bottom-[1px]">maths</p>
                     </div>
                 </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/writeups">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">writeups</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">08 Jun 2024</p>
+                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
             </li>
         
      </>}

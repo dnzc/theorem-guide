@@ -22,9 +22,9 @@ import Pilcrow from '@/components/pilcrow'
 import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
 
-export const metadata = {title:"1 Basics"}
+export const metadata = {title:"1. Basics"}
 
-export default function Basics () {
+export default function Page () {
     return (
         <>
             <ToastContainer
@@ -59,17 +59,17 @@ export default function Basics () {
                     
                     
                         
-                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="Analysis & Topology" href="/maths/analysis-and-topology" type="course" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="A-metric-spaces" href="/maths/Analysis-and-Topology/A-metric-spaces" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="A. Metric Spaces" href="/maths/analysis-and-topology/a-metric-spaces" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-basics" href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ true } />
+                            <Accordion title="1. Basics" href="/maths/analysis-and-topology/a-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ true } />
                         
                     
                                     
@@ -110,10 +110,10 @@ export default function Basics () {
                         <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                     
                         <span className="font-bold text-text-secondary">/</span>
-                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-and-Topology">Analysis-and-Topology</Link></p>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/analysis-and-topology">analysis-and-topology</Link></p>
                     
                         <span className="font-bold text-text-secondary">/</span>
-                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-and-Topology/A-metric-spaces">A-metric-spaces</Link></p>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/analysis-and-topology/a-metric-spaces">a-metric-spaces</Link></p>
                     
                 </div>
             
@@ -127,27 +127,17 @@ export default function Basics () {
 
         <div className="article mb-4">
             <h1 id="1-basics">§1 Basics</h1>
-
 <p>We want to formalise our intuition about distances in the real world, and try to generalise.</p>
-
-<div className="text-2xl font-bold group flex space-x-1 pt-6 pb-2 items-baseline"><h2 id="11-definitions-and-examples" className="scroll-m-[calc(2.25rem+2*1rem+0.5rem)] md:scroll-m-[0.5rem] text-articleh2">1.1 Definitions and Examples</h2><Pilcrow href="#11-definitions-and-examples" text="https://tripos.guru/maths/Analysis-and-Topology/A-metric-spaces/1-basics#11-definitions-and-examples"/></div>
-
-<Defn name="metric space">
-
-<p>Let <Latex>$X$</Latex> be any set.</p>
-
+<h2 className="group flex space-x-1 items-baseline"><span id="11-definitions-and-examples">1.1 Definitions and Examples</span><Pilcrow href="#11-definitions-and-examples" text="https://tripos.guru/maths/analysis-and-topology/a-metric-spaces/1-basics#11-definitions-and-examples"/></h2>
+<Defn name="metric space"><p>Let <Latex>$X$</Latex> be any set.</p>
 <p>A <strong>metric</strong> on <Latex>$X$</Latex> is a function <Latex>$d:X \times X \rightarrow \mathbb&#123;R&#125;$</Latex> such that:</p>
-
 <ul>
-<li><Latex>$d(x,y) \geq 0$</Latex>, equality iff <Latex>$x=y$</Latex> ("positive semi-definite")</li>
-<li><Latex>$d(x,y) = d(y,x)$</Latex> ("symmetric")</li>
-<li><Latex>$d(x,y) + d(y,z) \geq d(x,z)$</Latex> ("triangle inequality")</li>
+<li><Latex>$d(x,y) \geq 0$</Latex>, equality iff <Latex>$x=y$</Latex> (&quot;positive semi-definite&quot;)</li>
+<li><Latex>$d(x,y) = d(y,x)$</Latex> (&quot;symmetric&quot;)</li>
+<li><Latex>$d(x,y) + d(y,z) \geq d(x,z)$</Latex> (&quot;triangle inequality&quot;)</li>
 </ul>
-
 <p>We say <Latex>$(X,d)$</Latex> is a <strong>metric space</strong>.</p>
-
 </Defn>
-
 <p><IncompleteMessage/></p>
 
         </div>
@@ -156,7 +146,7 @@ export default function Basics () {
             <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
-                        <Link href="/maths/Analysis-and-Topology/A-metric-spaces">
+                        <Link href="/maths/analysis-and-topology/a-metric-spaces">
                             <div className="flex items-center justify-center space-x-1 text-text-secondary underline">
                                 <RiArrowGoBackFill/>
                                 <p>up a level</p>

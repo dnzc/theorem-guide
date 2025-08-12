@@ -15,7 +15,7 @@ AUTOSVG_SOURCE_DIR = ROOT_DIR + 'STATIC/themeable-svgs'
 AUTOSVG_TARGET_DIR = ROOT_DIR + 'next-app/components/AUTOSVG'
 AUTOSVG_IMPORT_STRING = '@/components/AUTOSVG'
 
-TEMPLATE_ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
+TEMPLATE_ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR), autoescape=False)
 TEMPLATE = TEMPLATE_ENV.get_template('template.jinja')
 HOME_TEMPLATE = TEMPLATE_ENV.get_template('home.jinja')
 FOLDER_TEMPLATE = TEMPLATE_ENV.get_template('folder_overview.jinja')
@@ -26,3 +26,10 @@ COURSE_INDICATOR = '[COURSE] '
 
 COMPILE_ALL_MD = 1
 COMPILE_ALL_SVGS = 0
+
+# components where content should be processed as markdown
+BLOCK_COMPONENTS = ['Defn', 'Thm', 'Lemma', 'Proof', 'Example', 'Spoiler']
+# components that should be preserved as-is
+INLINE_COMPONENTS = ['ProminentLink', 'DiscreetLink', 'MailLink', 'Badge', 
+                        'Latex', 'AUTOSVG', 'CopyButton', 'Pilcrow', 
+                        'IncompleteMessage', 'Folder']
