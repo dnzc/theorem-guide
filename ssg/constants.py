@@ -10,7 +10,7 @@ else:
     # local development path
     ROOT_DIR = '/Users/daniel/Github/tripos-guru/'
 
-SOURCE_DIR = ROOT_DIR + 'STATIC/content'
+SOURCE_DIR = ROOT_DIR + 'source/content'
 TARGET_DIR = ROOT_DIR + 'next-app/app'
 TEMPLATES_DIR = ROOT_DIR + 'ssg/templates'
 CHANGELOG_FILE = ROOT_DIR + 'changelog.md'
@@ -19,7 +19,7 @@ CONTENT_CHECKSUMS_FILE = ROOT_DIR + 'ssg/content_checksums.json'
 SVG_CHECKSUMS_FILE = ROOT_DIR + 'ssg/svg_checksums.json'
 WARNINGS_FILE = ROOT_DIR + 'ssg/warnings.txt'
 
-AUTOSVG_SOURCE_DIR = ROOT_DIR + 'STATIC/themeable-svgs'
+AUTOSVG_SOURCE_DIR = ROOT_DIR + 'source/themeable-svgs'
 AUTOSVG_TARGET_DIR = ROOT_DIR + 'next-app/components/AUTOSVG'
 AUTOSVG_IMPORT_STRING = '@/components/AUTOSVG'
 
