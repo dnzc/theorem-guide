@@ -310,6 +310,9 @@
     .article .footnotes > ol {
         @apply pt-2;
     }
+    .article .footnotes > ol > li {
+        @apply list-decimal;
+    }
 
     /* markdown code blocks */
 
