@@ -169,7 +169,7 @@ class Renderer(HTMLRenderer):
 def create_markdown_processor(add_heading_ids=True):
     renderer = Renderer(add_heading_ids=add_heading_ids, escape=False)
     md = mistune.create_markdown(renderer=renderer, plugins=[
-        'footnotes',
+        # 'footnotes',  # disabled - we handle footnotes in preprocessor
         'table',
         'strikethrough',
         'url',
@@ -177,8 +177,49 @@ def create_markdown_processor(add_heading_ids=True):
     return md
 
 
+def preprocess_footnotes(text):
+    """convert markdown footnotes to HTML before other processing."""
+    import re
+    
+    # collect all footnote definitions
+    footnote_defs = {}
+    footnote_def_pattern = r'^\[\^(\w+)\]:\s*(.+?)(?=\n\[\^|\n\n|\Z)'
+    
+    # find all footnote definitions (multiline support)
+    for match in re.finditer(footnote_def_pattern, text, re.MULTILINE | re.DOTALL):
+        footnote_id = match.group(1)
+        footnote_text = match.group(2).strip()
+        footnote_defs[footnote_id] = footnote_text
+    
+    # remove footnote definitions from text
+    text = re.sub(footnote_def_pattern, '', text, flags=re.MULTILINE | re.DOTALL)
+    
+    # replace footnote references with HTML
+    def replace_ref(match):
+        ref_id = match.group(1)
+        if ref_id in footnote_defs:
+            return f'<sup className="footnote-ref" id="fnref-{ref_id}"><a href="#fn-{ref_id}">{ref_id}</a></sup>'
+        return match.group(0)  # leave unchanged if no definition found
+    
+    text = re.sub(r'\[\^(\w+)\]', replace_ref, text)
+    
+    # add footnote section at the end if there are any footnotes
+    if footnote_defs:
+        text += '\n\n<section className="footnotes">\n<ol>\n'
+        for ref_id, content in sorted(footnote_defs.items(), key=lambda x: (x[0].isdigit(), int(x[0]) if x[0].isdigit() else 0, x[0])):
+            # keep latex as-is in footnotes, it will be processed later
+            # no need to wrap in <Latex> tags since $ delimiters are preserved
+            text += f'<li id="fn-{ref_id}"><p>{content}<a href="#fnref-{ref_id}" className="footnote">&#8617;</a></p></li>\n'
+        text += '</ol>\n</section>\n'
+    
+    return text
+
+
 def process_markdown(content, add_heading_ids=True):
     """main processing function."""
+    # preprocess footnotes first
+    content = preprocess_footnotes(content)
+    
     processor = ReactComponentProcessor()
     protected = processor.protect_components(content) # protect React components
     md = create_markdown_processor(add_heading_ids=add_heading_ids)
