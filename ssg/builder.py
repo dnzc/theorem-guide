@@ -533,13 +533,17 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
             if is_course:
                 course_data = {}
                 course_data['name'] = article_data['title']
-                course_data['path'] = '/' + '/'.join(article_data['dir']) + '/' + article_data['name']
+                if article_data['dir']:
+                    course_data['path'] = '/' + '/'.join(article_data['dir']) + '/' + article_data['name']
+                else:
+                    course_data['path'] = '/' + article_data['name']
                 course_data['mod_timestamp'] = max(i['mod_timestamp'] for i in folder_contents)
                 course_data['mod_timestamp'] = max(course_data['mod_timestamp'], article_data['mod_timestamp']) # include readme time
                 course_data['mod_date_time'] = timestamp_to_str(course_data['mod_timestamp'])
                 course_data['tags'] = article_data['tags'] # tags from readme are elevated to folder
                 tags_to_render = course_data['tags']
                 course_list.append(course_data)
+                course_list.sort(key=lambda x: x['mod_timestamp'], reverse=True)
             
             # only add the readme content if it's not empty
             if content_without_frontmatter:
