@@ -77,4 +77,4 @@ The SSG runs automatically during Vercel deployment via the build script. The `n
 This project uses dual licensing:
 
 - **Code**: All source code (Next.js app, Python SSG, components, etc.) is licensed under the [MIT License](LICENSE)
-- **Content**: The folder `/STATIC/` contains educational content, and everything in `/STATIC/` is licensed under [CC BY 4.0](STATIC/LICENSE)
+- **Content**: The folder `/STATIC/` contains educational content, and everything in it, as well as the generated derived content displayed on the website, is licensed under [CC BY 4.0](STATIC/LICENSE)
