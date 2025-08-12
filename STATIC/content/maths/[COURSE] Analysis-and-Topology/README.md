@@ -1,4 +1,9 @@
-[TAGS] pure-maths indigo, TODO red
+---
+tags:
+  - "pure-maths indigo"
+  - "TODO red"
+created: 16/12/2024 22:00
+---
 # IB Analysis and Topology
 
 Notes I took for IB Analysis and Topology in the Cambridge Mathematical Tripos in 2024. Aimed at second-year undergraduates. Hopefully I can provide some inutition that might not be present elsewhere.

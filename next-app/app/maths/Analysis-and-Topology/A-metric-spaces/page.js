@@ -16,10 +16,20 @@ import { GrArticle } from 'react-icons/gr'
 import { AiFillFolder } from 'react-icons/ai'
 import Folder from '@/components/folder'
 
+import 'katex/dist/katex.min.css'
+import Latex from 'react-latex-next'
+import Spoiler from '@/components/spoiler'
+import IncompleteMessage from '@/components/incompleteMessage'
+import Image from 'next/image'
+import { copyToClipboard, CopyButton } from '@/components/copyButton'
+import 'react-toastify/dist/ReactToastify.css'
+import Pilcrow from '@/components/pilcrow'
+import { Thm, Lemma, Proof, Defn, Example } from '@/components/math'
 
-export const metadata = {title:"A Metric Spaces"}
 
-export default function AMetricSpaces () {
+export const metadata = {title:"A. Metric Spaces"}
+
+export default function Page () {
     return (
         <>
             <ToastContainer
@@ -54,17 +64,17 @@ export default function AMetricSpaces () {
                     
                     
                         
-                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
+                            <Accordion title="Analysis & Topology" href="/maths/analysis-and-topology" type="course" relDepth={ 0 } isSelected={ false } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="A-metric-spaces" href="/maths/Analysis-and-Topology/A-metric-spaces" type="folder" relDepth={ 1 } isSelected={ true } isOpenByDefault={ true } >
+                            <Accordion title="A. Metric Spaces" href="/maths/analysis-and-topology/a-metric-spaces" type="folder" relDepth={ 1 } isSelected={ true } isOpenByDefault={ true } >
                                 
                                     
                                         
                         
-                            <Accordion title="1-basics" href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="1. Basics" href="/maths/analysis-and-topology/a-metric-spaces/1-basics" type="file" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -96,10 +106,10 @@ export default function AMetricSpaces () {
                         <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths">maths</Link></p>
                     
                         <span className="font-bold text-text-secondary">/</span>
-                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-and-Topology">Analysis-and-Topology</Link></p>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/analysis-and-topology">analysis-and-topology</Link></p>
                     
                         <span className="font-bold text-text-secondary">/</span>
-                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/Analysis-and-Topology/A-metric-spaces">A-metric-spaces</Link></p>
+                        <p className="text-lg font-bold text-link underline [@media(hover:hover)]:hover:underline"><Link href="/maths/analysis-and-topology/a-metric-spaces">a-metric-spaces</Link></p>
                     
                 </div>
             
@@ -119,12 +129,12 @@ export default function AMetricSpaces () {
         contents_by_date={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics">
+                <Link href="/maths/analysis-and-topology/a-metric-spaces/1-basics">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <GrArticle className="shrink-0 text-text-secondary"/>
                         
-                        <p className="relative bottom-[1px]">1-basics</p>
+                        <p className="relative bottom-[1px]">1. Basics</p>
                     </div>
                 </Link>
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
@@ -134,12 +144,12 @@ export default function AMetricSpaces () {
         contents_by_name={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-and-Topology/A-metric-spaces/1-basics">
+                <Link href="/maths/analysis-and-topology/a-metric-spaces/1-basics">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <GrArticle className="shrink-0 text-text-secondary"/>
                         
-                        <p className="relative bottom-[1px]">1-basics</p>
+                        <p className="relative bottom-[1px]">1. Basics</p>
                     </div>
                 </Link>
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
@@ -155,7 +165,7 @@ export default function AMetricSpaces () {
             <div className="border-t-2 border-border-subtle pt-4 flex items-top justify-between">
                 
                     <div className="flex justify-start">
-                        <Link href="/maths/Analysis-and-Topology">
+                        <Link href="/maths/analysis-and-topology">
                             <div className="flex items-center justify-center space-x-1 text-text-secondary underline">
                                 <RiArrowGoBackFill/>
                                 <p>up a level</p>

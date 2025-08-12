@@ -4,7 +4,7 @@
             <p className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-Hero-text">The prettiest maths notes on the internet</p>
             <p className="max-w-2xl mb-4 md:text-lg lg:text-xl">Read colourful, interactive lecture notes I wrote for courses from the Cambridge Mathematical Tripos, full of extra intuition and explanation.</p>
             <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> {{ article_count }} articles, {{ word_count }} words</p>
-            <Link href="/maths/Analysis-and-Topology" className="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
+            <Link href="/maths/analysis-and-topology" className="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
                 Go to my favourite course
             </Link> 
         </div>
@@ -18,17 +18,17 @@
 
     <div className="pt-2 pb-4">
 
-        <h1>Course List</h1>
+        <h1 id="course-list">Course List</h1>
 
-        <ul className="space-y-6">
+        <ul className="space-y-6 list-disc">
             {% for course in course_list %}
                 <li>
                     <div className="flex items-center">
-                        <h2 className="text-xl">
+                        <p className="text-xl">
                             <ProminentLink href="{{course['path']}}" internal>
                             {{ course['name'] }}
                             </ProminentLink>
-                        </h2>
+                        </p>
                         <p className="hidden xs:flex flex-wrap gap-x-2 gap-y-1 pl-2 align-middle h-fit">
                             {% for tag in course['tags'] %}
                                 <span className="h-min">
@@ -47,7 +47,7 @@
 
     </div>
 
-    <h1>Frequently Asked Questions</h1>
+    <h1 id="faq">Frequently Asked Questions</h1>
 
     <div className="flex flex-col divide-y divide-border-strong">
         <details className="faq-question">
@@ -70,14 +70,6 @@
         </details>
         <details className="faq-question">
             <summary>
-                Why are there some articles that <em>aren't</em> part of a course?
-            </summary>
-            <div>
-                They're basically blog entries - I wanted a place to put explanations of topics I find interesting.
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>
                 What makes these notes better than <DiscreetLink href="https://dec41.user.srcf.net/notes/">Dexter</DiscreetLink>, <DiscreetLink href="https://zeramorphic.uk/maths.html">zeramorphic</DiscreetLink> or <DiscreetLink href="https://danielnaylor.uk/notes/">Daniel Naylor</DiscreetLink>?
             </summary>
             <div>
@@ -85,24 +77,18 @@
             </div>
         </details>
         <details className="faq-question">
-            <summary>How do you write these lecture notes?</summary>
+            <summary>How do you write these lecture notes? <ProminentLink href="https://github.com/dnzc/tripos-guru">[github]</ProminentLink></summary>
             <div>
                 <ul className="space-y-2">
                     <li>
-                        A private Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
+                        The Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
                     </li>
                     <li>
-                        I configured a VSCode shortcut to compile the markdown files into webpages and preview the result.
-                    </li>
-                    <li>
-                        When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys (I added a hook). When developing, I push to a separate branch, and when ready I merge to the main branch.
+                        I configured a VSCode shortcut to compile the markdown files into webpages. When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys.
+                        
                     </li>
                 </ul>
-            </div>
-        </details>
-        <details className="faq-question">
-            <summary>How did you make this website? <ProminentLink href="https://github.com/dnzc/tripos-guru">[github]</ProminentLink></summary>
-            <div>
+                <p className="my-2">For a more technical overview:</p>
                 <ul className="space-y-2">
                     <li>
                         I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
@@ -112,11 +98,17 @@
                         <div className="flex justify-center">
                             <AUTOSVG src='root/workflow' width='250' height='100'/>
                         </div>
-                        The SSG is about <ProminentLink href="https://github.com/dnzc/tripos-guru/blob/main/ssg/helper.py">400 lines of spaghetti code</ProminentLink>.
                     </li>
                 </ul>
-
-
+                If you're interested, all the code can be found in the Github repository.
+            </div>
+        </details>
+        <details className="faq-question">
+            <summary>
+                What is "Daniel's Notes"?
+            </summary>
+            <div>
+                That's my personal collection of explanations and blog posts, separate from actual Tripos course content. All the other courses contain Tripos notes, but this one is a place for my own content.
             </div>
         </details>
         <details className="faq-question">
@@ -144,20 +136,24 @@
                 </ul>
             </div>
         </details>
+        <details className="faq-question">
+            <summary>
+                How can I contact you?
+            </summary>
+            <div>
+                Have a new topic idea? Want me to add a new feature / colour scheme? Feel free to <MailLink>email me</MailLink> or visit my <DiscreetLink href="https://danielc.rocks">homepage</DiscreetLink>.
+            </div>
+        </details>
+
     </div>
 
-    <p>
-        Have a new topic idea? Want me to add a new feature / colour scheme? Feel free to <MailLink>email me</MailLink> or visit my <DiscreetLink href="https://danielc.rocks">homepage</DiscreetLink>.
-        <br/>
-        Enjoy exploring!
-    </p>
-
-    <p className="text-sm text-text-secondary">Hero image on sanctum theme <DiscreetLink href="https://inkscape.org/~Inkonic/%E2%98%85inkscapes-path-artists-blossom">"Artist's blossom"</DiscreetLink> by <DiscreetLink href="https://inkscape.org/~Inkonic/">Inkonic</DiscreetLink> (modified here) is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</DiscreetLink>.</p>
-    <h1>Changelog</h1>
+    <h1 id="changelog">Changelog</h1>
     <div>
         <div className="changelog">
             {{ changelog }}
         </div>
     </div>
+
+    <p className="text-sm text-text-secondary">Hero image on sanctum theme <DiscreetLink href="https://inkscape.org/~Inkonic/%E2%98%85inkscapes-path-artists-blossom">"Artist's blossom"</DiscreetLink> by Inkonic (modified here) is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</DiscreetLink>.</p>
 
 </div>

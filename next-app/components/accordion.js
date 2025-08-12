@@ -11,26 +11,30 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
 
     if(href==="") href = "/"
 
-    // Create a unique key for this accordion based on its path
+    // create a unique key for this accordion based on its path
     const storageKey = `accordion-state-${href}`
 
-    // Initialize state from localStorage or default
-    const [active, setActiveState] = useState(() => {
-        if (typeof window !== 'undefined') {
+    // initialize state with default value to avoid hydration mismatch
+    const [active, setActiveState] = useState(isOpenByDefault)
+    const [isHydrated, setIsHydrated] = useState(false)
+
+    // restore state from localStorage after hydration
+    useEffect(() => {
+        if (typeof window !== 'undefined' && !isHydrated) {
             const saved = localStorage.getItem(storageKey)
             if (saved !== null) {
-                return saved === 'true'
+                setActiveState(saved === 'true')
             }
+            setIsHydrated(true)
         }
-        return isOpenByDefault
-    })
+    }, [storageKey, isHydrated])
 
-    // Save state to localStorage whenever it changes
+    // save state to localStorage whenever it changes
     useEffect(() => {
-        if (typeof window !== 'undefined' && active !== undefined) {
+        if (typeof window !== 'undefined' && isHydrated && active !== undefined) {
             localStorage.setItem(storageKey, active.toString())
         }
-    }, [active, storageKey])
+    }, [active, storageKey, isHydrated])
 
     function toggleAccordion() {
         setActiveState(!active)
@@ -56,11 +60,11 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
                 {active ? <FaChevronDown size={16}/> : <FaChevronRight size={16}/>}
                 </button>
                 {type === 'folder' ? (
-                    <div className={`flex items-center ml-[2px]${isSelected ? '' : ' text-folder-icon'}`}>
+                    <div className={`flex items-center ml-[2px] mr-[2px]${isSelected ? '' : ' text-folder-icon'}`}>
                         {active ? <AiFillFolderOpen size={20}/> : <AiFillFolder size={20}/>}
                     </div>
                 ) : (
-                    <div className={`flex items-center ml-[2px]${isSelected ? '' : ' text-course-icon'}`}>
+                    <div className={`flex items-center ml-[2px] mr-[3px]${isSelected ? '' : ' text-course-icon'}`}>
                         <FaBook size={18}/>
                     </div>
                 )}
@@ -82,7 +86,7 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
                 <div className={`w-full flex items-center text-base ${isSelected ? 'text-Filetree-text-current bg-Filetree-current' : 'text-text-primary hover:bg-Filetree-hover'}`}>
                     {type !== 'folder' && padding}
                     {icon}
-                    <span className='ml-1 py-[3px]'>{title}</span>
+                    <span className='py-[3px]'>{title}</span>
                 </div>
             </Link>
             <ul className={`${active ? '' : 'max-h-0'} overflow-hidden`}>

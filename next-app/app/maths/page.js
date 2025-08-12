@@ -17,9 +17,9 @@ import { AiFillFolder } from 'react-icons/ai'
 import Folder from '@/components/folder'
 
 
-export const metadata = {title:"Maths"}
+export const metadata = {title:"maths"}
 
-export default function Maths () {
+export default function Page () {
     return (
         <>
             <ToastContainer
@@ -50,17 +50,7 @@ export default function Maths () {
                                     
                                         
                         
-                            <Accordion title="comp-sci" href="/comp-sci" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="binary-search" href="/comp-sci/binary-search" type="file" relDepth={ 2 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
+                            <Accordion title="Daniel's Notes" href="/dnzc" type="course" relDepth={ 1 } isSelected={ false } />
                         
                     
                                     
@@ -71,91 +61,7 @@ export default function Maths () {
                                     
                                         
                         
-                            <Accordion title="Analysis-and-Topology" href="/maths/Analysis-and-Topology" type="course" relDepth={ 2 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="lagrange-multipliers" href="/maths/lagrange-multipliers" type="file" relDepth={ 2 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="proving-FTA" href="/maths/proving-FTA" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="1-integer-axioms" href="/maths/proving-FTA/1-integer-axioms" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="2-division-algo" href="/maths/proving-FTA/2-division-algo" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="3-bezout-egcd" href="/maths/proving-FTA/3-bezout-egcd" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="4-euclid" href="/maths/proving-FTA/4-euclid" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="5-fta" href="/maths/proving-FTA/5-fta" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="research" href="/maths/research" type="folder" relDepth={ 2 } isSelected={ false } isOpenByDefault={ false } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="CNATs" href="/maths/research/CNATs" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="cube-tilings" href="/maths/research/cube-tilings" type="file" relDepth={ 3 } isSelected={ false } />
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                
-                            </Accordion>
-                        
-                    
-                                    
-                                        
-                        
-                            <Accordion title="writeups" href="/writeups" type="folder" relDepth={ 1 } isSelected={ false } isOpenByDefault={ true } >
-                                
-                                    
-                                        
-                        
-                            <Accordion title="terminal" href="/writeups/terminal" type="file" relDepth={ 2 } isSelected={ false } />
+                            <Accordion title="Analysis & Topology" href="/maths/analysis-and-topology" type="course" relDepth={ 2 } isSelected={ false } />
                         
                     
                                     
@@ -197,109 +103,37 @@ export default function Maths () {
         <div className="article mb-4">
             <div>
 
-    <p className="italic pb-4">Contains 10 articles</p>
+    <p className="italic pb-4">Contains 3 articles</p>
 
     
     <Folder
         contents_by_date={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/lagrange-multipliers">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <GrArticle className="shrink-0 text-text-secondary"/>
-                        
-                        <p className="relative bottom-[1px]">lagrange-multipliers</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/proving-FTA">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">proving-FTA</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-and-Topology">
+                <Link href="/maths/analysis-and-topology">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <FaBook className="shrink-0 text-course-icon"/>
                         
-                        <p className="relative bottom-[1px]">Analysis-and-Topology</p>
+                        <p className="relative bottom-[1px]">Analysis & Topology</p>
                     </div>
                 </Link>
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/research">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">research</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
             </li>
         
      </>}
         contents_by_name={<> 
         
             <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/Analysis-and-Topology">
+                <Link href="/maths/analysis-and-topology">
                     <div className="flex items-center space-x-1 text-lg underline">
                         
                             <FaBook className="shrink-0 text-course-icon"/>
                         
-                        <p className="relative bottom-[1px]">Analysis-and-Topology</p>
+                        <p className="relative bottom-[1px]">Analysis & Topology</p>
                     </div>
                 </Link>
                 <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">16 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/lagrange-multipliers">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <GrArticle className="shrink-0 text-text-secondary"/>
-                        
-                        <p className="relative bottom-[1px]">lagrange-multipliers</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">20 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/proving-FTA">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">proving-FTA</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">19 Dec 2024</p>
-            </li>
-        
-            <li className="folder-li w-full flex justify-between items-center border-border-strong bg-Table-rows border-t-2 py-2 px-3">
-                <Link href="/maths/research">
-                    <div className="flex items-center space-x-1 text-lg underline">
-                        
-                            <AiFillFolder className="shrink-0 text-folder-icon"/>
-                        
-                        <p className="relative bottom-[1px]">research</p>
-                    </div>
-                </Link>
-                <p className="text-sm text-text-secondary break-normal text-center sm:shrink-0 ml-2">17 Jul 2023</p>
             </li>
         
      </>}

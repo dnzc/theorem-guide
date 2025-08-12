@@ -1,6 +1,6 @@
 import os, shutil
 import json
-from helper import *
+from builder import *
 
 
 # construct sidebar tree
