@@ -47,7 +47,7 @@
     --color-articleh2: var(--purple);
     --color-link: var(--blue);
     --color-folder-icon: var(--yellow);
-    --color-course-icon: var(--light-red);
+    --color-book-icon: var(--light-red);
     --color-article-icon: var(--aqua);
     --color-blockquote: var(--bg1);
     --color-unhighlighted-code: rgba(var(--bg2rgb), 0.3);
@@ -91,6 +91,8 @@
     --color-Math-accent-defn: var(--light-blue);
     --color-Math-accent-example: var(--orange);
     --color-Math-accent-lemma: var(--light-purple);
+    --color-Math-accent-keyidea: var(--light-blue);
+    --color-Math-accent-warning: var(--red);
     --color-Codeblock-bg: #1d2021; /* for codehilite.css */
     --color-Themeselect-topbar: var(--bg2);
     --color-Themeselect-selected: var(--light-yellow);

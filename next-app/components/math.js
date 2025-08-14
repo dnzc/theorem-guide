@@ -1,3 +1,6 @@
+import { FaLightbulb } from 'react-icons/fa'
+import { PiWarningCircleBold } from 'react-icons/pi'
+
 function extract_first_child(children, outofline) {
     if(outofline) return [[], children]
     let first_child = children
@@ -123,6 +126,42 @@ export function Lemma({ children, outofline=false, type='Lemma', name='', unquot
         </div>
      :
         <blockquote className='sm:space-y-1 !border-Math-accent-lemma'>
+            {contents}
+        </blockquote>
+}
+
+export function Alert({ children, outofline=false, type='keyidea', name='', unquoted=false }) {
+    let [first_child, other_children] = extract_first_child(children, outofline)
+    const isWarning = type === 'warning'
+    const icon = isWarning ? <PiWarningCircleBold size={18} /> : <FaLightbulb size={16} />
+    const accentClass = isWarning ? 'text-Math-accent-warning' : 'text-Math-accent-keyidea'
+    const borderClass = isWarning ? '!border-Math-accent-warning' : '!border-Math-accent-keyidea'
+    const label = isWarning ? 'Warning' : 'Key Idea'
+    
+    let contents = <>
+        <div className='space-y-1 sm:space-y-0 sm:flex sm:space-x-2 sm:items-start'>
+            <div className='font-bold flex items-center space-x-2'>
+                <span className={`${accentClass} flex items-center`}>
+                    {icon}
+                </span>
+                <span className={`${accentClass} italic`}>{label}.</span>
+                {name ? <span className='text-text-secondary'>({name})</span> : <></>}
+            </div>
+            <div className='flex-1'>
+                {first_child}
+            </div>
+        </div>
+        <div className='sm:pl-8'>
+            {other_children ? other_children : <></>}
+        </div>
+    </>
+    
+    return unquoted ? 
+        <div className={`sm:space-y-1 ${borderClass}`}>
+            {contents}
+        </div>
+     :
+        <blockquote className={`sm:space-y-1 ${borderClass}`}>
             {contents}
         </blockquote>
 }

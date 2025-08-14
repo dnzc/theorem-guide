@@ -50,7 +50,7 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
     for(let i=0; i<relDepth; ++i) padding.push(<div className='flex self-stretch pl-[9px] pr-0' key={i+1}><div className={`border-l-2 ${isSelected ? 'border-Filetree-pipe-current' : 'border-Filetree-pipe'}`}></div></div>)
 
     var icon
-    if(type === 'folder' || type === 'course' && relDepth==0) {
+    if(type === 'folder' || type === 'book' && relDepth==0) {
         icon = (
             <div className='flex self-stretch'>
                 <button className={`${isSelected ? 'hover:bg-Filetree-chevron-current-hover text-Filetree-chevron-current' : 'hover:bg-Filetree-chevron-hover text-Filetree-chevron'} flex items-center px-[2px] mr-[2px] cursor-crosshair`} onClick={handleClick}>
@@ -60,19 +60,19 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
                 {active ? <FaChevronDown size={16}/> : <FaChevronRight size={16}/>}
                 </button>
                 {type === 'folder' ? (
-                    <div className={`flex items-center ml-[2px] mr-[2px]${isSelected ? '' : ' text-folder-icon'}`}>
+                    <div className={`flex items-center mr-[4px]${isSelected ? '' : ' text-folder-icon'}`}>
                         {active ? <AiFillFolderOpen size={20}/> : <AiFillFolder size={20}/>}
                     </div>
                 ) : (
-                    <div className={`flex items-center ml-[2px] mr-[3px]${isSelected ? '' : ' text-course-icon'}`}>
+                    <div className={`flex items-center ml-[1px] mr-[5px]${isSelected ? '' : ' text-book-icon'}`}>
                         <FaBook size={18}/>
                     </div>
                 )}
             </div>
         )
-    } else if(type === 'course' && !relDepth==0) {
+    } else if(type === 'book' && !relDepth==0) {
         icon = (
-            <span className='pl-[22px] text-course-icon mr-[3px]'><FaBook size={18}/></span> /* if selected course, then was dealth with above */
+            <span className='pl-[22px] text-book-icon ml-[1px] mr-[5px]'><FaBook size={18}/></span> /* if selected book, then was dealt with above */
         )
     } else if(type === 'file') {
         icon = (

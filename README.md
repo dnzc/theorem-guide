@@ -59,7 +59,7 @@ The SSG runs automatically during Vercel deployment via the build script. The `n
 
 ### Content Naming
 
-- Any folders starting with `[COURSE]` are marked as a course
+- Any folders starting with `[BOOK]` are marked as a book (for clarity nested books are not allowed)
 
 - webpage title = sidebar filename; set to `pagename` frontmatter attribute if it exists, else set to a formatted version of the .md filename or foldername:
     - and -> & (case-insensitive)

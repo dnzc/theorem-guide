@@ -133,7 +133,7 @@ export default function Search({ active, hidePopupFunction }) {
                         */
 
                         let icon = <span className='text-article-icon'><GrArticle size={20}/></span>;
-                        if (result.type === 'course') icon = <span className='text-course-icon'><FaBook size={20}/></span>;
+                        if (result.type === 'book') icon = <span className='text-book-icon'><FaBook size={20}/></span>;
                         if (result.type === 'folder') icon = <span className='text-folder-icon'><AiFillFolder size={20}/></span>;
 
                         return (

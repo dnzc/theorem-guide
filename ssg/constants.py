@@ -30,7 +30,7 @@ FOLDER_TEMPLATE = TEMPLATE_ENV.get_template('folder_overview.jinja')
 NEXT_APP_TEMPLATE_DIR = TEMPLATES_DIR + '/app'
 
 PLACEHOLDER_TIMESTAMP = -1 # for files without a timestamp
-COURSE_INDICATOR = '[COURSE] '
+BOOK_INDICATOR = '[BOOK] '
 
 COMPILE_ALL_MD = 1
 COMPILE_ALL_SVGS = 0

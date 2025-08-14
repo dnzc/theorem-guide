@@ -111,7 +111,7 @@ def timestamp_to_str(timestamp):
 
 def beautify(path, lower=True):
     """turn path found in content into path to be used on the website"""
-    temp = path.replace(COURSE_INDICATOR, '').removesuffix('.md')
+    temp = path.replace(BOOK_INDICATOR, '').removesuffix('.md')
     if lower: temp = temp.lower()
     return re.sub(r'[^a-zA-Z0-9-/]', '', temp) # remove illegal chars
 
@@ -178,8 +178,8 @@ def get_folder_contents(cur_dir):
         type = 'folder'
         if child.endswith('.md'):
             type = 'file'
-        elif COURSE_INDICATOR in child:
-            type = 'course'
+        elif BOOK_INDICATOR in child:
+            type = 'book'
         item['type'] = type
         child_dir = cur_dir+'/'+child
         
@@ -192,7 +192,7 @@ def get_folder_contents(cur_dir):
             except:
                 item['name'] = get_sidebar_display_name(child_dir)
         else:
-            # for folders/courses, check if README exists and get pagename from its metadata
+            # for folders/books, check if README exists and get pagename from its metadata
             readme_path = SOURCE_DIR + child_dir + '/README.md'
             if os.path.exists(readme_path):
                 try:
@@ -218,7 +218,19 @@ def construct_tree(cur_dir, depth):
     name = os.path.basename(cur_path)
     d = {}
     d['depth'] = depth
-    d['is_marked_as_course'] = COURSE_INDICATOR in name
+    
+    # check for nested books and prevent them
+    is_book = BOOK_INDICATOR in name
+    if is_book:
+        # check if we're inside another book by examining parent path
+        parent_path = cur_dir.replace('/'+name, '')
+        path_parts = parent_path.strip('/').split('/')
+        inside_book = any(BOOK_INDICATOR in part for part in path_parts if part)
+        if inside_book:
+            warn(f"Nested book detected: {cur_dir}. Books cannot be nested inside other books.")
+            is_book = False  # treat as regular folder
+    
+    d['is_marked_as_book'] = is_book
     d['is_dir'] = os.path.isdir(cur_path)
     d['path'] = beautify(cur_dir)
     if d['is_dir']:
@@ -228,7 +240,7 @@ def construct_tree(cur_dir, depth):
             children.append(construct_tree(cur_dir+'/'+child, depth+1))
         d['children'] = children
     else:
-        assert COURSE_INDICATOR not in name
+        assert BOOK_INDICATOR not in name
     if depth == 0:
         d['name'] = 'root'
         return d
@@ -255,14 +267,14 @@ def construct_tree(cur_dir, depth):
             d['name'] = get_sidebar_display_name(cur_dir)
     return d
 
-def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_course_readme=False):
+def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_book_readme=False):
     article_data = {}
-    is_readme = is_folder_readme or is_course_readme
+    is_readme = is_folder_readme or is_book_readme
 
-    # set article type (article, folder readme, course readme)
+    # set article type (article, folder readme, book readme)
     article_data['type'] = 'article'
     if is_folder_readme: article_data['type'] = 'folder'
-    if is_course_readme: article_data['type'] = 'course'
+    if is_book_readme: article_data['type'] = 'book'
 
     # parse front-matter and content
     post = frontmatter.loads(file)
@@ -321,7 +333,7 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
     titles = [t for t in titles if t != ''] # for invalid titles, the capture group is empty but still exists, so need to remove them
     if len(titles) == 0:
         article_data['title'] = 'no_title'
-        if not is_folder_readme and not is_course_readme:
+        if not is_folder_readme and not is_book_readme:
             warn(f'no article title found in {path}')
     else:
         article_data['title'] = titles[0]
@@ -436,12 +448,12 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_co
 def get_path(article_data):
     return '/'+'/'.join(article_data['dir'])+'/'+article_data['name']
 
-def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree): 
+def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree): 
     """
     parse the source files into jsx (depth first search)
     returns a list of all the markdown files and their info (for "recent articles" and search functionality)
     the root of dir_tree is the current node
-    the root of displayed_dir_tree is the closest parent folder marked as a course
+    the root of displayed_dir_tree is the closest parent folder marked as a book
     """
     cur_path = SOURCE_DIR+cur_dir
     cur_target_dir = beautify(cur_dir)
@@ -457,10 +469,10 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         article_list.append(old_article[0])
         print('\033[2m'+'skipped '+ cur_dir.rjust(1,'/') +'\033[0m')
         return
-    course_parent_path = '/'.join(displayed_dir_tree['path'].split('/')[:-1])
-    # If course is at root level, parent should be '/'
-    if course_parent_path == '' and displayed_dir_tree['depth'] == 1:
-        course_parent_path = '/'
+    book_parent_path = '/'.join(displayed_dir_tree['path'].split('/')[:-1])
+    # If book is at root level, parent should be '/'
+    if book_parent_path == '' and displayed_dir_tree['depth'] == 1:
+        book_parent_path = '/'
 
     # markdown file
     if cur_dir.endswith('.md'):
@@ -472,7 +484,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         ensure_dir_with_correct_case(TARGET_DIR+cur_target_dir)
         with open(TARGET_DIR+cur_target_dir+'/page.js', 'w') as output_file:
             react = wrap_in_js(
-                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
+                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
                 False, False, False, title=page_title
             )
             react = inject_autosvg_tags(react)
@@ -481,7 +493,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
             article_list.append(article_data)
         return
 
-    # course or directory
+    # book or directory
     ensure_dir_with_correct_case(TARGET_DIR+cur_target_dir)
     for child in os.listdir(cur_path):
         child_dir = cur_dir+'/'+child
@@ -498,9 +510,9 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
             assert len(child_dir_tree) <= 1
             if len(child_dir_tree): child_dir_tree = child_dir_tree[0]
         child_displayed_dir_tree = displayed_dir_tree
-        if bool(child_dir_tree) and child_dir_tree['is_marked_as_course']: child_displayed_dir_tree = child_dir_tree
+        if bool(child_dir_tree) and child_dir_tree['is_marked_as_book']: child_displayed_dir_tree = child_dir_tree
 
-        gen_content(child_dir, depth+1, article_list, course_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree)
+        gen_content(child_dir, depth+1, article_list, book_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree)
 
     with open(TARGET_DIR+cur_target_dir+'/page.js', 'w') as output_file:
         folder_contents = get_folder_contents(cur_dir)
@@ -518,32 +530,32 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
         folder_mainpage = ''
         separator = '<br/><div className="border-t-[1px] border-border-strong pb-2"></div>'
         readme_exists = os.path.exists(cur_path+'/README.md')
-        is_course = COURSE_INDICATOR in cur_dir.split('/')[-1]
+        is_book = BOOK_INDICATOR in cur_dir.split('/')[-1]
         tags_to_render = []
         table_of_contents = None
-        if readme_exists: # render folder/course readme
+        if readme_exists: # render folder/book readme
             with open(cur_path+'/README.md', 'r') as f:
                 readme_file = f.read()
             # parse frontmatter to check if content is empty
             post = frontmatter.loads(readme_file)
             content_without_frontmatter = post.content.strip()
             
-            page, article_data, page_title, _, table_of_contents = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_folder_readme=not is_course, is_course_readme=is_course)
+            page, article_data, page_title, _, table_of_contents = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_folder_readme=not is_book, is_book_readme=is_book)
             article_list.append(article_data)
-            if is_course:
-                course_data = {}
-                course_data['name'] = article_data['title']
+            if is_book:
+                book_data = {}
+                book_data['name'] = article_data['title']
                 if article_data['dir']:
-                    course_data['path'] = '/' + '/'.join(article_data['dir']) + '/' + article_data['name']
+                    book_data['path'] = '/' + '/'.join(article_data['dir']) + '/' + article_data['name']
                 else:
-                    course_data['path'] = '/' + article_data['name']
-                course_data['mod_timestamp'] = max(i['mod_timestamp'] for i in folder_contents)
-                course_data['mod_timestamp'] = max(course_data['mod_timestamp'], article_data['mod_timestamp']) # include readme time
-                course_data['mod_date_time'] = timestamp_to_str(course_data['mod_timestamp'])
-                course_data['tags'] = article_data['tags'] # tags from readme are elevated to folder
-                tags_to_render = course_data['tags']
-                course_list.append(course_data)
-                course_list.sort(key=lambda x: x['mod_timestamp'], reverse=True)
+                    book_data['path'] = '/' + article_data['name']
+                book_data['mod_timestamp'] = max(i['mod_timestamp'] for i in folder_contents)
+                book_data['mod_timestamp'] = max(book_data['mod_timestamp'], article_data['mod_timestamp']) # include readme time
+                book_data['mod_date_time'] = timestamp_to_str(book_data['mod_timestamp'])
+                book_data['tags'] = article_data['tags'] # tags from readme are elevated to folder
+                tags_to_render = book_data['tags']
+                book_list.append(book_data)
+                book_list.sort(key=lambda x: x['mod_timestamp'], reverse=True)
             
             # only add the readme content if it's not empty
             if content_without_frontmatter:
@@ -551,13 +563,13 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
             else:
                 folder_mainpage = ''
         elif cur_dir == '': # render homepage
-            # article_list and course_list will have been populated, since root page is rendered last
+            # article_list and book_list will have been populated, since root page is rendered last
             with open(CHANGELOG_FILE, 'r') as f:
                 changelog = process_markdown(f.read(), add_heading_ids=False)
             article_count = sum(1 for i in article_list if i['type'] == 'article')
             word_count = sum(len(i['content'].split()) for i in article_list)
             folder_mainpage = add_link_anchors(
-                HOME_TEMPLATE.render(course_list=course_list, changelog=changelog, article_count=article_count, word_count=word_count),
+                HOME_TEMPLATE.render(book_list=book_list, changelog=changelog, article_count=article_count, word_count=word_count),
                 '/', h1=True
             ) + separator
 
@@ -568,7 +580,7 @@ def gen_content(cur_dir, depth, article_list, course_list, stored_articles, dir_
                     contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                     file_count=sum(item['filecount'] for item in folder_contents),
                 ),
-                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, course_parent_path=course_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
+                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
             True, cur_dir=='' or readme_exists, cur_dir=='', title=page_title
         )
         react = inject_autosvg_tags(react)

@@ -37,10 +37,10 @@ if not COMPILE_ALL_MD:
 
 # parse the source files into jsx and populate article info
 articles = []
-course_list = []
+book_list = []
 info_string = 'compiling all content' if COMPILE_ALL_MD else 'compiling content (skipping unchanged)'
 print('\033[0;34m' + info_string + '\033[0m')
-gen_content('', 1, articles, course_list, stored_articles, DIR_TREE, DIR_TREE, content_checksums)
+gen_content('', 1, articles, book_list, stored_articles, DIR_TREE, DIR_TREE, content_checksums)
 print('\033[92mdone compiling content\033[0m')
 
 

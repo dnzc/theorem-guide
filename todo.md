@@ -1,8 +1,10 @@
 # Functionality to Add
 
+- blog homepage
+- add python script to check for broken links
 - quizzes
-
 - "lightbulb" component in math.js - key idea (remember to add to mistune processor)
+
 - relevant tripos questions
 
 - better tags
