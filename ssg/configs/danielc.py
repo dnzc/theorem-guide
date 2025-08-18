@@ -1,5 +1,5 @@
 SITE_ID = 'danielc'
-DOMAIN = 'danielc.rocks'
+DOMAIN = 'notes.danielc.rocks'
 
 # terminology (displayed to users)
 TERMINOLOGY = {
