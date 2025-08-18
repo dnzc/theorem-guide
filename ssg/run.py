@@ -93,6 +93,14 @@ if os.path.exists(SITE_ASSETS_DIR):
             for file in files:
                 rel_path = os.path.relpath(os.path.join(root, file), deployment_root)
                 expected_files.add(rel_path)
+    
+    # copy root-level site-specific files (like vercel.json, package.json, etc.)
+    for item in os.listdir(SITE_ASSETS_DIR):
+        src = os.path.join(SITE_ASSETS_DIR, item)
+        if os.path.isfile(src):
+            target = os.path.join(deployment_root, item)
+            shutil.copy2(src, target)
+            expected_files.add(item)
 
 print('\033[92mdone copying assets\033[0m')
 
