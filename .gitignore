@@ -2,8 +2,18 @@
 __pycache__
 .DS_Store
 
-# ignore deployment contents but keep vercel.json files
+# ignore deployment contents but keep essential Next.js files
 deployments/tripos/*
 !deployments/tripos/vercel.json
+!deployments/tripos/package.json
+!deployments/tripos/package-lock.json
+!deployments/tripos/next.config.mjs
+!deployments/tripos/postcss.config.mjs
+!deployments/tripos/jsconfig.json
 deployments/danielc/*
 !deployments/danielc/vercel.json
+!deployments/danielc/package.json
+!deployments/danielc/package-lock.json
+!deployments/danielc/next.config.mjs
+!deployments/danielc/postcss.config.mjs
+!deployments/danielc/jsconfig.json
