@@ -1,0 +1,103 @@
+.light body, .sanctum body {
+    font-family: var(--font-lato);
+}
+
+.light, .sanctum {
+    /* https://github.com/jdanielmourao/obsidian-sanctum/blob/main/theme.css */
+    /* helper colours - marked with comment means used */
+    --white: 255, 255, 255; /**/
+    --gray-5: 250, 250, 245; /**/
+    --gray-10: 244, 244, 240; /**/
+    --gray-20: 226, 224, 220; /**/
+    --gray-30: 199, 197, 194; /**/
+    --gray-40: 169, 168, 165; /**/
+    --gray-50: 142, 140, 139; /**/
+    --gray-60: 112, 110, 109; /**/
+    --gray-70: 84, 81, 81; /**/
+    --gray-80: 58, 56, 56; /**/
+    --gray-90: 38, 38, 37;
+    --gray-100: 22, 22, 22; /**/
+    --black: 0, 0, 0; /**/
+    --blue: hsl(199.5, 38.8%, 40.4%); /**/
+    --bright-blue: #6cd0d0; /**/
+    --orange: hsl(18.3, 75%, 54.5%); /**/
+    --pink: hsl(343.4, 62.8%, 49.6%); /**/
+
+    /* begin definitions */
+    --toastify-color-light: white !important;
+    --toastify-color-progress-light: var(--pink) !important;
+
+    color-scheme: light;
+    --color-background: rgb(var(--white));
+    --color-text-primary: rgb(var(--black));
+    --color-text-secondary: rgb(var(--gray-70));
+    --color-text-placeholder: rgb(var(--gray-40));
+    --color-articleh1: var(--color-text-primary);
+    --color-articleh2: var(--color-text-primary);
+    --color-link: var(--blue);
+    --color-folder-icon: var(--blue);
+    --color-book-icon: var(--black);
+    --color-article-icon: rgb(var(--gray-70));
+    --color-blockquote: rgb(var(--gray-5));
+    --color-unhighlighted-code: rgba(var(--gray-20), 0.5);
+    --color-border-subtle: rgb(var(--gray-20));
+    --color-border-strong: rgb(var(--gray-50));
+    --color-text-emph: var(--pink);
+    --color-button: rgb(var(--gray-20));
+    --color-button-hover: rgba(var(--gray-30));
+    --color-linkanchor: var(--orange);
+
+    --color-Filetree-text-current: rgb(var(--white));
+    --color-Filetree-current: rgb(var(--gray-80));
+    --color-Filetree-hover: rgba(var(--gray-50), .12);
+    --color-Filetree-chevron: rgb(var(--gray-70));
+    --color-Filetree-chevron-hover: rgba(var(--gray-50), .32);
+    --color-Filetree-chevron-current: rgb(var(--white));
+    --color-Filetree-chevron-current-hover: rgba(var(--gray-70), .5);
+    --color-Filetree-pipe: rgb(var(--gray-20));
+    --color-Filetree-pipe-current: rgb(var(--gray-100));
+    --color-Mobiletopbar: rgba(var(--gray-70), .5);
+    --color-Searchbar: rgb(var(--white));
+    --color-Searchbar-hover: rgb(var(--gray-20));
+    --color-Searchbar-ring-hover: var(--blue);
+    --color-Searchpopup-result: rgba(var(--gray-50), .12);
+    --color-Searchpopup-result-selected: rgb(var(--gray-20));
+    --color-Searchpopup-arrow-selected: rgb(var(--white));
+    --color-Searchpopup-highlight-dir: var(--orange);
+    --color-Searchpopup-highlight-title: var(--pink);
+    --color-Searchpopup-highlight-content: var(--blue);
+    --color-Table-bar: rgb(var(--gray-20));
+    --color-Table-bartext: rgb(var(--gray-70));
+    --color-Table-rows: rgb(var(--white));
+    --color-Popup-overlay: rgba(var(--gray-100), .5);
+    --color-Copybutton-icon: var(--orange);
+    --color-Spoiler-accent: var(--orange);
+    --color-Changelog-dates: var(--orange);
+    --color-Changelog-titles: var(--pink);
+    --color-Incompletemsg: var(--pink);
+    --color-Math-accent-thm: var(--pink);
+    --color-Math-accent-proof: var(--orange);
+    --color-Math-accent-defn: var(--bright-blue);
+    --color-Math-accent-example: var(--orange);
+    --color-Math-accent-lemma: var(--pink);
+    --color-Math-accent-keyidea: var(--blue);
+    --color-Math-accent-warning: var(--pink);
+    --color-Codeblock-bg: #282c34; /* for codehilite.css */
+    --color-Themeselect-topbar: rgb(var(--gray-10));
+    --color-Themeselect-selected: var(--blue);
+    --color-Themeselect-text-selected: rgb(var(--white));
+    --color-Themeselect-hover: rgba(var(--gray-30));
+    --color-Scrollshadow-cover: var(--white); /* rgb of background */
+    --color-Scrollshadow-blockquote-cover: var(--gray-5); /* rgb of blockquote background */
+    --color-Scrollshadow-shadow: var(--black);
+    --color-Hero-text: var(--pink);
+    --color-Svg-text: var(--color-text-primary);
+    --color-Svg-gray: rgb(var(--gray-30));
+    --color-Svg-text-highlight: var(--pink);
+    --color-Svg-line-highlight-1: #20a0ff;
+    --color-Svg-line-highlight-2: var(--orange);
+    --color-Svg-fill-highlight-1: #9f9;
+    --color-Svg-fill-highlight-2: #f99; /* junk */
+    --color-Svg-fill-highlight-3: #99f; /* junk */
+
+}

@@ -12,7 +12,7 @@
                         {% if item['type']=='folder' %}
                             <AiFillFolder className="shrink-0 text-folder-icon"/>
                         {% elif item['type']=='book' %}
-                            <FaBook className="shrink-0 text-book-icon"/>
+                            <FaBook className="shrink-0 {{config.TERMINOLOGY.book_icon_class}}"/>
                         {% else %}
                             <GrArticle className="shrink-0 text-text-secondary"/>
                         {% endif %}

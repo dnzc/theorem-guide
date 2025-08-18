@@ -9,7 +9,8 @@ from mistune_processor import process_markdown
 from constants import *
 
 warnings = set()
-math_tags = ['Thm', 'Lemma', 'Proof', 'Defn', 'Example']
+# import math tags from constants
+math_tags = MATH_TAGS
 
 def warn(message):
     warnings.add(message)
@@ -61,6 +62,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import Pilcrow from '@/components/pilcrow'
 import {{ {', '.join(math_tags)} }} from '@/components/math'
 '''
+    if isHome: imports += f'''
+import RandomLink from '@/components/randomLink'
+'''
     return f'''
 import Accordion from '@/components/accordion'
 import Sidebar from '@/components/sidebar'
@@ -97,13 +101,13 @@ export default function Page () {{
 }}
     '''
 
-def add_link_anchors(page, cur_target_dir, h1=False): 
+def add_link_anchors(page, cur_target_dir, domain, h1=False): 
     """
     find h2 (or h1) with an id, add link anchor to them (each heading in a markdown file is (by default) given a unique id by the processor)
     can also be applied to the homepage (but the header ids must be manually put there)
     """
-    page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://tripos.guru'+cur_target_dir+r'#\1"/></h2>', page, flags=re.DOTALL)
-    if h1: page = re.sub(r'<h1 id="(.*?)">(.*?)</h1>', r'<h1 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://tripos.guru'+cur_target_dir+r'#\1"/></h1>', page, flags=re.DOTALL)
+    page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://'+domain+cur_target_dir+r'#\1"/></h2>', page, flags=re.DOTALL)
+    if h1: page = re.sub(r'<h1 id="(.*?)">(.*?)</h1>', r'<h1 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://'+domain+cur_target_dir+r'#\1"/></h1>', page, flags=re.DOTALL)
     return page
 
 def timestamp_to_str(timestamp):
@@ -162,7 +166,9 @@ def get_updation_timestamp_and_filecount(cur_dir):
                 elif 'created' in post.metadata:
                     timestamp = datetime.strptime(post.metadata['created'], '%d/%m/%Y %H:%M').timestamp()
             except (ValueError, TypeError): pass
-        return timestamp, 1
+        # exclude README files from article count
+        article_count = 0 if cur_dir.endswith('README.md') else 1
+        return timestamp, article_count
     filecount = 0
     for child in os.listdir(SOURCE_DIR+cur_dir):
         child_timestamp, child_filecount = get_updation_timestamp_and_filecount(cur_dir+'/'+child)
@@ -200,9 +206,9 @@ def get_folder_contents(cur_dir):
                         post = frontmatter.load(f)
                         item['name'] = get_sidebar_display_name(child_dir, post.metadata)
                 except:
-                    item['name'] = beautify(child)
+                    item['name'] = get_sidebar_display_name(child_dir)
             else:
-                item['name'] = beautify(child)
+                item['name'] = get_sidebar_display_name(child_dir)
         item['path'] = beautify(cur_dir + '/' + child)
         item['mod_timestamp'], item['filecount'] = get_updation_timestamp_and_filecount(child_dir)
         item['mod_date_time'] = timestamp_to_str(item['mod_timestamp'])
@@ -342,9 +348,9 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
 
     # replace \\ with \\\\, because for some reason later \\ is replaced with \ (probably by markdown2)
     file = file.replace('\\\\','\\\\\\\\') 
-    # ensure displayed latex is preceded+followed by two newlines (only for lines that start with $$, so we can still have e.g. "> $$asdf$$"), so that markdown2 will wrap it in <p>, so that it gets registered as not the first child in theorems/props etc.
+    # ensure displayed latex is preceded+followed by two newlines (only for lines that start with $$, so we can still have e.g. "> $$asdf$$")
     file = re.sub(r'(\n\$\$.*?\$\$)', r'\n\n\1\n\n', file, flags=re.DOTALL)
-    # ensure that <Spoiler> and </Spoiler> are preceded+followed by two newlines, so that markdown2 will wrap them in p tags (i.e. there won't be junk between spoiler tag and p tag)
+    # ensure that <Spoiler> and </Spoiler> are preceded+followed by two newlines
     file = re.sub(r'<(/?)Spoiler(/?)>\n?([^\n])', r'<\1Spoiler\2>\n\n\3', file)
     file = re.sub(r'([^\n])\n?<(/?)Spoiler(/?)>', r'\1\n\n<\2Spoiler\3>', file)
     # do the same for <hr> and </hr>
@@ -415,7 +421,7 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
 
     # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
     table_of_contents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
-    page = add_link_anchors(page, target_dir)
+    page = add_link_anchors(page, target_dir, CONFIG.DOMAIN)
 
     # move copy buttons generated above (i.e. in code blocks marked __COPIABLE__) into their containers
     page = re.sub(r'<p>:::COPIABLE</p>\n<p><CopyButton(.*?)/></p>\n<div className="codehilite"><pre>(.*?)</pre></div>', r'<div className="codehilite relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n<pre>\2</pre></div>', page, flags=re.DOTALL)
@@ -448,7 +454,7 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
 def get_path(article_data):
     return '/'+'/'.join(article_data['dir'])+'/'+article_data['name']
 
-def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree): 
+def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree, expected_files): 
     """
     parse the source files into jsx (depth first search)
     returns a list of all the markdown files and their info (for "recent articles" and search functionality)
@@ -482,15 +488,19 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
             page, article_data, page_title, copiable_article_plaintext, table_of_contents = parse_md_file_to_react(cur_dir, cur_target_dir, file)
 
         ensure_dir_with_correct_case(TARGET_DIR+cur_target_dir)
-        with open(TARGET_DIR+cur_target_dir+'/page.js', 'w') as output_file:
+        page_file_path = TARGET_DIR+cur_target_dir+'/page.js'
+        with open(page_file_path, 'w') as output_file:
             react = wrap_in_js(
-                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
+                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags'], config=CONFIG),
                 False, False, False, title=page_title
             )
             react = inject_autosvg_tags(react)
             output_file.write(react)
             # add article data to article list
             article_list.append(article_data)
+        # track the generated page file
+        rel_path = os.path.relpath(page_file_path, os.path.dirname(TARGET_DIR))
+        expected_files.add(rel_path)
         return
 
     # book or directory
@@ -512,9 +522,10 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
         child_displayed_dir_tree = displayed_dir_tree
         if bool(child_dir_tree) and child_dir_tree['is_marked_as_book']: child_displayed_dir_tree = child_dir_tree
 
-        gen_content(child_dir, depth+1, article_list, book_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree)
+        gen_content(child_dir, depth+1, article_list, book_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree, expected_files)
 
-    with open(TARGET_DIR+cur_target_dir+'/page.js', 'w') as output_file:
+    page_file_path = TARGET_DIR+cur_target_dir+'/page.js'
+    with open(page_file_path, 'w') as output_file:
         folder_contents = get_folder_contents(cur_dir)
 
         if cur_dir == '':
@@ -533,6 +544,19 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
         is_book = BOOK_INDICATOR in cur_dir.split('/')[-1]
         tags_to_render = []
         table_of_contents = None
+        
+        # handle book data creation for all books (with or without README)
+        if is_book:
+            book_data = {}
+            book_data['mod_timestamp'] = max(i['mod_timestamp'] for i in folder_contents) if folder_contents else PLACEHOLDER_TIMESTAMP
+            book_data['mod_date_time'] = timestamp_to_str(book_data['mod_timestamp'])
+            book_data['tags'] = []
+            
+            if path_list:
+                book_data['path'] = '/' + '/'.join(path_list)
+            else:
+                book_data['path'] = '/' + cur_target_dir.split('/')[-1]
+        
         if readme_exists: # render folder/book readme
             with open(cur_path+'/README.md', 'r') as f:
                 readme_file = f.read()
@@ -542,35 +566,51 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
             
             page, article_data, page_title, _, table_of_contents = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_folder_readme=not is_book, is_book_readme=is_book)
             article_list.append(article_data)
+            
             if is_book:
-                book_data = {}
+                # update book data with README info
                 book_data['name'] = article_data['title']
-                if article_data['dir']:
-                    book_data['path'] = '/' + '/'.join(article_data['dir']) + '/' + article_data['name']
-                else:
-                    book_data['path'] = '/' + article_data['name']
-                book_data['mod_timestamp'] = max(i['mod_timestamp'] for i in folder_contents)
                 book_data['mod_timestamp'] = max(book_data['mod_timestamp'], article_data['mod_timestamp']) # include readme time
                 book_data['mod_date_time'] = timestamp_to_str(book_data['mod_timestamp'])
                 book_data['tags'] = article_data['tags'] # tags from readme are elevated to folder
                 tags_to_render = book_data['tags']
-                book_list.append(book_data)
-                book_list.sort(key=lambda x: x['mod_timestamp'], reverse=True)
             
             # only add the readme content if it's not empty
             if content_without_frontmatter:
                 folder_mainpage = page + separator
             else:
                 folder_mainpage = ''
+        
+        # add book to book list (happens for all books, regardless of README)
+        if is_book:
+            if not readme_exists:
+                # for books without README, use the folder name as title
+                book_data['name'] = get_sidebar_display_name(cur_dir)
+            book_list.append(book_data)
+            book_list.sort(key=lambda x: x['mod_timestamp'], reverse=True)
         elif cur_dir == '': # render homepage
             # article_list and book_list will have been populated, since root page is rendered last
-            with open(CHANGELOG_FILE, 'r') as f:
-                changelog = process_markdown(f.read(), add_heading_ids=False)
             article_count = sum(1 for i in article_list if i['type'] == 'article')
             word_count = sum(len(i['content'].split()) for i in article_list)
+            
+            # generate random content paths for CTA button
+            random_content_paths = []
+            for article in article_list:
+                # only include standalone articles, not articles inside books
+                if article['type'] == 'article' and len(article['dir']) <= 1:
+                    random_content_paths.append(get_path(article))
+            for book in book_list:
+                random_content_paths.append(book['path'])
+            
             folder_mainpage = add_link_anchors(
-                HOME_TEMPLATE.render(book_list=book_list, changelog=changelog, article_count=article_count, word_count=word_count),
-                '/', h1=True
+                HOME_TEMPLATE.render(
+                    book_list=book_list, 
+                    article_count=article_count, 
+                    word_count=word_count, 
+                    random_content_paths=random_content_paths,
+                    config=CONFIG
+                ),
+                '/', CONFIG.DOMAIN, h1=True
             ) + separator
 
         react = wrap_in_js(
@@ -579,12 +619,17 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
                     contents_by_time=sorted(folder_contents,key=lambda x:x['mod_timestamp'], reverse=True),
                     contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                     file_count=sum(item['filecount'] for item in folder_contents),
+                    config=CONFIG,
                 ),
-                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
+                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render, config=CONFIG),
             True, cur_dir=='' or readme_exists, cur_dir=='', title=page_title
         )
         react = inject_autosvg_tags(react)
         output_file.write(react)
+    
+    # track the generated page file
+    rel_path = os.path.relpath(page_file_path, os.path.dirname(TARGET_DIR))
+    expected_files.add(rel_path)
 
 def gen_react_svgs(cur_dir, depth, checksum_tree):
     """parse auto svg files into react components"""

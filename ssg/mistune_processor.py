@@ -8,7 +8,8 @@ from mistune import HTMLRenderer
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.formatters import HtmlFormatter
-from constants import BLOCK_COMPONENTS, INLINE_COMPONENTS
+
+from constants import BLOCK_COMPONENTS, INLINE_COMPONENTS, MATH_TAGS
 
 
 class ReactComponentProcessor:
@@ -177,6 +178,64 @@ def create_markdown_processor(add_heading_ids=True):
     return md
 
 
+class BlockquoteTableProcessor:
+    """handles tables inside blockquotes by extracting and processing them separately."""
+    
+    def __init__(self):
+        self.table_placeholders = {}
+        self.counter = 0
+    
+    def extract_blockquote_tables(self, text):
+        """extract tables from blockquotes and replace with placeholders."""
+        import re
+        
+        # pattern to match tables within blockquotes
+        table_in_blockquote_pattern = r'(^>\s*\|.*?\|.*?$\n^>\s*\|[-:|\s]+\|.*?$(?:\n^>\s*\|.*?\|.*?$)*)'
+        
+        def replace_with_placeholder(match):
+            table_lines = match.group(1).split('\n')
+            # remove the '> ' or '>' prefix from each line
+            clean_table_lines = []
+            for line in table_lines:
+                if line.startswith('> '):
+                    clean_table_lines.append(line[2:])
+                elif line.startswith('>'):
+                    clean_table_lines.append(line[1:])
+            
+            clean_table = '\n'.join(clean_table_lines)
+            
+            # process this table separately to get the HTML
+            md = create_markdown_processor(add_heading_ids=False)
+            table_html = md(clean_table).strip()
+            
+            # create placeholder
+            placeholder = f'BLOCKQUOTETABLE{self.counter:04d}'
+            self.table_placeholders[placeholder] = table_html
+            self.counter += 1
+            
+            # return placeholder within blockquote structure
+            return f'> {placeholder}'
+        
+        # find and replace all tables in blockquotes with placeholders
+        text = re.sub(table_in_blockquote_pattern, replace_with_placeholder, text, flags=re.MULTILINE)
+        
+        return text
+    
+    def restore_blockquote_tables(self, html):
+        """restore the processed tables in place of placeholders."""
+        for placeholder, table_html in self.table_placeholders.items():
+            # the placeholder should be inside a <p> tag within a <blockquote>
+            # replace the entire <p> tag containing the placeholder
+            pattern = f'<p>{placeholder}</p>'
+            if pattern in html:
+                html = html.replace(pattern, table_html)
+            else:
+                # fallback: just replace the placeholder directly
+                html = html.replace(placeholder, table_html)
+        
+        return html
+
+
 def preprocess_footnotes(text):
     """convert markdown footnotes to HTML before other processing."""
     import re
@@ -220,11 +279,16 @@ def process_markdown(content, add_heading_ids=True):
     # preprocess footnotes first
     content = preprocess_footnotes(content)
     
+    # handle tables in blockquotes
+    blockquote_table_processor = BlockquoteTableProcessor()
+    content = blockquote_table_processor.extract_blockquote_tables(content)
+    
     processor = ReactComponentProcessor()
     protected = processor.protect_components(content) # protect React components
     md = create_markdown_processor(add_heading_ids=add_heading_ids)
     html = md(protected)
     html = processor.restore_components(html) # restore React components
+    html = blockquote_table_processor.restore_blockquote_tables(html) # restore blockquote tables
     html = nextjs_replacements(html)
     return html
 

@@ -2,5 +2,8 @@
 __pycache__
 .DS_Store
 
-next-app/app/
-next-app/.next/
+# ignore deployment contents but keep vercel.json files
+deployments/tripos/*
+!deployments/tripos/vercel.json
+deployments/danielc/*
+!deployments/danielc/vercel.json

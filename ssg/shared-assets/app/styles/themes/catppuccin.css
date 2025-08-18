@@ -1,0 +1,122 @@
+.dark body, .catppuccin body {
+    font-family: var(--font-space);
+}
+
+.dark, .catppuccin {
+    /* https://catppuccin.com/palette/ */
+    /* helper colours (taken from mocha theme) - marked with comment means used */
+    --rosewater: #f5e0dc; /**/
+    --flamingo: #f2cdcd; /**/
+    --pink: #f5c2e7; /**/
+    --mauve: #cba6f7; /**/
+    --red: #f38ba8; /**/
+    --maroon: #eba0ac; /**/
+    --peach: #fab387; /**/
+    --yellow: #f9e2af; /**/
+    --green: #a6e3a1; /**/
+    --teal: #94e2d5; /**/
+    --sky: #89dceb; /**/
+    --sapphire: #74c7ec; /**/
+    --blue: #89b4fa; /**/
+    --lavender: #b4befe; /**/
+    --text: #cdd6f4; /**/
+    --subtext1: #bac2de; /**/
+    --subtext0: #a6adc8; /**/
+    --overlay2: #9399b2; /**/
+    --overlay1: #7f849c; /**/
+    --overlay1rgb: 127, 132, 156; /**/
+    --overlay0: #6c7086; /**/
+    --surface2: #585b70; /**/
+    --surface1: #45475a; /**/
+    --surface1rgb: 69, 71, 90; /**/
+    --surface0: #313244; /**/
+    --base: #1e1e2e; /**/
+    --mantle: #181825; /**/
+    --crust: #11111b; /**/
+    --crustrgb: 17, 17, 27; /**/
+
+    /* begin definitions */
+    --toastify-color-light: var(--surface1) !important;
+    --toastify-color-progress-light: var(--mauve) !important;
+
+    color-scheme: dark;
+}
+
+.dark:root, .catppuccin:root {
+
+    @theme {
+        --color-background: var(--base);
+        --color-text-primary: var(--text);
+        --color-text-secondary: var(--overlay2);
+        --color-text-placeholder: var(--surface2);
+        --color-articleh1: var(--mauve);
+        --color-articleh2: var(--pink);
+        --color-link: var(--blue);
+        --color-folder-icon: var(--maroon);
+        --color-book-icon: var(--peach);
+        --color-article-icon: var(--sapphire);
+        --color-blockquote: var(--crust);
+        --color-unhighlighted-code: rgba(var(--surface1rgb), .5);
+        --color-border-subtle: var(--surface1);
+        --color-border-strong: var(--overlay1);
+        --color-text-emph: var(--peach);
+        --color-button: var(--surface1);
+        --color-button-hover: var(--overlay0);
+        --color-linkanchor: var(--yellow);
+
+        --color-Filetree-text-current: var(--base);
+        --color-Filetree-current: var(--lavender);
+        --color-Filetree-hover: rgba(var(--surface1rgb), .5);
+        --color-Filetree-chevron: var(--green);
+        --color-Filetree-chevron-hover: rgba(var(--overlay1rgb), .5);
+        --color-Filetree-chevron-current: var(--base);
+        --color-Filetree-chevron-current-hover: rgba(var(--overlay1rgb), .5);
+        --color-Filetree-pipe: var(--surface2);
+        --color-Filetree-pipe-current: var(--subtext0);
+        --color-Mobiletopbar: rgba(var(--surface1rgb), .2);
+        --color-Searchbar: var(--mantle);
+        --color-Searchbar-hover: var(--surface0);
+        --color-Searchbar-ring-hover: var(--teal);
+        --color-Searchpopup-result: rgba(var(--surface1rgb), .5);
+        --color-Searchpopup-result-selected: rgba(var(--overlay1rgb), .5);
+        --color-Searchpopup-arrow-selected: var(--green);
+        --color-Searchpopup-highlight-dir: var(--sky);
+        --color-Searchpopup-highlight-title: var(--mauve);
+        --color-Searchpopup-highlight-content: var(--rosewater);
+        --color-Table-bar: var(--maroon);
+        --color-Table-bartext: var(--surface0);
+        --color-Table-rows: var(--surface0);
+        --color-Popup-overlay: rgba(var(--crustrgb), .5);
+        --color-Copybutton-icon: var(--yellow);
+        --color-Spoiler-accent: var(--red);
+        --color-Changelog-dates: var(--green);
+        --color-Changelog-titles: var(--pink);
+        --color-Incompletemsg: var(--red);
+        --color-Math-accent-thm: var(--green);
+        --color-Math-accent-proof: var(--peach);
+        --color-Math-accent-defn: var(--sapphire);
+        --color-Math-accent-example: var(--peach);
+        --color-Math-accent-lemma: var(--pink);
+        --color-Math-accent-keyidea: var(--blue);
+        --color-Math-accent-warning: var(--red);
+        --color-Codeblock-bg: #11111b; /* for codehilite.css */
+        --color-Themeselect-topbar: var(--surface0);
+        --color-Themeselect-selected: var(--mauve);
+        --color-Themeselect-text-selected: var(--crust);
+        --color-Themeselect-hover: var(--surface1);
+        --color-Scrollshadow-cover: 30, 30, 46; /* rgb of background */
+        --color-Scrollshadow-blockquote-cover: 17, 17, 27; /* rgb of blockquote background */
+        --color-Scrollshadow-shadow: 255, 255, 255;
+        --color-Hero-text: var(--mauve);
+        --color-Svg-text: var(--color-text-primary);
+        --color-Svg-gray: var(--overlay0);
+        --color-Svg-text-highlight: var(--color-articleh1);
+        --color-Svg-line-highlight-1: var(--teal);
+        --color-Svg-line-highlight-2: var(--maroon);
+        --color-Svg-fill-highlight-1: var(--blue);
+        --color-Svg-fill-highlight-2: var(--lavender); /* junk */
+        --color-Svg-fill-highlight-3: var(--rosewater); /* junk */
+
+    }
+
+}
