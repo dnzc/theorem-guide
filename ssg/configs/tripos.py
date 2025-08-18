@@ -86,6 +86,6 @@ FAQ = [
     },
     {
         'question': 'Hey, this website looks familiar...',
-        'answer': '''You're thinking of your other favourite website, <DiscreetLink href="https://notes.danielc.rocks">notes.danielc.rocks</DiscreetLink>! I generate both sites using the same code <ProminentLink href="https://github.com/dnzc/notes">[github]</ProminentLink>. This leads to consistent, maths-first styling across both sites.'''
+        'answer': '''You're thinking of your other favourite website, <DiscreetLink href="https://danielc.rocks">danielc.rocks</DiscreetLink>! I generate both sites using the same code <ProminentLink href="https://github.com/dnzc/notes">[github]</ProminentLink>. This leads to consistent, maths-first styling across both sites.'''
     }
 ]

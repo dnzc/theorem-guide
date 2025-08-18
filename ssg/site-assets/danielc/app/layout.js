@@ -50,10 +50,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <Head>
-        <meta property="og:site_name" content="notes.danielc.rocks" />
+        <meta property="og:site_name" content="danielc.rocks" />
         <meta property="og:title" content="Daniel's Notes" />
         <meta property="og:description" content="Mathematical explanations and insights" />
-        <meta property="og:image" itemprop="image" content="https://notes.danielc.rocks/og-image.png" />
+        <meta property="og:image" itemprop="image" content="https://danielc.rocks/og-image.png" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="apple-mobile-web-app-title" content="Daniel's Notes" />
