@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd ../../ssg && python3 -m pip install -r requirements.txt && python3 run.py tripos && cd ../deployments/tripos && npm run build",
+  "git": {
+    "deploymentEnabled": {
+      "dev": false
+    }
+  }
+}
