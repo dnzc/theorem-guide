@@ -6,27 +6,27 @@
                 <ul className="scrollshadow-vertical dirtree mb-4 md:mb-0 group">
                     {% set start_depth = dir_tree['depth'] %}
                     {% macro dump_tree(dir_tree) %}
-                        {% if dir_tree['is_dir'] and not dir_tree['is_marked_as_course'] or dir_tree['depth']==start_depth and dir_tree['is_marked_as_course'] %}
-                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="{{'course' if dir_tree['is_marked_as_course'] else 'folder'}}" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } isOpenByDefault={ {{"true" if dir_tree['depth']-start_depth < 2 or (path_str and path_str.startswith(dir_tree['path'])) else "false"}} } >
+                        {% if dir_tree['is_dir'] and not dir_tree['is_marked_as_book'] or dir_tree['depth']==start_depth and dir_tree['is_marked_as_book'] %}
+                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="{{'book' if dir_tree['is_marked_as_book'] else 'folder'}}" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } isOpenByDefault={ {{"true" if dir_tree['depth']-start_depth < 2 or (path_str and path_str.startswith(dir_tree['path'])) else "false"}} } >
                                 {% if dir_tree['children'] %}
                                     {% for child in dir_tree['children'] %}
                                         {{ dump_tree(child)}}
                                     {% endfor %}
                                 {% endif %}
                             </Accordion>
-                        {% elif dir_tree['is_marked_as_course'] %}
-                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="course" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } />
+                        {% elif dir_tree['is_marked_as_book'] %}
+                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="book" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } />
                         {% else %}
                             <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="file" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } />
                         {% endif %}
                     {% endmacro %}
 
-                    {% if start_depth > 0 and course_parent_path %}
-                        <Link href="{{course_parent_path}}">
+                    {% if start_depth > 0 and book_parent_path %}
+                        <Link href="{{book_parent_path}}">
                             <li className="w-full flex justify-start p-1 pl-2 hover:bg-Filetree-hover">
                                 <div className="flex items-center justify-center space-x-1 text-text-secondary text-base">
                                     <CiLogout size="19"/>
-                                    <p>exit course</p>
+                                    <p>exit {{config.TERMINOLOGY.book_singular}}</p>
                                 </div>
                             </li>
                         </Link>

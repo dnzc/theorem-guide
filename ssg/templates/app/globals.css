@@ -123,24 +123,24 @@
     .catppuccin .hero-image, .dark .hero-image {
         @apply !hidden;
     }
+    .sanctum .hero, .light .hero {
+        background-color: rgba(255, 255, 255, 0.6);
+        background-image: url('/hero/sanctum-bg.png');
+        background-blend-mode: lighten;
+        background-size: cover;
+    }
+    .sanctum .hero-image > div, .light .hero-image > div {
+        background-image: url('/hero/sanctum.svg');
+    }
+    .sanctum .hero-text > a, .light .hero-text > a {
+        @apply border-2 border-Hero-text;
+    }
     .gruvbox .hero {
         background-color: #222526;
         @apply border-2 border-border-strong;
     }
     .gruvbox .hero-image > div {
         background-image: url('/hero/gruvbox.png');
-    }
-    .sanctum .hero {
-        background-color: rgba(255, 255, 255, 0.6);
-        background-image: url('/hero/sanctum-bg.png');
-        background-blend-mode: lighten;
-        background-size: cover;
-    }
-    .sanctum .hero-image > div {
-        background-image: url('/hero/sanctum.svg');
-    }
-    .sanctum .hero-text > a {
-        @apply border-2 border-Hero-text;
     }
 
     /* END THEME SPECIFIC STUFF */

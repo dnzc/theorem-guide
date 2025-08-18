@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd ../ssg && python3 -m pip install -r requirements.txt && python3 run.py && cd ../next-app && npm run build",
+  "git": {
+    "deploymentEnabled": {
+      "dev": false
+    }
+  }
+}

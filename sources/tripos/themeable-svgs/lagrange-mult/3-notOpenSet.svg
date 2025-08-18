@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300"
+   height="320"
+   viewBox="0 0 79.374998 84.666672"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="3-notOpenSet.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#cdcdcd"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="300px"
+     inkscape:snap-bbox="true"
+     inkscape:snap-global="true"
+     inkscape:bbox-paths="false"
+     inkscape:zoom="1.0897757"
+     inkscape:cx="39.457661"
+     inkscape:cy="72.033172"
+     inkscape:window-width="1896"
+     inkscape:window-height="1024"
+     inkscape:window-x="12"
+     inkscape:window-y="44"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.499999;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1613"
+       cx="30.185785"
+       cy="6.8068352"
+       r="4.5816846" />
+    <g
+       id="g2313"
+       transform="translate(-27.309704,-10.934269)">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m 58.551354,16.752556 -2.143915,2.143913"
+         id="path1843" />
+      <g
+         id="g2308">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           d="m 56.418145,16.760918 2.143913,2.143915"
+           id="path1843-3" />
+      </g>
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 24.718332,7.6014423 C 16.529206,9.5399333 13.325684,15.049555 9.4649384,21.623385 -4.3109218,45.080036 34.242117,58.49222 52.046885,52.098149 60.131445,49.19481 75.44061,25.637035 69.799246,17.207058 66.326751,12.018056 55.310327,18.557457 50.234267,13.481397 49.049089,12.29622 47.689891,6.8135453 46.425053,6.5525023 37.336615,4.6767883 32.374379,6.9555453 24.718332,7.6014423 Z"
+       id="path31536" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.396999;stroke-linecap:round;stroke-linejoin:round"
+       x="22.638966"
+       y="64.637695"
+       id="text50124"><tspan
+         sodipodi:role="line"
+         id="tspan50122"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.397"
+         x="22.638966"
+         y="64.637695">NOT open</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:5.64444px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Bold';fill:#000000;stroke-width:0.396999;stroke-linecap:round;stroke-linejoin:round"
+       x="11.739943"
+       y="73.121086"
+       id="text52504"><tspan
+         sodipodi:role="line"
+         id="tspan52502"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.397"
+         x="11.739943"
+         y="73.121086">(consider a point</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.397"
+         x="11.739943"
+         y="80.176636"
+         id="tspan58634">on the boundary)</tspan></text>
+  </g>
+</svg>

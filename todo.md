@@ -1,8 +1,11 @@
+# Bugs to Fix
+
 # Functionality to Add
 
 - quizzes
+- interactivity with pyodide
+- refactor content to use quizzes + interactivity
 
-- "lightbulb" component in math.js - key idea (remember to add to mistune processor)
 - relevant tripos questions
 
 - better tags
@@ -15,6 +18,8 @@ desmos embed?  pyodide?
 
 
 # Content Ideas
+
+- "the hack to solving cyclical random walk questions" "the hack for multivariate derivatives"
 
 - intuition-focused explanation: derivatives (+ multivariate hacks), convolutions
 
