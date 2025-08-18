@@ -3,7 +3,7 @@
 # Functionality to Add
 
 - quizzes
-- interactivity with pyodide
+- interactivity with pyodide (+ desmos embed?)
 - refactor content to use quizzes + interactivity
 
 - relevant tripos questions
@@ -13,8 +13,6 @@
     - tags page - word cloud of tags?
 
 - backlinks (figure out where to display on page, potentially: underneath toc in right sidebar, so only visible on xl)
-
-desmos embed?  pyodide?
 
 
 # Content Ideas
