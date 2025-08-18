@@ -34,7 +34,7 @@ const fira = Fira_Code({
 export const metadata = {
   title: {
     template: '%s',
-    default: 'Daniel\'s Explainers',
+    default: 'Daniel\'s Notes',
   },
   description: 'Mathematical explanations and insights',
 }
@@ -51,12 +51,12 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <Head>
         <meta property="og:site_name" content="notes.danielc.rocks" />
-        <meta property="og:title" content="Daniel's Explainers" />
+        <meta property="og:title" content="Daniel's Notes" />
         <meta property="og:description" content="Mathematical explanations and insights" />
         <meta property="og:image" itemprop="image" content="https://notes.danielc.rocks/og-image.png" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="apple-mobile-web-app-title" content="Daniel's Explainers" />
+        <meta name="apple-mobile-web-app-title" content="Daniel's Notes" />
       </Head>
       <body
         className={`${lato.variable} ${pangolin.variable} ${space.variable} ${fira.variable} antialiased`}
