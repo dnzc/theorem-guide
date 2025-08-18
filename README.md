@@ -56,7 +56,7 @@ Each site deploys independently:
 - **tripos.guru**: Vercel deployment from `deployments/tripos/`
 - **danielc.rocks**: Vercel deployment from `deployments/danielc/`
 
-The SSG runs automatically during deployment. Generated directories are not tracked in git and are built fresh on each deployment.
+The SSG runs automatically during deployment. Generated directories are not tracked in git and are built fresh on each deployment. The folders in `deployments/` are completely auto-generated, including the vercel.json files (these are included solely for the vercel build process, which runs `ssg/run.py` then `npm run build`, but it unfortunately needs the boilerplate files like package.json to deterine what stuff to install before running the ssg, therefore we still need to track these)
 
 ## Website Information
 
