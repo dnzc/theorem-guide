@@ -2,9 +2,14 @@
 
 # Functionality to Add
 
-- quizzes
-- interactivity with pyodide (+ desmos embed?)
-- refactor content to use quizzes + interactivity
+- interactivity
+    - multiple choice quizzes
+    - runnable python blocks with pyodide
+    - D3.js components
+    - function plotting, parameter manipulation
+    - drag-and-drop proof order exercises
+    - desmos embed?
+- refactor content to use as many interactive components as possible
 
 - relevant tripos questions
 
