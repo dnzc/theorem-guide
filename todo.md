@@ -14,6 +14,7 @@
 - relevant tripos questions
 
 - better tags
+- select tags and auto reorder the article list like https://themes.gohugo.io/themes/hugo-theme-stack/
     - tag preset colors, view/group by tags
     - tags page - word cloud of tags?
 

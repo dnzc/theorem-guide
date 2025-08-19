@@ -5,7 +5,6 @@ DOMAIN = 'notes.danielc.rocks'
 TERMINOLOGY = {
     'book_singular': 'book',
     'book_plural': 'books',
-    'book_icon_class': 'text-book-icon'
 }
 
 HERO = {
@@ -23,14 +22,14 @@ FAQ = [
                         <AiFillFolder size={{20}} />
                     </span>
                     , containing {TERMINOLOGY['book_plural']}
-                    <span className="{TERMINOLOGY['book_icon_class']} inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                    <span className="text-book-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
                         <FaBook size={{18}} />
                     </span>
                     and articles
                     <span className="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
                         <GrArticle size={{20}} />
                     </span>
-                    . {TERMINOLOGY['book_plural'].title()} represent a chunk of teachable content (e.g. a Tripos course), and they further contain more folders and articles, which can be viewed once inside the {TERMINOLOGY['book_singular']}. (Don't worry, there are no nested {TERMINOLOGY['book_plural']}!)'''
+                    . {TERMINOLOGY['book_plural'].title()} represent a standalone chunk of teachable content, and they further contain more folders and articles, which can be viewed once inside the {TERMINOLOGY['book_singular']}. (Don't worry, there are no nested {TERMINOLOGY['book_plural']}!)'''
     },
     {
         'question': 'What makes these notes special?',

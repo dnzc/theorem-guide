@@ -5,7 +5,6 @@ DOMAIN = 'tripos.guru'
 TERMINOLOGY = {
     'book_singular': 'course',
     'book_plural': 'courses',
-    'book_icon_class': 'text-course-icon'
 }
 
 HERO = {
@@ -23,14 +22,14 @@ FAQ = [
                         <AiFillFolder size={{20}} />
                     </span>
                     , containing {TERMINOLOGY['book_plural']}
-                    <span className="{TERMINOLOGY['book_icon_class']} inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                    <span className="text-book-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
                         <FaBook size={{18}} />
                     </span>
                     and articles
                     <span className="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
                         <GrArticle size={{20}} />
                     </span>
-                    . {TERMINOLOGY['book_plural'].title()} represent a chunk of teachable content (e.g. a Tripos course), and they further contain more folders and articles, which can be viewed once inside the {TERMINOLOGY['book_singular']}. (Don't worry, there are no nested {TERMINOLOGY['book_plural']}!)'''
+                    . {TERMINOLOGY['book_plural'].title()} contain more folders and articles, which can be viewed once inside the {TERMINOLOGY['book_singular']}. (Don't worry, there are no nested {TERMINOLOGY['book_plural']}!)'''
     },
     {
         'question': 'What makes these notes better than <DiscreetLink href="https://dec41.user.srcf.net/notes/">Dexter</DiscreetLink>, <DiscreetLink href="https://zeramorphic.uk/maths.html">zeramorphic</DiscreetLink> or <DiscreetLink href="https://danielnaylor.uk/notes/">Daniel Naylor</DiscreetLink>?',
