@@ -1,4 +1,7 @@
 # Bugs to Fix
+- disable check button on single quiz when nothing selected
+- disable hover on labels when submitted
+- make selected option bold
 
 # Functionality to Add
 

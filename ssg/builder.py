@@ -55,6 +55,7 @@ import Folder from '@/components/folder'
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
 import Spoiler from '@/components/spoiler'
+import Quiz from '@/components/quiz'
 import IncompleteMessage from '@/components/incompleteMessage'
 import Image from 'next/image'
 import {{ copyToClipboard, CopyButton }} from '@/components/copyButton'
@@ -301,9 +302,10 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
     mod_date = parse_date('modified')
     cr_date = parse_date('created')
     
-    # at least one must be supplied
+    # at least one must be supplied (except for READMEs)
     if mod_date is None and cr_date is None:
-        warn(f'no date (created or modified) found in front-matter of {path}, marking as "coming soon"')
+        if not is_readme:
+            warn(f'no date (created or modified) found in front-matter of {path}, marking as "coming soon"')
         article_data['mod_timestamp'] = PLACEHOLDER_TIMESTAMP
         article_data['mod_date_time'] = ''
         article_data['cr_timestamp'] = PLACEHOLDER_TIMESTAMP
@@ -577,7 +579,8 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
             
             # only add the readme content if it's not empty
             if content_without_frontmatter:
-                folder_mainpage = page + separator
+                readme_content = page + separator
+                folder_mainpage = readme_content if cur_dir != '' else ''
             else:
                 folder_mainpage = ''
         

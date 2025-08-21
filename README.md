@@ -69,7 +69,7 @@ The SSG runs automatically during deployment. Generated directories are not trac
 ### Markdown Custom Features
 
 - Custom tags e.g. `<CopyButton>`
-- Math tags: Defn, Thm, Lemma, Proof, Example, KeyIdea, Warning
+- Math tags: Defn, Thm, Lemma, Proof, Example, KeyIdea, Warning, Quiz (look for examples in source to see how they are used)
     - Each of these comes with defaults, can specify e.g. "unbolded", "unquoted"
     - Write text on same line as opening tag to make that sentence inline with the declaration text
 - Ease-of-use components: Spoiler, ProminentLink, DiscreetLink, MailLink, Badge, CopyButton, IncompleteMessage

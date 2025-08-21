@@ -27,7 +27,9 @@
     }
 
     .latex-display-wrapper {
-        @apply flex justify-center overflow-auto max-w-min mx-auto;
+        @apply overflow-auto mx-auto flex;
+        max-width: 100%;
+        justify-content: flex-start;
     }
 
     .latex-display-wrapper > span {
@@ -357,6 +359,34 @@
     /* bold inside definitions */
     .defn strong {
         @apply text-Math-accent-defn;
+    }
+
+    .quiz-option {
+        @apply flex items-center ml-2;
+    }
+
+    .quiz-option-label {
+        @apply hover:outline-2 outline-border-subtle rounded-sm px-0.5 ml-1;
+    }
+
+    .quiz-input-tag {
+        @apply shrink-0;
+    }
+
+    .quiz-input-tag:disabled {
+        @apply cursor-not-allowed;
+    }
+
+    .quiz-input-tag:checked + .quiz-option-label {
+        @apply font-bold;
+    }
+
+    .quiz-text {
+        @apply my-2;
+    }
+
+    .quiz-text:last-child {
+        @apply mb-0;
     }
 
 }

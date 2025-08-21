@@ -62,7 +62,7 @@ TARGET_DIR = ROOT_DIR + f'deployments/{CONFIG.SITE_ID}/app'
 AUTOSVG_TARGET_DIR = ROOT_DIR + f'deployments/{CONFIG.SITE_ID}/components/AUTOSVG'
 
 # site-specific output files
-ARTICLE_DATA_FILE = ROOT_DIR + f'deployments/{CONFIG.SITE_ID}/article_data.json'
+ARTICLE_DATA_FILE = ROOT_DIR + f'data/article_data_{CONFIG.SITE_ID}.json'
 CONTENT_CHECKSUMS_FILE = ROOT_DIR + f'ssg/log-files/content-checksums-{CONFIG.SITE_ID}.json'
 SVG_CHECKSUMS_FILE = ROOT_DIR + f'ssg/log-files/svg-checksums-{CONFIG.SITE_ID}.json'
 WARNINGS_FILE = ROOT_DIR + f'ssg/log-files/warnings-{CONFIG.SITE_ID}.txt'
@@ -94,7 +94,7 @@ FOLDER_TEMPLATE = get_template('folder_overview.jinja')
 # math components used in articles
 MATH_TAGS = ['Thm', 'Lemma', 'Proof', 'Defn', 'Example', 'KeyIdea', 'Warning']
 # components where content should be processed as markdown
-BLOCK_COMPONENTS = MATH_TAGS + ['Spoiler']
+BLOCK_COMPONENTS = MATH_TAGS + ['Spoiler', 'Quiz']
 # components that should be preserved as-is
 INLINE_COMPONENTS = ['ProminentLink', 'DiscreetLink', 'MailLink', 'Badge', 
                         'Latex', 'AUTOSVG', 'CopyButton', 'Pilcrow', 

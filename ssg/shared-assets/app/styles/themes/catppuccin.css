@@ -40,11 +40,8 @@
     --toastify-color-progress-light: var(--mauve) !important;
 
     color-scheme: dark;
-}
 
-.dark:root, .catppuccin:root {
-
-    @theme {
+    @theme { /*only put @theme directive in this theme file, otherwise it breaks, but I have no idea why */
         --color-background: var(--base);
         --color-text-primary: var(--text);
         --color-text-secondary: var(--overlay2);
@@ -116,7 +113,10 @@
         --color-Svg-fill-highlight-1: var(--blue);
         --color-Svg-fill-highlight-2: var(--lavender); /* junk */
         --color-Svg-fill-highlight-3: var(--rosewater); /* junk */
-
+        --color-Quiz-success: #9f0;
+        --color-Quiz-failure: #f40;
+        --color-Quiz-button: #2965c4;
+        --color-Quiz-button-hover: #498af2;
     }
 
 }

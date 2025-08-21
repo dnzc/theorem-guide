@@ -37,54 +37,33 @@ FAQ = [
     },
     {
         'question': 'How do you write these lecture notes? <ProminentLink href="https://github.com/dnzc/notes">[github]</ProminentLink>',
-        'answer': '''<ul className="space-y-2">
-                        <li>
-                            The Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
-                        </li>
-                        <li>
-                            I configured a VSCode shortcut to compile the markdown files into webpages. When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys.
-                            
-                        </li>
-                    </ul>
-                    <p className="my-2">For a more technical overview:</p>
-                    <ul className="space-y-2">
-                        <li>
-                            I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
-                        </li>
-                        <li>
-                            I wrote a static site generator (SSG) in Python to transform my lecture note files (.md) into Next.js webpages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. This is a great opportunity to shove a diagram in your face:
-                            <div className="flex justify-center">
-                                <AUTOSVG src='root/workflow' width='250' height='100'/>
-                            </div>
-                        </li>
-                    </ul>
-                    If you're interested, all the code can be found in the Github repository.'''
-    },
-    {
-        'question': 'What are some cool features this site has?',
-        'answer': '''<ul>
-                        <li>
-                            Colour schemes (select in sidebar) - persistent via local storage
-                        </li>
-                        <li>
-                            Maths diagrams that match the colour scheme
-                        </li>
-                        <li>
-                            Keyboard shortcuts to toggle filetree and to search
-                        </li>
-                        <li>
-                            Spoilers like this one
-                            <Spoiler>
-                                Hello there
-                            </Spoiler>
-                        </li>
-                        <li>
-                            Copy buttons like this one <CopyButton text="You just lost the game."/>
-                        </li>
-                    </ul>'''
+        'answer': '''
+            <ul className="space-y-2">
+                <li>
+                    The Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
+                </li>
+                <li>
+                    I configured a VSCode shortcut to compile the markdown files into webpages. When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys.
+                    
+                </li>
+            </ul>
+            <p className="my-2">For a more technical overview:</p>
+            <ul className="space-y-2">
+                <li>
+                    I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
+                </li>
+                <li>
+                    I wrote a static site generator (SSG) in Python to transform my lecture note files (.md) into Next.js webpages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. This is a great opportunity to shove a diagram in your face:
+                    <div className="flex justify-center">
+                        <AUTOSVG src='root/workflow' width='250' height='100'/>
+                    </div>
+                </li>
+            </ul>
+            If you're interested, all the code can be found in the Github repository.
+        '''
     },
     {
         'question': 'Hey, this website looks familiar...',
-        'answer': '''You're thinking of your other favourite website, <DiscreetLink href="https://notes.danielc.rocks">notes.danielc.rocks</DiscreetLink>! I generate both sites using the same code <ProminentLink href="https://github.com/dnzc/notes">[github]</ProminentLink>. This leads to consistent, maths-first styling across both sites.'''
+        'answer': f'''You're thinking of your other favourite website, <DiscreetLink href="https://notes.danielc.rocks">notes.danielc.rocks</DiscreetLink>! I generate both sites using the same code <ProminentLink href="https://github.com/dnzc/notes">[github]</ProminentLink>. This leads to consistent, maths-first styling across both sites.'''
     }
 ]

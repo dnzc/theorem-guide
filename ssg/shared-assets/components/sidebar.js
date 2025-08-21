@@ -7,7 +7,7 @@ import Popup from '@/components/popup'
 import { BsLayoutTextSidebarReverse } from 'react-icons/bs'
 import { FiCommand } from "react-icons/fi";
 import { PiControlBold } from "react-icons/pi";
-import { MdFormatPaint } from "react-icons/md";
+import { IoIosSettings } from "react-icons/io";
 import ThemeSwitch from '@/components/themeSwitch'
 
 export default function Sidebar({ children }) {
@@ -173,8 +173,8 @@ export default function Sidebar({ children }) {
                     <Popup buttonStyle='flex text-text-secondary ml-2 3xs:ml-4'
                         buttonContents={
                             /* mobile top bar or open sidebar */
-                            <div className={`md:fixed md:left-[calc(270px-3rem)] items-center h-[2.25rem] ${active ? 'md:w-[2rem] md:left-[calc(270px-2rem-1rem)]' : 'md:hidden'} bg-button px-2 rounded-md hover:bg-button-hover`}>
-                                <MdFormatPaint className='h-full shrink-0'/>
+                            <div className={`md:fixed md:left-[calc(270px-3rem)] h-[2.25rem] ${active ? 'md:w-[2rem] md:left-[calc(270px-2rem-1rem)]' : 'md:hidden'} bg-button rounded-md hover:bg-button-hover flex items-center justify-center`}>
+                                <IoIosSettings className='shrink-0' size={25}/>
                             </div>
                         }
                         listenWhenLarge={true}

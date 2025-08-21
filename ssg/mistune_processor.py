@@ -4,12 +4,13 @@ Custom mistune-based markdown processor that preserves custom tags.
 
 import re
 import mistune
+import warnings
 from mistune import HTMLRenderer
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.formatters import HtmlFormatter
 
-from constants import BLOCK_COMPONENTS, INLINE_COMPONENTS, MATH_TAGS
+from constants import BLOCK_COMPONENTS, INLINE_COMPONENTS
 
 
 class ReactComponentProcessor:
@@ -78,6 +79,10 @@ class ReactComponentProcessor:
         attrs = match.group(1) or ''
         content = match.group(2)
         
+        # special handling for Quiz components
+        if component == 'Quiz':
+            return self._process_quiz_component(attrs, content)
+        
         # recursively protect components in the content
         protected_content = self.protect_components(content.strip())
         
@@ -86,6 +91,118 @@ class ReactComponentProcessor:
         self.placeholders[placeholder] = (component, attrs, protected_content)
         self.counter += 1
         return placeholder
+    
+    def _process_quiz_component(self, attrs, content):
+        """process Quiz component with special checkbox handling."""
+        import json
+        
+        # generate unique quiz ID for this quiz instance
+        quiz_id = f"quiz_{self.counter}"
+        
+        # extract checkboxes and other content
+        quiz_items = []
+        lines = content.strip().split('\n')
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+                
+            # check for checkbox pattern
+            checkbox_match = re.match(r'^-\s*\[([ x])\]\s*(.+)$', line, re.IGNORECASE)
+            if checkbox_match:
+                state = checkbox_match.group(1).lower()
+                text = checkbox_match.group(2).strip()
+                quiz_items.append({
+                    'type': 'checkbox',
+                    'checked': state == 'x',
+                    'text': text
+                })
+            else:
+                # regular text content
+                if line.startswith('- '):
+                    # regular list item (non-checkbox)
+                    quiz_items.append({
+                        'type': 'text',
+                        'content': line[2:].strip()  # remove "- " prefix
+                    })
+                else:
+                    # paragraph or other content
+                    quiz_items.append({
+                        'type': 'text', 
+                        'content': line
+                    })
+        
+        # check if multi attribute is present (default is single-select)
+        is_multi = 'multi' in (attrs or '')
+        quiz_type = 'multi' if is_multi else 'single'
+        
+        # validate quiz: check for multiple correct answers in single-select quiz
+        if quiz_type == 'single':
+            correct_count = sum(1 for item in quiz_items if item.get('type') == 'checkbox' and item.get('checked'))
+            if correct_count > 1:
+                # get current file location for the warning
+                import inspect
+                frame = inspect.currentframe()
+                try:
+                    # try to get the file being processed from the call stack
+                    caller_frame = frame.f_back.f_back  # go up the stack to find the actual file being processed
+                    while caller_frame and not hasattr(caller_frame.f_locals, 'get') and 'filename' not in caller_frame.f_locals:
+                        caller_frame = caller_frame.f_back
+                    
+                    location = "unknown location"
+                    if caller_frame and 'filename' in caller_frame.f_locals:
+                        location = caller_frame.f_locals['filename']
+                    
+                    warnings.warn(f"Single-select quiz has {correct_count} correct answers marked with [x]. Only one answer should be correct in single-select quizzes. Location: {location}")
+                finally:
+                    del frame
+        
+        # generate static HTML content for quiz items
+        quiz_content_html = self._generate_quiz_content_html(quiz_items, quiz_type, quiz_id)
+        
+        # generate the Quiz component with both static content and data
+        placeholder = f'QUIZ{self.counter:04d}'
+        
+        quiz_component = f'''<Quiz{attrs}>
+{quiz_content_html}
+</Quiz>'''
+        
+        self.placeholders[placeholder] = quiz_component
+        self.counter += 1
+        return placeholder
+    
+    def _generate_quiz_content_html(self, quiz_items, quiz_type, quiz_id):
+        """generate static HTML for quiz content."""
+        html_parts = []
+        checkbox_index = 0
+        
+        for item in quiz_items:
+            if item['type'] == 'checkbox':
+                input_id = f'{quiz_id}-option-{checkbox_index}'
+                input_type = 'checkbox' if quiz_type == 'multi' else 'radio'
+                input_name = f'name="{quiz_id}-options"' if quiz_type == 'single' else ''
+                correct_class = 'data-correct="true"' if item['checked'] else 'data-correct="false"'
+                
+                html_parts.append(f'''
+                <div className="quiz-option" data-type="{input_type}" data-index="{checkbox_index}">
+                    <input
+                        type="{input_type}"
+                        id="{input_id}"
+                        {input_name}
+                        {correct_class}
+                        className="quiz-input-tag"
+                    />
+                    <label htmlFor="{input_id}" className="quiz-option-label">
+                        {item['text']}
+                    </label>
+                </div>''')
+                checkbox_index += 1
+            elif item['type'] == 'text' and item['content'].strip():
+                html_parts.append(f'''
+                <p className="quiz-text">{item['content']}</p>''')
+        
+        return '\n'.join(html_parts)
     
     def _store_component(self, match):
         """store inline component for later restoration."""
@@ -116,6 +233,13 @@ class ReactComponentProcessor:
                         
                         # if the placeholder is wrapped in <p> tags, remove them
                         # since block components shouldn't be inside paragraphs
+                        if f'<p>{placeholder}</p>' in html:
+                            html = html.replace(f'<p>{placeholder}</p>', replacement)
+                        else:
+                            html = html.replace(placeholder, replacement)
+                    elif placeholder.startswith('QUIZ'):
+                        # special handling for Quiz components - they're already processed
+                        replacement = value
                         if f'<p>{placeholder}</p>' in html:
                             html = html.replace(f'<p>{placeholder}</p>', replacement)
                         else:

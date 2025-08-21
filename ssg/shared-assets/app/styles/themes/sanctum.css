@@ -28,6 +28,8 @@
     --toastify-color-progress-light: var(--pink) !important;
 
     color-scheme: light;
+
+    /* no @theme directive (only one, in catppuccin.css) */
     --color-background: rgb(var(--white));
     --color-text-primary: rgb(var(--black));
     --color-text-secondary: rgb(var(--gray-70));
@@ -99,5 +101,9 @@
     --color-Svg-fill-highlight-1: #9f9;
     --color-Svg-fill-highlight-2: #f99; /* junk */
     --color-Svg-fill-highlight-3: #99f; /* junk */
+    --color-Quiz-success: #0b0;
+    --color-Quiz-failure: #f00;
+    --color-Quiz-button: #aeccfc;
+    --color-Quiz-button-hover: #85aff2;
 
 }
