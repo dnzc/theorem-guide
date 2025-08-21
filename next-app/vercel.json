@@ -1,0 +1,9 @@
+{
+  "buildCommand": "cd ../ssg && python3 -m pip install -r requirements.txt && python3 run.py tripos && cd ../next-app && npm run build",
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet -- ../ssg ../source",
+  "git": {
+    "deploymentEnabled": {
+      "dev": false
+    }
+  }
+}

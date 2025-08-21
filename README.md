@@ -1,68 +1,38 @@
-# Notes
+# tripos-guru
 
-This repository contains the source content for two websites generated using a shared static site generator:
-
-- **[tripos.guru](https://tripos.guru)** - Cambridge Mathematical Tripos course notes
-- **[notes.danielc.rocks](https://notes.danielc.rocks)** - Mathematical insights and explanations
+This repository contains the source content for [tripos.guru](https://tripos.guru), which contains mathematical insights and my Tripos course notes.
 
 ## Static Site Generator (SSG)
 
-The sites use a Python-based static site generator that converts Markdown content into Next.js pages with site-specific configuration.
+This project uses a Python-based static site generator that converts Markdown content into Next.js pages.
 
 ### Architecture
 
-- **Shared SSG**: Single Python codebase in `ssg/` generates both sites
-- **Site-specific content**: Content stored in `sources/tripos/` and `sources/danielc/`
-- **Site-specific configs**: `ssg/configs/tripos.py` and `ssg/configs/danielc.py`
-- **Deployments**: Standalone generated Next.js apps in `deployments/tripos/` and `deployments/danielc/`
+- Python codebase in `ssg/` generates both sites
+- Markdown content stored in `source/`
+- Standalone Next.js app in `next-app/`, containing the generated content pages
 
 ### How it works
 
 1. Reads Markdown files from site-specific source directories
 2. Processes them with [mistune](https://github.com/lepture/mistune) with custom math tags and jinja templates
-3. Applies site-specific configuration (terminology, themes, hero content)
-4. Generates Next.js pages in respective deployment directories
+3. Generates Next.js pages in respective deployment directories
 
 ### Running locally
 
 ```bash
 cd ssg
 pip install -r requirements.txt
-
-# Build both sites
-python3 build_all.py
-
-# Or build individual sites
-python3 run.py tripos
-python3 run.py danielc
+python3 run.py
 
 # Start development server for either site
-cd deployments/tripos && npm run dev
-cd deployments/danielc && npm run dev
+cd next-app && npm run dev
 ```
 
-### Site Configuration
 
-Each site has its own configuration in `ssg/configs/`:
+### Vercel Deployment
 
-- **Site identity**: Domain, site ID, hero content
-- **Terminology**: Custom naming (e.g., "books" vs "courses")  
-- **FAQ content**: Site-specific questions and answers
-- **Icon classes**: Theme-specific styling
-
-### Deployment
-
-Each site deploys independently:
-- **tripos.guru**: Vercel deployment from `deployments/tripos/`
-- **notes.danielc.rocks**: Vercel deployment from `deployments/danielc/`
-
-The SSG runs automatically during deployment. Generated directories are not tracked in git and are built fresh on each deployment. The folders in `deployments/` are completely auto-generated, including the vercel.json files (these are included solely for the vercel build process, which runs `ssg/run.py` then `npm run build`, but it unfortunately needs the boilerplate files like package.json to deterine what stuff to install before running the ssg, therefore we still need to track these)
-
-## Website Information
-
-### Accessibility Features
-- Scrollshadow indicators for overflowing maths equations
-- Visual indicators for external links
+A Vercel project listens to this repository and has `next-app/` as the project root. The SSG runs automatically during deployment, via the configuration in `next-app/vercel.json`. `next-app/app` is not tracked in git - instead it is built fresh on each deployment.
 
 ## Content Authoring Information
 
@@ -89,7 +59,6 @@ The SSG runs automatically during deployment. Generated directories are not trac
 
 ### Content Organization
 
-- **Site-specific content**: Store content in `sources/tripos/` or `sources/danielc/`
 - **Books**: Folders starting with `[BOOK]` are marked as books/courses (nested books not allowed)
 - **Book homepages**: Add `README.md` to book folders to appear on site homepage with metadata
 - **Webpage titles**: Use `pagename` frontmatter attribute, or auto-generated from filename:
@@ -101,12 +70,6 @@ The SSG runs automatically during deployment. Generated directories are not trac
 - **Naming convention**: Alphanumeric + dashes only, words separated by dashes
 
 ## Changelog
-
-### 18/08/25
-
-#### Changed
-
-- The content is now split across two separate sites, the SSG works for both
 
 ### 28/06/25
 

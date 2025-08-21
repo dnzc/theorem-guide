@@ -1,11 +1,7 @@
 .venv
+node_modules
+.next
 __pycache__
 .DS_Store
 
-# ignore deployment contents but keep essential files for Vercel
-deployments/tripos/*
-!deployments/tripos/vercel.json
-!deployments/tripos/package.json
-deployments/danielc/*
-!deployments/danielc/vercel.json
-!deployments/danielc/package.json
+next-app/app

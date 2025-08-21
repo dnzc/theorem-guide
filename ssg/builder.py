@@ -102,13 +102,13 @@ export default function Page () {{
 }}
     '''
 
-def add_link_anchors(page, cur_target_dir, domain, h1=False): 
+def add_link_anchors(page, cur_target_dir, h1=False): 
     """
     find h2 (or h1) with an id, add link anchor to them (each heading in a markdown file is (by default) given a unique id by the processor)
     can also be applied to the homepage (but the header ids must be manually put there)
     """
-    page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://'+domain+cur_target_dir+r'#\1"/></h2>', page, flags=re.DOTALL)
-    if h1: page = re.sub(r'<h1 id="(.*?)">(.*?)</h1>', r'<h1 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://'+domain+cur_target_dir+r'#\1"/></h1>', page, flags=re.DOTALL)
+    page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://tripos.guru'+cur_target_dir+r'#\1"/></h2>', page, flags=re.DOTALL)
+    if h1: page = re.sub(r'<h1 id="(.*?)">(.*?)</h1>', r'<h1 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://tripos.guru'+cur_target_dir+r'#\1"/></h1>', page, flags=re.DOTALL)
     return page
 
 def timestamp_to_str(timestamp):
@@ -423,7 +423,7 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
 
     # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
     table_of_contents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
-    page = add_link_anchors(page, target_dir, CONFIG.DOMAIN)
+    page = add_link_anchors(page, target_dir)
 
     # move copy buttons generated above (i.e. in code blocks marked __COPIABLE__) into their containers
     page = re.sub(r'<p>:::COPIABLE</p>\n<p><CopyButton(.*?)/></p>\n<div className="codehilite"><pre>(.*?)</pre></div>', r'<div className="codehilite relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n<pre>\2</pre></div>', page, flags=re.DOTALL)
@@ -456,7 +456,7 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
 def get_path(article_data):
     return '/'+'/'.join(article_data['dir'])+'/'+article_data['name']
 
-def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree, expected_files): 
+def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tree, displayed_dir_tree, checksum_tree): 
     """
     parse the source files into jsx (depth first search)
     returns a list of all the markdown files and their info (for "recent articles" and search functionality)
@@ -493,7 +493,7 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
         page_file_path = TARGET_DIR+cur_target_dir+'/page.js'
         with open(page_file_path, 'w') as output_file:
             react = wrap_in_js(
-                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags'], config=CONFIG),
+                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
                 False, False, False, title=page_title
             )
             react = inject_autosvg_tags(react)
@@ -502,7 +502,6 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
             article_list.append(article_data)
         # track the generated page file
         rel_path = os.path.relpath(page_file_path, os.path.dirname(TARGET_DIR))
-        expected_files.add(rel_path)
         return
 
     # book or directory
@@ -524,7 +523,7 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
         child_displayed_dir_tree = displayed_dir_tree
         if bool(child_dir_tree) and child_dir_tree['is_marked_as_book']: child_displayed_dir_tree = child_dir_tree
 
-        gen_content(child_dir, depth+1, article_list, book_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree, expected_files)
+        gen_content(child_dir, depth+1, article_list, book_list, stored_articles, child_dir_tree, child_displayed_dir_tree, child_checksum_tree)
 
     page_file_path = TARGET_DIR+cur_target_dir+'/page.js'
     with open(page_file_path, 'w') as output_file:
@@ -610,10 +609,9 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
                     book_list=book_list, 
                     article_count=article_count, 
                     word_count=word_count, 
-                    random_content_paths=random_content_paths,
-                    config=CONFIG
+                    random_content_paths=random_content_paths, # TODO
                 ),
-                '/', CONFIG.DOMAIN, h1=True
+                '/', h1=True
             ) + separator
 
         react = wrap_in_js(
@@ -622,17 +620,12 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
                     contents_by_time=sorted(folder_contents,key=lambda x:x['mod_timestamp'], reverse=True),
                     contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                     file_count=sum(item['filecount'] for item in folder_contents),
-                    config=CONFIG,
                 ),
-                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render, config=CONFIG),
+                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
             True, cur_dir=='' or readme_exists, cur_dir=='', title=page_title
         )
         react = inject_autosvg_tags(react)
         output_file.write(react)
-    
-    # track the generated page file
-    rel_path = os.path.relpath(page_file_path, os.path.dirname(TARGET_DIR))
-    expected_files.add(rel_path)
 
 def gen_react_svgs(cur_dir, depth, checksum_tree):
     """parse auto svg files into react components"""

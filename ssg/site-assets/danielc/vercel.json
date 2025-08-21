@@ -1,9 +1,0 @@
-{
-  "buildCommand": "cd ../../ssg && python3 -m pip install -r requirements.txt && python3 run.py danielc && cd ../deployments/danielc && npm run build",
-  "ignoreCommand": "git diff HEAD^ HEAD --quiet -- ../../ssg ../../sources/danielc",
-  "git": {
-    "deploymentEnabled": {
-      "dev": false
-    }
-  }
-}

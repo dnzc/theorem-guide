@@ -1,18 +1,12 @@
 <section className="hero">
     <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div className="hero-text mr-auto place-self-center lg:col-span-7 md:ml-4">
-            <p className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-Hero-text">{{ config.HERO.title }}</p>
-            <p className="max-w-2xl mb-4 md:text-lg lg:text-xl">{{ config.HERO.subtitle }}</p>
-            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> {{ article_count }} {{ "article" if article_count == 1 else "articles" }}, {{ word_count }} words</p>
-            {% if config.HERO.cta_type == 'random' %}
+            <p className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-Hero-text">The prettiest maths notes on the internet</p>
+            <p className="max-w-2xl mb-4 md:text-lg lg:text-xl">Read colourful, interactive maths notes I wrote for courses from the Cambridge Mathematical Tripos, full of extra intuition and explanation.</p>
+            <p className="max-w-2xl mb-6 lg:mb-8 md:text-lg lg:text-xl font-bold text-text-emph"> {{ article_count }} articles, {{ word_count }} words</p>
             <RandomLink articles={ {{random_content_paths}} } className="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
-                {{ config.HERO.cta_text }}
+                Take me somewhere random
             </RandomLink>
-            {% else %}
-            <Link href="{{ config.HERO.cta_link }}" className="inline-flex items-center justify-center px-5 py-3 text-lg text-center font-bold rounded-lg bg-button hover:bg-button-hover focus:ring-4 focus:ring-gray-100">
-                {{ config.HERO.cta_text }}
-            </Link>
-            {% endif %} 
         </div>
         <div className="hero-image hidden lg:mt-0 lg:col-span-5 lg:flex">
             <div className="w-[300px] h-[300px] bg-cover"/>
@@ -24,7 +18,7 @@
 
     <section className="pt-2 pb-4">
 
-        <h1 id="book-list">{{ config.TERMINOLOGY.book_singular|title }} List</h1>
+        <h1 id="book-list">Book List</h1>
 
         <ul className="space-y-4 list-disc">
             {% for book in book_list %}
@@ -56,15 +50,61 @@
     <section>
         <h1 id="faq">Frequently Asked Questions</h1>
 
-        <div className="flex flex-col divide-y divide-border-strong">
-            {% for faq_item in config.FAQ %}
+<div className="flex flex-col divide-y divide-border-strong">
             <details className="faq-question">
-                <summary>{{ faq_item.question }}</summary>
+                <summary>How does the sidebar work?</summary>
                 <div>
-                    {{ faq_item.answer }}
+                    It's just like a filetree! Each folder is expandable and denoted with the icon
+                    <span className="text-folder-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                        <AiFillFolder size={20} />
+                    </span>
+                    , containing books
+                    <span className="text-book-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                        <FaBook size={18} />
+                    </span>
+                    and articles
+                    <span className="text-article-icon inline-flex mx-1 align-middle relative bottom-[0.1rem]">
+                        <GrArticle size={20} />
+                    </span>
+                    . Books represent a chunk of teachable content (e.g. a Tripos course), and they further contain more folders and articles, which can be viewed once inside the book. (Don't worry, there are no nested books!)
                 </div>
             </details>
-            {% endfor %}
+            <details className="faq-question">
+                <summary>
+                    What makes these notes better than <DiscreetLink href="https://dec41.user.srcf.net/notes/">Dexter</DiscreetLink>, <DiscreetLink href="https://zeramorphic.uk/maths.html">zeramorphic</DiscreetLink> or <DiscreetLink href="https://danielnaylor.uk/notes/">Daniel Naylor</DiscreetLink>?
+                </summary>
+                <div>
+                    After my fair share of browsing tripos notes online, I realized that everything's written in LaTeX. Booo, boring! I like <em>colours</em> and <em>diagrams!</em> If you want bog-standard soulless LaTeX notes though, this is not the website for you :)
+                </div>
+            </details>
+            <details className="faq-question">
+                <summary>How do you write these lecture notes? <ProminentLink href="https://github.com/dnzc/tripos-guru">[github]</ProminentLink></summary>
+                <div>
+                    <ul className="space-y-2">
+                        <li>
+                            The Github repository contains all of the content, written in markdown. I use <ProminentLink href="https://inkscape.org/">Inkscape</ProminentLink> to draw diagrams.
+                        </li>
+                        <li>
+                            I configured a VSCode shortcut to compile the markdown files into webpages. When I am happy with my changes, I push them to the main branch of the repository, and the public site automatically redeploys.
+                            
+                        </li>
+                    </ul>
+                    <p className="my-2">For a more detailed overview:</p>
+                    <ul className="space-y-2">
+                        <li>
+                            I use <ProminentLink href="https://nextjs.org/">Next.js</ProminentLink> as the framework, with styling from <DiscreetLink href="https://tailwindcss.com/">Tailwind</DiscreetLink>. The web app is hosted on <DiscreetLink href="https://vercel.com/">Vercel</DiscreetLink>.
+                        </li>
+                        <li>
+                            I wrote a static site generator (SSG) in Python to transform my lecture note files (.md) into Next.js webpages, and extract metadata. The SSG works by first running <DiscreetLink href="https://pypi.org/project/markdown2/">markdown2</DiscreetLink>, then injecting the result into my own <ProminentLink href="https://palletsprojects.com/p/jinja/">Jinja2</ProminentLink> templates, then wrapping in boilerplate <DiscreetLink href="https://react.dev/">React</DiscreetLink>. This is a great opportunity to shove a diagram in your face:
+                            <div className="flex justify-center">
+                                <AUTOSVG src='root/workflow' width='250' height='100'/>
+                            </div>
+                        </li>
+                    </ul>
+                    If you're interested, all the code can be found in the Github repository.
+                </div>
+            </details>
+
         </div>
     </section>
 
@@ -98,10 +138,10 @@
                 <li>
                     Quizzes like this one:
                     <Quiz multi>
-                        <p className="quiz-text">Select all statements which are true:</p>
+                        <p className="quiz-text">Select all statements that are true:</p>
                         <div className="quiz-option">
                             <input type="checkbox" id="faq-quiz-0" data-correct="true" className="quiz-input-tag" />
-                            <label htmlFor="faq-quiz-0" className="quiz-option-label">7 is a prime number</label>
+                            <label htmlFor="faq-quiz-0" className="quiz-option-label">91 is a prime number</label>
                         </div>
                         <div className="quiz-option">
                             <input type="checkbox" id="faq-quiz-1" data-correct="true" className="quiz-input-tag" />
@@ -109,7 +149,7 @@
                         </div>
                         <div className="quiz-option">
                             <input type="checkbox" id="faq-quiz-2" data-correct="false" className="quiz-input-tag" />
-                            <label htmlFor="faq-quiz-2" className="quiz-option-label"><Latex>11 * 74 = 7114</Latex></label>
+                            <label htmlFor="faq-quiz-2" className="quiz-option-label"><Latex>$\frac{1}{2} = \frac{2}{3}$</Latex></label>
                         </div>
                     </Quiz>
                 </li>
