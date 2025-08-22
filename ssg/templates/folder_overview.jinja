@@ -1,3 +1,14 @@
+{% if should_include_info_section %}
+    <section>
+        <h2 id="info" className="">Guide for New Visitors</h2>
+        {% include 'info_section.jinja' %}
+    </section>
+{% endif %}
+
+{% if show_separator %}
+<br/><div className="border-t-[1px] border-border-strong pb-2"></div>
+{% endif %}
+
 <div>
 {% if contents_by_time|length == 0 %}
     <p className="italic">This folder is empty</p>

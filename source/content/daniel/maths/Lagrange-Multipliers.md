@@ -1,5 +1,5 @@
 ---
-modified: 20/12/2024 23:30
+modified: 22/08/2025 15:00
 created: 14/07/2023 17:00
 tags:
   - "olympiad purple"
@@ -8,7 +8,7 @@ tags:
 
 # Revenge of Analysis: Using Lagrange Multipliers to Destroy Olympiad Inequalities
 
-Goal: learn how to use Lagrange multipliers in olympiads.
+Goal: learn how to use Lagrange multipliers in olympiads. This article is aimed at the level of ambitious teenagers looking to get a taste of higer-level analysis concepts.
 
 Lagrange multipliers are a nice tool to solve inequalities, but they are rarely seen in olympiad solutions. Once you are comfortable with it, it can be an overpowered way smash open inequalities without much insight. (So economists love them!) For this reason, we need to approach it rigorously, to ensure we can justify earning marks.
 
@@ -21,7 +21,7 @@ All of this is covered in my <ProminentLink href="https://tripos.guru/part-ib/an
 <Defn>
 Consider a set $M$ together with a function $d : M \times M \to \mathbb{R}$.
 
-$(M, d)$ is a **metric space** if:
+$(M, d)$ is a **metric space** (and we call $d$ a **metric** / "distance function") if:
 
 - $d(x,y) \geq 0$, equality if and only if (*"iff"*) $x=y$ ("positive semi-definite")
 - $d(x,y) = d(y,x)$ ("symmetric")
@@ -33,6 +33,8 @@ $(\mathbb{R}^n, d)$ is a metric space, where:
 
 $$\mathbb{R}^n = \{(x_1, \cdots, x_n) \mid x_i \in \mathbb{R}\}$$
 $$d(x,y) = \sqrt{\sum_{i=1}^n (x_i-y_i)^2}$$
+
+This is the most common metric you are probably familiar with, and we'll be working in this standard metric space for the rest of the article.
 </Example>
 
 <br/>
@@ -51,6 +53,8 @@ $$\{x \in \mathbb{R}^n \mid d(p,x) \leq r\}$$
 - <div class='flex flex-wrap items-center space-x-4'><p>$B[0,1]$ in $\mathbb{R}^2$ is</p> <AUTOSVG src='lagrange-mult/1-closedBall-0-1.svg' width='100' height='100'/></div>
 </Example>
 
+Now let's define open *sets*, not just open balls. An 'open set' is a set such that for any point $x$ in the set, we can fit an open ball around $x$, while staying inside the set. More formally:
+
 <Defn>$U \subseteq \mathbb{R}^n$ is **open** if for every $p \in U$, $\exists r\gt 0$ s.t. $B(p,r) \subset U$.
 
 <div class='flex flex-wrap justify-center space-x-8'>
@@ -59,9 +63,11 @@ $$\{x \in \mathbb{R}^n \mid d(p,x) \leq r\}$$
 </div>
 </Defn>
 
-Informally: an 'open set' is a set such that for any point $x$ in the set, we can fit a ball ball around $x$, while staying inside the set.
+<KeyIdea>Open sets capture the idea of sets which have an "empty boundary".</KeyIdea>
 
 <br/>
+
+We will also need the idea of limits.
 
 <Defn name="limits">Let $(x_k)_{k=1}^\infty$ be a sequence in $\mathbb{R}^n$.
 
@@ -75,6 +81,15 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
 - Let $x_n = \left(\frac{1}{n}, \frac{1}{n}\right)$, then $\lim_{n \to \infty} x_n = (0,0)$.
 - $\lim_{n \to \infty} \left(1-\frac{1}{n}\;,\; \frac{1}{n^2}\right) = (1,0)$
 </Example>
+
+<br/>
+
+<Quiz multi>
+Which of the following are open sets in $\mathbb{R}$?
+- [x] $\{x \in \mathbb{R} : x < 23\}$
+- [ ] $\mathbb{Q}$ (the set of rational numbers)
+- [ ] $\mathbb{R} \setminus \mathbb{Q}$ (the set of irrational numbers)
+</Quiz>
 
 <br/>
 
@@ -115,6 +130,8 @@ Then $x_\infty$ is denoted $\lim_{n \to \infty}(x_n)$.
     <AUTOSVG src='lagrange-mult/7-closedIntAndUnion.svg' width='150' height='150'/>
 </div>
 </Thm>
+
+<KeyIdea>I remember the arrangement of "finite/infinite" in these statements by remembering "open sets work well with unions".</KeyIdea>
 
 <br/><hr/>
 

@@ -11,5 +11,3 @@ tags:
 A rigorous journey from the ground up in which we use axioms to build a proof that every positive integer can be uniquely prime factored.
 
 In general, the level of rigor will decrease as the parts go on, so that the reader doesn't get bored to death. But it should be obvious how to fill out everything with complete rigor.
-
-<ProminentLink href="proving-fta/1-integer-axioms" internal>Dive in</ProminentLink>

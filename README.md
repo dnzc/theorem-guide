@@ -1,22 +1,19 @@
 # tripos-guru
 
-This repository contains the source content for [tripos.guru](https://tripos.guru), which contains mathematical insights and my Tripos course notes.
-
-## Static Site Generator (SSG)
-
-This project uses a Python-based static site generator that converts Markdown content into Next.js pages.
+This repository contains the source content for [tripos.guru](https://tripos.guru), which contains mathematical insights and my Tripos course notes. The static-site generator and website design are completely custom and coded by myself from scratch.
 
 ### Architecture
 
-- Python codebase in `ssg/` generates both sites
+- Python-based static site generator (SSG) in `ssg/` converts Markdown content into Next.js pages
 - Markdown content stored in `source/`
 - Standalone Next.js app in `next-app/`, containing the generated content pages
 
-### How it works
+### How the SSG works
 
-1. Reads Markdown files from site-specific source directories
-2. Processes them with [mistune](https://github.com/lepture/mistune) with custom math tags and jinja templates
-3. Generates Next.js pages in respective deployment directories
+1. Reads Markdown files
+2. Processes them with a custom [mistune](https://github.com/lepture/mistune) processor, that handles custom markdown features like math tags
+3. Injects the result into custom jinja templates
+4. Wraps in boilerplate React to generate Next.js pages, and writes to the standalone Next.js app
 
 ### Running locally
 
@@ -61,7 +58,7 @@ A Vercel project listens to this repository and has `next-app/` as the project r
 
 - **Books**: Folders starting with `[BOOK]` are marked as books/courses (nested books not allowed)
 - **Book homepages**: Add `README.md` to book folders to appear on site homepage with metadata
-- **Webpage titles**: Use `pagename` frontmatter attribute, or auto-generated from filename:
+- **Webpage titles**: Use `pagename` frontmatter attribute. If not provided, it's auto-generated from filename:
     - "and" → "&" (case-insensitive)  
     - Dashes → spaces
     - Original case preserved
@@ -70,6 +67,12 @@ A Vercel project listens to this repository and has `next-app/` as the project r
 - **Naming convention**: Alphanumeric + dashes only, words separated by dashes
 
 ## Changelog
+
+### 22/08/25
+
+#### Added
+
+- Better site homepage + description, more friendly to new users; focus on interactivity
 
 ### 28/06/25
 

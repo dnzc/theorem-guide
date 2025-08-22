@@ -2,6 +2,8 @@
 
 # Functionality to Add
 
+- animations!!!
+- expandable "hint" div
 - interactivity
     - multiple choice quizzes
     - runnable python blocks with pyodide

@@ -414,26 +414,4 @@
         @apply !ml-10;
     }
 
-    .faq-question > summary {
-        @apply py-2 outline-none hover:underline cursor-crosshair font-bold text-lg;
-    }
-
-    .faq-question:first-child > summary {
-        @apply pt-0;
-    }
-
-    /* make links work in faq section titles */
-    summary a * {
-        pointer-events: none;
-    }
-
-    .faq-question[open=''] > summary {
-        @apply text-articleh2;
-    }
-
-    .faq-question > div {
-        @apply px-4 pb-4;
-    }
-
-
 }

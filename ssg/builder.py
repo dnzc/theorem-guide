@@ -169,6 +169,14 @@ def get_updation_timestamp_and_filecount(cur_dir):
             except (ValueError, TypeError): pass
         # exclude README files from article count
         article_count = 0 if cur_dir.endswith('README.md') else 1
+        
+        # exclude folder README files from timestamp (but keep book README timestamps)
+        if cur_dir.endswith('README.md'):
+            parent_dir = '/'.join(cur_dir.split('/')[:-1])  # get parent directory
+            is_book = BOOK_INDICATOR in parent_dir.split('/')[-1] if parent_dir else False
+            if not is_book:  # folder README, don't use its timestamp
+                timestamp = PLACEHOLDER_TIMESTAMP
+                
         return timestamp, article_count
     filecount = 0
     for child in os.listdir(SOURCE_DIR+cur_dir):
@@ -434,6 +442,7 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
 
     path_list = beautify(path).split('/')[1:-1] # path to parent folder
     article_data['dir'] = path_list if not is_readme else path_list[:-1] # readmes should be elevated
+    article_data['is_book_member'] = BOOK_INDICATOR in path
 
     article_name = target_dir.split('/')[-1]
     article_data['name'] = article_name
@@ -500,8 +509,6 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
             output_file.write(react)
             # add article data to article list
             article_list.append(article_data)
-        # track the generated page file
-        rel_path = os.path.relpath(page_file_path, os.path.dirname(TARGET_DIR))
         return
 
     # book or directory
@@ -540,8 +547,8 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
             page_title = get_sidebar_display_name(cur_dir)
 
         folder_mainpage = ''
-        separator = '<br/><div className="border-t-[1px] border-border-strong pb-2"></div>'
         readme_exists = os.path.exists(cur_path+'/README.md')
+        has_content = False  # track if we actually have content to show
         is_book = BOOK_INDICATOR in cur_dir.split('/')[-1]
         tags_to_render = []
         table_of_contents = None
@@ -566,7 +573,8 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
             content_without_frontmatter = post.content.strip()
             
             page, article_data, page_title, _, table_of_contents = parse_md_file_to_react(cur_dir+'/README.md', cur_target_dir, readme_file, is_folder_readme=not is_book, is_book_readme=is_book)
-            article_list.append(article_data)
+            if is_book:
+                article_list.append(article_data)
             
             if is_book:
                 # update book data with README info
@@ -576,10 +584,11 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
                 book_data['tags'] = article_data['tags'] # tags from readme are elevated to folder
                 tags_to_render = book_data['tags']
             
-            # only add the readme content if it's not empty
-            if content_without_frontmatter:
-                readme_content = page + separator
+            # only add the readme content if it's not empty and it's a book
+            if content_without_frontmatter and is_book:
+                readme_content = page
                 folder_mainpage = readme_content if cur_dir != '' else ''
+                has_content = True
             else:
                 folder_mainpage = ''
         
@@ -599,7 +608,7 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
             random_content_paths = []
             for article in article_list:
                 # only include standalone articles, not articles inside books
-                if article['type'] == 'article' and len(article['dir']) <= 1:
+                if article['type'] == 'article' and not article['is_book_member']:
                     random_content_paths.append(get_path(article))
             for book in book_list:
                 random_content_paths.append(book['path'])
@@ -609,20 +618,22 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
                     book_list=book_list, 
                     article_count=article_count, 
                     word_count=word_count, 
-                    random_content_paths=random_content_paths, # TODO
+                    random_content_paths=random_content_paths,
                 ),
                 '/', h1=True
-            ) + separator
+            )
 
         react = wrap_in_js(
             TEMPLATE.render(
-                content=folder_mainpage+FOLDER_TEMPLATE.render(
+                content= folder_mainpage + FOLDER_TEMPLATE.render(
                     contents_by_time=sorted(folder_contents,key=lambda x:x['mod_timestamp'], reverse=True),
                     contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
                     file_count=sum(item['filecount'] for item in folder_contents),
+                    should_include_info_section=readme_exists and is_book,
+                    show_separator=cur_dir == '' or has_content,
                 ),
                 path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
-            True, cur_dir=='' or readme_exists, cur_dir=='', title=page_title
+            True, cur_dir=='' or has_content, cur_dir=='', title=page_title
         )
         react = inject_autosvg_tags(react)
         output_file.write(react)

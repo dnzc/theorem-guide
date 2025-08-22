@@ -1,7 +1,7 @@
 ---
 created: 17/07/2023 17:00
 tags:
-  - "coding blue"
+  - "report blue"
   - "diagrams green"
 ---
 # Filling a cube with 1:2:3 Cuboids

@@ -7,7 +7,12 @@
                     {% set start_depth = dir_tree['depth'] %}
                     {% macro dump_tree(dir_tree) %}
                         {% if dir_tree['is_dir'] and not dir_tree['is_marked_as_book'] or dir_tree['depth']==start_depth and dir_tree['is_marked_as_book'] %}
-                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="{{'book' if dir_tree['is_marked_as_book'] else 'folder'}}" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } isOpenByDefault={ {{"true" if dir_tree['depth']-start_depth < 2 or (path_str and path_str.startswith(dir_tree['path'])) else "false"}} } >
+                            {# all accordions expanded by default, except for the tripos/ folder when we are in daniel/ and vice-versa, and the tripos/ and daniel/ folders when we are at root #}
+                            {% set isCollapsedByDefault = false %}
+                            {% set isCollapsedByDefault = isCollapsedByDefault or ( dir_tree['path'] == '/daniel' and path_str.startswith('/tripos') ) %}
+                            {% set isCollapsedByDefault = isCollapsedByDefault or ( dir_tree['path'] == '/tripos' and path_str.startswith('/daniel') ) %}
+                            {% set isCollapsedByDefault = isCollapsedByDefault or ( dir_tree['path'] in ['/tripos', '/daniel'] and path_str == '' ) %}
+                            <Accordion title="{{dir_tree['name']}}" href="{{dir_tree['path']}}" type="{{'book' if dir_tree['is_marked_as_book'] else 'folder'}}" relDepth={ {{dir_tree['depth']-start_depth}} } isSelected={ {{"true" if path_str==dir_tree['path'] else "false"}} } isOpenByDefault={ {{"false" if isCollapsedByDefault else "true"}} } >
                                 {% if dir_tree['children'] %}
                                     {% for child in dir_tree['children'] %}
                                         {{ dump_tree(child)}}
@@ -101,7 +106,8 @@
         {% endif %}
 
         <div className="border-t-2 border-border-subtle pt-4 mt-8 text-sm text-text-secondary">
-            <p>Content writen by dnzc | <DiscreetLink href="https://www.admonymous.co/chen">admonymous</DiscreetLink> | <DiscreetLink href="https://tripos.guru">homepage</DiscreetLink>. This educational content is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</DiscreetLink>.</p>
+            <p>You can contact me (the author) via my <DiscreetLink href="https://danielc.rocks">homepage</DiscreetLink>.</p>
+            <p>This educational content is licensed under <DiscreetLink href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</DiscreetLink>.</p>
         </div>
 
     </article>
