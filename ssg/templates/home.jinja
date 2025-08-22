@@ -16,7 +16,12 @@
 
 <div className="pt-6 space-y-6">
 
-    <section className="pt-2 pb-4">
+    <section>
+        <h1 id="info">Guide for New Visitors</h1>
+        {% include "info_section.jinja" %}
+    </section>
+
+    <section>
 
         <h1 id="book-list">Book List</h1>
 
@@ -47,11 +52,6 @@
 
     </section>
 
-    <section>
-        <h1 id="info">Guide for New Visitors</h1>
-        {% include "info_section.jinja" %}
-    </section>
-
-    <p className="text-sm text-text-secondary">The opengraph image, and hero image on sanctum theme, are adapted from <DiscreetLink href="https://inkscape.org/~Inkonic/%E2%98%85inkscapes-path-artists-blossom">"Artist's blossom"</DiscreetLink> by Inkonic, licensed under <DiscreetLink href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</DiscreetLink>.</p>
+    <p className="text-sm text-text-secondary pt-4">The opengraph image, and hero image on sanctum theme, are adapted from <DiscreetLink href="https://inkscape.org/~Inkonic/%E2%98%85inkscapes-path-artists-blossom">"Artist's blossom"</DiscreetLink> by Inkonic, licensed under <DiscreetLink href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</DiscreetLink>.</p>
 
 </div>
