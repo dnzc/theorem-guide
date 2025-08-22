@@ -14,27 +14,21 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
     // create a unique key for this accordion based on its path
     const storageKey = `accordion-state-${href}`
 
-    // initialize state with default value to avoid hydration mismatch
-    const [active, setActiveState] = useState(isOpenByDefault)
-    const [isHydrated, setIsHydrated] = useState(false)
+    // get initial state from sessionStorage or default
+    const getInitialState = () => {
+        if (typeof window === 'undefined') return isOpenByDefault
+        const saved = sessionStorage.getItem(storageKey)
+        return saved !== null ? saved === 'true' : isOpenByDefault
+    }
 
-    // restore state from localStorage after hydration
-    useEffect(() => {
-        if (typeof window !== 'undefined' && !isHydrated) {
-            const saved = localStorage.getItem(storageKey)
-            if (saved !== null) {
-                setActiveState(saved === 'true')
-            }
-            setIsHydrated(true)
-        }
-    }, [storageKey, isHydrated])
+    const [active, setActiveState] = useState(getInitialState)
 
-    // save state to localStorage whenever it changes
+    // save state to sessionStorage whenever it changes
     useEffect(() => {
-        if (typeof window !== 'undefined' && isHydrated && active !== undefined) {
-            localStorage.setItem(storageKey, active.toString())
+        if (typeof window !== 'undefined' && active !== undefined) {
+            sessionStorage.setItem(storageKey, active.toString())
         }
-    }, [active, storageKey, isHydrated])
+    }, [active, storageKey])
 
     function toggleAccordion() {
         setActiveState(!active)
