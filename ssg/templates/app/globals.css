@@ -377,10 +377,6 @@
         @apply cursor-not-allowed;
     }
 
-    .quiz-input-tag:checked + .quiz-option-label {
-        @apply font-bold;
-    }
-
     .quiz-text {
         @apply my-2;
     }
