@@ -612,8 +612,6 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
                     random_content_paths.append(get_path(article))
             for book in book_list:
                 random_content_paths.append(book['path'])
-            # make them external links (so that we use different sessionStorage for sidebar state)
-            random_content_paths = ['https://tripos.guru'+i for i in random_content_paths] 
             
             folder_mainpage = add_link_anchors(
                 HOME_TEMPLATE.render(

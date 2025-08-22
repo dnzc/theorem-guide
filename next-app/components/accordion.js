@@ -14,21 +14,37 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
     // create a unique key for this accordion based on its path
     const storageKey = `accordion-state-${href}`
 
-    // get initial state from sessionStorage or default
-    const getInitialState = () => {
-        if (typeof window === 'undefined') return isOpenByDefault
-        const saved = sessionStorage.getItem(storageKey)
-        return saved !== null ? saved === 'true' : isOpenByDefault
-    }
+    const [active, setActiveState] = useState(isOpenByDefault)
+    const [isHydrated, setIsHydrated] = useState(false)
 
-    const [active, setActiveState] = useState(getInitialState)
+    // fix invalid collapsed states after hydration
+    useEffect(() => {
+        if (typeof window !== 'undefined' && !isHydrated) {
+            const saved = sessionStorage.getItem(storageKey)
+            
+            if (saved !== null) {
+                const savedState = saved === 'true'
+                
+                // if we're on a page inside this accordion path but the accordion is collapsed,
+                // this suggests direct navigation (e.g. from homepage CTA button); reset to default state.
+                if (!savedState && (isSelected || window.location.pathname.startsWith(href))) {
+                    sessionStorage.removeItem(storageKey)
+                    setActiveState(isOpenByDefault)
+                } else {
+                    setActiveState(savedState)
+                }
+            }
+            
+            setIsHydrated(true)
+        }
+    }, [storageKey, isHydrated, isSelected, href, isOpenByDefault])
 
     // save state to sessionStorage whenever it changes
     useEffect(() => {
-        if (typeof window !== 'undefined' && active !== undefined) {
+        if (typeof window !== 'undefined' && isHydrated && active !== undefined) {
             sessionStorage.setItem(storageKey, active.toString())
         }
-    }, [active, storageKey])
+    }, [active, storageKey, isHydrated])
 
     function toggleAccordion() {
         setActiveState(!active)
