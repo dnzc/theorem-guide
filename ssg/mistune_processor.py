@@ -231,6 +231,10 @@ class ReactComponentProcessor:
                             md = create_markdown_processor()
                             processed_content = md(protected_content)
                             
+                            # for math components, wrap content in span instead of allowing p tags which will mess with the <p> removal later
+                            if component in [c for c,_,i in COMPONENTS if 'math' in i]:
+                                processed_content = re.sub(r'<p>(.*?)</p>', r'<span>\1</span>', processed_content, flags=re.DOTALL)
+                            
                             replacement = f'<{component}{attrs}>{processed_content}</{component}>'
                         
                         # if the placeholder is wrapped in <p> tags, remove them
