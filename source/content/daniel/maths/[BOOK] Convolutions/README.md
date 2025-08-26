@@ -10,17 +10,9 @@ tags:
 
 Whenever people ask me "so what IS a convolution?" I get excited because there's so much to say! But then the conversations usually go something like
 
-> "So what IS a convolution?"
-> 
-> "It's this cool operation where you slide one function over another"
-> 
-> "But why"
-> 
-> "Well imagine you wanted to blur an image... actually, imagine... and then... and it's even applicable to..."
-> 
-> " * dies of starvation * "
-
-<IncompleteMessage/>
+<div class='w-full flex justify-center pt-4'>
+    <AUTOSVG src='convolutions/comic.svg' width='400' height='400'/>
+</div>
 
 And then I think "oh man, if only I had $10^{10}$ hours to explain all this, then I could blow their minds :("
 
