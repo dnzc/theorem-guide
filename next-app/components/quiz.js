@@ -109,7 +109,7 @@ export default function Quiz({ children }) { // will have been passed through mi
                     <button
                         onClick={handleSubmit}
                         disabled={!isCheckButtonEnabled}
-                        className={`px-6 py-2 font-bold rounded-lg ${
+                        className={`px-6 py-2 font-bold rounded-lg transition-all duration-150 ease-in-out hover:scale-105 ${
                             isCheckButtonEnabled 
                                 ? 'bg-Quiz-button hover:bg-Quiz-button-hover' 
                                 : 'bg-gray-300 cursor-not-allowed opacity-50'
@@ -160,7 +160,7 @@ export default function Quiz({ children }) { // will have been passed through mi
                         <div className="mt-4">
                             <button
                                 onClick={reset}
-                                className="px-6 py-2 bg-button font-bold rounded-lg hover:bg-button-hover"
+                                className="px-6 py-2 bg-button font-bold rounded-lg hover:bg-button-hover transition-colors duration-150 ease-in-out"
                             >
                                 Try Again
                             </button>

@@ -44,7 +44,7 @@ What follows is one possible solution, that allows arbitrary code execution with
 
 For readability, I've named all variables something representative, but they can all be replaced with underscores (see the minified version). The solution uses a <ProminentLink href='https://github.com/clemg/pythongolfer?tab=readme-ov-file#3---qa'>trick</ProminentLink> of encoding a utf-8 string in utf-16 to garble it.
 
-__COPIABLE__
+:::COPIABLE
 ```py
 'Erroryo'
 U,R,N = 'urn'
@@ -79,7 +79,7 @@ EVAL(EXEC+'('+SHELLCODE+')')
 And the minified version:
 </div>
 
-__COPIABLE__
+:::COPIABLE
 ```py
 'Erroryo';________,_____,_________='urn';'amedoesn';__________,______='ts';'eemtob';___=eval;____,___________='id';'IllcallyouMrUn';_=''<'_';__=_+_+_+_+_+_+_;___((____________:=___(___________+____+_____)(___('__import__("'+(_______:=___(______+__________+_____))(___)[_:__-_]+____+_________+______+'")')))[-__*__-_-_]+'('+____________[-__*__-__-__-_-_]+'("桷汩⁥牔敵›硥捥椨灮瑵⤨㬩","'+________+_______(__+__+_+_)+'")['+_______(_+_)+':]'+')');'ant'
 ```

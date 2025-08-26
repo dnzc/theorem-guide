@@ -63,52 +63,84 @@
 
     /* theme-specific badges https://tailwindcss.com/plus/ui-blocks/application-ui/elements/badges */
     .sanctum .badge-red, .light .badge-red {
-        @apply bg-red-50 text-red-700 ring-red-600/10;
+        background-color: rgb(254, 242, 242);
+        color: rgb(185, 28, 28);
+        --tw-ring-color: rgba(220, 38, 38, 0.1);
     }
     .catppuccin .badge-red, .gruvbox .badge-red, .dark .badge-red {
-        @apply bg-red-400/10 text-red-400 ring-red-400/30;
+        background-color: rgba(248, 113, 113, 0.1);
+        color: rgb(248, 113, 113);
+        --tw-ring-color: rgba(248, 113, 113, 0.3);
     }
     .sanctum .badge-yellow, .light .badge-yellow {
-        @apply bg-yellow-50 text-yellow-800 ring-yellow-600/20;
+        background-color: rgb(254, 252, 232);
+        color: rgb(146, 64, 14);
+        --tw-ring-color: rgba(217, 119, 6, 0.2);
     }
     .catppuccin .badge-yellow, .gruvbox .badge-yellow, .dark .badge-yellow {
-        @apply bg-yellow-400/10 text-yellow-400 ring-yellow-400/30;
+        background-color: rgba(251, 191, 36, 0.1);
+        color: rgb(251, 191, 36);
+        --tw-ring-color: rgba(251, 191, 36, 0.3);
     }
     .sanctum .badge-green, .light .badge-green {
-        @apply bg-green-50 text-green-700 ring-green-600/20;
+        background-color: rgb(240, 253, 244);
+        color: rgb(21, 128, 61);
+        --tw-ring-color: rgba(22, 163, 74, 0.2);
     }
     .catppuccin .badge-green, .gruvbox .badge-green, .dark .badge-green {
-        @apply bg-green-400/10 text-green-400 ring-green-400/30;
+        background-color: rgba(74, 222, 128, 0.1);
+        color: rgb(74, 222, 128);
+        --tw-ring-color: rgba(74, 222, 128, 0.3);
     }
     .sanctum .badge-blue, .light .badge-blue {
-        @apply bg-blue-50 text-blue-700 ring-blue-700/10;
+        background-color: rgb(239, 246, 255);
+        color: rgb(29, 78, 216);
+        --tw-ring-color: rgba(29, 78, 216, 0.1);
     }
     .catppuccin .badge-blue, .gruvbox .badge-blue, .dark .badge-blue {
-        @apply bg-blue-400/10 text-blue-400 ring-blue-400/30;
+        background-color: rgba(96, 165, 250, 0.1);
+        color: rgb(96, 165, 250);
+        --tw-ring-color: rgba(96, 165, 250, 0.3);
     }
     .sanctum .badge-indigo, .light .badge-indigo {
-        @apply bg-indigo-50 text-indigo-700 ring-indigo-700/10;
+        background-color: rgb(238, 242, 255);
+        color: rgb(67, 56, 202);
+        --tw-ring-color: rgba(67, 56, 202, 0.1);
     }
     .catppuccin .badge-indigo, .gruvbox .badge-indigo, .dark .badge-indigo {
-        @apply bg-indigo-400/10 text-indigo-400 ring-indigo-400/30;
+        background-color: rgba(129, 140, 248, 0.1);
+        color: rgb(129, 140, 248);
+        --tw-ring-color: rgba(129, 140, 248, 0.3);
     }
     .sanctum .badge-purple, .light .badge-purple {
-        @apply bg-purple-50 text-purple-700 ring-purple-700/10;
+        background-color: rgb(250, 245, 255);
+        color: rgb(126, 34, 206);
+        --tw-ring-color: rgba(126, 34, 206, 0.1);
     }
     .catppuccin .badge-purple, .gruvbox .badge-purple, .dark .badge-purple {
-        @apply bg-purple-400/10 text-purple-400 ring-purple-400/30;
+        background-color: rgba(196, 181, 253, 0.1);
+        color: rgb(196, 181, 253);
+        --tw-ring-color: rgba(196, 181, 253, 0.3);
     }
     .sanctum .badge-pink, .light .badge-pink {
-        @apply bg-pink-50 text-pink-700 ring-pink-700/10;
+        background-color: rgb(253, 242, 248);
+        color: rgb(190, 24, 93);
+        --tw-ring-color: rgba(190, 24, 93, 0.1);
     }
     .catppuccin .badge-pink, .gruvbox .badge-pink, .dark .badge-pink {
-        @apply bg-pink-400/10 text-pink-400 ring-pink-400/30;
+        background-color: rgba(244, 114, 182, 0.1);
+        color: rgb(244, 114, 182);
+        --tw-ring-color: rgba(244, 114, 182, 0.3);
     }
     .sanctum .badge-gray, .light .badge-gray {
-        @apply bg-gray-50 text-gray-600 ring-gray-500/10;
+        background-color: rgb(249, 250, 251);
+        color: rgb(75, 85, 99);
+        --tw-ring-color: rgba(107, 114, 128, 0.1);
     }
     .catppuccin .badge-gray, .gruvbox .badge-gray, .dark .badge-gray {
-        @apply bg-gray-400/10 text-gray-400 ring-gray-400/30;
+        background-color: rgba(156, 163, 175, 0.1);
+        color: rgb(156, 163, 175);
+        --tw-ring-color: rgba(156, 163, 175, 0.3);
     }
 
     /* hero */
@@ -155,8 +187,6 @@
     .dirtree {
         @apply text-lg bg-background pb-4;
     }
-
-    /* first tree item is special (root) */
 
     .dirtree > li:before, .dirtree > li:after {
         @apply hidden;
@@ -408,6 +438,27 @@
 
     .changelog li {
         @apply !ml-10;
+    }
+
+    .faq-question > summary {
+        @apply py-2 outline-none hover:underline cursor-crosshair font-bold text-lg;
+    }
+
+    .faq-question:first-child > summary {
+        @apply pt-0;
+    }
+
+    /* make links work in faq section titles */
+    summary a * {
+        pointer-events: none;
+    }
+
+    .faq-question[open=''] > summary {
+        @apply text-articleh2;
+    }
+
+    .faq-question > div {
+        @apply px-4 pb-4;
     }
 
 }

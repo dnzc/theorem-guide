@@ -94,33 +94,34 @@ export default function Sidebar({ children }) {
         }
     }
     useEffect(() => {
+        // Add wheel event listener once
         document.addEventListener('wheel', handleWheelEvent, { passive: false })
-        if (filetreeRef.current) {
-            filetreeRef.current.addEventListener('mouseenter', handleMouseEnterFiletree)
-            filetreeRef.current.addEventListener('mouseleave', handleMouseLeaveFiletree)
+        
+        // Add mouse event listeners
+        const filetreeElement = filetreeRef.current
+        const tocElement = tocRef.current
+        
+        if (filetreeElement) {
+            filetreeElement.addEventListener('mouseenter', handleMouseEnterFiletree)
+            filetreeElement.addEventListener('mouseleave', handleMouseLeaveFiletree)
         }
+        if (tocElement) {
+            tocElement.addEventListener('mouseenter', handleMouseEnterToc)
+            tocElement.addEventListener('mouseleave', handleMouseLeaveToc)
+        }
+        
         return () => {
             document.removeEventListener('wheel', handleWheelEvent)
-            if (filetreeRef.current) {
-                filetreeRef.current.removeEventListener('mouseenter', handleMouseEnterFiletree)
-                filetreeRef.current.removeEventListener('mouseleave', handleMouseLeaveFiletree)
+            if (filetreeElement) {
+                filetreeElement.removeEventListener('mouseenter', handleMouseEnterFiletree)
+                filetreeElement.removeEventListener('mouseleave', handleMouseLeaveFiletree)
+            }
+            if (tocElement) {
+                tocElement.removeEventListener('mouseenter', handleMouseEnterToc)
+                tocElement.removeEventListener('mouseleave', handleMouseLeaveToc)
             }
         }
-    }, [isInsideFiletree])
-    useEffect(() => {
-        document.addEventListener('wheel', handleWheelEvent, { passive: false })
-        if (tocRef.current) {
-            tocRef.current.addEventListener('mouseenter', handleMouseEnterToc)
-            tocRef.current.addEventListener('mouseleave', handleMouseLeaveToc)
-        }
-        return () => {
-            document.removeEventListener('wheel', handleWheelEvent)
-            if (tocRef.current) {
-                tocRef.current.removeEventListener('mouseenter', handleMouseEnterToc)
-                tocRef.current.removeEventListener('mouseleave', handleMouseLeaveToc)
-            }
-        }
-    }, [isInsideToc])
+    }, []) // Run once on mount
 
     return (
         <>
@@ -140,7 +141,7 @@ export default function Sidebar({ children }) {
                 <div ref={tocRef} className={tocDivStyle}>
                     {toc}
                 </div>
-                <button onClick={toggleSidebar} className='mt-4 flex text-text-secondary items-center space-x-6 pl-4 h-[2.25rem] bg-button hover:bg-button-hover rounded-md px-3 py-1.5 ml-4'>
+                <button onClick={toggleSidebar} className='mt-4 flex text-text-secondary items-center space-x-6 pl-4 h-[2.25rem] bg-button hover:bg-button-hover rounded-md px-3 py-1.5 ml-4 transition-colors duration-150 ease-in-out'>
                     <span className='relative bottom-[1px]'>Toggle Sidebar</span>
                     {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative'>{modifierKey}U</span>}
                 </button>
@@ -155,7 +156,7 @@ export default function Sidebar({ children }) {
                 {/* top button group */}
                 <div className='flex'> {/* DON'T ADD SPACE-X-<> HERE, IT MESSES WITH THE OVERLAY POSITION */}
                     {/* filetree popup */}
-                    <Popup buttonStyle='flex h-[2.25rem] text-text-secondary items-center bg-button hover:bg-button-hover rounded-md md:hidden ml-2 3xs:ml-4'
+                    <Popup buttonStyle='flex h-[2.25rem] text-text-secondary items-center bg-button hover:bg-button-hover rounded-md md:hidden ml-2 3xs:ml-4 transition-colors duration-150 ease-in-out'
                         buttonContents={
                             <div className='w-full h-full rounded-md pl-4 pr-3 flex items-center justify-between space-x-2'>
                                 <FaFolderTree/>
@@ -173,7 +174,8 @@ export default function Sidebar({ children }) {
                     <Popup buttonStyle='flex text-text-secondary ml-2 3xs:ml-4'
                         buttonContents={
                             /* mobile top bar or open sidebar */
-                            <div className={`md:fixed md:left-[calc(270px-3rem)] h-[2.25rem] ${active ? 'md:w-[2rem] md:left-[calc(270px-2rem-1rem)]' : 'md:hidden'} bg-button rounded-md hover:bg-button-hover flex items-center justify-center`}>
+                            /* TODO - make bigger on mobile */
+                            <div className={`md:fixed md:left-[calc(270px-3rem)] w-[2rem] h-[2.25rem] ${active ? 'md:left-[calc(270px-2rem-1rem)]' : 'md:hidden'} bg-button rounded-md hover:bg-button-hover flex items-center justify-center transition-colors duration-150 ease-in-out`}>
                                 <IoIosSettings className='shrink-0' size={25}/>
                             </div>
                         }
@@ -186,7 +188,7 @@ export default function Sidebar({ children }) {
                 {/* bottom button group */}
                 <div className='flex 2xl:block justify-start fixed left-5 bottom-4'> {/* DON'T ADD SPACE-X-<> HERE, IT MESSES WITH THE OVERLAY POSITION */}
                     {/* sidebar toggle button */}
-                    <button className={`hidden ${active ? '' : 'md:flex '} mr-4 2xl:mb-2 text-base text-text-secondary bg-button hover:bg-button-hover rounded-md h-[2.25rem]`} onClick={toggleSidebar}>
+                    <button className={`hidden ${active ? '' : 'md:flex '} mr-4 2xl:mb-2 text-base text-text-secondary bg-button hover:bg-button-hover rounded-md h-[2.25rem] transition-colors duration-150 ease-in-out`} onClick={toggleSidebar}>
                         <div className='w-full h-full rounded-md pl-4 px-3 flex items-center justify-between space-x-2'>
                             <BsLayoutTextSidebarReverse/>
                             {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold relative hidden sm:inline'>{modifierKey}U</span>}
@@ -198,14 +200,14 @@ export default function Sidebar({ children }) {
                         buttonContents={
                             <>
                                 {/* expanded (mobile top bar or open sidebar) */}
-                                <div className={`hidden xs:flex items-center fixed right-4 h-[calc(2.25rem-2px)] top-[calc(1rem+1px)] ${active ? 'md:w-[calc(270px-2rem-3rem)] md:left-[1rem]' : 'md:hidden'} ring-2 ring-border-strong bg-Searchbar px-3 hover:ring-4 hover:ring-Searchbar-ring-hover rounded-md hover:bg-Searchbar-hover`}>
+                                <div className={`hidden xs:flex items-center fixed right-4 h-[calc(2.25rem-2px)] top-[calc(1rem+1px)] ${active ? 'md:w-[calc(270px-2rem-3rem)] md:left-[1rem]' : 'md:hidden'} ring-2 ring-border-strong bg-Searchbar px-3 hover:ring-4 hover:ring-Searchbar-ring-hover rounded-md hover:bg-Searchbar-hover transition-all duration-150 ease-in-out`}>
                                     <FaSearch className='mr-3 h-full shrink-0'/>
                                     <span className='italic relative bottom-[0.5px] text-text-placeholder'>Search...</span>
                                     {mobile || modifierKey === '' ? <></> : <span className='ml-auto pl-3 text-sm font-bold hidden sm:block'>{modifierKey}K</span>}
                                 </div>
                                 {/* compact (when sidebar hidden, or, mobile top bar & screensize is xs or less) */}
                                 <div className={`flex xs:hidden ${active ? '' : 'md:flex '} h-[2.25rem] rounded-md fixed right-2 3xs:right-4 top-4 md:static`}>
-                                    <div className='bg-button hover:bg-button-hover w-full h-full rounded-md px-3 flex items-center justify-between space-x-2'>
+                                    <div className='bg-button hover:bg-button-hover w-full h-full rounded-md px-3 flex items-center justify-between space-x-2 transition-colors duration-150 ease-in-out'>
                                         <FaSearch className='mr-0 h-full'/>
                                         {mobile || modifierKey === '' ? <></> : <span className='text-sm font-bold hidden sm:block'>{modifierKey}K</span>}
                                     </div>

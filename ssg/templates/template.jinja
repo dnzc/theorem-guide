@@ -11,7 +11,7 @@
                             {% set isCollapsedByDefault = false %}
                             {% set isCollapsedByDefault = isCollapsedByDefault or ( dir_tree['path'] == '/daniel' and path_str.startswith('/tripos') ) %}
                             {% set isCollapsedByDefault = isCollapsedByDefault or ( dir_tree['path'] == '/tripos' and path_str.startswith('/daniel') ) %}
-                            {% set isCollapsedByDefault = isCollapsedByDefault or ( dir_tree['path'] in ['/tripos', '/daniel'] and path_str == '' ) %}
+                            {% set isCollapsedByDefault = isCollapsedByDefault or ( dir_tree['depth']-start_depth >= 2 and path_str == '' ) %}
                             {# always expand ancestors of current page #}
                             {% if path_str.startswith(dir_tree['path'] + '/') %}
                                 {% set isCollapsedByDefault = false %}

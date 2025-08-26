@@ -10,12 +10,10 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.formatters import HtmlFormatter
 
-from constants import BLOCK_COMPONENTS, INLINE_COMPONENTS
-
+from constants import COMPONENTS
 
 class ReactComponentProcessor:
     """handles React components in markdown"""
-    
     
     def __init__(self):
         self.placeholders = {}
@@ -29,21 +27,22 @@ class ReactComponentProcessor:
         latex_pattern = r'<Latex>(.*?)</Latex>'
         text = re.sub(latex_pattern, self._store_component, text, flags=re.DOTALL)
         
-        # process block components FIRST (content as markdown)
-        # this must happen before protecting standalone tags
-        for component in BLOCK_COMPONENTS:
+        # process components whose content is markdown
+        for component, are_contents_markdown, _ in COMPONENTS:
+            if not are_contents_markdown: continue
+            # handle opening/closing tags with content
             pattern = rf'<{component}([^>]*?)>(.*?)</{component}>'
             text = re.sub(pattern, self._process_block_component, text, flags=re.DOTALL)
+            # handle self-closing tags for block components
+            pattern = rf'<{component}([^>]*?)/>'
+            text = re.sub(pattern, self._store_block_selfclosing, text)
         
-        # protect remaining inline components (preserve as-is)
-        for component in INLINE_COMPONENTS:
-            if component == 'Latex':
-                continue  # Already handled
-            
+        # protect remaining components (preserve as-is)
+        for component, are_contents_markdown, _ in COMPONENTS:
+            if are_contents_markdown: continue
             # self-closing tags
             pattern = rf'<{component}([^>]*?)/>'
             text = re.sub(pattern, self._store_component, text)
-            
             # tags with content
             pattern = rf'<{component}([^>]*?)>(.*?)</{component}>'
             text = re.sub(pattern, self._store_component, text, flags=re.DOTALL)
@@ -59,17 +58,6 @@ class ReactComponentProcessor:
         
         # protect closing div tags
         text = re.sub(r'</div>', self._store_component, text)
-        
-        # protect any remaining unmatched opening/closing tags for all components
-        # this handles cases where tags might be split or appear standalone
-        all_components = INLINE_COMPONENTS + BLOCK_COMPONENTS
-        for component in all_components:
-            # protect any remaining opening tags that weren't caught
-            pattern = rf'<{component}([^>]*?)>'
-            text = re.sub(pattern, self._store_component, text)
-            # protect any remaining closing tags
-            pattern = rf'</{component}>'
-            text = re.sub(pattern, self._store_component, text)
         
         return text
     
@@ -211,6 +199,15 @@ class ReactComponentProcessor:
         self.counter += 1
         return placeholder
     
+    def _store_block_selfclosing(self, match):
+        """store self-closing block component for later restoration."""
+        placeholder = f'REACTBLOCK{self.counter:04d}'
+        component_tag = match.group(0)
+        # for self-closing block components, store the tag directly (no content to process)
+        self.placeholders[placeholder] = ('selfclosing', '', component_tag)
+        self.counter += 1
+        return placeholder
+    
     def restore_components(self, html):
         """restore all protected components."""
         # keep replacing until no more placeholders are found
@@ -223,13 +220,18 @@ class ReactComponentProcessor:
                 if placeholder in html:
                     if placeholder.startswith('REACTBLOCK'):
                         # process block component content
-                        component, attrs, protected_content = value
-                        
-                        # create markdown processor
-                        md = create_markdown_processor()
-                        processed_content = md(protected_content)
-                        
-                        replacement = f'<{component}{attrs}>{processed_content}</{component}>'
+                        if len(value) == 3 and value[0] == 'selfclosing':
+                            # self-closing block component - use the stored tag directly
+                            replacement = value[2]
+                        else:
+                            # regular block component with content
+                            component, attrs, protected_content = value
+                            
+                            # create markdown processor
+                            md = create_markdown_processor()
+                            processed_content = md(protected_content)
+                            
+                            replacement = f'<{component}{attrs}>{processed_content}</{component}>'
                         
                         # if the placeholder is wrapped in <p> tags, remove them
                         # since block components shouldn't be inside paragraphs
@@ -294,7 +296,6 @@ class Renderer(HTMLRenderer):
 def create_markdown_processor(add_heading_ids=True):
     renderer = Renderer(add_heading_ids=add_heading_ids, escape=False)
     md = mistune.create_markdown(renderer=renderer, plugins=[
-        # 'footnotes',  # disabled - we handle footnotes in preprocessor
         'table',
         'strikethrough',
         'url',
@@ -418,19 +419,16 @@ def process_markdown(content, add_heading_ids=True):
 
 
 def nextjs_replacements(html):
-    # remove <p> tags that wrap block-level React components
-    for component in BLOCK_COMPONENTS:
-        # remove <p> before and </p> after the component
-        html = re.sub(rf'<p>(<{component}[^>]*?>)', r'\1', html)
-        html = re.sub(rf'(</{component}>)</p>', r'\1', html)
+    component_names = [comp[0] for comp in COMPONENTS]
     
-    # remove <p> tags that wrap <div> elements (divs are block-level and shouldn't be in p tags)
-    html = re.sub(r'<p>(<div[^>]*?>)', r'\1', html)
-    html = re.sub(r'(</div>)</p>', r'\1', html)
+    for tag in component_names + ['div']:
+        # find <p> tags that wrap this tag and remove them (don't ask me what the hell this regex does, claude did it)
+        html = re.sub(rf'<p>([^<]*(?:<(?!/?p\b)[^<]*)*<{tag}[^>]*?>.*?</{tag}>[^<]*(?:<(?!/?p\b)[^<]*)*)</p>', r'\1', html, flags=re.DOTALL)
+        # handle self-closing tags
+        html = re.sub(rf'<p>([^<]*(?:<(?!/?p\b)[^<]*)*<{tag}[^>]*?/>[^<]*(?:<(?!/?p\b)[^<]*)*)</p>', r'\1', html, flags=re.DOTALL)
     
-    # fix unclosed <p> tags before <div> elements (mistune sometimes doesn't close them)
-    # this handles cases like <p>text<div>...</div> which should be <p>text</p><div>...</div>
-    html = re.sub(r'(<p>(?:(?!</p>|<div).)*?)(<div[^>]*?>)', r'\1</p>\2', html, flags=re.DOTALL)
+    # also remove <p> tags that directly contain <div> elements (invalid HTML)
+    html = re.sub(r'<p>(\s*<div[^>]*>.*?</div>\s*)</p>', r'\1', html, flags=re.DOTALL)
 
     # markdown added class attributes, replace with "className" for react
     html = html.replace(' class=', ' className=')

@@ -2,16 +2,8 @@
 
 # Functionality to Add
 
-- animations!!!
-- expandable "hint" div
-- interactivity
-    - multiple choice quizzes
-    - runnable python blocks with pyodide
-    - D3.js components
-    - function plotting, parameter manipulation
-    - drag-and-drop proof order exercises
-    - desmos embed?
-- refactor content to use as many interactive components as possible
+- convolution explainer + ConvolutionDemo component (beginning xkcd-style svg)
+- runnable python blocks with pyodide
 
 - relevant tripos questions
 

@@ -1,7 +1,6 @@
 ---
 modified: 19/12/2024 11:00
 created: 25/07/2023 17:00
-pagename: Proving FTA
 tags:
   - "number-theory pink"
 ---

@@ -9,8 +9,6 @@ from mistune_processor import process_markdown
 from constants import *
 
 warnings = set()
-# import math tags from constants
-math_tags = MATH_TAGS
 
 def warn(message):
     warnings.add(message)
@@ -42,45 +40,34 @@ def get_sidebar_display_name(filepath, metadata=None):
     name = re.sub(r'\band\b', '&', name, flags=re.IGNORECASE)
     return name
 
-def wrap_in_js(jinja, isFolder, isReadmeOrHome, isHome, title=''):
+def wrap_in_js(jinja, title=''):
     titleMetadata = 'export const metadata = {title:"'+title+'"}' if title else ''
-    imports = ''
-    if isFolder: imports += f'''
-import {{ FaBook }} from 'react-icons/fa'
-import {{ GrArticle }} from 'react-icons/gr'
-import {{ AiFillFolder }} from 'react-icons/ai'
-import Folder from '@/components/folder'
-'''
-    if isReadmeOrHome or not isFolder: imports += f'''
-import 'katex/dist/katex.min.css'
-import Latex from 'react-latex-next'
-import Spoiler from '@/components/spoiler'
-import Quiz from '@/components/quiz'
-import IncompleteMessage from '@/components/incompleteMessage'
-import Image from 'next/image'
-import {{ copyToClipboard, CopyButton }} from '@/components/copyButton'
-import 'react-toastify/dist/ReactToastify.css'
-import Pilcrow from '@/components/pilcrow'
-import {{ {', '.join(math_tags)} }} from '@/components/math'
-'''
-    if isHome: imports += f'''
-import RandomLink from '@/components/randomLink'
-'''
+
+    all_imports = {
+        'FaBook': 'import { FaBook } from "react-icons/fa"',
+        'GrArticle': 'import { GrArticle } from "react-icons/gr"',
+        'AiFillFolder': 'import { AiFillFolder } from "react-icons/ai"',
+        'Link': 'import Link from "next/link"',
+        'Latex': 'import Latex from "react-latex-next"\nimport "katex/dist/katex.min.css"',
+        'Image': 'import Image from "next/image"',
+        'FaChevronRight': 'import { FaChevronRight } from "react-icons/fa"',
+        'FaSearch': 'import { FaSearch } from "react-icons/fa"',
+        'RiArrowGoBackFill': 'import { RiArrowGoBackFill } from "react-icons/ri"',
+        'CiLogout': 'import { CiLogout } from "react-icons/ci"',
+    }
+    # add component imports
+    for name, _, import_string in COMPONENTS:
+        all_imports[name] = import_string
+
+    imports = [all_imports[i] for i in all_imports if f'<{i}' in jinja]
+
     return f'''
-import Accordion from '@/components/accordion'
-import Sidebar from '@/components/sidebar'
-import Link from 'next/link'
-import ProminentLink from '@/components/prominentLink'
-import DiscreetLink from '@/components/discreetLink'
-import MailLink from '@/components/mailLink'
-import Badge from '@/components/badge'
-import {{ ToastContainer }} from 'react-toastify'
-import {{ FaChevronRight, FaSearch }} from 'react-icons/fa'
-import {{ RiArrowGoBackFill }} from 'react-icons/ri'
-import {{ CiLogout }} from 'react-icons/ci'
-{imports}
+import "react-toastify/dist/ReactToastify.css"
+import {{ ToastContainer }} from "react-toastify"
+{'\n'.join(imports)}
 
 {titleMetadata}
+
 
 export default function Page () {{
     return (
@@ -250,9 +237,11 @@ def construct_tree(cur_dir, depth):
     d['path'] = beautify(cur_dir)
     if d['is_dir']:
         children = []
-        for child in sorted(os.listdir(cur_path)): # sort alphabetically
+        for child in os.listdir(cur_path):
             if child.endswith('README.md'): continue # exclude readmes
             children.append(construct_tree(cur_dir+'/'+child, depth+1))
+        # sort children alphabetically by their display names
+        children.sort(key=lambda x: x['name'].lower())
         d['children'] = children
     else:
         assert BOOK_INDICATOR not in name
@@ -356,20 +345,11 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
         if len(titles) > 1:
             warn(f'multiple article titles found in {path}, using first one')
 
-    # replace \\ with \\\\, because for some reason later \\ is replaced with \ (probably by markdown2)
+    # replace \\ with \\\\, because for some reason later \\ is replaced with \
     file = file.replace('\\\\','\\\\\\\\') 
-    # ensure displayed latex is preceded+followed by two newlines (only for lines that start with $$, so we can still have e.g. "> $$asdf$$")
-    file = re.sub(r'(\n\$\$.*?\$\$)', r'\n\n\1\n\n', file, flags=re.DOTALL)
-    # ensure that <Spoiler> and </Spoiler> are preceded+followed by two newlines
-    file = re.sub(r'<(/?)Spoiler(/?)>\n?([^\n])', r'<\1Spoiler\2>\n\n\3', file)
-    file = re.sub(r'([^\n])\n?<(/?)Spoiler(/?)>', r'\1\n\n<\2Spoiler\3>', file)
-    # do the same for <hr> and </hr>
+    # ensure hr tags are preceded+followed by two newlines
     file = re.sub(r'<(/?)hr(/?)>\n?([^\n])', r'<\1hr\2>\n\n\3', file)
     file = re.sub(r'([^\n])\n?<(/?)hr(/?)>', r'\1\n\n<\2hr\3>', file)
-    # do the same for math tags
-    for tag in math_tags:
-        file = re.sub(r'<(/?)' + tag + r'([^>]*?)>\n?([^\n])', r'<\1' + tag + r'\2>\n\n\3', file)
-        file = re.sub(r'([^\n])\n?<(/?)' + tag + r'([^>]*?)>', r'\1\n\n<\2' + tag + r'\3>', file)
     
     # find literal braces, for latex (so that the backslash doesn't die when being parsed)
     file = re.sub('\\\\{', '\\&#123;', file)
@@ -425,17 +405,13 @@ def parse_md_file_to_react(path, target_dir, file, is_folder_readme=False, is_bo
             page = page[:m[0]] + target + page[m[1]:]
     page = re.sub(r'<Latex>([^$].*?[^$])</Latex>', r'<span className="scrollshadow-horizontal latex-display-wrapper"><Latex>$$\1$$</Latex></span>', page)
 
-    # <p> tags will have been placed around the following tags (on purpose), remove them
-    #for i in ['CopyButton', 'Spoiler', 'hr'] + math_tags:
-    #    page = re.sub(r'<p>(</?' + i + r'.*?>)</p>', r'\1', page)
-
     # find h2 tags, add link anchor to them, and generate table of contents from h2 tags (each h2 tag is given a unique id by the header-ids extension)
     table_of_contents = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', page, re.DOTALL)]
     page = add_link_anchors(page, target_dir)
 
     # move copy buttons generated above (i.e. in code blocks marked __COPIABLE__) into their containers
-    page = re.sub(r'<p>:::COPIABLE</p>\n<p><CopyButton(.*?)/></p>\n<div className="codehilite"><pre>(.*?)</pre></div>', r'<div className="codehilite relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n<pre>\2</pre></div>', page, flags=re.DOTALL)
-    page = re.sub(r'<p>:::COPIABLE</p>\n<p><CopyButton(.*?)/></p>\n<pre>(.*?)</pre>', r'<pre className="relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n\2</pre>', page, flags=re.DOTALL)
+    page = re.sub(r'<p>:::COPIABLE</p>\n<CopyButton(.*?)/>\n<div className="codehilite"><pre>(.*?)</pre></div>', r'<div className="codehilite relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n<pre>\2</pre></div>', page, flags=re.DOTALL)
+    page = re.sub(r'<p>:::COPIABLE</p>\n<CopyButton(.*?)/>\n<pre>(.*?)</pre>', r'<pre className="relative">\n<div className="absolute top-2 right-2"><CopyButton\1/></div>\n\2</pre>', page, flags=re.DOTALL)
 
     article_data['content'] = flatten_content(page, article_data['title'])
     article_data['id'] = hash(path.removeprefix(ROOT_DIR))
@@ -503,7 +479,7 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
         with open(page_file_path, 'w') as output_file:
             react = wrap_in_js(
                 TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
-                False, False, False, title=page_title
+                title=page_title
             )
             react = inject_autosvg_tags(react)
             output_file.write(react)
@@ -623,17 +599,28 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
                 '/', h1=True
             )
 
+        # render folder template content and add pilcrows
+        folder_content = FOLDER_TEMPLATE.render(
+            contents_by_time=sorted(folder_contents,key=lambda x:x['mod_timestamp'], reverse=True),
+            contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
+            file_count=sum(item['filecount'] for item in folder_contents),
+            should_include_info_section=readme_exists and is_book,
+            show_separator=cur_dir == '' or has_content,
+        )
+        # add guide for new visitors to table of contents
+        if readme_exists and is_book:
+            if table_of_contents is None:
+                table_of_contents = []
+            # extract table of contents entries
+            folder_toc_entries = [[i.group(2),'#'+i.group(1)] for i in re.finditer(r'<h2 id="(.*?)">(.*?)</h2>', folder_content, re.DOTALL)]
+            table_of_contents.extend(folder_toc_entries)
+        folder_content = add_link_anchors(folder_content, cur_target_dir)
+
         react = wrap_in_js(
             TEMPLATE.render(
-                content= folder_mainpage + FOLDER_TEMPLATE.render(
-                    contents_by_time=sorted(folder_contents,key=lambda x:x['mod_timestamp'], reverse=True),
-                    contents_by_name=sorted(folder_contents,key=lambda x:x['name']),
-                    file_count=sum(item['filecount'] for item in folder_contents),
-                    should_include_info_section=readme_exists and is_book,
-                    show_separator=cur_dir == '' or has_content,
-                ),
+                content= folder_mainpage + folder_content,
                 path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
-            True, cur_dir=='' or has_content, cur_dir=='', title=page_title
+            title=page_title
         )
         react = inject_autosvg_tags(react)
         output_file.write(react)
