@@ -1,8 +1,8 @@
 import { Lato, Pangolin, Space_Grotesk, Fira_Code } from 'next/font/google';
 import './globals.css';
 import { MyThemeProvider } from '@/components/myThemeProvider';
-import Head from 'next/head';
 import Script from 'next/script';
+import NextTopLoader from 'nextjs-toploader';
 
 const lato = Lato({
   variable:'--font-lato',
@@ -37,6 +37,19 @@ export const metadata = {
     default: 'Tripos Guru',
   },
   description: 'Cambridge Mathematical Tripos lecture notes',
+  openGraph: {
+    siteName: 'Tripos Guru',
+    title: 'Tripos Guru',
+    description: 'Cambridge Mathematical Tripos lecture notes',
+    images: 'https://tripos.guru/og-image.png',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  appleWebApp: {
+    title: 'Tripos Guru',
+  },
 }
 
 export const viewport = {
@@ -49,18 +62,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta property="og:site_name" content="Tripos Guru" />
-        <meta property="og:title" content="Tripos Guru" />
-        <meta property="og:description" content="Cambridge Mathematical Tripos lecture notes" />
-        <meta property="og:image" itemprop="image" content="https://tripos.guru/og-image.png" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="apple-mobile-web-app-title" content="Tripos Guru" />
-      </Head>
       <body
         className={`${lato.variable} ${pangolin.variable} ${space.variable} ${fira.variable} antialiased`}
       >
+        <NextTopLoader />
         <MyThemeProvider>{children}</MyThemeProvider>
         <Script src="/theme.js" strategy="beforeInteractive" />
       </body>
