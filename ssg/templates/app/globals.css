@@ -27,7 +27,7 @@
     }
 
     .latex-display-wrapper {
-        @apply overflow-auto mx-auto flex;
+        @apply overflow-auto mx-auto flex relative;
         max-width: 100%;
         justify-content: flex-start;
     }

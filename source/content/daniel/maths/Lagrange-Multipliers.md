@@ -41,6 +41,7 @@ This is the most common metric you are probably familiar with, and we'll be work
 
 <Defn name="balls">
 The **open ball** in $\mathbb{R}^n$ with centre $p \in \mathbb{R^n}$ and radius $r$ is
+
 $$B(p,r) := \{x \in \mathbb{\mathbb{R}^n} \mid d(p,x) \lt r \}$$
 
 Similarly, the **closed ball** $B[p,r]$ is[^1] the set:
