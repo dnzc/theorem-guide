@@ -15,27 +15,38 @@ const { theme, resolvedTheme, setTheme } = useTheme();
   function changeTheme(t) {
     setTheme(t)
 
-    var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    var existing = document.querySelectorAll('meta[name="theme-color"]')
-    existing.forEach(function (m) { m.remove(); })
-    var meta = document.createElement('meta')
-    meta.name = 'theme-color'
-    switch(t) {
-      case 'system':
-        if(systemDark) meta.content = '#1e1e2e' // catppuccin
-        else meta.content = '#dddddd' // sanctum
-        break
-      case 'sanctum':
-        meta.content = '#dddddd' // can't be too bright (https://stackoverflow.com/questions/69496801/why-doesnt-safari-15-on-desktop-respect-my-theme-color-setting)
-        break
-      case 'catppuccin':
-        meta.content = '#1e1e2e'
-        break
-      case 'gruvbox':
-        meta.content = '#282828'
-        break
-    }
-    document.head.appendChild(meta)
+    // Use requestAnimationFrame to defer DOM manipulation until after React's render cycle
+    requestAnimationFrame(() => {
+      try {
+        var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        
+        // Use safer DOM manipulation - update existing meta instead of remove/add
+        var existing = document.querySelector('meta[name="theme-color"]')
+        if (!existing) {
+          existing = document.createElement('meta')
+          existing.name = 'theme-color'
+          document.head.appendChild(existing)
+        }
+        
+        switch(t) {
+          case 'system':
+            if(systemDark) existing.content = '#1e1e2e' // catppuccin
+            else existing.content = '#dddddd' // sanctum
+            break
+          case 'sanctum':
+            existing.content = '#dddddd' // can't be too bright (https://stackoverflow.com/questions/69496801/why-doesnt-safari-15-on-desktop-respect-my-theme-color-setting)
+            break
+          case 'catppuccin':
+            existing.content = '#1e1e2e'
+            break
+          case 'gruvbox':
+            existing.content = '#282828'
+            break
+        }
+      } catch (error) {
+        console.error('ThemeSwitch DOM manipulation error:', error)
+      }
+    })
   }
 
   if (!mounted) return
