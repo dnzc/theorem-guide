@@ -171,11 +171,11 @@ export default function Sidebar({ children }) {
                         </div>
                     </Popup>
                     {/* theme selector popup */}
-                    <Popup buttonStyle='flex text-text-secondary ml-2 3xs:ml-4'
+                    <Popup buttonStyle='flex text-text-secondary ml-2 3xs:ml-4 min-w-0'
                         buttonContents={
                             /* mobile top bar or open sidebar */
                             /* TODO - make bigger on mobile */
-                            <div className={`md:fixed md:left-[calc(270px-3rem)] w-[2rem] h-[2.25rem] ${active ? 'md:left-[calc(270px-2rem-1rem)]' : 'md:hidden'} bg-button rounded-md hover:bg-button-hover flex items-center justify-center transition-colors duration-150 ease-in-out`}>
+                            <div className={`flex-none w-[2rem] h-[2.25rem] md:fixed md:w-[2rem] md:h-[2.25rem] ${active ? 'md:left-[calc(270px-2rem-1rem)]' : 'md:left-[calc(270px-3rem)] md:hidden'} bg-button rounded-md hover:bg-button-hover flex items-center justify-center transition-all duration-150 ease-in-out`}>
                                 <IoIosSettings className='shrink-0' size={25}/>
                             </div>
                         }
