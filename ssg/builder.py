@@ -652,6 +652,7 @@ def gen_react_svgs(cur_dir, depth, checksum_tree):
         component = component.replace('#000', 'var(--color-Svg-text)')
         component = component.replace('#808080', 'var(--color-Svg-gray)')
         component = component.replace('gray', 'var(--color-Svg-gray)')
+        component = component.replace('#fff', 'var(--color-background)')
         component = component.replace('#00f', 'var(--color-Svg-text-highlight)')
         component = component.replace('#0f0', 'var(--color-Svg-line-highlight-1)')
         component = component.replace('#0ff', 'var(--color-Svg-line-highlight-2)')

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="119.9754mm"
+   height="68.173119mm"
+   viewBox="0 0 119.97541 68.173118"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   sodipodi:docname="arrow.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.4722472"
+     inkscape:cx="22.234118"
+     inkscape:cy="-28.586724"
+     inkscape:window-width="1472"
+     inkscape:window-height="892"
+     inkscape:window-x="0"
+     inkscape:window-y="64"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-36.525966,-55.319513)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-opacity:1"
+       d="m 36.580624,101.11717 c 3.151267,-0.23027 6.370707,0.28602 9.516909,0 0.910223,-0.0827 1.766647,-0.50949 2.676631,-0.59481 1.193123,-0.11185 13.390271,-0.524927 14.275366,-0.594803 1.299866,-0.102621 2.571062,-0.444204 3.866245,-0.594807 7.063296,-0.821312 15.361544,-0.949108 21.710452,-4.758455 5.854996,-3.512997 9.606338,-11.869081 10.111718,-18.439013 0.194101,-2.523315 0,-5.218541 0,-7.73249 0,-2.768619 -0.241765,-5.630206 -1.784421,-8.029893 -0.379063,-0.589655 -1.025414,-0.959471 -1.487017,-1.487016 -0.235373,-0.268997 -0.297405,-0.693941 -0.594807,-0.892212 -4.188248,-2.792164 -13.848154,-2.14045 -18.141611,-0.594807 -2.817548,1.014317 -6.464821,3.754009 -7.73249,6.542876 -0.209172,0.460181 -0.230595,0.985964 -0.297402,1.487019 -0.683636,5.127268 -0.104762,6.823395 1.487016,11.598732 1.352341,4.057026 2.967921,8.245306 5.650667,11.598736 1.480362,1.850453 6.039347,4.09494 8.029892,4.758454 0.282141,0.09405 0.607348,-0.08546 0.892209,0 0.723146,0.216945 1.34691,0.719291 2.081824,0.892212 0.969807,0.22819 1.987759,0.156506 2.974036,0.297402 4.328787,0.618398 8.59949,0.504077 12.788349,-0.892209 1.60708,-0.535694 3.14419,-1.270791 4.75845,-1.784421 0.57463,-0.182836 1.20071,-0.146072 1.78442,-0.297403 4.2458,-1.100762 8.14942,-2.491642 12.49095,-2.974035 2.80509,-0.311677 5.51181,-0.297403 8.3273,-0.297403 0.90322,0 4.04173,-0.338042 5.05585,0 0.47236,0.157451 0.5273,0.297403 1.18962,0.297403 0.76695,0 1.67632,1.297709 2.37923,0.594807"
+       id="path1" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-opacity:1"
+       d="m 138.59001,84.221034 v 10 l 6.16694,-5 z"
+       id="path2"
+       sodipodi:nodetypes="cccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.9333px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-opacity:1"
+       x="53.894169"
+       y="119.74994"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.9333px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:none;stroke-width:1.5"
+         x="53.894169"
+         y="119.74994">bijection?</tspan></text>
+  </g>
+</svg>

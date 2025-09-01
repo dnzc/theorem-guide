@@ -44,6 +44,7 @@ A Vercel project listens to this repository and has `next-app/` as the project r
     - All fonts in the svg should be Fira Code (automatically converts to match page font) (Fira Code chosen as default since it's the widest)
     - The following colours are replaced:
         - black   #000000 -> Svg-text
+        - white   #ffffff -> background (use for negative text outlines)
         - 50%gray #808080 -> Svg-gray
         - blue    #0000ff -> Svg-text-highlight
         - green   #00ff00 -> Svg-line-highlight-1

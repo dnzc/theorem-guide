@@ -30,7 +30,7 @@ export default function Sidebar({ children }) {
     useEffect(() => {
         document.addEventListener('keydown', handleKeydown)
         return () => {
-            document.removeEventListener('keydown', handleKeydown)
+            if (document) document.removeEventListener('keydown', handleKeydown)
         }
     }, [active])
 
@@ -51,7 +51,7 @@ export default function Sidebar({ children }) {
         updateMobile()
         window.addEventListener('resize', updateMobile)
         return () => {
-            window.removeEventListener('resize', updateMobile)
+            if (window) window.removeEventListener('resize', updateMobile)
         }
     }, [])
 
@@ -111,12 +111,12 @@ export default function Sidebar({ children }) {
         }
         
         return () => {
-            document.removeEventListener('wheel', handleWheelEvent)
-            if (filetreeElement) {
+            if (document) document.removeEventListener('wheel', handleWheelEvent)
+            if (filetreeElement?.removeEventListener) {
                 filetreeElement.removeEventListener('mouseenter', handleMouseEnterFiletree)
                 filetreeElement.removeEventListener('mouseleave', handleMouseLeaveFiletree)
             }
-            if (tocElement) {
+            if (tocElement?.removeEventListener) {
                 tocElement.removeEventListener('mouseenter', handleMouseEnterToc)
                 tocElement.removeEventListener('mouseleave', handleMouseLeaveToc)
             }

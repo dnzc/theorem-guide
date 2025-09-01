@@ -1,0 +1,84 @@
+import * as React from "react";
+const SvgArrow = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+     
+     
+    viewBox="0 0 119.975 68.173"
+    {...props}
+  >
+    <path
+      d="M36.58 101.117c3.152-.23 6.371.286 9.518 0 .91-.083 1.766-.51 2.676-.595 1.193-.111 13.39-.525 14.276-.594 1.3-.103 2.57-.445 3.866-.595 7.063-.822 15.361-.95 21.71-4.759 5.855-3.513 9.607-11.869 10.112-18.439.194-2.523 0-5.218 0-7.732 0-2.769-.242-5.63-1.784-8.03-.38-.59-1.026-.96-1.487-1.487-.236-.27-.298-.694-.595-.892-4.189-2.792-13.848-2.14-18.142-.595-2.817 1.014-6.465 3.754-7.732 6.543-.21.46-.231.986-.298 1.487-.683 5.127-.105 6.823 1.487 11.598 1.353 4.058 2.968 8.246 5.65 11.6 1.481 1.85 6.04 4.094 8.03 4.758.283.094.608-.086.893 0 .723.217 1.347.719 2.082.892.97.228 1.988.156 2.974.297 4.329.619 8.6.504 12.788-.892 1.607-.536 3.144-1.27 4.759-1.784.574-.183 1.2-.146 1.784-.298 4.246-1.1 8.15-2.491 12.491-2.974 2.805-.311 5.512-.297 8.327-.297.904 0 4.042-.338 5.056 0 .473.157.527.297 1.19.297.767 0 1.676 1.298 2.379.595"
+      style={{
+        fill: "none",
+        stroke: "var(--color-Svg-text)",
+        strokeWidth: 1.5,
+        strokeOpacity: 1,
+      }}
+      transform="translate(-36.526 -55.32)"
+    />
+    <path
+      d="M138.59 84.221v10l6.167-5z"
+      style={{
+        fill: "var(--color-Svg-text)",
+        fillOpacity: 1,
+        stroke: "var(--color-Svg-text)",
+        strokeWidth: 1.5,
+        strokeOpacity: 1,
+      }}
+      transform="translate(-36.526 -55.32)"
+    />
+    <text
+      xmlSpace="preserve"
+      x={53.894}
+      y={119.75}
+      style={{
+        fontStyle: "normal",
+        fontVariant: "normal",
+        fontWeight: 500,
+        fontStretch: "normal",
+        fontSize: "16.9333px",
+
+        InkscapeFontSpecification: "&quot",
+        fontVariantLigatures: "normal",
+        fontVariantCaps: "normal",
+        fontVariantNumeric: "normal",
+        fontVariantEastAsian: "normal",
+        textAlign: "start",
+        writingMode: "lr-tb",
+        direction: "ltr",
+        textAnchor: "start",
+        fill: "var(--color-Svg-text)",
+        fillOpacity: 1,
+        stroke: "none",
+        strokeWidth: 1.5,
+        strokeOpacity: 1,
+      }}
+      transform="translate(-36.526 -55.32)"
+    >
+      <tspan
+        x={53.894}
+        y={119.75}
+        style={{
+          fontStyle: "normal",
+          fontVariant: "normal",
+          fontWeight: 500,
+          fontStretch: "normal",
+          fontSize: "16.9333px",
+
+          InkscapeFontSpecification: "&quot",
+          fontVariantLigatures: "normal",
+          fontVariantCaps: "normal",
+          fontVariantNumeric: "normal",
+          fontVariantEastAsian: "normal",
+          stroke: "none",
+          strokeWidth: 1.5,
+        }}
+      >
+        {"bijection?"}
+      </tspan>
+    </text>
+  </svg>
+);
+export default SvgArrow;
+
