@@ -31,9 +31,13 @@ export default function Accordion({title, href, type, relDepth, isSelected, isOp
             // this suggests direct navigation; use default state instead
             if (!savedState && (isSelected || window.location.pathname.startsWith(href))) {
                 sessionStorage.removeItem(storageKey)
+                setActiveState(isOpenByDefault)
             } else {
                 setActiveState(savedState)
             }
+        } else {
+            // Ensure state matches server render to prevent hydration mismatch
+            setActiveState(isOpenByDefault)
         }
         
         setIsHydrated(true)
