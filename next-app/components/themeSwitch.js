@@ -15,9 +15,11 @@ const { theme, resolvedTheme, setTheme } = useTheme();
   function changeTheme(t) {
     setTheme(t)
 
-    // Use requestAnimationFrame to defer DOM manipulation until after React's render cycle
-    requestAnimationFrame(() => {
+    // use setTimeout to ensure DOM manipulation happens after all React updates complete
+    setTimeout(() => {
       try {
+        if (typeof window === 'undefined' || !document?.head) return
+        
         var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
         
         // Use safer DOM manipulation - update existing meta instead of remove/add
@@ -46,7 +48,7 @@ const { theme, resolvedTheme, setTheme } = useTheme();
       } catch (error) {
         console.error('ThemeSwitch DOM manipulation error:', error)
       }
-    })
+    }, 0)
   }
 
   if (!mounted) return
