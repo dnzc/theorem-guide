@@ -392,7 +392,7 @@
     }
 
     .quiz-option {
-        @apply flex items-center ml-2;
+        @apply flex items-center ml-2 mb-2;
     }
 
     .quiz-option-label {
