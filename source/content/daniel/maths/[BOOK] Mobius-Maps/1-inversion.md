@@ -5,8 +5,6 @@ created: 31/08/2025 17:00
 
 # 1. Circle Inversion
 
-<em className="text-sm">If you're already familiar with inversion, feel free to skip this page.</em>
-
 In this first part, before we even talk about complex numbers, we're going to build up some intuition for a fancy transformation of the plane called "inversion". This will be extremely useful in the next part, when we build on this to derive Möbius maps.
 
 ## Background: Interactive Intuition
