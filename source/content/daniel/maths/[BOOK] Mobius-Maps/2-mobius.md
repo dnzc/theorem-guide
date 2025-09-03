@@ -129,7 +129,7 @@ Find a Möbius map that takes the region between the circles $\{|z|=1\}$ and $\{
 <div className="flex justify-center space-x-4 items-center mt-2"> <AUTOSVG src='mobius/readme/nonconcentricannulus.svg' width='200' height='200'/> <AUTOSVG/ src='mobius/readme/arrow.svg' width='100' height='100'/> <AUTOSVG src='mobius/readme/concentricannulus.svg' width='200' height='200'/> </div>
 </Example>
 
-Since I am very mysterious, I won't provide the full solution here. But, here's a hint on how to approach it[^1]:
+Since I want you to actually *understand* what's going on, I won't provide the full solution here. But, here's a hint on how to approach it[^1]:
 
 [^1]: If you're savvy with your olympiad geometry, alternatively you could try to use Circles of Apollonius :)
 
