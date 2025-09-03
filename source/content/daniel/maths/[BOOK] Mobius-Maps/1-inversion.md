@@ -7,7 +7,7 @@ created: 31/08/2025 17:00
 
 <em className="text-sm">If you're already familiar with inversion, feel free to skip this page.</em>
 
-In this first part, we're going to build up some intuition for a fancy transformation of the plane called "inversion". This will be extremely useful in the next part, when we build on this to derive Möbius maps.
+In this first part, before we even talk about complex numbers, we're going to build up some intuition for a fancy transformation of the plane called "inversion". This will be extremely useful in the next part, when we build on this to derive Möbius maps.
 
 ## Background: Interactive Intuition
 
@@ -44,6 +44,10 @@ If two curves meet at an angle $\alpha$, then after inversion, the two inverted 
 </div>
 
 This property, of preserving meeting angles of curves, is called being a *conformal map*. I think it's pretty cool - even though inversion is this crazy operation that flips a plane inside-out, it still preserves angles!
+
+<br/>
+
+Summarized: *Inversion is a conformal map*.
 </KeyIdea>
 
 [^1]: This is hard to prove using pure Euclidean geometry, since we need the notion of "tangent lines" to curves, meaning we need the notion of a 2D derivative. This is where complex analysis is useful!
@@ -108,9 +112,13 @@ Inversion sends clines to clines.
 
 This property is what makes inversion *so powerful* for solving problems - inversion lets us turn circles (which are tricky to deal with) into lines (which are easy to deal with).
 
+<KeyIdea>
+It might not seem like it right now, but recall that the end goal of this book is to teach you about Möbius maps, which are a topic in complex analysis. So far, we've only introduced inversion. But I *promise* that in the <DiscreetLink href="2-mobius" internal>next part</DiscreetLink>, all the intuition you will build in this part, will be 100000% worth it.
+</KeyIdea>
+
 ## Example Problem
 
-Just for fun, let's use inversion to destroy this maths olympiad problem from EGMO.
+To try and get our heads around some of the key properties of inversion that we've discussed so far, let's use inversion to destroy this maths olympiad problem from EGMO.
 
 > Let $\triangle ABC $ be a right triangle with $\angle C = 90^{\circ}$ and let $X$ and $Y$ be points in the interiors of $CA$ and $CB$, respectively.
 > Construct four circles passing through $C$, centered at $A, B, X, Y$ . Prove that the four points lying on at exactly two of these four circles are concyclic (i.e. lie on a common circle).
@@ -168,4 +176,4 @@ Select all statements that are true:
 <hr/>
 <br/>
 
-Hopefully you now love inversion as much as I do. In the next part, we're going to neatly frame inversion using the complex plane, and use it to derive Möbius maps.
+Hopefully you now love inversion as much as I do. In the next part, we're going to neatly describe inversion using the complex plane, and use it to derive Möbius maps.

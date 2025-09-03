@@ -4,7 +4,7 @@ const SvgArrow = (props) => (
     xmlns="http://www.w3.org/2000/svg"
      
      
-    viewBox="0 0 119.975 68.173"
+    viewBox="0 0 109.422 46.639"
     {...props}
   >
     <path
@@ -28,56 +28,6 @@ const SvgArrow = (props) => (
       }}
       transform="translate(-36.526 -55.32)"
     />
-    <text
-      xmlSpace="preserve"
-      x={53.894}
-      y={119.75}
-      style={{
-        fontStyle: "normal",
-        fontVariant: "normal",
-        fontWeight: 500,
-        fontStretch: "normal",
-        fontSize: "16.9333px",
-
-        InkscapeFontSpecification: "&quot",
-        fontVariantLigatures: "normal",
-        fontVariantCaps: "normal",
-        fontVariantNumeric: "normal",
-        fontVariantEastAsian: "normal",
-        textAlign: "start",
-        writingMode: "lr-tb",
-        direction: "ltr",
-        textAnchor: "start",
-        fill: "var(--color-Svg-text)",
-        fillOpacity: 1,
-        stroke: "none",
-        strokeWidth: 1.5,
-        strokeOpacity: 1,
-      }}
-      transform="translate(-36.526 -55.32)"
-    >
-      <tspan
-        x={53.894}
-        y={119.75}
-        style={{
-          fontStyle: "normal",
-          fontVariant: "normal",
-          fontWeight: 500,
-          fontStretch: "normal",
-          fontSize: "16.9333px",
-
-          InkscapeFontSpecification: "&quot",
-          fontVariantLigatures: "normal",
-          fontVariantCaps: "normal",
-          fontVariantNumeric: "normal",
-          fontVariantEastAsian: "normal",
-          stroke: "none",
-          strokeWidth: 1.5,
-        }}
-      >
-        {"bijection?"}
-      </tspan>
-    </text>
   </svg>
 );
 export default SvgArrow;

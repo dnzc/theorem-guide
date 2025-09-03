@@ -57,15 +57,15 @@ A Vercel project listens to this repository and has `next-app/` as the project r
 
 ### Content Organization
 
-- **Books**: Folders starting with `[BOOK]` are marked as books/courses (nested books not allowed)
-- **Book homepages**: Add `README.md` to book folders to appear on site homepage with metadata
-- **Webpage titles**: Use `pagename` frontmatter attribute. If not provided, it's auto-generated from filename:
+- Books: Folders starting with `[BOOK]` are marked as books/courses (nested books not allowed)
+- Book homepages: Add `README.md` to book folders to appear on site homepage with metadata
+- Webpage titles: Use `pagename` frontmatter attribute. If not provided, it's auto-generated from filename:
     - "and" → "&" (case-insensitive)  
     - Dashes → spaces
     - Original case preserved
-- **URL slugs**: Lowercase version of filename
-- **Folder descriptions**: Optional `README.md` files provide folder overviews
-- **Naming convention**: Alphanumeric + dashes only, words separated by dashes
+- URL slugs: Lowercase version of filename
+- Folder descriptions: Optional `README.md` files provide folder overviews
+- Naming convention: Alphanumeric + dashes only, words separated by dashes
 
 ## Changelog
 
