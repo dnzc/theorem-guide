@@ -76,7 +76,7 @@ const SvgExampleproblem = (props) => (
         d="M59.87 119.87v40h70z"
         style={{
           fill: "none",
-          stroke: "#1a1a1a",
+          stroke: "var(--color-Svg-text)",
           strokeWidth: 1,
           strokeLinejoin: "round",
           strokeDasharray: "none",
@@ -146,7 +146,7 @@ const SvgExampleproblem = (props) => (
         style={{
           fill: "none",
           fillOpacity: 1,
-          stroke: "#1a1a1a",
+          stroke: "var(--color-Svg-text)",
           strokeWidth: 0.7,
           strokeLinejoin: "round",
           strokeDasharray: "none",
@@ -261,7 +261,7 @@ const SvgExampleproblem = (props) => (
         style={{
           fill: "none",
           fillOpacity: 1,
-          stroke: "#1a1a1a",
+          stroke: "var(--color-Svg-text)",
           strokeWidth: 0.7,
           strokeLinejoin: "round",
           strokeDasharray: "none",
