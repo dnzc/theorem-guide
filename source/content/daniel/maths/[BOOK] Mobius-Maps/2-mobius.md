@@ -18,7 +18,7 @@ Inversion is a conformal map that sends clines to clines.
 </KeyIdea>
 
 
-In this article, we'll view the 2D plane instead as the complex plane, and use our inversion intuition to derive Möbius maps. Then in the next and final part, we'll leverage all the intuition we've built, to finally solve some Möbius map questions.
+In this article, we'll view the 2D plane instead as the complex plane, and leverage our inversion intuition to derive Möbius maps.
 
 ## Why are Complex Numbers Relevant?
 
@@ -146,8 +146,6 @@ If we chain together all these transformations, we will get the final Möbius ma
 
 </Spoiler>
 
-If you think you have the answer, or if you hate the fact that I didn't spoon-feed you the answer, feel free to <DiscreetLink href="https://admonymous.co/chen">admonish me</DiscreetLink>.
-
 ## Conclusion
 
 Just to check that you're still alive, so far we've covered the following:
@@ -156,4 +154,4 @@ Just to check that you're still alive, so far we've covered the following:
 - Derivation of defintion of a Möbius map, and the fact that Möbius maps are conformal maps that send clines to clines.
 - A practice Möbius maps problem.
 
-This is where I'll be ending our journey. I hope you enjoy Mobius map questions as much as me now! If you liked this content, you might like to self-study the <DiscreetLink href="https://zb260.user.srcf.net/notes/IB/comana.pdf">Complex Analysis</DiscreetLink> Tripos course, which covers most of what I've told you (specifically, look for the section on conformal equivalence).
+This is where I'll be ending our journey. (Sorry I didn't have time to go more in depth!) I hope you enjoy Mobius map questions as much as me now! If you liked this content, you might like to self-study the <DiscreetLink href="https://zb260.user.srcf.net/notes/IB/comana.pdf">Complex Analysis</DiscreetLink> Tripos course, which covers most of what I've told you (specifically, look for the section on conformal equivalences).
