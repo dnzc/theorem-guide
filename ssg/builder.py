@@ -478,7 +478,7 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
         page_file_path = TARGET_DIR+cur_target_dir+'/page.js'
         with open(page_file_path, 'w') as output_file:
             react = wrap_in_js(
-                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags']),
+                TEMPLATE.render(content=page, path_str=cur_target_dir, folder_path_list=article_data['dir'], parent_path='/'+'/'.join(article_data['dir']), book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, mod_date_time=article_data['mod_date_time'], cr_date_time=article_data['cr_date_time'], copiable_article_plaintext=copiable_article_plaintext, table_of_contents=table_of_contents, tags=article_data['tags'], show_comments=True, is_readme=cur_dir.endswith('/README.md')),
                 title=page_title
             )
             react = inject_autosvg_tags(react)
@@ -619,7 +619,7 @@ def gen_content(cur_dir, depth, article_list, book_list, stored_articles, dir_tr
         react = wrap_in_js(
             TEMPLATE.render(
                 content= folder_mainpage + folder_content,
-                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render),
+                path_str=cur_target_dir, folder_path_list=path_list, parent_path=parent_path, book_parent_path=book_parent_path, dir_tree=displayed_dir_tree, table_of_contents=table_of_contents, tags=tags_to_render, show_comments=has_content, is_readme=readme_exists and has_content),
             title=page_title
         )
         react = inject_autosvg_tags(react)
