@@ -16,7 +16,7 @@ I really recommend watching <ProminentLink href='https://youtu.be/5A39Ht9Wcu0'>t
 
 ## Background Theory
 
-All of this is covered in my <ProminentLink href="https://theorem.guide/part-ib/analysis-and-topology">course notes for IB Analysis and Topology</ProminentLink>, in the relevant sections. The results and definitions in this article are correct only for $\mathbb{R}^n$ (e.g. compactness is something different, but the Heine-Borel theorem says that in $\mathbb{R}^n$ it's equivalent to being closed and bounded). For the more general definitions and a deeper understanding, check out the course notes.
+All of this is covered in my <ProminentLink href="https://theorem.guide/tripos/part-ib/analysis-and-topology">course notes for IB Analysis and Topology</ProminentLink>, in the relevant sections. The results and definitions in this article are correct only for $\mathbb{R}^n$ (e.g. compactness is something different, but the Heine-Borel theorem says that in $\mathbb{R}^n$ it's equivalent to being closed and bounded). For the more general definitions and a deeper understanding, check out the course notes.
 
 <Defn>
 Consider a set $M$ together with a function $d : M \times M \to \mathbb{R}$.
