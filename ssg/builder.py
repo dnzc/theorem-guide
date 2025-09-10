@@ -94,8 +94,8 @@ def add_link_anchors(page, cur_target_dir, h1=False):
     find h2 (or h1) with an id, add link anchor to them (each heading in a markdown file is (by default) given a unique id by the processor)
     can also be applied to the homepage (but the header ids must be manually put there)
     """
-    page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://tripos.guru'+cur_target_dir+r'#\1"/></h2>', page, flags=re.DOTALL)
-    if h1: page = re.sub(r'<h1 id="(.*?)">(.*?)</h1>', r'<h1 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://tripos.guru'+cur_target_dir+r'#\1"/></h1>', page, flags=re.DOTALL)
+    page = re.sub(r'<h2 id="(.*?)">(.*?)</h2>', r'<h2 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://theorem.guide'+cur_target_dir+r'#\1"/></h2>', page, flags=re.DOTALL)
+    if h1: page = re.sub(r'<h1 id="(.*?)">(.*?)</h1>', r'<h1 className="group flex space-x-1 items-baseline"><span id="\1">\2</span><Pilcrow href="#\1" text="https://theorem.guide'+cur_target_dir+r'#\1"/></h1>', page, flags=re.DOTALL)
     return page
 
 def timestamp_to_str(timestamp):

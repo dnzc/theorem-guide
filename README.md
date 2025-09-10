@@ -1,6 +1,6 @@
-# tripos-guru
+# theorem-guide
 
-This repository contains the source content for [tripos.guru](https://tripos.guru), which contains mathematical insights and my Tripos course notes. The static-site generator and website design are completely custom and coded by myself from scratch.
+This repository contains the source content for [theorem.guide](https://theorem.guide), which contains mathematical insights and my Tripos course notes. The static-site generator and website design are completely custom and coded by myself from scratch.
 
 ### Architecture
 
@@ -69,6 +69,12 @@ A Vercel project listens to this repository and has `next-app/` as the project r
 
 ## Changelog
 
+### 10/09/25
+
+#### Changed
+
+- New domain https://theorem.guide
+
 ### 22/08/25
 
 #### Added
@@ -89,13 +95,13 @@ A Vercel project listens to this repository and has `next-app/` as the project r
 - Homepage revamp:
   - New "hero" section (different for different themes)
   - "About" section -> FAQ section
-- New domain, tripos.guru
+- New domain
 
 ### 19/12/24
 
 #### Changed
 
-- New domain notes.danielc.rocks; primary purpose of the site is now storage of course notes
+- primary purpose of the site is now storage of course notes
 - Consistent styling of theorems, defns, examples etc
 - Replace dark theme with light theme for easier readability
 

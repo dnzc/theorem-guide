@@ -34,21 +34,21 @@ const fira = Fira_Code({
 export const metadata = {
   title: {
     template: '%s',
-    default: 'Tripos Guru',
+    default: 'Theorem Guide',
   },
-  description: 'Cambridge Mathematical Tripos lecture notes',
+  description: 'Maths Lecture Notes and Visual Explanations',
   openGraph: {
-    siteName: 'Tripos Guru',
-    title: 'Tripos Guru',
-    description: 'Cambridge Mathematical Tripos lecture notes',
-    images: 'https://tripos.guru/og-image.png',
+    siteName: 'Theorem Guide',
+    title: 'Theorem Guide',
+    description: 'Maths Lecture Notes and Visual Explanations',
+    images: 'https://theorem.guide/og-image.png',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
   },
   appleWebApp: {
-    title: 'Tripos Guru',
+    title: 'Theorem Guide',
   },
 }
 

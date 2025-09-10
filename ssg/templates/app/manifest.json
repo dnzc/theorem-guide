@@ -1,6 +1,6 @@
 {
-  "name": "Tripos Guru",
-  "short_name": "Tripos",
+  "name": "Theorem Guide",
+  "short_name": "TG",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
