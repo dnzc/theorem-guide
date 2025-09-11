@@ -41,7 +41,7 @@ export const metadata = {
     siteName: 'Theorem Town',
     title: 'Theorem Town',
     description: 'Maths Lecture Notes and Visual Explanations',
-    images: 'https://theorem.town/og-image.png',
+    images: 'https://theoremtown.com/og-image.png',
     type: 'website',
   },
   twitter: {

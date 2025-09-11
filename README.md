@@ -1,6 +1,6 @@
 # theorem-town
 
-This repository contains the source content for [theorem.town](https://theorem.town), which contains mathematical insights and my Tripos course notes. The static-site generator and website design are completely custom and coded by myself from scratch.
+This repository contains the source content for [theoremtown.com](https://theoremtown.com), which contains mathematical insights and my Tripos course notes. The static-site generator and website design are completely custom and coded by myself from scratch.
 
 ### Architecture
 
@@ -73,7 +73,7 @@ A Vercel project listens to this repository and has `next-app/` as the project r
 
 #### Changed
 
-- New domain https://theorem.town
+- New domain https://theoremtown.com
 
 ### 22/08/25
 
