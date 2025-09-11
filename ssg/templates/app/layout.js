@@ -34,21 +34,21 @@ const fira = Fira_Code({
 export const metadata = {
   title: {
     template: '%s',
-    default: 'Theorem Guide',
+    default: 'Theorem Town',
   },
   description: 'Maths Lecture Notes and Visual Explanations',
   openGraph: {
-    siteName: 'Theorem Guide',
-    title: 'Theorem Guide',
+    siteName: 'Theorem Town',
+    title: 'Theorem Town',
     description: 'Maths Lecture Notes and Visual Explanations',
-    images: 'https://theorem.guide/og-image.png',
+    images: 'https://theorem.town/og-image.png',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
   },
   appleWebApp: {
-    title: 'Theorem Guide',
+    title: 'Theorem Town',
   },
 }
 

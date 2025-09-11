@@ -1,6 +1,6 @@
 {
-  "name": "Theorem Guide",
-  "short_name": "TG",
+  "name": "Theorem Town",
+  "short_name": "Town",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,6 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "background_color": "#7e57ad",
+  "theme_color": "#ab6bf9",
+  "background_color": "#ab6bf9",
   "display": "standalone"
 }
