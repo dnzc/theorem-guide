@@ -26,7 +26,7 @@ Most people are familiar with *linear* transformations, like rotation, reflectio
 In the visualisation above, inversion distorts each of the shapes, except for the circle, which only changes size. This is a *key property* of inversion: circles map to circles (or lines). We'll explore this more later.
 </KeyIdea>
 
-Notice that points close to the center get mapped very far away, whereas points near the dotted circle stay near it.
+Notice that points close to the centre get mapped very far away, whereas points near the dotted circle stay near it.
 
 Also notice how the lines of the cartesian grid change: the gridlines meet at right angles, and after inverting, although the gridlines have become curved, they still meet at right angles! (Imagine zooming into a meeting point until the curved lines become basically straight)
 
@@ -53,7 +53,7 @@ Summarized: *Inversion is a conformal map*.
 ## The Formal Definition
 
 <Defn name="Inversion">
-Let $C$ be a reference circle with center $O$ and positive radius $r$.
+Let $C$ be a reference circle with centre $O$ and positive radius $r$.
 
 We define **inversion about $C$** to be the transformation of the plane that does the following:
 
@@ -63,7 +63,7 @@ We define **inversion about $C$** to be the transformation of the plane that doe
     <AUTOSVG src='mobius/inversion/defn.svg' width='200' height='200'/>
 </div>
 
-You can visualise this as follows: in the diagram above, as $A$ moves closer and closer to $O$ along the green line, the point $A^*$ will slide rapidly further and further away along the green line.
+You can visualise this as follows: in the diagram above, as $A$ moves closer and closer to $O$ along the coloured line, the point $A^*$ will slide rapidly further and further away along the coloured line.
 
 <br/>
 
@@ -91,10 +91,10 @@ As we mentioned earlier, it's an interesting fact that inversion sends circles t
 As you can see, it looks like inversion sends circles to circles! However, sometimes something interesting happens...
 
 <Quiz>
-Try moving the solid circle so that it passes through the center of inversion (that is, the center of the gray dotted circle). What happens to the inversion result, and why?
+Try moving the solid circle so that it passes through the centre of inversion (that is, the centre of the gray dotted circle). What happens to the inversion result, and why?
 
 - [ ] The result of inversion is a circle, because inversion sends circles to circles.
-- [x] The result of inversion is a line, because it's a circle that passes through $P_\infty$ (since the inversion center is sent to $P_\infty$).
+- [x] The result of inversion is a line, because it's a circle that passes through $P_\infty$ (since the inversion centre is sent to $P_\infty$).
 - [ ] The result of inversion is a square, because my eyes have gone square from reading this article.
 </Quiz>
 
@@ -119,7 +119,7 @@ It might not seem like it right now, but recall that the end goal of this book i
 To try and get our heads around some of the key properties of inversion that we've discussed so far, let's use inversion to destroy this maths olympiad problem from EGMO.
 
 > Let $\triangle ABC $ be a right triangle with $\angle C = 90^{\circ}$ and let $X$ and $Y$ be points in the interiors of $CA$ and $CB$, respectively.
-> Construct four circles passing through $C$, centered at $A, B, X, Y$ . Prove that the four points lying on at exactly two of these four circles are concyclic (i.e. lie on a common circle).
+> Construct four circles passing through $C$, centred at $A, B, X, Y$ . Prove that the four points lying on at exactly two of these four circles are concyclic (i.e. lie on a common circle).
 > <div className="flex justify-center items-center mt-2"> <AUTOSVG src='mobius/inversion/exampleproblem.svg' width='300' height='300'/> </div>
 
 <Proof type="Solution" unquoted>
@@ -132,15 +132,15 @@ Let's invert around $C$, with arbitrary radius. Can you figure out what the gray
 <div className="flex justify-center items-center mt-2"> <AUTOSVG src='mobius/inversion/exampleinverted.svg' width='300' height='300'/> </div>
 
 <Thm type="Claim">
-Under inversion, the two circles with centers on segment BC, become two lines that are perpendicular to $BC$ (i.e., horizontal lines).
+Under inversion, the two circles with centres on segment BC, become two lines that are perpendicular to $BC$ (i.e., horizontal lines).
 <Proof outofline>
-We know the two circles in question both invert to lines, because they pass through the center of inversion $C$. Now we need to show these lines meet ray $CB$ at right angles. Remember the *conformal map* property? Let's use it as follows.
+We know the two circles in question both invert to lines, because they pass through the centre of inversion $C$. Now we need to show these lines meet ray $CB$ at right angles. Remember the *conformal map* property? Let's use it as follows.
 
 The two circles in question, meet ray $CB$ at right angles at two points (one of which is $C$). Since inversion is a conformal map, the inversion of each circle (which we already know is a line), meets the inversion of ray $CB$, which is ray $CB$ itself, at right angles. So we're done.
 </Proof>
 </Thm>
 
-Similarly to the Claim, the other two circles with centers on segment AC, become two lines that are perpendicular to $AC$ (i.e., vertical lines).
+Similarly to the Claim, the other two circles with centres on segment AC, become two lines that are perpendicular to $AC$ (i.e., vertical lines).
 
 <br/>
 
